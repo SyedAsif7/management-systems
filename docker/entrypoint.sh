@@ -17,6 +17,10 @@ php artisan view:clear || true
 if [ "$RUN_MIGRATIONS" = "true" ]; then
     echo "Running database migrations..."
     php artisan migrate --force || true
+    if [ "$RUN_SEEDS" = "true" ]; then
+        echo "Seeding database..."
+        php artisan db:seed --force || true
+    fi
 fi
 
 # Start Apache in the foreground
