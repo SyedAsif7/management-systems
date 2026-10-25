@@ -1,6 +1,6 @@
-FROM php:8.0-apache
+FROM php:8.2-apache
 
-# Install system dependencies
+# Install system dependencies (Debian Bookworm)
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y \
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd zip
 
-# Configure PHP settings
+# Configure PHP error reporting for PHP 8.2+
 RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED" > /usr/local/etc/php/conf.d/error_reporting.ini \
     && echo "display_errors = Off" >> /usr/local/etc/php/conf.d/error_reporting.ini
 
@@ -30,8 +30,18 @@ WORKDIR /var/www/html
 # Copy application files
 COPY . .
 
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Install PHP dependencies without scripts first to prevent premature discovery crash
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-scripts
+
+# Patch Laravel 8 & Carbon for PHP 8.2 deprecation compatibility
+RUN sed -i 's/error_reporting(-1);/error_reporting(E_ALL \& ~E_DEPRECATED \& ~E_USER_DEPRECATED);/g' vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php \
+    && sed -i 's/if (error_reporting() & \$level) {/if (\$level \& (E_DEPRECATED | E_USER_DEPRECATED)) { return; } if (error_reporting() \& \$level) {/g' vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php \
+    && sed -i 's/private static function setLastErrors(array \$lastErrors)/private static function setLastErrors(\$lastErrors)/g' vendor/nesbot/carbon/src/Carbon/Traits/Creator.php \
+    && sed -i 's/static::\$lastErrors = \$lastErrors;/static::\$lastErrors = is_array(\$lastErrors) ? \$lastErrors : [];/g' vendor/nesbot/carbon/src/Carbon/Traits/Creator.php \
+    && sed -i 's/\$file = \$this->fixPhpFilesArray(\$file);/unset(\$file["full_path"]); \$file = \$this->fixPhpFilesArray(\$file);/g' vendor/symfony/http-foundation/FileBag.php
+
+# Run package discovery now that patches are applied
+RUN php artisan package:discover --ansi
 
 # Configure Apache DocumentRoot to Laravel /public
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
