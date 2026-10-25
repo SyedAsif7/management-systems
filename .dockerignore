@@ -1,0 +1,10 @@
+.git
+.github
+vendor
+node_modules
+.env
+storage/*.key
+database/*.sqlite
+database/*.sqlite-journal
+npm-debug.log
+yarn-error.log
