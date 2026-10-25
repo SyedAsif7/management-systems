@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.0-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -16,6 +16,10 @@ RUN apt-get update && apt-get install -y \
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql pdo_sqlite mbstring exif pcntl bcmath gd zip
+
+# Configure PHP settings
+RUN echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED" > /usr/local/etc/php/conf.d/error_reporting.ini \
+    && echo "display_errors = Off" >> /usr/local/etc/php/conf.d/error_reporting.ini
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
