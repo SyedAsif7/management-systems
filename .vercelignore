@@ -1,3 +1,4 @@
+/vendor
 .git
 .github
 .env
@@ -5,8 +6,6 @@
 tests
 node_modules
 docker
-Dockerfile
-docker-compose.yml
 database/*.sqlite
 database/*.sqlite-journal
 storage/logs/*
