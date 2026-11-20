@@ -9,6 +9,10 @@
     <div class="container py-4">
         <div class="row align-items-center">
             <div class="col-lg-7">
+                <div class="d-inline-flex align-items-center mb-3 px-3 py-1 rounded-pill" style="background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4);">
+                    <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="Emblem" style="height: 24px; width: 24px; border-radius: 4px; margin-right: 8px; border: 1px solid var(--accent-gold);">
+                    <span class="text-warning small font-weight-bold" style="letter-spacing: 1px;">TALEEM &bull; TARBIYAH &bull; TAZKIYAH</span>
+                </div>
                 <div class="arabic-text text-warning h3 mb-2">
                     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ &bull; وَقُل رَّبِّ زِدْنِي عِلْمًا
                 </div>
@@ -27,11 +31,13 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-5 d-none d-lg-block text-center">
-                <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=800&q=80" 
-                     alt="Islamic Academy" 
-                     class="img-fluid rounded-circle shadow-lg border border-warning"
-                     style="width: 380px; height: 380px; object-fit: cover; border-width: 4px !important;">
+            <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                <div class="position-relative d-inline-block">
+                    <img src="{{ asset('global_assets/images/altaqwa_logo.jpg') }}" 
+                         alt="AL-TAQWA Institute of Islamic Studies" 
+                         class="img-fluid rounded shadow-lg"
+                         style="max-width: 440px; width: 100%; border: 3px solid var(--accent-gold); box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;">
+                </div>
             </div>
         </div>
     </div>

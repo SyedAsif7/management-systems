@@ -16,6 +16,15 @@
     <!-- Sidebar content -->
     <div class="sidebar-content">
 
+        <!-- Academy Brand Header in Sidebar -->
+        <div class="text-center py-3 border-bottom" style="border-color: rgba(212, 175, 55, 0.25) !important; background: rgba(0,0,0,0.15);">
+            <a href="{{ route('dashboard') }}" class="d-inline-block text-decoration-none">
+                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="height: 50px; width: 50px; border-radius: 10px; border: 2px solid #D4AF37; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <div class="mt-2 text-white font-weight-bold" style="letter-spacing: 1px; font-size: 0.95rem;">AL-TAQWA INSTITUTE</div>
+                <div class="text-warning small text-uppercase" style="font-size: 0.65rem; letter-spacing: 1.5px;">Taleem &bull; Tarbiyah &bull; Tazkiyah</div>
+            </a>
+        </div>
+
         <!-- User menu -->
         <div class="sidebar-user">
             <div class="card-body">

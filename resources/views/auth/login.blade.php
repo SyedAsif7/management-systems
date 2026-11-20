@@ -15,9 +15,10 @@
                     <div class="card mb-0">
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <i class="icon-people icon-2x text-warning-400 border-warning-400 border-3 rounded-round p-3 mb-3 mt-1"></i>
-                                <h5 class="mb-0">Login to your account</h5>
-                                <span class="d-block text-muted">Your credentials</span>
+                                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="width: 75px; height: 75px; border-radius: 12px; border: 2px solid #D4AF37; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" class="mb-3 mt-1">
+                                <h4 class="mb-1 font-weight-bold" style="color: #064E3B;">AL-TAQWA INSTITUTE</h4>
+                                <span class="d-block text-muted small">Taleem &bull; Tarbiyah &bull; Tazkiyah</span>
+                                <span class="badge badge-warning text-dark font-weight-bold mt-2">LMS Portal Login</span>
                             </div>
 
                                 @if ($errors->any())

@@ -7,6 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'AL-Taqwa Institute — Online Islamic Academy')</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,8 +262,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark altaqwa-navbar sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-                <i class="fas fa-quran mr-2 text-warning"></i>
-                <span>AL-TAQWA</span>&nbsp;INSTITUTE
+                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="height: 44px; width: 44px; border-radius: 8px; margin-right: 12px; border: 1.5px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                <div>
+                    <span style="font-weight: 800; letter-spacing: 0.5px;">AL-TAQWA</span>&nbsp;<span class="text-warning font-weight-normal">INSTITUTE</span>
+                    <small class="d-block text-warning text-uppercase" style="font-size: 0.62rem; letter-spacing: 1.5px; font-weight: 600; line-height: 1;">Institute of Islamic Studies</small>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#altaqwaNav">
                 <span class="navbar-toggler-icon"></span>
@@ -308,9 +314,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5 class="text-white font-weight-bold mb-3">
-                        <i class="fas fa-quran text-warning mr-2"></i> AL-Taqwa Institute
-                    </h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa" style="height: 48px; width: 48px; border-radius: 8px; margin-right: 12px; border: 1.5px solid var(--accent-gold);">
+                        <div>
+                            <h5 class="text-white font-weight-bold mb-0">AL-Taqwa Institute</h5>
+                            <small class="text-warning text-uppercase font-weight-bold" style="font-size: 0.7rem; letter-spacing: 1.5px;">Taleem &bull; Tarbiyah &bull; Tazkiyah</small>
+                        </div>
+                    </div>
                     <p class="small text-white-50">
                         Dedicated to spreading authentic, traditional Islamic scholarship across the globe through structured online programs, live Ustadh mentorship, and interactive classrooms.
                     </p>

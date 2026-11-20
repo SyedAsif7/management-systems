@@ -1,8 +1,12 @@
 <!-- Main navbar -->
 <div class="navbar navbar-expand-md navbar-dark">
-    <div class="mt-2 mr-5">
-        <a href="{{ route('dashboard') }}" class="d-inline-block">
-            <h4 class="text-bold text-white">{{ Qs::getSystemName() }}</h4>
+    <div class="mt-1 mr-4 d-flex align-items-center">
+        <a href="{{ route('home') }}" class="d-flex align-items-center text-decoration-none">
+            <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="height: 40px; width: 40px; border-radius: 8px; margin-right: 12px; border: 1.5px solid #D4AF37;">
+            <div>
+                <h4 class="text-bold text-white mb-0" style="letter-spacing: 0.5px;">AL-TAQWA INSTITUTE</h4>
+                <small class="text-warning text-uppercase d-block font-weight-bold" style="font-size: 0.65rem; letter-spacing: 1.5px; line-height: 1;">Institute of Islamic Studies</small>
+            </div>
         </a>
     </div>
 
