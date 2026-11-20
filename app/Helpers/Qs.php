@@ -26,7 +26,7 @@ class Qs
 
     public static function getAppCode()
     {
-        return self::getSetting('system_title') ?: 'CJ';
+        return self::getSetting('system_title') ?: 'AL-TAQWA';
     }
 
     public static function getDefaultUserImage()
@@ -258,24 +258,29 @@ class Qs
 
     public static function getSetting($type)
     {
-        return Setting::where('type', $type)->first()->description;
+        try {
+            $setting = Setting::where('type', $type)->first();
+            return $setting ? $setting->description : null;
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 
     public static function getCurrentSession()
     {
-        return self::getSetting('current_session');
+        return self::getSetting('current_session') ?: date('Y').'-'.(date('Y')+1);
     }
 
     public static function getNextSession()
     {
         $oy = self::getCurrentSession();
         $old_yr = explode('-', $oy);
-        return ++$old_yr[0].'-'.++$old_yr[1];
+        return isset($old_yr[1]) ? (++$old_yr[0].'-'.++$old_yr[1]) : (date('Y')+1).'-'.(date('Y')+2);
     }
 
     public static function getSystemName()
     {
-        return self::getSetting('system_name');
+        return self::getSetting('system_name') ?: 'AL-TAQWA INSTITUTE';
     }
 
     public static function findMyChildren($parent_id)

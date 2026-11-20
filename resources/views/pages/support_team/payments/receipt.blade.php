@@ -12,13 +12,12 @@
 
                 <td>
                     <strong><span
-                                style="color: #1b0c80; font-size: 25px;">{{ strtoupper(Qs::getSetting('system_name')) }}</span></strong><br/>
-                    {{-- <strong><span style="color: #1b0c80; font-size: 20px;">MINNA, NIGER STATE</span></strong><br/>--}}
+                                style="color: #064E3B; font-size: 25px;">{{ strtoupper(Qs::getSystemName()) }}</span></strong><br/>
                     <strong><span
-                                style="color: #000; font-size: 15px;"><i>{{ ucwords($s['address']) }}</i></span></strong>
+                                style="color: #555; font-size: 14px;"><i>Online Islamic Academy &bull; www.joinaltaqwa.com &bull; admissions@joinaltaqwa.com</i></span></strong>
                     <br/> <br/>
 
-                     <span style="color: #000; font-weight: bold; font-size: 25px;"> PAYMENT RECEIPT</span>
+                     <span style="color: #064E3B; font-weight: bold; font-size: 22px; border-bottom: 2px solid #D4AF37; padding-bottom: 3px;"> OFFICIAL FEE RECEIPT</span>
                 </td>
             </tr>
         </table>
@@ -98,8 +97,8 @@
            <thead>
            <tr>
                <td class="bold">Date</td>
-               <td class="bold">Amount Paid <del style="text-decoration-style: double">N</del></td>
-               <td class="bold">Balance <del style="text-decoration-style: double">N</del></td>
+               <td class="bold">Amount Paid (INR ₹)</td>
+               <td class="bold">Balance (INR ₹)</td>
            </tr>
            </thead>
             <tbody>

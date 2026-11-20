@@ -26,8 +26,11 @@
                     <i class="icon-paragraph-justify3"></i>
                 </a>
             </li>
-
-
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="navbar-nav-link text-warning" target="_blank">
+                    <i class="icon-earth mr-1"></i> Public Website
+                </a>
+            </li>
         </ul>
 
 			<span class="navbar-text ml-md-3 mr-md-auto"></span>

@@ -154,4 +154,37 @@ class Mk extends Qs
         return true;
     }
 
+    /**
+     * Evaluate student score against course refund threshold.
+     * If score >= refund_threshold_percentage, flags enrollment as eligible_for_refund.
+     *
+     * @param int $student_id
+     * @param int $class_id
+     * @param float $percentage
+     * @return bool
+     */
+    public static function evaluateRefundEligibility($student_id, $class_id, $percentage)
+    {
+        $course = \App\Models\MyClass::find($class_id);
+        if (!$course || $course->fee_type !== 'refundable_deposit' || empty($course->refund_threshold_percentage)) {
+            return false;
+        }
+
+        if ($percentage >= $course->refund_threshold_percentage) {
+            $enrollment = \App\Models\Enrollment::where('student_id', $student_id)
+                ->where('my_class_id', $class_id)
+                ->first();
+
+            if ($enrollment) {
+                $enrollment->update([
+                    'eligible_for_refund' => true,
+                    'refund_status' => ($enrollment->refund_status === 'none') ? 'requested' : $enrollment->refund_status
+                ]);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

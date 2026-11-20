@@ -139,4 +139,35 @@ class MyClassRepo
         return Subject::orderBy('name', 'asc')->with(['my_class', 'teacher'])->get();
     }
 
+    /************* AL-Taqwa LMS Course Queries *******************/
+
+    public function getPublishedCourses($category_id = null)
+    {
+        $query = MyClass::where('is_published', true)->with(['category', 'sections']);
+        if ($category_id) {
+            $query->where('class_type_id', $category_id);
+        }
+        return $query->orderBy('name', 'asc')->get();
+    }
+
+    public function findBySlug($slug)
+    {
+        return MyClass::where('slug', $slug)->with(['category', 'sections.teacher'])->first();
+    }
+
+    public function getFeaturedCourses($limit = 6)
+    {
+        return MyClass::where('is_published', true)
+            ->with(['category', 'sections'])
+            ->take($limit)
+            ->get();
+    }
+
+    public function getCategoriesWithCourses()
+    {
+        return ClassType::with(['my_classes' => function($q) {
+            $q->where('is_published', true);
+        }])->orderBy('name', 'asc')->get();
+    }
+
 }

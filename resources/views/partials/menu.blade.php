@@ -51,6 +51,35 @@
                     </a>
                 </li>
 
+                {{-- Live Classroom Hub --}}
+                <li class="nav-item">
+                    <a href="{{ route('live_sessions.index') }}" class="nav-link {{ (Route::is('live_sessions.*')) ? 'active' : '' }}">
+                        <i class="icon-video-camera"></i>
+                        <span>Live Classes & Hub</span>
+                    </a>
+                </li>
+
+                {{-- Hifz Memorization Tracker --}}
+                @if(Qs::userIsTeamSAT())
+                <li class="nav-item">
+                    <a href="{{ route('hifz.index') }}" class="nav-link {{ (Route::is('hifz.*')) ? 'active' : '' }}">
+                        <i class="icon-book"></i>
+                        <span>Hifz Daily Tracker</span>
+                    </a>
+                </li>
+                @endif
+
+                {{-- Enrollments & Refunds --}}
+                @if(Qs::userIsTeamSA() || Qs::userIsTeamAccount())
+                <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['enrollments.index', 'enrollments.refund_queue']) ? 'nav-item-expanded nav-item-open' : '' }}">
+                    <a href="#" class="nav-link"><i class="icon-cash"></i> <span>Enrollments & Refunds</span></a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a href="{{ route('enrollments.index') }}" class="nav-link {{ Route::is('enrollments.index') ? 'active' : '' }}">All Enrollments</a></li>
+                        <li class="nav-item"><a href="{{ route('enrollments.refund_queue') }}" class="nav-link {{ Route::is('enrollments.refund_queue') ? 'active' : '' }}">Refund Queue</a></li>
+                    </ul>
+                </li>
+                @endif
+
                 {{--Academics--}}
                 @if(Qs::userIsAcademic())
                     <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['tt.index', 'ttr.edit', 'ttr.show', 'ttr.manage']) ? 'nav-item-expanded nav-item-open' : '' }} ">
@@ -141,17 +170,12 @@
 
                     {{--Manage Classes--}}
                     <li class="nav-item">
-                        <a href="{{ route('classes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['classes.index','classes.edit']) ? 'active' : '' }}"><i class="icon-windows2"></i> <span> Classes</span></a>
-                    </li>
-
-                    {{--Manage Dorms--}}
-                    <li class="nav-item">
-                        <a href="{{ route('dorms.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['dorms.index','dorms.edit']) ? 'active' : '' }}"><i class="icon-home9"></i> <span> Dormitories</span></a>
+                        <a href="{{ route('classes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['classes.index','classes.edit']) ? 'active' : '' }}"><i class="icon-books"></i> <span> Courses & Programs</span></a>
                     </li>
 
                     {{--Manage Sections--}}
                     <li class="nav-item">
-                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-fence"></i> <span>Sections</span></a>
+                        <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-users4"></i> <span> Cohorts & Batches</span></a>
                     </li>
 
                     {{--Manage Subjects--}}
