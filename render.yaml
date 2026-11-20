@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: management-portal
+    env: docker
+    dockerfilePath: docker/Dockerfile
+    dockerContext: .
+    plan: free

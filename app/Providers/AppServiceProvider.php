@@ -13,11 +13,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        } elseif (request()->server('HTTP_X_FORWARDED_PROTO') === 'https' || request()->isSecure()) {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        } elseif (str_contains(request()->header('host', ''), 'trycloudflare.com')) {
+        if (
+            (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+            request()->server('HTTP_X_FORWARDED_PROTO') === 'https' ||
+            request()->isSecure() ||
+            str_contains(request()->header('host', ''), 'onrender.com') ||
+            str_contains(request()->header('host', ''), 'vercel.app') ||
+            str_contains(request()->header('host', ''), 'trycloudflare.com')
+        ) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
     }
