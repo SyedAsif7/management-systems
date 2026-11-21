@@ -134,7 +134,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="my_class_id">Class: </label>
+                                <label for="my_class_id">Course / Program: </label>
                                 <select onchange="getClassSections(this.value)" name="my_class_id" required id="my_class_id" class="form-control select-search" data-placeholder="Select Class">
                                     <option value=""></option>
                                     @foreach($my_classes as $c)
@@ -146,7 +146,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="section_id">Section: </label>
+                                <label for="section_id">Cohort / Batch: </label>
                                 <select name="section_id" required id="section_id" class="form-control select" data-placeholder="Select Section">
                                     <option value="{{ $sr->section_id }}">{{ $sr->section->name }}</option>
                                 </select>
@@ -180,20 +180,9 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="dorm_id">Dormitory: </label>
-                            <select data-placeholder="Choose..."  name="dorm_id" id="dorm_id" class="select-search form-control">
-                                <option value=""></option>
-                                @foreach($dorms as $d)
-                                    <option {{ ($sr->dorm_id == $d->id) ? 'selected' : '' }} value="{{ $d->id }}">{{ $d->name }}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Dormitory Room No:</label>
-                                <input type="text" name="dorm_room_no" placeholder="Dormitory Room No" class="form-control" value="{{ $sr->dorm_room_no }}">
+                                <label>Admission Number / Roll No:</label>
+                                <input type="text" name="adm_no" class="form-control" value="{{ $sr->adm_no }}">
                             </div>
                         </div>
                     </div>

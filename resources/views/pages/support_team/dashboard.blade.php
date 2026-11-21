@@ -24,7 +24,7 @@
                    <div class="media">
                        <div class="media-body">
                            <h3 class="mb-0">{{ $users->where('user_type', 'teacher')->count() }}</h3>
-                           <span class="text-uppercase font-size-xs">Total Teachers</span>
+                           <span class="text-uppercase font-size-xs">Asatizah / Teachers</span>
                        </div>
 
                        <div class="ml-3 align-self-center">
@@ -43,7 +43,7 @@
 
                        <div class="media-body text-right">
                            <h3 class="mb-0">{{ $users->where('user_type', 'admin')->count() }}</h3>
-                           <span class="text-uppercase font-size-xs">Total Administrators</span>
+                           <span class="text-uppercase font-size-xs">Academic Admins</span>
                        </div>
                    </div>
                </div>
@@ -58,7 +58,7 @@
 
                        <div class="media-body text-right">
                            <h3 class="mb-0">{{ $users->where('user_type', 'parent')->count() }}</h3>
-                           <span class="text-uppercase font-size-xs">Total Parents</span>
+                           <span class="text-uppercase font-size-xs">Parents / Guardians</span>
                        </div>
                    </div>
                </div>
@@ -69,7 +69,7 @@
     {{--Events Calendar Begins--}}
     <div class="card">
         <div class="card-header header-elements-inline">
-            <h5 class="card-title">School Events Calendar</h5>
+            <h5 class="card-title">Academic & Live Class Events Calendar</h5>
          {!! Qs::getPanelOptions() !!}
         </div>
 

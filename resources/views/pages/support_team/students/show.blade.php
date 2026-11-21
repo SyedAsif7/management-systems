@@ -97,12 +97,7 @@
                                 <td>{{$sr->user->lga->name }}</td>
                             </tr>
                             @endif
-                            @if($sr->dorm_id)
-                                <tr>
-                                    <td class="font-weight-bold">Dormitory</td>
-                                    <td>{{$sr->dorm->name.' '.$sr->dorm_room_no }}</td>
-                                </tr>
-                            @endif
+
 
                             </tbody>
                         </table>

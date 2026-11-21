@@ -131,7 +131,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="my_class_id">Class: <span class="text-danger">*</span></label>
+                                <label for="my_class_id">Course / Program: <span class="text-danger">*</span></label>
                                 <select onchange="getClassSections(this.value)" data-placeholder="Choose..." required name="my_class_id" id="my_class_id" class="select-search form-control">
                                     <option value=""></option>
                                     @foreach($my_classes as $c)
@@ -143,8 +143,8 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="section_id">Section: <span class="text-danger">*</span></label>
-                                <select data-placeholder="Select Class First" required name="section_id" id="section_id" class="select-search form-control">
+                                <label for="section_id">Cohort / Batch: <span class="text-danger">*</span></label>
+                                <select data-placeholder="Select Course First" required name="section_id" id="section_id" class="select-search form-control">
                                     <option {{ (old('section_id')) ? 'selected' : '' }} value="{{ old('section_id') }}">{{ (old('section_id')) ? 'Selected' : '' }}</option>
                                 </select>
                             </div>
@@ -176,35 +176,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <label for="dorm_id">Dormitory: </label>
-                            <select data-placeholder="Choose..."  name="dorm_id" id="dorm_id" class="select-search form-control">
-                                <option value=""></option>
-                                @foreach($dorms as $d)
-                                    <option {{ (old('dorm_id') == $d->id) ? 'selected' : '' }} value="{{ $d->id }}">{{ $d->name }}</option>
-                                    @endforeach
-                            </select>
-
-                        </div>
-
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Dormitory Room No:</label>
-                                <input type="text" name="dorm_room_no" placeholder="Dormitory Room No" class="form-control" value="{{ old('dorm_room_no') }}">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Sport House:</label>
-                                <input type="text" name="house" placeholder="Sport House" class="form-control" value="{{ old('house') }}">
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Admission Number:</label>
-                                <input type="text" name="adm_no" placeholder="Admission Number" class="form-control" value="{{ old('adm_no') }}">
+                                <label>Admission / Student Roll Number (Optional):</label>
+                                <input type="text" name="adm_no" placeholder="Leave blank to auto-generate" class="form-control" value="{{ old('adm_no') }}">
                             </div>
                         </div>
                     </div>

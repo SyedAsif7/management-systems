@@ -77,7 +77,7 @@ class StudentRepo {
 
     public function getAllDorms()
     {
-        return Dorm::orderBy('name', 'asc')->get();
+        return collect();
     }
 
     public function exists($student_id)
