@@ -1,5 +1,16 @@
 <?php
 
+// Suppress PHP 8.2+ / 8.4+ deprecation notices from polluting HTTP output
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', '0');
+
+set_error_handler(function ($errno, $errstr, $errfile = '', $errline = 0) {
+    if ($errno === E_DEPRECATED || $errno === E_USER_DEPRECATED) {
+        return true;
+    }
+    return false;
+});
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
