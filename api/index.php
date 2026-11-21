@@ -31,4 +31,13 @@ foreach ($storageDirs as $dir) {
 }
 
 // Forward to standard Laravel public entry point
-require __DIR__ . '/../public/index.php';
+try {
+    require __DIR__ . '/../public/index.php';
+} catch (\Throwable $e) {
+    http_response_code(500);
+    echo '<div style="font-family:sans-serif;padding:30px;max-width:800px;margin:auto;">';
+    echo '<h2 style="color:#e11d48;">Laravel Serverless Error</h2>';
+    echo '<p><strong>Message:</strong> ' . htmlspecialchars($e->getMessage()) . '</p>';
+    echo '<p><strong>File:</strong> ' . htmlspecialchars($e->getFile()) . ':' . $e->getLine() . '</p>';
+    echo '</div>';
+}
