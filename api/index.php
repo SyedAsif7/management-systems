@@ -4,6 +4,11 @@
  * Vercel Serverless Function Entry Point for Laravel
  */
 
+// Ensure REMOTE_ADDR is set for serverless environments
+if (empty($_SERVER['REMOTE_ADDR'])) {
+    $_SERVER['REMOTE_ADDR'] = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0] : '127.0.0.1';
+}
+
 // Suppress PHP 8.2+ / 8.4+ deprecation notices from polluting HTTP output
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 ini_set('display_errors', '0');
@@ -29,6 +34,18 @@ foreach ($storageDirs as $dir) {
         @mkdir($dir, 0755, true);
     }
 }
+
+// Intercept and load PHP 8.2+ / 8.5+ compatible overrides before vendor packages load
+spl_autoload_register(function ($class) {
+    if ($class === 'Carbon\Traits\Creator') {
+        require_once __DIR__ . '/../app/Overrides/Carbon/Traits/Creator.php';
+        return true;
+    }
+    if ($class === 'Symfony\Component\HttpFoundation\FileBag') {
+        require_once __DIR__ . '/../app/Overrides/Symfony/Component/HttpFoundation/FileBag.php';
+        return true;
+    }
+}, true, true);
 
 // Forward to standard Laravel public entry point
 try {
