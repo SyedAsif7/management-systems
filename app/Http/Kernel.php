@@ -70,4 +70,18 @@ class Kernel extends HttpKernel
         'examIsLocked' => \App\Http\Middleware\Custom\ExamIsLocked::class,
         'my_parent' => \App\Http\Middleware\Custom\MyParent::class,
     ];
+
+    /**
+     * Get the bootstrap classes for the application.
+     *
+     * @return array
+     */
+    protected function bootstrappers()
+    {
+        return array_map(function ($bootstrapper) {
+            return $bootstrapper === \Illuminate\Foundation\Bootstrap\HandleExceptions::class
+                ? \App\Bootstrap\HandleExceptions::class
+                : $bootstrapper;
+        }, $this->bootstrappers);
+    }
 }
