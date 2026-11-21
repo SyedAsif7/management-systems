@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
             (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
             request()->server('HTTP_X_FORWARDED_PROTO') === 'https' ||
             request()->isSecure() ||
+            str_contains(request()->header('host', ''), 'altaqwauniversity.com') ||
+            str_contains(request()->header('host', ''), 'joinaltaqwa.com') ||
             str_contains(request()->header('host', ''), 'onrender.com') ||
             str_contains(request()->header('host', ''), 'vercel.app') ||
             str_contains(request()->header('host', ''), 'trycloudflare.com')
