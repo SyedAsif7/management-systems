@@ -15,6 +15,9 @@ Route::get('/terms-of-use', 'HomeController@terms_of_use')->name('terms_of_use')
 
 // Authentication Routes
 Auth::routes();
+Route::get('/home', function () {
+    return redirect()->route('dashboard');
+})->name('home.redirect');
 
 // Authenticated LMS Portal
 Route::group(['middleware' => 'auth'], function () {
