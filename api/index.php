@@ -35,18 +35,6 @@ foreach ($storageDirs as $dir) {
     }
 }
 
-// Intercept and load PHP 8.2+ / 8.5+ compatible overrides before vendor packages load
-spl_autoload_register(function ($class) {
-    if ($class === 'Carbon\Traits\Creator') {
-        require_once __DIR__ . '/../app/Overrides/Carbon/Traits/Creator.php';
-        return true;
-    }
-    if ($class === 'Symfony\Component\HttpFoundation\FileBag') {
-        require_once __DIR__ . '/../app/Overrides/Symfony/Component/HttpFoundation/FileBag.php';
-        return true;
-    }
-}, true, true);
-
 // Forward to standard Laravel public entry point
 try {
     require __DIR__ . '/../public/index.php';
