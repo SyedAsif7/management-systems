@@ -48,7 +48,11 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="{{ Qs::userIsStudent() ? route('students.show', Qs::hash(Qs::findStudentRecord(Auth::user()->id)->id)) : route('users.show', Qs::hash(Auth::user()->id)) }}" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+                    @php
+                        $sr = Qs::userIsStudent() ? Qs::findStudentRecord(Auth::user()->id) : null;
+                        $profileUrl = ($sr && isset($sr->id)) ? route('students.show', Qs::hash($sr->id)) : route('users.show', Qs::hash(Auth::user()->id));
+                    @endphp
+                    <a href="{{ $profileUrl }}" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('my_account') }}" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
