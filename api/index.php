@@ -28,6 +28,7 @@ if (!$storageInitialized) {
         '/tmp/storage/framework/sessions',
         '/tmp/storage/framework/cache/data',
         '/tmp/storage/logs',
+        '/tmp/bootstrap/cache',
     ];
 
     foreach ($storageDirs as $dir) {
