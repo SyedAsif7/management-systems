@@ -152,7 +152,7 @@ class Qs
 
     public static function userIsSuperAdmin()
     {
-        return Auth::user()->user_type == 'super_admin';
+        return in_array(Auth::user()->user_type, ['admin', 'super_admin']);
     }
 
     public static function userIsStudent()
@@ -177,20 +177,20 @@ class Qs
 
     public static function getStaff($remove=[])
     {
-        $data = ['super_admin', 'admin', 'teacher'];
+        $data = ['admin', 'teacher'];
         return $remove ? array_values(array_diff($data, $remove)) : $data;
     }
 
     public static function getAllUserTypes($remove=[])
     {
-        $data = ['super_admin', 'admin', 'teacher', 'student'];
+        $data = ['admin', 'teacher', 'student'];
         return $remove ? array_values(array_diff($data, $remove)) : $data;
     }
 
     // Check if User is Head of Super Admins (Untouchable)
     public static function headSA(int $user_id)
     {
-        return $user_id === 1;
+        return $user_id === 1 || $user_id === 2;
     }
 
     public static function userIsPTA()

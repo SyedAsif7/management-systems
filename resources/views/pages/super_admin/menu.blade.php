@@ -5,5 +5,5 @@
 
 {{--Public Certificate Verification--}}
 <li class="nav-item">
-    <a href="{{ route('storefront.verify_cert') }}" target="_blank" class="nav-link"><i class="icon-certificate"></i> <span>Verify Certificate</span></a>
+    <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="nav-link"><i class="icon-certificate"></i> <span>Verify Certificate</span></a>
 </li>

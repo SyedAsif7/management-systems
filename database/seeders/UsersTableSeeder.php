@@ -28,26 +28,18 @@ class UsersTableSeeder extends Seeder
         $password = Hash::make('cj'); // Default user password
 
         $d = [
-
-            ['name' => 'CJ Inspired',
-                'email' => 'cj@cj.com',
-                'username' => 'cj',
+            [
+                'name' => 'AL-Taqwa Admin',
+                'email' => 'admin@admin.com',
                 'password' => $password,
-                'user_type' => 'super_admin',
+                'user_type' => 'admin',
+                'username' => 'admin',
                 'code' => strtoupper(Str::random(10)),
                 'remember_token' => Str::random(10),
             ],
 
-            ['name' => 'Admin KORA',
-            'email' => 'admin@admin.com',
-            'password' => $password,
-            'user_type' => 'admin',
-            'username' => 'admin',
-            'code' => strtoupper(Str::random(10)),
-            'remember_token' => Str::random(10),
-            ],
-
-            ['name' => 'Teacher Chike',
+            [
+                'name' => 'Teacher Chike',
                 'email' => 'teacher@teacher.com',
                 'user_type' => 'teacher',
                 'username' => 'teacher',
@@ -62,7 +54,7 @@ class UsersTableSeeder extends Seeder
     protected function createManyUsers(int $count)
     {
         $data = [];
-        $user_type = Qs::getAllUserTypes(['super_admin', 'librarian', 'student']);
+        $user_type = Qs::getAllUserTypes(['super_admin', 'librarian', 'student', 'admin']);
 
         for($i = 1; $i <= $count; $i++){
 
