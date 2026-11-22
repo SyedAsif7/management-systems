@@ -9,6 +9,7 @@ class SettingRepo
 {
     public function update($type, $desc)
     {
+        \App\Helpers\Qs::clearSettingsCache();
         return Setting::where('type', $type)->update(['description' => $desc]);
     }
 

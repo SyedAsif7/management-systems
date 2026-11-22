@@ -256,14 +256,37 @@ class Qs
         return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
     }
 
+    protected static $settingsCache = null;
+    protected static $classesCache = null;
+
+    public static function clearSettingsCache()
+    {
+        static::$settingsCache = null;
+    }
+
     public static function getSetting($type)
     {
-        try {
-            $setting = Setting::where('type', $type)->first();
-            return $setting ? $setting->description : null;
-        } catch (\Throwable $e) {
-            return null;
+        if (static::$settingsCache === null) {
+            try {
+                static::$settingsCache = Setting::pluck('description', 'type')->toArray();
+            } catch (\Throwable $e) {
+                static::$settingsCache = [];
+            }
         }
+
+        return static::$settingsCache[$type] ?? null;
+    }
+
+    public static function getMyClasses()
+    {
+        if (static::$classesCache === null) {
+            try {
+                static::$classesCache = \App\Models\MyClass::orderBy('name')->get();
+            } catch (\Throwable $e) {
+                static::$classesCache = collect();
+            }
+        }
+        return static::$classesCache;
     }
 
     public static function getCurrentSession()

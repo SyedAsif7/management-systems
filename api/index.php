@@ -21,18 +21,21 @@ set_error_handler(function ($errno, $errstr, $errfile = '', $errline = 0) {
 });
 
 // Initialize temporary writable storage directories for serverless runtime
-$storageDirs = [
-    '/tmp/storage/framework/views',
-    '/tmp/storage/framework/sessions',
-    '/tmp/storage/framework/cache/data',
-    '/tmp/storage/logs',
-    '/tmp/bootstrap/cache',
-];
+static $storageInitialized = false;
+if (!$storageInitialized) {
+    $storageDirs = [
+        '/tmp/storage/framework/views',
+        '/tmp/storage/framework/sessions',
+        '/tmp/storage/framework/cache/data',
+        '/tmp/storage/logs',
+    ];
 
-foreach ($storageDirs as $dir) {
-    if (!is_dir($dir)) {
-        @mkdir($dir, 0755, true);
+    foreach ($storageDirs as $dir) {
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0755, true);
+        }
     }
+    $storageInitialized = true;
 }
 
 // Forward to standard Laravel public entry point
