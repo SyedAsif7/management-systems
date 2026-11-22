@@ -414,5 +414,6 @@
     </script>
 
     @yield('scripts')
+    <script src="{{ asset('assets/js/instantpage.min.js') }}" type="module"></script>
 </body>
 </html>

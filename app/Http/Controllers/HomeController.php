@@ -39,7 +39,7 @@ class HomeController extends Controller
     {
         $d=[];
         if(Qs::userIsTeamSAT()){
-            $d['users'] = $this->user->getAll();
+            $d['users'] = $this->user->getUserCounts();
         }
 
         return view('pages.support_team.dashboard', $d);

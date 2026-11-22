@@ -17,6 +17,7 @@
 @yield('content')
 @include('partials.login.footer')
 
+<script src="{{ asset('assets/js/instantpage.min.js') }}" type="module"></script>
 </body>
 
 </html>

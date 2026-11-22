@@ -51,6 +51,11 @@ class UserRepo {
         return User::orderBy('name', 'asc')->get();
     }
 
+    public function getUserCounts()
+    {
+        return User::select('id', 'user_type')->get();
+    }
+
     public function getPTAUsers()
     {
         return User::where('user_type', '<>', 'student')->orderBy('name', 'asc')->get();
