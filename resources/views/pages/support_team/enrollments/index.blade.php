@@ -8,7 +8,7 @@
         <h5 class="card-title text-white font-weight-bold">
             <i class="icon-users mr-2 text-warning"></i> Master Student Enrollment Registry
         </h5>
-        @if(in_array(Auth::user()->user_type, ['admin', 'super_admin', 'accountant']))
+        @if(in_array(Auth::user()->user_type, ['admin', 'super_admin']))
             <a href="{{ route('enrollments.refund_queue') }}" class="btn btn-warning btn-sm font-weight-bold">
                 <i class="icon-cash mr-1"></i> Refund Queue
             </a>

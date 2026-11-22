@@ -60,7 +60,7 @@ class Qs
 
     public static function getTeamAccount()
     {
-        return ['admin', 'super_admin', 'accountant'];
+        return ['admin', 'super_admin'];
     }
 
     public static function getTeamSAT()
@@ -75,7 +75,7 @@ class Qs
 
     public static function getTeamAdministrative()
     {
-        return ['admin', 'super_admin', 'accountant'];
+        return ['admin', 'super_admin'];
     }
 
     public static function hash($id)
@@ -177,13 +177,13 @@ class Qs
 
     public static function getStaff($remove=[])
     {
-        $data =  ['super_admin', 'admin', 'teacher', 'accountant', 'librarian'];
+        $data = ['super_admin', 'admin', 'teacher'];
         return $remove ? array_values(array_diff($data, $remove)) : $data;
     }
 
     public static function getAllUserTypes($remove=[])
     {
-        $data =  ['super_admin', 'admin', 'teacher', 'accountant', 'librarian', 'student', 'parent'];
+        $data = ['super_admin', 'admin', 'teacher', 'student'];
         return $remove ? array_values(array_diff($data, $remove)) : $data;
     }
 

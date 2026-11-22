@@ -79,7 +79,7 @@
                 @endif
 
                 {{-- Enrollments & Refunds --}}
-                @if(Qs::userIsTeamSA() || Qs::userIsTeamAccount())
+                @if(Qs::userIsTeamSA())
                 <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['enrollments.index', 'enrollments.refund_queue']) ? 'nav-item-expanded nav-item-open' : '' }}">
                     <a href="#" class="nav-link"><i class="icon-cash"></i> <span>Enrollments & Refunds</span></a>
                     <ul class="nav nav-group-sub">
@@ -110,7 +110,7 @@
                         <ul class="nav nav-group-sub" data-submenu-title="Administrative">
 
                             {{--Payments--}}
-                            @if(Qs::userIsTeamAccount())
+                            @if(Qs::userIsTeamSA())
                             <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.create', 'payments.edit', 'payments.manage', 'payments.show', 'payments.invoice']) ? 'nav-item-expanded' : '' }}">
 
                                 <a href="#" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.edit', 'payments.create', 'payments.manage', 'payments.show', 'payments.invoice']) ? 'active' : '' }}">Payments</a>

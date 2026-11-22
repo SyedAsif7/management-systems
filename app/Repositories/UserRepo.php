@@ -33,7 +33,7 @@ class UserRepo {
 
     public function getAllTypes()
     {
-        return UserType::all();
+        return UserType::whereNotIn('title', ['accountant', 'parent', 'librarian'])->get();
     }
 
     public function findType($id)
@@ -58,7 +58,7 @@ class UserRepo {
 
     public function getPTAUsers()
     {
-        return User::where('user_type', '<>', 'student')->orderBy('name', 'asc')->get();
+        return User::where('user_type', '<>', 'student')->whereNotIn('user_type', ['parent', 'accountant', 'librarian'])->orderBy('name', 'asc')->get();
     }
 
     /********** STAFF RECORD ********/
