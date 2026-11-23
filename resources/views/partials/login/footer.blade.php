@@ -1,20 +1,14 @@
-<div class="navbar navbar-expand-lg navbar-light">
-    <div class="text-center d-lg-none w-100">
-        <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
-            <i class="icon-unfold mr-2"></i>
-            More Links
-        </button>
+<footer style="background: #021C15; border-top: 2px solid var(--gold); color: #8CA99D; padding: 22px 0; font-size: 0.82rem; margin-top: auto;">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap" style="gap: 12px;">
+        <div>
+            &copy; {{ date('Y') }} <a href="{{ route('home') }}" style="color: var(--gold); font-weight: 700; text-decoration: none;">AL-TAQWA Institute of Islamic Studies</a>. All Rights Reserved.
+        </div>
+        <div class="d-flex align-items-center" style="gap: 16px;">
+            <a href="{{ route('home') }}" style="color: #CBDCD4; text-decoration: none;">Home</a>
+            <a href="{{ route('storefront.courses') }}" style="color: #CBDCD4; text-decoration: none;">Courses</a>
+            <a href="{{ route('storefront.verify_certificate') }}" style="color: #CBDCD4; text-decoration: none;">Verify Certificate</a>
+            <a href="{{ route('privacy_policy') }}" style="color: #CBDCD4; text-decoration: none;">Privacy Policy</a>
+            <a href="{{ route('terms_of_use') }}" style="color: #CBDCD4; text-decoration: none;">Terms of Use</a>
+        </div>
     </div>
-
-    <div class="navbar-collapse collapse" id="navbar-footer">
-					<span class="navbar-text">
-						&copy; {{ date('Y') }}. <a href="{{ route('home') }}">{{ Qs::getSystemName() }}</a>. All Rights Reserved.
-					</span>
-
-        <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item"><a href="{{ route('privacy_policy') }}" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Privacy Policy</a></li>
-            <li class="nav-item"><a href="{{ route('terms_of_use') }}" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Terms of Use </a></li>
-{{--            <li class="nav-item"><a href="#" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-phone mr-2"></i> Contact Us</span></a></li>--}}
-        </ul>
-    </div>
-</div>
+</footer>

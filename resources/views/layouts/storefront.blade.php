@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'AL-Taqwa Institute — Online Islamic Academy')</title>
+    <title>@yield('title', 'AL-TAQWA Institute — Online Islamic Academy')</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}">
@@ -13,296 +13,441 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 4.6 & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Adhan.js for Dynamic Prayer Times -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/adhan/4.4.3/Adhan.min.js"></script>
-
     <style>
+        /* ==========================================================================
+           AL-TAQWA UNIFIED THEME SYSTEM
+           ========================================================================== */
         :root {
-            --primary-emerald: #064E3B;
-            --primary-emerald-dark: #022c22;
-            --primary-emerald-light: #0f766e;
-            --soft-cream: #FDFBF7;
-            --accent-gold: #D4AF37;
-            --accent-gold-hover: #b8972b;
-            --text-dark: #1F2937;
-            --text-muted: #6B7280;
+            --primary: #063D2E;
+            --primary-dark: #03251C;
+            --primary-light: #0B5742;
+            --primary-surface: #F0F6F3;
+            --gold: #C9A35A;
+            --gold-light: #DFBA6B;
+            --gold-dark: #9F7E3A;
+            --cream: #FAF9F5;
+            --cream-alt: #F3EFE6;
+            --white: #FFFFFF;
+            --ink: #14261F;
+            --ink-soft: #2D433A;
+            --muted: #5F7369;
+            --border: #E5E0D5;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-pill: 9999px;
+            --font-serif: "Playfair Display", Georgia, serif;
+            --font-arabic: "Amiri", "Traditional Arabic", serif;
+            --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--soft-cream);
-            color: var(--text-dark);
+            font-family: var(--font-sans);
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
         }
 
         .arabic-text {
-            font-family: 'Amiri', serif;
+            font-family: var(--font-arabic);
         }
 
-        /* Top Bar & Prayer Widget */
-        .prayer-bar {
-            background-color: var(--primary-emerald-dark);
-            color: #d1fae5;
-            font-size: 0.85rem;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-        }
-
-        .prayer-badge {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            color: #fef3c7;
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin-right: 6px;
-            font-weight: 500;
-        }
-
-        /* Main Navbar */
-        .altaqwa-navbar {
-            background-color: var(--primary-emerald);
-            box-shadow: 0 4px 15px rgba(6, 78, 59, 0.15);
-            padding: 12px 0;
-        }
-
-        .altaqwa-navbar .navbar-brand {
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: #ffffff !important;
-            letter-spacing: 0.5px;
-        }
-
-        .altaqwa-navbar .navbar-brand span {
-            color: var(--accent-gold);
-        }
-
-        .altaqwa-navbar .nav-link {
-            color: #e2e8f0 !important;
-            font-weight: 500;
-            margin: 0 8px;
-            transition: color 0.2s ease;
-        }
-
-        .altaqwa-navbar .nav-link:hover {
-            color: var(--accent-gold) !important;
-        }
-
-        .btn-gold {
-            background-color: var(--accent-gold);
-            color: #064E3B !important;
-            font-weight: 600;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-gold:hover {
-            background-color: var(--accent-gold-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-outline-gold {
-            border: 1.5px solid var(--accent-gold);
-            color: var(--accent-gold) !important;
-            font-weight: 600;
-            padding: 7px 18px;
-            border-radius: 25px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-outline-gold:hover {
-            background-color: var(--accent-gold);
-            color: var(--primary-emerald) !important;
-        }
-
-        .btn-emerald {
-            background-color: var(--primary-emerald);
-            color: #ffffff !important;
-            font-weight: 600;
-            padding: 8px 22px;
-            border-radius: 25px;
-            border: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-emerald:hover {
-            background-color: var(--primary-emerald-dark);
-            transform: translateY(-1px);
-        }
-
-        /* Hero & Section Headers */
-        .hero-banner {
-            background: linear-gradient(135deg, var(--primary-emerald-dark) 0%, var(--primary-emerald) 100%);
-            color: #ffffff;
-            padding: 70px 0 60px;
-            position: relative;
-        }
-
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: repeating-linear-gradient(45deg, var(--accent-gold), var(--accent-gold) 10px, transparent 10px, transparent 20px);
-            opacity: 0.35;
-        }
-
-        /* Course Cards */
-        .course-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #f1f5f9;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(6, 78, 59, 0.12);
-        }
-
-        .course-card img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .course-badge-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--primary-emerald);
-            background-color: #ecfdf5;
-            padding: 4px 10px;
-            border-radius: 6px;
-            display: inline-block;
-        }
-
-        .course-badge-fee {
+        /* ----------------- Top Bar ----------------- */
+        .topbar {
+            background: var(--primary-dark);
+            color: #D3E4DC;
             font-size: 0.8rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(201, 163, 90, 0.2);
         }
-
-        .badge-free {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        .badge-sub {
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .badge-refundable {
-            background-color: #e0f2fe;
-            color: #0369a1;
-        }
-
-        /* Footer */
-        .altaqwa-footer {
-            background-color: var(--primary-emerald-dark);
-            color: #cbd5e1;
-            padding: 50px 0 25px;
-            border-top: 3px solid var(--accent-gold);
-            margin-top: 60px;
-        }
-
-        .altaqwa-footer a {
-            color: #94a3b8;
+        .topbar a {
+            color: #D3E4DC;
             text-decoration: none;
             transition: color 0.2s ease;
         }
+        .topbar a:hover {
+            color: var(--gold);
+        }
+        .topbar-badge {
+            color: #F7E9CE;
+            font-weight: 500;
+        }
+        .topbar-badge::before {
+            content: "✦ ";
+            color: var(--gold);
+        }
 
-        .altaqwa-footer a:hover {
-            color: var(--accent-gold);
+        /* ----------------- Main Navbar ----------------- */
+        .nav-header {
+            background: var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .brandmark {
+            width: 46px;
+            height: 46px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1.5px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        .brandmark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .brand-titles strong {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: #FFFFFF;
+            line-height: 1.15;
+            font-family: var(--font-sans);
+        }
+        .brand-titles strong span {
+            color: var(--gold);
+        }
+        .brand-titles small {
+            display: block;
+            font-size: 0.65rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #BED8CC;
+            font-weight: 600;
+            margin-top: 2px;
+            font-family: var(--font-sans);
+        }
+
+        .navlink-item {
+            color: #E2EEE8 !important;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 16px !important;
+            border-radius: var(--radius-pill);
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+        }
+        .navlink-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF !important;
+        }
+        .navlink-item.active {
+            background: var(--gold);
+            color: var(--primary-dark) !important;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--primary-dark) !important;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius-pill);
+            padding: 9px 20px;
+            box-shadow: 0 4px 14px rgba(201, 163, 90, 0.35);
+            transition: all 0.25s ease;
+            text-decoration: none !important;
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light) 0%, #EBD08C 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(201, 163, 90, 0.45);
+        }
+        .btn-green {
+            background: var(--primary);
+            color: #FFFFFF !important;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius-pill);
+            padding: 9px 22px;
+            box-shadow: 0 4px 14px rgba(6, 61, 46, 0.25);
+            transition: all 0.25s ease;
+            text-decoration: none !important;
+        }
+        .btn-green:hover {
+            background: var(--primary-light);
+            color: #FFFFFF !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(6, 61, 46, 0.35);
+        }
+        .btn-outline-gold {
+            border: 1.5px solid var(--gold);
+            color: var(--gold) !important;
+            background: transparent;
+            font-weight: 700;
+            border-radius: var(--radius-pill);
+            padding: 8px 18px;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+        }
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--primary-dark) !important;
+            transform: translateY(-2px);
+        }
+
+        /* ----------------- Subhero Banner ----------------- */
+        .subhero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 65%, var(--primary-light) 100%);
+            color: #FFFFFF;
+            padding: 60px 0 54px;
+            position: relative;
+            border-bottom: 3px solid var(--gold);
+            overflow: hidden;
+        }
+        .subhero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(201, 163, 90, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+            pointer-events: none;
+        }
+        .subhero-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-family: var(--font-sans);
+        }
+        .subhero h1 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+        }
+        .subhero p {
+            color: #D3E6DC;
+            font-size: 1.05rem;
+            max-width: 720px;
+            line-height: 1.6;
+        }
+
+        /* ----------------- Cards ----------------- */
+        .course-card {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(6, 61, 46, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+        }
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(6, 61, 46, 0.12);
+            border-color: rgba(201, 163, 90, 0.6);
+        }
+        .course-top-banner {
+            height: 195px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 14px;
+            border-bottom: 2px solid rgba(201, 163, 90, 0.35);
+        }
+        .course-top-banner::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(3, 37, 28, 0.4) 0%, rgba(3, 37, 28, 0.05) 45%, rgba(3, 37, 28, 0.85) 100%);
+            pointer-events: none;
+        }
+        .course-pill {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-sans);
+        }
+        .pill-cat {
+            background: rgba(6, 61, 46, 0.88);
+            color: #FFFFFF;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .pill-free {
+            background: #14644A;
+            color: #FFFFFF;
+        }
+        .pill-sub {
+            background: #063D2E;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .pill-refundable {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        .filter-chip {
+            border: 1.5px solid var(--border);
+            background: #FFFFFF;
+            color: var(--ink-soft);
+            border-radius: var(--radius-pill);
+            padding: 8px 18px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+            display: inline-block;
+        }
+        .filter-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .filter-chip.active {
+            background: var(--primary);
+            color: #FFFFFF !important;
+            border-color: var(--primary);
+        }
+
+        /* ----------------- Footer ----------------- */
+        .footer {
+            background: var(--primary-dark);
+            color: #CBDCD4;
+            padding: 60px 0 24px;
+            border-top: 3px solid var(--gold);
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 36px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 {
+            color: #FFFFFF;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+            border-left: 3px solid var(--gold);
+            padding-left: 8px;
+            font-family: var(--font-sans);
+        }
+        .footer-col a {
+            display: block;
+            font-size: 0.84rem;
+            color: #A9C2B7;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .footer-col a:hover {
+            color: var(--gold);
+            transform: translateX(3px);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.78rem;
+            color: #8CA99D;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
     @yield('styles')
 </head>
 <body>
 
-    <!-- Dynamic Salah / Prayer Times Bar -->
-    <div class="prayer-bar">
-        <div class="container d-flex flex-wrap justify-content-between align-items-center">
-            <div class="d-flex align-items-center flex-wrap my-1">
-                <span class="mr-2 text-warning"><i class="fas fa-mosque mr-1"></i> <strong id="prayer-city">Daily Salah Times</strong>:</span>
-                <span id="prayer-times-container" class="d-flex flex-wrap align-items-center">
-                    <span class="prayer-badge">Fajr: <strong id="pt-fajr">--:--</strong></span>
-                    <span class="prayer-badge">Dhuhr: <strong id="pt-dhuhr">--:--</strong></span>
-                    <span class="prayer-badge">Asr: <strong id="pt-asr">--:--</strong></span>
-                    <span class="prayer-badge">Maghrib: <strong id="pt-maghrib">--:--</strong></span>
-                    <span class="prayer-badge">Isha: <strong id="pt-isha">--:--</strong></span>
-                </span>
+    <!-- Top Announcement Bar -->
+    <div class="topbar">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap" style="gap: 10px;">
+            <div class="topbar-badge">
+                Admissions Open for 2026 Batch · Global Live Classes with Certified Scholars
             </div>
-            <div class="my-1">
-                <span class="text-white-50"><i class="fas fa-globe mr-1"></i> Global Online Classes</span>
-                <a href="{{ route('storefront.verify_certificate') }}" class="ml-3 text-warning"><i class="fas fa-certificate mr-1"></i> Verify Certificate</a>
+            <div class="d-flex align-items-center" style="gap: 18px; font-weight: 500;">
+                <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate ↗</a>
+                <span>|</span>
+                <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a>
+                <span>|</span>
+                @auth
+                    <a href="{{ route('dashboard') }}" style="color: var(--gold); font-weight: 700;">My Dashboard ↗</a>
+                @else
+                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Portal Login (Students · Teachers · Admin) ↗</a>
+                @endauth
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark altaqwa-navbar sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="height: 44px; width: 44px; border-radius: 8px; margin-right: 12px; border: 1.5px solid var(--accent-gold); box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-                <div>
-                    <span style="font-weight: 800; letter-spacing: 0.5px;">AL-TAQWA</span>&nbsp;<span class="text-warning font-weight-normal">INSTITUTE</span>
-                    <small class="d-block text-warning text-uppercase" style="font-size: 0.62rem; letter-spacing: 1.5px; font-weight: 600; line-height: 1;">Institute of Islamic Studies</small>
+    <!-- Main Navigation Header -->
+    <header class="nav-header">
+        <div class="container d-flex align-items-center justify-content-between" style="height: 74px;">
+            <a class="d-flex align-items-center text-decoration-none" href="{{ route('home') }}" style="gap: 14px;">
+                <div class="brandmark">
+                    <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA Emblem">
+                </div>
+                <div class="brand-titles">
+                    <strong>AL-TAQWA <span>INSTITUTE</span></strong>
+                    <small>Taleem • Tarbiyah • Tazkiyah</small>
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#altaqwaNav">
-                <span class="navbar-toggler-icon"></span>
+
+            <!-- Mobile Nav Toggle -->
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#mainNavDropdown" style="color: var(--gold); border: 1.5px solid var(--gold); border-radius: var(--radius-sm); padding: 6px 10px;">
+                <i class="fas fa-bars"></i>
             </button>
 
-            <div class="collapse navbar-collapse" id="altaqwaNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses') }}">All Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#teachers">Faculty</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#about">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#admissions">Admissions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#contact">Contact</a></li>
-                </ul>
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse d-lg-flex justify-content-end align-items-center" id="mainNavDropdown">
+                <nav class="d-flex flex-column flex-lg-row align-items-center py-3 py-lg-0" style="gap: 6px;">
+                    <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
+                    <a href="{{ route('home') }}#teachers" class="navlink-item">Faculty</a>
+                    <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
+                    <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
+                    <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
 
-                <div class="d-flex align-items-center">
                     @auth
-                        <a href="{{ route('dashboard') }}" class="btn btn-outline-gold mr-2">
-                            <i class="fas fa-chalkboard-teacher mr-1"></i> LMS Portal
-                        </a>
-                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-sm btn-outline-light">Logout</button>
-                        </form>
+                        <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">My Dashboard ↗</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-outline-gold mr-2">
-                            <i class="fas fa-sign-in-alt mr-1"></i> Login
-                        </a>
-                        <a href="{{ route('storefront.courses') }}" class="btn btn-gold">
-                            <i class="fas fa-graduation-cap mr-1"></i> Enroll Now
-                        </a>
+                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-2">Portal Login ↗</a>
                     @endauth
-                </div>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Main Content Yield -->
     <main>
@@ -310,110 +455,65 @@
     </main>
 
     <!-- Footer -->
-    <footer class="altaqwa-footer">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa" style="height: 48px; width: 48px; border-radius: 8px; margin-right: 12px; border: 1.5px solid var(--accent-gold);">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="d-flex align-items-center mb-3" style="gap: 12px;">
+                        <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA" style="width: 44px; height: 44px; border-radius: 8px; border: 1.5px solid var(--gold);">
                         <div>
-                            <h5 class="text-white font-weight-bold mb-0">AL-Taqwa Institute</h5>
-                            <small class="text-warning text-uppercase font-weight-bold" style="font-size: 0.7rem; letter-spacing: 1.5px;">Taleem &bull; Tarbiyah &bull; Tazkiyah</small>
+                            <strong style="color: #FFFFFF; font-size: 1.15rem; display: block; line-height: 1.1; font-family: var(--font-sans);">AL-TAQWA</strong>
+                            <small style="color: #BED8CC; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;">Institute of Islamic Studies</small>
                         </div>
                     </div>
-                    <p class="small text-white-50">
-                        Dedicated to spreading authentic, traditional Islamic scholarship across the globe through structured online programs, live Ustadh mentorship, and interactive classrooms.
+                    <p style="font-size: 0.84rem; line-height: 1.6; color: #A9C2B7; margin-bottom: 16px;">
+                        Dedicated to cultivating authentic, balanced Islamic scholarship and moral refinement (Taleem, Tarbiyah, and Tazkiyah) across the globe through structured online live classrooms.
                     </p>
-                    <p class="small text-warning">
-                        <i class="fas fa-envelope mr-1"></i> officialaltaqwa@gmail.com<br>
-                        <i class="fas fa-globe mr-1"></i> www.altaqwauniversity.com
+                    <p style="font-size: 0.84rem; color: var(--gold);">
+                        Email: officialaltaqwa@gmail.com<br>
+                        Portal: altaqwauniversity.com
                     </p>
                 </div>
-                <div class="col-md-2 col-6 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Programs</h6>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="{{ route('storefront.courses', ['category' => 'QT']) }}">Hifz-ul-Qur'an</a></li>
-                        <li class="mb-2"><a href="{{ route('storefront.courses', ['category' => 'QT']) }}">Tajweed Diploma</a></li>
-                        <li class="mb-2"><a href="{{ route('storefront.courses', ['category' => 'IS']) }}">Alima Course (4 Yrs)</a></li>
-                        <li class="mb-2"><a href="{{ route('storefront.courses', ['category' => 'AU']) }}">Arabic Language</a></li>
-                        <li class="mb-2"><a href="{{ route('storefront.courses', ['category' => 'WS']) }}">Namaz Workshop</a></li>
-                    </ul>
+
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <a href="{{ route('home') }}">Home</a>
+                    <a href="{{ route('storefront.courses') }}">All 12 Programs</a>
+                    <a href="{{ route('home') }}#teachers">Faculty & Scholars</a>
+                    <a href="{{ route('home') }}#about">About Institute</a>
+                    <a href="{{ route('home') }}#admissions">Student Admissions</a>
+                    <a href="{{ route('home') }}#contact">Contact Helpdesk</a>
                 </div>
-                <div class="col-md-3 col-6 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Academy</h6>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="{{ route('login') }}">Student & Ustadh Portal</a></li>
-                        <li class="mb-2"><a href="{{ route('storefront.verify_certificate') }}">Verify Certificates</a></li>
-                        <li class="mb-2"><a href="{{ route('privacy_policy') }}">Privacy Policy</a></li>
-                        <li class="mb-2"><a href="{{ route('terms_of_use') }}">Terms of Service</a></li>
-                    </ul>
+
+                <div class="footer-col">
+                    <h4>Academic Pathways</h4>
+                    <a href="{{ route('storefront.course_detail', 'tafseer-ul-quran-weekend-program') }}">Tafseer-ul-Qur’an (₹99/mo)</a>
+                    <a href="{{ route('storefront.course_detail', 'alima-course-advanced-diploma-in-islamic-studies') }}">Alima Course — 4 Yrs</a>
+                    <a href="{{ route('storefront.course_detail', 'hifz-ul-quran-program-advanced-diploma') }}">Hifz-ul-Qur’an Diploma</a>
+                    <a href="{{ route('storefront.course_detail', 'diploma-in-tajweed-e-quran') }}">Diploma in Tajweed</a>
+                    <a href="{{ route('storefront.course_detail', 'diploma-in-arabic-language') }}">Diploma in Arabic</a>
+                    <a href="{{ route('storefront.course_detail', 'seerat-un-nabi-program') }}">Seerat-un-Nabi ﷺ (Free)</a>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h6 class="text-white font-weight-bold mb-3">Scholarship & Support</h6>
-                    <p class="small text-white-50">
-                        AL-Taqwa believes authentic Islamic knowledge should be accessible to every sincere seeker. Need-based scholarships are available for Alima and Hifz students.
-                    </p>
-                    <a href="{{ route('storefront.courses') }}" class="btn btn-sm btn-gold btn-block">Explore All 12 Courses</a>
+
+                <div class="footer-col">
+                    <h4>LMS Portal & Legal</h4>
+                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Student / Teacher Portal Login ↗</a>
+                    <a href="{{ route('storefront.verify_certificate') }}" style="color: var(--gold); font-weight: 700;">Verify Certificate Online ↗</a>
+                    <a href="{{ route('privacy_policy') }}">Privacy Policy</a>
+                    <a href="{{ route('terms_of_use') }}">Terms of Service</a>
                 </div>
             </div>
-            <hr style="border-color: rgba(255,255,255,0.1);">
-            <div class="d-flex flex-wrap justify-content-between align-items-center small text-white-50">
-                <div>&copy; {{ date('Y') }} AL-Taqwa Institute (www.joinaltaqwa.com). All rights reserved.</div>
-                <div>Excellence in Islamic Education &middot; Faith &middot; Akhlaq</div>
+
+            <div class="footer-bottom">
+                <span>&copy; {{ date('Y') }} AL-TAQWA Institute of Islamic Studies. All Rights Reserved.</span>
+                <span>Centered around Taleem · Tarbiyah · Tazkiyah</span>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap & jQuery -->
+    <!-- Bootstrap jQuery Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Dynamic Adhan.js Calculation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            try {
-                // Default coordinates (New Delhi / Mumbai, IST)
-                var lat = 28.6139;
-                var lng = 77.2090;
-                var coordinates = new adhan.Coordinates(lat, lng);
-                var params = adhan.CalculationMethod.Karachi();
-                params.madhab = adhan.Madhab.Hanafi;
-
-                var date = new Date();
-                var prayerTimes = new adhan.PrayerTimes(coordinates, date, params);
-
-                function formatTime(d) {
-                    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-                }
-
-                document.getElementById('pt-fajr').innerText = formatTime(prayerTimes.fajr);
-                document.getElementById('pt-dhuhr').innerText = formatTime(prayerTimes.dhuhr);
-                document.getElementById('pt-asr').innerText = formatTime(prayerTimes.asr);
-                document.getElementById('pt-maghrib').innerText = formatTime(prayerTimes.maghrib);
-                document.getElementById('pt-isha').innerText = formatTime(prayerTimes.isha);
-
-                // Try to detect user location if permitted
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        var userCoords = new adhan.Coordinates(position.coords.latitude, position.coords.longitude);
-                        var userPT = new adhan.PrayerTimes(userCoords, new Date(), params);
-                        document.getElementById('pt-fajr').innerText = formatTime(userPT.fajr);
-                        document.getElementById('pt-dhuhr').innerText = formatTime(userPT.dhuhr);
-                        document.getElementById('pt-asr').innerText = formatTime(userPT.asr);
-                        document.getElementById('pt-maghrib').innerText = formatTime(userPT.maghrib);
-                        document.getElementById('pt-isha').innerText = formatTime(userPT.isha);
-                        document.getElementById('prayer-city').innerText = 'Local Salah Times';
-                    }, function () {
-                        // Keep default
-                    }, { timeout: 4000 });
-                }
-            } catch (err) {
-                console.warn('Adhan.js prayer times widget:', err);
-            }
-        });
-    </script>
-
     @yield('scripts')
-    <script src="{{ asset('assets/js/instantpage.min.js') }}" type="module"></script>
 </body>
 </html>

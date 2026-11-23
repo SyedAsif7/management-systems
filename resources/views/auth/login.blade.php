@@ -1,22 +1,22 @@
 @extends('layouts.login_master')
 
 @section('content')
-    <div class="page-content login-cover">
+    <div class="page-content login-cover" style="min-height: calc(100vh - 160px);">
 
         <!-- Main content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="min-height: calc(100vh - 160px); display: flex; flex-direction: column; justify-content: center; padding: 40px 0;">
 
             <!-- Content area -->
             <div class="content d-flex justify-content-center align-items-center">
 
                 <!-- Login card -->
-                <form class="login-form " method="post" action="{{ route('login') }}" id="loginForm">
+                <form class="login-form" method="post" action="{{ route('login') }}" id="loginForm">
                     @csrf
-                    <div class="card mb-0 shadow-lg" style="border-radius: 16px; border: 1.5px solid rgba(212, 175, 55, 0.4); overflow: hidden;">
+                    <div class="card mb-0 shadow-lg" style="border-radius: 18px; border: 2px solid rgba(201, 163, 90, 0.5); overflow: hidden; background: #FFFFFF;">
                         <div class="card-body p-4">
                             <div class="text-center mb-3">
-                                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="width: 78px; height: 78px; border-radius: 16px; border: 2.5px solid #D4AF37; box-shadow: 0 6px 18px rgba(0,0,0,0.2);" class="mb-3 mt-1">
-                                <h4 class="mb-1 font-weight-bold" style="color: #064E3B; letter-spacing: 0.5px;">AL-TAQWA INSTITUTE</h4>
+                                <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA Logo" style="width: 78px; height: 78px; border-radius: 16px; border: 2.5px solid #C9A35A; box-shadow: 0 6px 18px rgba(0,0,0,0.2);" class="mb-3 mt-1">
+                                <h4 class="mb-1 font-weight-bold" style="color: #063D2E; letter-spacing: 0.5px; font-family: var(--font-serif, Georgia, serif);">AL-TAQWA INSTITUTE</h4>
                                 <span class="d-block text-muted small" style="letter-spacing: 0.3px;">Taleem &bull; Tarbiyah &bull; Tazkiyah</span>
                                 <span class="badge text-white font-weight-bold mt-2" style="background-color: #f4511e; font-size: 11px; padding: 5px 14px; border-radius: 5px; letter-spacing: 0.5px; text-transform: uppercase;">LMS Portal Login</span>
                                 <div class="text-muted mt-2" style="font-size: 11.5px; font-weight: 500;">Unified Login for Students, Asatizah & Administration</div>
@@ -24,13 +24,13 @@
 
                             <!-- Role Quick Selectors -->
                             <div class="d-flex justify-content-center mb-3" style="gap: 6px;">
-                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="student" data-pass="cj" style="font-size: 11px; padding: 3px 12px; border-radius: 999px;">
+                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="student" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
                                     <i class="icon-graduation2 mr-1"></i> Student
                                 </button>
-                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="teacher" data-pass="cj" style="font-size: 11px; padding: 3px 12px; border-radius: 999px;">
+                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="teacher" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
                                     <i class="icon-users4 mr-1"></i> Teacher
                                 </button>
-                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="admin" data-pass="cj" style="font-size: 11px; padding: 3px 12px; border-radius: 999px;">
+                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="admin" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
                                     <i class="icon-user-lock mr-1"></i> Admin
                                 </button>
                             </div>
