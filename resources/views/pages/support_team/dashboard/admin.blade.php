@@ -99,7 +99,23 @@
                 </span>
                 <span class="text-muted font-size-sm">Administrative Shortcuts:</span>
             </div>
-            <div class="d-flex flex-wrap gap-2">
+            <div class="d-flex flex-wrap gap-2 align-items-center">
+                {{-- Fast ON/OFF Button for Hifz Progress --}}
+                <form action="{{ route('hifz.toggle_feature') }}" method="POST" class="d-inline mr-2 mb-1">
+                    @csrf
+                    @if(Qs::isHifzProgressEnabled())
+                        <input type="hidden" name="enabled" value="0">
+                        <button type="submit" class="btn btn-sm btn-success font-weight-bold" style="border-radius: 20px; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);" title="Click to Turn OFF My Hifz Memorization Progress for students">
+                            <i class="icon-switch mr-1"></i> Hifz Progress: <b>ON</b> <span class="badge badge-light ml-1 text-danger font-size-xs">Turn OFF</span>
+                        </button>
+                    @else
+                        <input type="hidden" name="enabled" value="1">
+                        <button type="submit" class="btn btn-sm btn-danger font-weight-bold" style="border-radius: 20px; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.25);" title="Click to Turn ON My Hifz Memorization Progress for students">
+                            <i class="icon-switch mr-1"></i> Hifz Progress: <b>OFF</b> <span class="badge badge-light ml-1 text-success font-size-xs">Turn ON</span>
+                        </button>
+                    @endif
+                </form>
+
                 <a href="{{ route('live_sessions.index') }}" class="btn btn-sm btn-outline-success mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
                     <i class="icon-video-camera mr-1"></i> Live Class Hub
                 </a>
@@ -275,6 +291,40 @@
 
     {{-- Right 4-col: Hifz Recitation Activity & Popular Courses --}}
     <div class="col-lg-4">
+
+        {{-- Hifz Feature Controller Card (ON / OFF Toggle) --}}
+        <div class="card mb-4" style="border-radius: 12px; border: 2px solid {{ Qs::isHifzProgressEnabled() ? '#10B981' : '#EF4444' }}; background: #FFFFFF; box-shadow: 0 4px 15px rgba(0,0,0,0.06); overflow: hidden;">
+            <div class="card-header py-2 px-3 d-flex align-items-center justify-content-between" style="background: {{ Qs::isHifzProgressEnabled() ? '#ECFDF5' : '#FEF2F2' }}; border-bottom: 1px solid {{ Qs::isHifzProgressEnabled() ? '#A7F3D0' : '#FECACA' }};">
+                <span class="font-size-xs font-weight-bold text-uppercase" style="color: {{ Qs::isHifzProgressEnabled() ? '#065F46' : '#991B1B' }}; letter-spacing: 0.5px;">
+                    <i class="icon-switch mr-1"></i> Student Feature Control
+                </span>
+                <span class="badge {{ Qs::isHifzProgressEnabled() ? 'badge-success' : 'badge-danger' }} font-weight-bold px-2 py-1">
+                    {{ Qs::isHifzProgressEnabled() ? 'ENABLED (ON)' : 'DISABLED (OFF)' }}
+                </span>
+            </div>
+            <div class="card-body p-3">
+                <h6 class="font-weight-bold mb-1" style="color: #063D2E; font-size: 0.95rem;">
+                    My Hifz Memorization Progress
+                </h6>
+                <p class="font-size-xs text-muted mb-3" style="line-height: 1.4;">
+                    Turn this switch ON or OFF to control whether students can view the Hifz Memorization Progress card and tracker on their dashboard.
+                </p>
+                <form action="{{ route('hifz.toggle_feature') }}" method="POST">
+                    @csrf
+                    @if(Qs::isHifzProgressEnabled())
+                        <input type="hidden" name="enabled" value="0">
+                        <button type="submit" class="btn btn-block btn-danger font-weight-bold" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);">
+                            <i class="icon-switch2 mr-1"></i> TURN OFF FOR STUDENTS
+                        </button>
+                    @else
+                        <input type="hidden" name="enabled" value="1">
+                        <button type="submit" class="btn btn-block btn-success font-weight-bold" style="border-radius: 8px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);">
+                            <i class="icon-checkmark-circle mr-1"></i> TURN ON FOR STUDENTS
+                        </button>
+                    @endif
+                </form>
+            </div>
+        </div>
 
         {{-- Hifz Tracker Activity --}}
         <div class="card mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">

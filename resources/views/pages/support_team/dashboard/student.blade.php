@@ -62,28 +62,47 @@
         </div>
     </div>
 
-    {{-- Card 4: Hifz Memorization Progress --}}
+    {{-- Card 4: Hifz Memorization Progress or Academic Session --}}
     <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Hifz Log</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $my_hifz_logs->count() }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
-                        @if($my_hifz_logs->isNotEmpty())
-                            <span><i class="icon-bookmark mr-1"></i> {{ \Illuminate\Support\Str::limit($my_hifz_logs->first()->sabaq_surah_ayah, 20) }}</span>
-                        @else
-                            <span><i class="icon-book mr-1"></i> Active Memorizer</span>
-                        @endif
+        @if(Qs::isHifzProgressEnabled())
+            <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
+                <div class="media">
+                    <div class="media-body">
+                        <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Hifz Log</span>
+                        <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $my_hifz_logs->count() }}</h2>
+                        <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
+                            @if($my_hifz_logs->isNotEmpty())
+                                <span><i class="icon-bookmark mr-1"></i> {{ \Illuminate\Support\Str::limit($my_hifz_logs->first()->sabaq_surah_ayah, 20) }}</span>
+                            @else
+                                <span><i class="icon-book mr-1"></i> Active Memorizer</span>
+                            @endif
+                        </div>
                     </div>
-                </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
-                        <i class="icon-book icon-2x text-white"></i>
+                    <div class="ml-3 align-self-center">
+                        <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
+                            <i class="icon-book icon-2x text-white"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="card card-body text-white" style="background: linear-gradient(135deg, #2E4057 0%, #048A81 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+                <div class="media">
+                    <div class="media-body">
+                        <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Academic Session</span>
+                        <h3 class="mb-0 font-weight-bold mt-1 text-white">2026-2027</h3>
+                        <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
+                            <span><i class="icon-shield-check mr-1"></i> AL-TAQWA INSTITUTE</span>
+                        </div>
+                    </div>
+                    <div class="ml-3 align-self-center">
+                        <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
+                            <i class="icon-calendar3 icon-2x text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 
@@ -104,9 +123,11 @@
                 <a href="{{ route('enrollments.my_courses') }}" class="btn btn-sm btn-outline-primary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-graduation2 mr-1"></i> My Courses
                 </a>
+                @if(Qs::isHifzProgressEnabled())
                 <a href="{{ route('hifz.index') }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-book mr-1"></i> Hifz Daily Progress
                 </a>
+                @endif
                 <a href="{{ route('storefront.courses') }}" target="_blank" class="btn btn-sm btn-outline-secondary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-grid6 mr-1"></i> Browse 12 Courses
                 </a>
@@ -282,7 +303,8 @@
         </div>
         @endif
 
-        {{-- My Hifz Recitation Progress Log --}}
+        {{-- My Hifz Recitation Progress Log (Shown when enabled by Admin) --}}
+        @if(Qs::isHifzProgressEnabled())
         <div class="card mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
             <div class="card-header bg-white header-elements-inline py-3 border-bottom" style="border-color: #E2E8F0 !important;">
                 <h6 class="card-title font-weight-bold mb-0" style="color: #063D2E; font-size: 1rem;">
@@ -323,6 +345,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         {{-- Recommended Courses to Advance Islamic Knowledge --}}
         <div class="card mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">

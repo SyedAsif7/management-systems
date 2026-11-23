@@ -264,6 +264,12 @@ class Qs
         static::$settingsCache = null;
     }
 
+    public static function isHifzProgressEnabled()
+    {
+        $val = self::getSetting('show_hifz_progress');
+        return $val === null || $val === '1' || $val === 'on' || $val === 1 || $val === true;
+    }
+
     public static function getSetting($type)
     {
         if (static::$settingsCache === null) {

@@ -84,6 +84,19 @@
                                     <span class="font-weight-bold font-italic text-info-800">{{ __('msg.lock_exam') }}</span>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="show_hifz_progress" class="col-lg-3 col-form-label font-weight-semibold">Hifz Progress (Students)</label>
+                            <div class="col-lg-3">
+                                <select class="form-control select" name="show_hifz_progress" id="show_hifz_progress">
+                                    <option {{ (isset($s['show_hifz_progress']) && $s['show_hifz_progress'] == '0') ? '' : 'selected' }} value="1">ON (Enabled)</option>
+                                    <option {{ (isset($s['show_hifz_progress']) && $s['show_hifz_progress'] == '0') ? 'selected' : '' }} value="0">OFF (Disabled)</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <span class="font-weight-bold font-italic text-info-800">Show/Hide 'My Hifz Memorization Progress' on student portal</span>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-md-6">
                     {{--Fees--}}

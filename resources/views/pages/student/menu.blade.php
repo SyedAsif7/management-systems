@@ -13,11 +13,13 @@
 </li>
 
 {{--Hifz Tracker--}}
+@if(Qs::isHifzProgressEnabled())
 <li class="nav-item">
     <a href="{{ route('hifz.index') }}" class="nav-link {{ Route::is('hifz.index') ? 'active' : '' }}">
         <i class="icon-book"></i> Hifz Memorization Log
     </a>
 </li>
+@endif
 
 {{--Marksheet & Certificates--}}
 <li class="nav-item">

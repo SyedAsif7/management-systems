@@ -57,6 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::group(['prefix' => 'hifz'], function(){
             Route::get('/', 'HifzLogController@index')->name('hifz.index');
             Route::post('/', 'HifzLogController@store')->name('hifz.store')->middleware('teamSAT');
+            Route::post('toggle-feature', 'HifzLogController@toggleFeature')->name('hifz.toggle_feature')->middleware('teamSA');
             Route::delete('{id}', 'HifzLogController@destroy')->name('hifz.destroy')->middleware('teamSAT');
         });
 
