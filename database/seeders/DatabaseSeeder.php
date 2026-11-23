@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentRecordsTableSeeder::class);
         $this->call(SkillsTableSeeder::class);
         $this->call(AltaqwaCourseSeeder::class);
+        $this->call(AltaqwaEnrollmentSeeder::class);
 
         \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
     }
