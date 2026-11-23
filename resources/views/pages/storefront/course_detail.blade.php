@@ -24,6 +24,9 @@
             </div>
             <div class="col-lg-4 text-lg-right mt-4 mt-lg-0">
                 <div class="bg-white p-4 rounded text-dark text-left shadow-lg">
+                    <div class="overflow-hidden rounded mb-3" style="border: 1px solid #e2e8f0;">
+                        <img src="{{ asset(ltrim($course->thumbnail_url ?: 'assets/images/courses/tafseer-ul-quran.jpg', '/')) }}" alt="{{ $course->name }}" class="img-fluid" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;">
+                    </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted small">Course Fee</span>
                         @if($course->fee_type === 'free')

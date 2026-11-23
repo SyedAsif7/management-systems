@@ -16,3 +16,4 @@ _ide_helper.php
 .editorconfig
 database/*.sqlite
 database/*.sqlite-journal
+public/assets/images/courses images/

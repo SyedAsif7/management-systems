@@ -33,7 +33,7 @@
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="course-card">
                     <div class="position-relative">
-                        <img src="{{ $course->thumbnail_url ?: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80' }}" alt="{{ $course->name }}">
+                        <img src="{{ asset(ltrim($course->thumbnail_url ?: 'assets/images/courses/tafseer-ul-quran.jpg', '/')) }}" alt="{{ $course->name }}">
                         <div class="position-absolute" style="top: 12px; left: 12px;">
                             <span class="course-badge-category shadow-sm">
                                 {{ $course->category ? $course->category->name : 'Program' }}

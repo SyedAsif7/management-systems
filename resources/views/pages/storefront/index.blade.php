@@ -381,6 +381,7 @@ duration:"2 Years",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"📖",
+image:"{{ asset('assets/images/courses/tafseer-ul-quran.jpg') }}",
 tag:"Qur'an & Tajweed",
 short:"Verse-by-verse Qur’anic explanation, context of revelation (Asbab al-Nuzul), and practical daily lessons.",
 long:"Connect your heart with the divine words of Allah SWT. This 2-year weekend program provides deep verse-by-verse commentary, historical context, linguistic nuances, and actionable life lessons based on authentic classical Tafseer (Ibn Kathir, Ma'ariful Qur'an, and Jalalayn). Open to brothers and sisters globally with flexible weekend timings.",
@@ -399,6 +400,7 @@ duration:"6 Months",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"🕌",
+image:"{{ asset('assets/images/courses/seerat-un-nabi.jpg') }}",
 tag:"Islamic Studies",
 short:"Complete biography of Prophet Muhammad ﷺ from Makkah to Madinah with life lessons and contemporary relevance.",
 long:"A blessed 100% free community initiative walking through the sublime character, prophetic leadership, and milestones of the Beloved Messenger of Allah ﷺ. Covers the Meccan era, persecution, Hijrah, Madinan state-building, treaties, family life, and universal moral teachings for youth and adults.",
@@ -417,6 +419,7 @@ duration:"3 Days",
 schedule:"Weekend Workshop",
 eligibility:"Brothers & Sisters",
 icon:"🤲",
+image:"{{ asset('assets/images/courses/namaz-workshop.jpg') }}",
 tag:"Workshops & Short Courses",
 short:"Word-for-word translation of Surah Al-Fatihah, Surahs, Tashahhud, and Salah Duas to attain true Khushu.",
 long:"Transform your daily Salah from physical motions into an intimate conversation with your Creator. In 3 intensive weekend sessions, master the word-by-word meaning of every recitation in Salah: Sana, Fatihah, Ruku/Sujud Adhkar, Tashahhud, Durood Ibrahim, and Qunoot. Registration fee is 100% refunded upon completing the final assessment with ≥75% score.",
@@ -435,6 +438,7 @@ duration:"12 Months",
 schedule:"Saturday to Thursday",
 eligibility:"Brothers & Sisters",
 icon:"◉",
+image:"{{ asset('assets/images/courses/tajweed-e-quran.jpg') }}",
 tag:"Qur'an & Tajweed",
 short:"Makharij (articulation points), Sifaat, Noon/Meem Sakinah, Madd rules, and live recitation correction.",
 long:"Attain excellence in Quranic recitation according to the narration of Hafs 'an 'Asim. Learn the exact anatomical points of articulation (Makharij), essential and conditional characteristics (Sifaat al-Huroof), rules of Noon Sakinah & Tanween, Meem Sakinah, Mudood (prolongations), Waqf and Ibtida with daily live correction from certified Qaris.",
@@ -453,6 +457,7 @@ duration:"5 Months",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"✍️",
+image:"{{ asset('assets/images/courses/urdu-reading-writing.jpg') }}",
 tag:"Arabic & Urdu",
 short:"Urdu alphabet (Huroof-e-Tahajji), letter joining, reading fluency, and writing practice for Islamic books.",
 long:"Specially structured for diaspora learners, beginners, and students of Islamic knowledge seeking direct access to classical Urdu Islamic texts, Tafseer commentaries, and Seerah collections. Progress from Huroof-e-Tahajji and ligature joining rules to fluid paragraph comprehension and graceful Nastaliq handwriting.",
@@ -471,6 +476,7 @@ duration:"6 Months",
 schedule:"Saturday to Thursday",
 eligibility:"Brothers & Sisters",
 icon:"📖",
+image:"{{ asset('assets/images/courses/noorani-qaida.jpg') }}",
 tag:"Arabic & Urdu",
 short:"Beginner Qur’anic reading from Arabic letters and Harakat to Tanween, Sukoon, and Tashdeed.",
 long:"A proven, phonetics-based curriculum designed to take zero-level beginners to independent, accurate Qur'anic reading. Covers Arabic letters, short vowels (Harakat), Madd letters, Tanween, Sukoon, Tashdeed (Shaddah), and compound words with individual attention and gentle pacing for children, youth, and adult learners.",
@@ -489,6 +495,7 @@ duration:"3 Months",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"🎙️",
+image:"{{ asset('assets/images/courses/public-speaking.jpg') }}",
 tag:"Workshops & Short Courses",
 short:"Stage/camera confidence, Islamic storytelling, Dawah Reels/short-form videos, and vocal delivery.",
 long:"Empowering the next generation of Muslim creators and communicators. Learn how to craft inspiring talks, deliver impactful Jummah or community speeches, speak confidently on camera, script ethical Dawah Reels and podcasts, and use social media tools to present Islam with wisdom and beautiful preachings (Hikmah).",
@@ -507,6 +514,7 @@ duration:"3 Months",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"⚖️",
+image:"{{ asset('assets/images/courses/tawheed-aqeedah.jpg') }}",
 tag:"Islamic Studies",
 short:"Core foundations of Tawheed, Risalat, Akhirah, Imaan, and clearing common modern misconceptions.",
 long:"Anchor your faith upon unshakeable rational and scriptural foundations. Explore the categories of Tawheed (Rububiyyah, Uluhiyyah, Asma wa Sifaat), belief in Angels, Revealed Books, Messengers, Day of Judgement, and Divine Decree (Qadr). Clears doubts, atheist arguments, and ideological confusions facing contemporary Muslims. 100% refundable upon scoring ≥80% on the final exam.",
@@ -525,6 +533,7 @@ duration:"3 Months",
 schedule:"Saturday & Sunday",
 eligibility:"Brothers & Sisters",
 icon:"✨",
+image:"{{ asset('assets/images/courses/salah-sunnah-lifestyle.jpg') }}",
 tag:"Islamic Studies",
 short:"Step-by-step Wudu & Salah purification rules, common prayer mistakes, daily Masnoon Duas, and Sunnah habits.",
 long:"A practical guide to living the Sunnah from waking to sleeping. Covers the Fiqh of Taharah (Wudu, Ghusl, Tayammum, impure substances), detailed prayer postures and conditions, Sajdah Sahw, travelers' prayer (Qasr), and memorization of daily Masnoon morning/evening Duas for spiritual protection and peace of mind.",
@@ -543,6 +552,7 @@ duration:"12 Months",
 schedule:"Saturday to Thursday",
 eligibility:"Brothers & Sisters",
 icon:"📜",
+image:"{{ asset('assets/images/courses/arabic-language.jpg') }}",
 tag:"Arabic & Urdu",
 short:"Arabic grammar (Nahw), morphology (Sarf), vocabulary building, and direct Qur’anic text comprehension.",
 long:"Unlock the language of the Noble Qur'an and Islamic tradition. Based on the renowned Madinah Arabic and classical Dars-e-Nizami introductory texts. Master grammatical rules (Nahw), verb roots and conjugation patterns (Sarf), Quranic idioms, and conversational drills to understand the Quran directly without relying on translations.",
@@ -561,6 +571,7 @@ duration:"4 Years",
 schedule:"Saturday to Thursday",
 eligibility:"Brothers & Sisters",
 icon:"۞",
+image:"{{ asset('assets/images/courses/hifz-ul-quran.jpg') }}",
 tag:"Qur'an & Tajweed",
 short:"Complete Qur’an memorization following the structured Sabaq, Sabqi & Manzil daily listening system.",
 long:"An intensive online memorization sanctuary for dedicated seekers of the Qur'an. Students memorize under full-time certified Huffaz following the traditional three-tier discipline: Sabaq (new daily memorization), Sabqi (recent revision), and Manzil (continuous retention of old Juz). Includes individualized pacing, regular retention exams, and Sanad upon completion.",
@@ -579,6 +590,7 @@ duration:"4 Years",
 schedule:"Saturday to Thursday",
 eligibility:"Sisters Only (Scholarships Available)",
 icon:"✧",
+image:"{{ asset('assets/images/courses/alima-course.jpg') }}",
 tag:"Islamic Studies",
 short:"Comprehensive 4-year curriculum covering Qur’an, Tafseer, Hadith, Fiqh, Usul, Arabic, Seerah, and Dawah training.",
 long:"A premier 4-year traditional Islamic scholarship journey exclusively for sisters delivered online by qualified female scholars (Alimat). The rigorous syllabus covers Tafseer (Jalalayn & Baydawi), Hadith (Mishkat & Sihah Sittah selections), Hanafi Fiqh (Quduri & Hidayah), Usul-ul-Fiqh, Arabic Nahw & Sarf, Mantiq, Balaghah, Seerah, and contemporary Dawah. Includes Half-Yearly & Yearly formal examinations with authenticated Alimiyyah certification upon graduation.",
@@ -594,11 +606,12 @@ const badgeBg = isFree ? "#14644A" : (isRefundable ? "#C9A35A" : "#0B3D2E");
 const badgeColor = isRefundable ? "#0B3D2E" : "#fff";
 
 return `<article class="course">
-<div class="course-top">
-<span class="course-icon">${c.icon}</span>
-<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
-<span class="pill">${c.category}</span>
-<span class="pill" style="background:${badgeBg};color:${badgeColor};border:1px solid rgba(255,255,255,0.25);">${c.feeBadge}</span>
+<div class="course-top" style="background: url('${c.image}') center/cover no-repeat; height: 180px; position: relative; border-bottom: 2px solid rgba(201,163,90,0.35);">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,44,33,0.35) 0%, rgba(7,44,33,0.05) 45%, rgba(7,44,33,0.85) 100%);pointer-events:none;"></div>
+<span class="course-icon" style="position:relative;z-index:2;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.8));font-size:28px;">${c.icon}</span>
+<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:2;">
+<span class="pill" style="background:rgba(7,44,33,0.85);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.25);">${c.category}</span>
+<span class="pill" style="background:${badgeBg};color:${badgeColor};border:1px solid rgba(255,255,255,0.3);box-shadow:0 2px 6px rgba(0,0,0,0.3);">${c.feeBadge}</span>
 </div>
 </div>
 <div class="course-body">
@@ -673,6 +686,9 @@ document.getElementById("detailDesc").textContent=`${c.category} · ${c.feeFull}
 document.getElementById("detailHeading").textContent=c.name;
 
 let html=`
+<div style="position:relative;border-radius:14px;overflow:hidden;margin-bottom:20px;box-shadow:0 6px 22px rgba(0,0,0,0.12);border:1px solid var(--line);">
+<img src="${c.image}" alt="${c.name}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+</div>
 <div style="display:inline-flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
 <span class="pill" style="background:var(--mint);color:var(--green);font-weight:700;font-size:11px;padding:6px 12px;">${c.category}</span>
 <span class="pill" style="background:#0B3D2E;color:#fff;font-weight:700;font-size:11px;padding:6px 12px;">${c.feeFull}</span>
