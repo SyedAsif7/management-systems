@@ -317,12 +317,12 @@ html,body{overflow-x:hidden}
 <meta name="color-scheme" content="light only">
 </head>
 <body>
-<div class="topbar"><div class="wrap"><span>✦ Online Islamic Education · Open to learners worldwide</span><span>Based in India · Serving students worldwide &nbsp;|&nbsp; <a href="{{ route('login') }}" style="color:#C9A35A;font-weight:700;text-decoration:underline;">Admin & Faculty LMS Login ↗</a></span></div></div>
+<div class="topbar"><div class="wrap"><span>✦ Online Islamic Education · Open to learners worldwide</span><span>Based in India · Serving students worldwide &nbsp;|&nbsp; <a href="{{ route('login') }}" style="color:#C9A35A;font-weight:700;text-decoration:underline;">Portal Login (Students · Teachers · Admin) ↗</a></span></div></div>
 <header class="nav"><div class="wrap navin">
 <a class="brand" href="#home" data-page="home"><span class="brandmark"><img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA"></span><span><strong>AL-TAQWA</strong><small>Institute of Islamic Studies</small></span></a>
 <button class="menu" id="menuBtn" aria-label="Open navigation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <nav class="navlinks" id="navlinks">
-<a href="#home" data-page="home">Home</a><a href="#courses" data-page="courses">Courses</a><a href="#teachers" data-page="teachers">Teachers</a><a href="#about" data-page="about">About</a><a href="#admissions" data-page="admissions">Admissions</a><a href="#contact" data-page="contact">Contact</a><a class="btn navlogin" data-auth="out" href="#login" data-page="login">Login</a><a class="btn btn-green navsignup" data-auth="out" href="#signup" data-page="signup">Sign up</a><a class="btn btn-green navsignup" data-auth="in" href="#dashboard" data-page="dashboard"><i class="bolt sm"></i> <span id="navCoins">0</span> · My Dashboard</a>
+<a href="#home" data-page="home">Home</a><a href="#courses" data-page="courses">Courses</a><a href="#teachers" data-page="teachers">Teachers</a><a href="#about" data-page="about">About</a><a href="#admissions" data-page="admissions">Admissions</a><a href="#contact" data-page="contact">Contact</a>@auth<a class="btn btn-gold" href="{{ route('dashboard') }}" style="font-weight:700;">My Dashboard ↗</a>@else<a class="btn btn-gold" href="{{ route('login') }}" style="font-weight:700;">Portal Login ↗</a>@endauth
 </nav></div></header>
 
 <main>
@@ -356,14 +356,14 @@ html,body{overflow-x:hidden}
 
 <div id="teachers" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow" style="color:var(--gold)">Our faculty</div><h1>Meet our teachers.</h1><p>Learn with dedicated teachers who guide students with patience, care and a focus on understanding. Choose a course to see who teaches it.</p></div></section><section class="page-content"><div class="wrap"><div class="tfilters" id="tFilters"></div><div class="tgrid" id="tGrid"></div><p class="tnote">Teacher availability and batch timings are confirmed at the time of enrolment.</p></div></section></div>
 
-<div id="login" class="pageview"><section class="authsec"><div class="authcard"><div class="eyebrow">Welcome back</div><h1>Student Login</h1><p class="authsub">Login to see your courses, tests, live classes and coins.</p><form id="loginForm" novalidate><label>Phone or email<input id="lgContact" autocomplete="username" placeholder="e.g. 9876543210 or email"></label><label>Password<input id="lgPass" type="password" autocomplete="current-password" placeholder="Your password"></label><div class="autherr" id="lgErr"></div><button class="btn btn-green authbtn" type="submit">Login</button></form><p class="authalt">New here? <a href="#signup" data-page="signup">Create an account</a></p><p class="authalt" style="margin-top:8px;"><a href="{{ route('login') }}" style="color:#C9A35A;font-weight:700;">Admin / Ustadh Portal Login ↗</a></p></div></section></div>
+<div id="login" class="pageview"><section class="authsec"><div class="authcard"><div class="eyebrow">Unified LMS Portal</div><h1>Portal Login</h1><p class="authsub">Single secure login for Students, Teachers & Administration.</p><div style="text-align:center;margin:24px 0;"><a class="btn btn-green" href="{{ route('login') }}" style="padding:14px 28px;font-size:15px;display:inline-flex;">Sign in to LMS Portal ↗</a></div></div></section></div>
 
-<div id="signup" class="pageview"><section class="authsec"><div class="authcard"><div class="eyebrow">Join AL-TAQWA</div><h1>Sign up</h1><p class="authsub">Create your student account and get 50 welcome coins.</p><form id="signupForm" novalidate><label>Full name<input id="suName" autocomplete="name" placeholder="Your name"></label><label>Phone or email<input id="suContact" autocomplete="username" placeholder="e.g. 9876543210 or email"></label><label>Course<select id="suCourse"></select></label><label>Password<input id="suPass" type="password" autocomplete="new-password" placeholder="At least 6 characters"></label><div class="autherr" id="suErr"></div><button class="btn btn-green authbtn" type="submit">Create account</button></form><p class="authalt">Already have an account? <a href="#login" data-page="login">Login</a></p></div></section></div>
+<div id="signup" class="pageview"><section class="authsec"><div class="authcard"><div class="eyebrow">Student Admissions</div><h1>Join AL-TAQWA</h1><p class="authsub">To enroll in one of our 12 certified Islamic courses, submit your admission application. Approved students receive official login credentials for portal access.</p><div style="text-align:center;margin:24px 0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a class="btn btn-green" href="#admissions" data-page="admissions">Apply for Admission ↗</a><a class="btn btn-outline" href="{{ route('login') }}" style="border:1.5px solid var(--green);color:var(--green);">Already Enrolled? Login ↗</a></div></div></section></div>
 
 <div id="dashboard" class="pageview"><section class="dashwrap"><div class="wrap dash"><aside class="dside" id="dSide"><div class="dside-head"><h3>Menu</h3><button class="dclose" id="dClose" aria-label="Close menu">✕</button></div><nav id="dNav"></nav></aside><main id="dMain"></main></div></section></div>
 <div class="quizov" id="quizOv" hidden><div class="quizbox" id="quizBox"></div></div>
 
-<footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home" data-page="home"><span class="brandmark"><img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA"></span><span><strong style="color:white">AL-TAQWA</strong><small style="color:#b9d6c0">Institute of Islamic Studies</small></span></a><p style="max-width:280px;margin-top:17px">Taleem. Tarbiyah. Tazkiyah.<br>Islamic education worldwide.</p></div><div><h4>Explore</h4><a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About us</a><a href="#courses" data-page="courses">All courses</a><a href="#teachers" data-page="teachers">Our teachers</a><a href="#admissions" data-page="admissions">Admissions</a><a href="{{ route('login') }}" style="color:#C9A35A;">Staff & Admin Portal</a></div><div><h4>Academic Pathways</h4><a href="#courses" data-page="courses" data-course="Tafseer-ul-Qur’an — Weekend Program">Tafseer-ul-Qur’an (₹99/mo)</a><a href="#courses" data-page="courses" data-course="Alima Course (Advanced Diploma in Islamic Studies)">Alima Course (4-Yr)</a><a href="#courses" data-page="courses" data-course="Hifz-ul-Qur’an Program (Advanced Diploma)">Hifz-ul-Qur’an Program</a><a href="#courses" data-page="courses" data-course="Diploma in Tajweed-e-Quran">Diploma in Tajweed</a><a href="#courses" data-page="courses" data-course="Diploma in Arabic Language">Diploma in Arabic Language</a><a href="#courses" data-page="courses" data-course="Seerat-un-Nabi ﷺ Program">Seerat-un-Nabi ﷺ (Free)</a><a href="{{ route('storefront.verify_certificate') }}" style="color:#C9A35A;font-weight:700;">Verify Certificate ↗</a></div><div><h4>Contact</h4><a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a><a href="https://altaqwauniversity.com">altaqwauniversity.com</a><a href="#contact" data-page="contact">Send an enquiry</a><a href="{{ route('privacy_policy') }}">Privacy Policy</a><a href="{{ route('terms_of_use') }}">Terms of Service</a></div></div><div class="footbottom"><span>© <span id="year"></span> AL-TAQWA Institute of Islamic Studies</span><span>Designed around Taleem · Tarbiyah · Tazkiyah</span></div></div></footer>
+<footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home" data-page="home"><span class="brandmark"><img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA"></span><span><strong style="color:white">AL-TAQWA</strong><small style="color:#b9d6c0">Institute of Islamic Studies</small></span></a><p style="max-width:280px;margin-top:17px">Taleem. Tarbiyah. Tazkiyah.<br>Islamic education worldwide.</p></div><div><h4>Explore</h4><a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About us</a><a href="#courses" data-page="courses">All courses</a><a href="#teachers" data-page="teachers">Our teachers</a><a href="#admissions" data-page="admissions">Admissions</a><a href="{{ route('login') }}" style="color:#C9A35A;font-weight:700;">Portal Login (Students · Teachers · Admin) ↗</a></div><div><h4>Academic Pathways</h4><a href="#courses" data-page="courses" data-course="Tafseer-ul-Qur’an — Weekend Program">Tafseer-ul-Qur’an (₹99/mo)</a><a href="#courses" data-page="courses" data-course="Alima Course (Advanced Diploma in Islamic Studies)">Alima Course (4-Yr)</a><a href="#courses" data-page="courses" data-course="Hifz-ul-Qur’an Program (Advanced Diploma)">Hifz-ul-Qur’an Program</a><a href="#courses" data-page="courses" data-course="Diploma in Tajweed-e-Quran">Diploma in Tajweed</a><a href="#courses" data-page="courses" data-course="Diploma in Arabic Language">Diploma in Arabic Language</a><a href="#courses" data-page="courses" data-course="Seerat-un-Nabi ﷺ Program">Seerat-un-Nabi ﷺ (Free)</a><a href="{{ route('storefront.verify_certificate') }}" style="color:#C9A35A;font-weight:700;">Verify Certificate ↗</a></div><div><h4>Contact</h4><a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a><a href="https://altaqwauniversity.com">altaqwauniversity.com</a><a href="#contact" data-page="contact">Send an enquiry</a><a href="{{ route('privacy_policy') }}">Privacy Policy</a><a href="{{ route('terms_of_use') }}">Terms of Service</a></div></div><div class="footbottom"><span>© <span id="year"></span> AL-TAQWA Institute of Islamic Studies</span><span>Designed around Taleem · Tarbiyah · Tazkiyah</span></div></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -927,8 +927,14 @@ document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target&&e.target.i
 /* routing guard */
 const base=window.showPage;
 window.showPage=function(id){
-if(id==="dashboard"&&!cur())id="login";
-if((id==="login"||id==="signup")&&cur())id="dashboard";
+if(id==="login"){
+    window.location.href = "{{ route('login') }}";
+    return;
+}
+if(id==="dashboard"&&!cur()){
+    window.location.href = "{{ route('login') }}";
+    return;
+}
 base(id);
 if(id==="dashboard")render();
 document.querySelectorAll("#navlinks a[data-page]").forEach(a=>a.classList.toggle("active",a.dataset.page===(id==="courseDetail"?"courses":id)));
@@ -936,7 +942,11 @@ document.querySelectorAll("#navlinks a[data-page]").forEach(a=>a.classList.toggl
 
 fillCourses();
 sync();
-if(location.hash==="#dashboard"||location.hash==="#login"||location.hash==="#signup"||location.hash==="#courses"||location.hash==="#teachers"||location.hash==="#admissions"||location.hash==="#contact")showPage(location.hash.slice(1));
+if(location.hash==="#login"){
+    window.location.href = "{{ route('login') }}";
+} else if(location.hash==="#dashboard"||location.hash==="#signup"||location.hash==="#courses"||location.hash==="#teachers"||location.hash==="#admissions"||location.hash==="#contact"){
+    showPage(location.hash.slice(1));
+}
 })();
 </script>
 </body>
