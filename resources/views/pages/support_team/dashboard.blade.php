@@ -76,19 +76,6 @@
     @endif
 @endif
 
-{{-- Events & Academic Calendar Begins --}}
-<div class="card mt-2" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
-    <div class="card-header bg-white header-elements-inline py-3 border-bottom" style="border-color: #E2E8F0 !important;">
-        <h6 class="card-title font-weight-bold mb-0" style="color: #063D2E;">
-            <i class="icon-calendar3 mr-2" style="color: #C9A35A;"></i> Academic & Live Class Events Calendar
-        </h6>
-        {!! Qs::getPanelOptions() !!}
-    </div>
 
-    <div class="card-body">
-        <div class="fullcalendar-basic"></div>
-    </div>
-</div>
-{{-- Events Calendar Ends --}}
 
 @endsection

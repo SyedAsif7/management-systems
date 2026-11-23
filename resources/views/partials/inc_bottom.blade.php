@@ -28,16 +28,11 @@
 {{--Uploaders--}}
 <script src="{{ asset('global_assets/js/plugins/uploaders/fileinput/fileinput.min.js') }}"></script>
 
-{{--Calendar--}}
-<script src="{{ asset('global_assets/js/plugins/ui/fullcalendar/fullcalendar.min.js') }}"></script>
-
-
 <script src=" {{ asset('assets/js/app.js') }} "></script>
 <script src="{{ asset('global_assets/js/demo_pages/form_wizard.js') }}"></script>
 <script src="{{ asset('global_assets/js/demo_pages/form_select2.js') }}"></script>
 <script src="{{ asset('global_assets/js/demo_pages/datatables_extension_buttons_html5.js') }}"></script>
 <script src="{{ asset('global_assets/js/demo_pages/uploader_bootstrap.js') }}"></script>
-<script src="{{ asset('global_assets/js/demo_pages/fullcalendar_basic.js') }}"></script>
 
 <!-- /theme JS files -->
 
