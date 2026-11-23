@@ -103,8 +103,8 @@
                 <a href="{{ route('marks.index') }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-pencil5 mr-1"></i> Marks & Grades
                 </a>
-                <a href="{{ route('tt.index') }}" class="btn btn-sm btn-outline-secondary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
-                    <i class="icon-calendar mr-1"></i> Class Timetable
+                <a href="{{ route('sections.index') }}" class="btn btn-sm btn-outline-secondary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
+                    <i class="icon-users4 mr-1"></i> Cohorts & Batches
                 </a>
                 <a href="{{ route('my_account') }}" class="btn btn-sm btn-outline-dark mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-user mr-1"></i> My Profile

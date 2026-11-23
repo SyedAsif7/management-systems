@@ -12,12 +12,7 @@
     </a>
 </li>
 
-{{-- Timetables --}}
-<li class="nav-item">
-    <a href="{{ route('tt.index') }}" class="nav-link {{ Route::is('tt.*') ? 'active' : '' }}">
-        <i class="icon-calendar"></i> Academic Timetable
-    </a>
-</li>
+
 
 {{-- Public Certificate Verification --}}
 <li class="nav-item">

@@ -262,7 +262,7 @@
                     </div>
                     @empty
                     <div class="p-4 text-center text-muted">
-                        No upcoming live sessions scheduled today. Check the timetable for your weekly class times.
+                        No upcoming live sessions scheduled today. Check your cohort batch schedule for weekly class times.
                     </div>
                     @endforelse
                 </div>
