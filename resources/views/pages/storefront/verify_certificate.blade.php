@@ -74,7 +74,7 @@
                             <i class="fas fa-exclamation-triangle fa-3x"></i>
                         </div>
                         <h5 class="font-weight-bold text-dark">No Record Found for Code: "{{ $verifyCode }}"</h5>
-                        <p class="text-muted small mb-0">Please check the characters carefully and re-enter, or contact <a href="mailto:admissions@joinaltaqwa.com">admissions@joinaltaqwa.com</a> for manual transcript lookup.</p>
+                        <p class="text-muted small mb-0">Please check the characters carefully and re-enter, or contact <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a> for manual transcript lookup.</p>
                     </div>
                 @endif
             @endif

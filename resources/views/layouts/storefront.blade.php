@@ -276,10 +276,10 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses') }}">All Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses', ['category' => 'QT']) }}">Qur'an & Tajweed</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses', ['category' => 'IS']) }}">Islamic Studies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses', ['category' => 'AU']) }}">Arabic & Urdu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('storefront.courses', ['category' => 'WS']) }}">Workshops</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#teachers">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#admissions">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('home') }}#contact">Contact</a></li>
                 </ul>
 
                 <div class="d-flex align-items-center">
@@ -325,8 +325,8 @@
                         Dedicated to spreading authentic, traditional Islamic scholarship across the globe through structured online programs, live Ustadh mentorship, and interactive classrooms.
                     </p>
                     <p class="small text-warning">
-                        <i class="fas fa-envelope mr-1"></i> admissions@joinaltaqwa.com<br>
-                        <i class="fas fa-globe mr-1"></i> www.joinaltaqwa.com
+                        <i class="fas fa-envelope mr-1"></i> officialaltaqwa@gmail.com<br>
+                        <i class="fas fa-globe mr-1"></i> www.altaqwauniversity.com
                     </p>
                 </div>
                 <div class="col-md-2 col-6 mb-4">
