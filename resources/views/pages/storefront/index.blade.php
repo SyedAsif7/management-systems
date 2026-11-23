@@ -334,7 +334,7 @@ html,body{overflow-x:hidden}
 <div class="hero-actions"><a class="btn btn-gold" href="#courses" data-page="courses">Explore our courses ↗</a><a class="btn btn-outline" href="#about" data-page="about">Discover AL-TAQWA</a></div>
 <div class="trust"><span>Live online classes</span><span>Flexible learning</span><span>Worldwide access</span></div>
 </div></div></section>
-<section class="stats"><div class="wrap stats-grid"><div class="stat"><strong>5</strong><span>Learning pathways</span></div><div class="stat"><strong>Online</strong><span>Learn from anywhere</span></div><div class="stat"><strong>All ages</strong><span>Learning for every stage</span></div><div class="stat"><strong>Worldwide</strong><span>Accessible across borders</span></div></div></section>
+<section class="stats"><div class="wrap stats-grid"><div class="stat"><strong>12</strong><span>Certified Courses</span></div><div class="stat"><strong>4</strong><span>Academic Categories</span></div><div class="stat"><strong>Live Online</strong><span>Global Interactive Classes</span></div><div class="stat"><strong>All Learners</strong><span>Brothers & Sisters Batches</span></div></div></section>
 <section class="section" id="featured"><div class="wrap"><div class="section-head"><div class="eyebrow">Learn with intention</div><h2>Explore our courses</h2><p>From Qur’an recitation to structured Islamic studies, choose a course that fits your goals and current level.</p></div><div class="slider" data-slider><button class="sarrow prev" aria-label="Previous">‹</button><div class="strack" id="homeCourses"></div><button class="sarrow next" aria-label="Next">›</button><div class="sdots"></div></div><div class="center"><a class="btn btn-green" href="#courses" data-page="courses">View all learning pathways ↗</a></div></div></section>
 <section class="section" id="homeTeachersSec" style="background:#EDF4F0"><div class="wrap"><div class="section-head"><div class="eyebrow">Our faculty</div><h2>Meet our teachers</h2><p>Dedicated teachers who guide every student with patience, care and a focus on understanding.</p></div><div class="slider" data-slider><button class="sarrow prev" aria-label="Previous">‹</button><div class="strack" id="homeTeachers"></div><button class="sarrow next" aria-label="Next">›</button><div class="sdots"></div></div><div class="center"><a class="btn btn-green" href="#teachers" data-page="teachers">Meet all teachers ↗</a></div></div></section>
 <section class="section" style="background:#FAFAF8"><div class="wrap split"><div><div class="eyebrow">Our approach</div><h2>Faith-centred learning for everyday life.</h2><p class="muted">We believe learning Deen should be accessible to people balancing family, work, education and other responsibilities. AL-TAQWA brings structured online learning closer to you.</p><ul class="checklist" style="color:var(--ink)"><li>Learn from home, wherever you live</li><li>Choose a learning pathway suited to your goals</li><li>Build understanding through consistent study</li><li>Ask about schedules and course suitability before enrolling</li></ul><div style="margin-top:24px"><a class="btn btn-green" href="#about" data-page="about">Our institute ↗</a></div></div><div class="feature-panel"><div class="eyebrow">Our guiding values</div><h3>Taleem. Tarbiyah. Tazkiyah.</h3><p>Knowledge is more than information. It can shape understanding, character and daily practice.</p><ul class="checklist"><li><b>Taleem</b> — meaningful Islamic learning</li><li><b>Tarbiyah</b> — nurturing good character</li><li><b>Tazkiyah</b> — striving for inner growth</li></ul></div></div></section>
@@ -343,11 +343,11 @@ html,body{overflow-x:hidden}
 <section class="cta"><div class="wrap cta-inner"><div><h2>Take your next step in learning.</h2><p>Tell us what you want to learn. We’ll help you explore the available options.</p></div><a class="btn btn-green" href="#contact" data-page="contact">Talk to our team ↗</a></div></section>
 </div>
 
-<div id="courses" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Learning pathways</div><h1>Courses at AL-TAQWA</h1><p>Explore structured online learning options. Course schedules, fees, eligibility and availability should be confirmed with our team before enrolment.</p></div></section><section class="page-content"><div class="wrap"><div class="field" style="max-width:350px;margin:0 0 24px"><label for="courseFilter">Find a course</label><input id="courseFilter" placeholder="Search Alima, Hifz, Tajweed…"></div><div class="cards" id="allCourses"></div><p class="notice">Course details shown here are introductory. Please enquire for the current syllabus, batch timings, fees and available seats.</p></div></section></div>
+<div id="courses" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Academic Curriculum</div><h1>Official Courses & Programs</h1><p>Explore all 12 authentic Islamic courses designed for spiritual growth and academic depth. Learn live online with dedicated scholars and structured progress tracking.</p></div></section><section class="page-content"><div class="wrap"><div class="tfilters" id="courseCatFilters" style="margin-bottom:22px;"></div><div class="field" style="max-width:440px;margin:0 0 24px"><label for="courseFilter">Search courses by keyword, topic or subject</label><input id="courseFilter" placeholder="Search Tafseer, Tajweed, Seerat, Alima, Arabic…"></div><div class="cards" id="allCourses"></div><p class="notice" style="margin-top:24px;">All courses include live interactive classes, authenticated study notes, and certificate upon completion. Scholarships and flexible timings available.</p></div></section></div>
 
 <div id="about" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Who we are</div><h1>Islamic learning for real life.</h1><p>AL-TAQWA Institute of Islamic Studies is an online Islamic education platform making Islamic knowledge accessible to people of different ages and backgrounds worldwide.</p></div></section><section class="page-content"><div class="wrap split"><div><div class="eyebrow">Our purpose</div><h2>Make learning accessible, meaningful and consistent.</h2><p class="muted">Life can make it difficult to attend in-person classes. Online learning offers another path for people balancing studies, work, family and other responsibilities.</p><p class="muted">Through our learning pathways, we aim to support Qur’an learning and the study of Islamic subjects in a structured online environment.</p><h3 style="color:var(--green);font:500 23px Georgia,serif">Our tagline</h3><p><b>Taleem. Tarbiyah. Tazkiyah.</b></p></div><div class="feature-panel"><div class="eyebrow">Our commitment</div><h3>Learn with care and purpose.</h3><p>We aim to help learners find a suitable course and understand the expectations before they enrol.</p><ul class="checklist"><li>Clear course information</li><li>Online access for learners worldwide</li><li>Guidance before joining a batch</li><li>Respectful, learner-focused communication</li></ul></div></div></section></div>
 
-<div id="admissions" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Admissions & enquiries</div><h1>Start with an enquiry.</h1><p>Tell us the course you’re interested in and your preferred learning time. Our team can follow up with current details.</p></div></section><section class="page-content"><div class="wrap contact-grid"><div><h2>Let’s find your learning path.</h2><p class="muted">Share a few details so the institute can help you understand the next steps. Submitting this prototype form does not create an account or confirm admission.</p><div class="step" style="margin-top:20px"><h3 style="margin-top:0">Courses available to enquire about</h3><p>Alima Course · Hifz · Tajweed · Tafseer · Islamic Studies</p></div></div><div class="formbox"><form id="admissionForm"><div class="formgrid"><div class="field"><label for="adName">Full name *</label><input id="adName" name="name" required placeholder="Your name"></div><div class="field"><label for="adEmail">Email *</label><input id="adEmail" name="email" type="email" required placeholder="you@example.com"></div><div class="field"><label for="adCountry">Country *</label><input id="adCountry" name="country" required placeholder="Country of residence"></div><div class="field"><label for="adCourse">Course *</label><select id="adCourse" name="course" required><option value="">Select a course</option><option>Alima Course</option><option>Hifz</option><option>Tajweed</option><option>Tafseer</option><option>Islamic Studies</option></select></div><div class="field full"><label for="adTime">Preferred time / time zone</label><input id="adTime" name="time" placeholder="e.g. evenings, UK time"></div><div class="field full"><label for="adMessage">Your question</label><textarea id="adMessage" name="message" rows="3" placeholder="Tell us what you would like to know"></textarea></div></div><button class="btn btn-green" type="submit">Prepare enquiry ↗</button><p class="notice">Our admissions team will review your enquiry and provide class schedules, ustadh information, and joining details.</p></form></div></div></section></div>
+<div id="admissions" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Admissions & enquiries</div><h1>Start with an enquiry.</h1><p>Tell us the course you’re interested in and your preferred learning time. Our team can follow up with current details.</p></div></section><section class="page-content"><div class="wrap contact-grid"><div><h2>Let’s find your learning path.</h2><p class="muted">Share a few details so the institute can help you understand the next steps. Submitting this prototype form does not create an account or confirm admission.</p><div class="step" style="margin-top:20px"><h3 style="margin-top:0">All 12 Official Programs</h3><div style="font-size:12px;line-height:1.7;color:var(--muted);"><strong style="color:var(--green);display:block;margin-top:6px;">Qur'an & Tajweed</strong>• Tafseer-ul-Qur’an (₹99/mo)<br>• Diploma in Tajweed (₹499/mo)<br>• Hifz-ul-Qur’an Program (₹1,500/mo)<strong style="color:var(--green);display:block;margin-top:8px;">Islamic Studies</strong>• Seerat-un-Nabi ﷺ (Completely Free)<br>• Tawheed & Aqeedah (₹499 · 100% Refundable)<br>• Salah, Duas & Sunnah Lifestyle (₹499)<br>• Alima Course — Sisters (₹599/mo)<strong style="color:var(--green);display:block;margin-top:8px;">Arabic & Urdu</strong>• Urdu Reading & Writing (₹499/mo)<br>• Basic Arabic Noorani Qaida (₹499/mo)<br>• Diploma in Arabic Language (₹699/mo)<strong style="color:var(--green);display:block;margin-top:8px;">Workshops & Short Courses</strong>• Free Namaz Translation (₹99 · 100% Refundable)<br>• Public Speaking & Content Creation (₹999)</div></div></div><div class="formbox"><form id="admissionForm"><div class="formgrid"><div class="field"><label for="adName">Full name *</label><input id="adName" name="name" required placeholder="Your name"></div><div class="field"><label for="adEmail">Email *</label><input id="adEmail" name="email" type="email" required placeholder="you@example.com"></div><div class="field"><label for="adCountry">Country *</label><input id="adCountry" name="country" required placeholder="Country of residence"></div><div class="field"><label for="adCourse">Course *</label><select id="adCourse" name="course" required><option value="">Select a course</option><option>Tafseer-ul-Qur’an — Weekend Program</option><option>Seerat-un-Nabi ﷺ Program</option><option>Free Namaz Translation Workshop</option><option>Diploma in Tajweed-e-Quran</option><option>Certificate in Urdu Reading & Writing</option><option>Certificate in Basic Arabic Reading (Noorani Qaida)</option><option>Certificate in Islamic Public Speaking & Content Creation</option><option>Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)</option><option>Certificate in Salah, Duas & Sunnah Lifestyle</option><option>Diploma in Arabic Language</option><option>Hifz-ul-Qur’an Program (Advanced Diploma)</option><option>Alima Course (Advanced Diploma in Islamic Studies)</option></select></div><div class="field full"><label for="adTime">Preferred time / time zone</label><input id="adTime" name="time" placeholder="e.g. evenings, UK time"></div><div class="field full"><label for="adMessage">Your question</label><textarea id="adMessage" name="message" rows="3" placeholder="Tell us what you would like to know"></textarea></div></div><button class="btn btn-green" type="submit">Prepare enquiry ↗</button><p class="notice">Our admissions team will review your enquiry and provide class schedules, ustadh information, and joining details.</p></form></div></div></section></div>
 
 <div id="contact" class="pageview"><section class="subhero"><div class="wrap"><div class="eyebrow">Get in touch</div><h1>We’re here to help you begin.</h1><p>Questions about a course, schedule or admission? Send an enquiry and tell us what you need.</p></div></section><section class="page-content"><div class="wrap contact-grid"><div class="contact-info"><h3>AL-TAQWA Institute of Islamic Studies</h3><p>Online Islamic education for learners worldwide.</p><div class="contact-line">🌍 Based in India · Serving students worldwide</div><div class="contact-line">✉ officialaltaqwa@gmail.com</div><div class="contact-line">↗ altaqwauniversity.com</div><div class="contact-line">📜 <a href="{{ route('storefront.verify_certificate') }}" style="color:#C9A35A;font-weight:700;">Official Certificate Verification ↗</a></div><p style="margin-top:20px;font-size:12px">Admissions open year-round for brothers and sisters across all global time zones.</p></div><div class="formbox"><h2 style="font-size:30px;margin-top:0">Send an enquiry</h2><form id="contactForm"><div class="field"><label for="cName">Your name *</label><input id="cName" required placeholder="Full name"></div><div class="field"><label for="cEmail">Email address *</label><input id="cEmail" type="email" required placeholder="you@example.com"></div><div class="field"><label for="cSubject">What is your enquiry about?</label><select id="cSubject"><option>Course information</option><option>Fees and timings</option><option>Admissions</option><option>Other</option></select></div><div class="field"><label for="cMsg">Message *</label><textarea id="cMsg" required rows="4" placeholder="How can we help?"></textarea></div><button class="btn btn-green" type="submit">Prepare message ↗</button><p class="notice">This will open an email draft to officialaltaqwa@gmail.com with your enquiry details.</p></form></div></div></section></div>
 
@@ -363,21 +363,293 @@ html,body{overflow-x:hidden}
 <div id="dashboard" class="pageview"><section class="dashwrap"><div class="wrap dash"><aside class="dside" id="dSide"><div class="dside-head"><h3>Menu</h3><button class="dclose" id="dClose" aria-label="Close menu">✕</button></div><nav id="dNav"></nav></aside><main id="dMain"></main></div></section></div>
 <div class="quizov" id="quizOv" hidden><div class="quizbox" id="quizBox"></div></div>
 
-<footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home" data-page="home"><span class="brandmark"><img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA"></span><span><strong style="color:white">AL-TAQWA</strong><small style="color:#b9d6c0">Institute of Islamic Studies</small></span></a><p style="max-width:280px;margin-top:17px">Taleem. Tarbiyah. Tazkiyah.<br>Islamic education worldwide.</p></div><div><h4>Explore</h4><a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About us</a><a href="#courses" data-page="courses">All courses</a><a href="#teachers" data-page="teachers">Our teachers</a><a href="#admissions" data-page="admissions">Admissions</a><a href="{{ route('login') }}" style="color:#C9A35A;">Staff & Admin Portal</a></div><div><h4>Learning pathways</h4><a href="#courses" data-page="courses" data-course="Alima Course">Alima Course</a><a href="#courses" data-page="courses" data-course="Hifz">Hifz</a><a href="#courses" data-page="courses" data-course="Tajweed">Tajweed</a><a href="#courses" data-page="courses" data-course="Tafseer">Tafseer</a><a href="{{ route('storefront.verify_certificate') }}" style="color:#C9A35A;">Verify Certificate</a></div><div><h4>Contact</h4><a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a><a href="https://altaqwauniversity.com">altaqwauniversity.com</a><a href="#contact" data-page="contact">Send an enquiry</a><a href="{{ route('privacy_policy') }}">Privacy Policy</a><a href="{{ route('terms_of_use') }}">Terms of Service</a></div></div><div class="footbottom"><span>© <span id="year"></span> AL-TAQWA Institute of Islamic Studies</span><span>Designed around Taleem · Tarbiyah · Tazkiyah</span></div></div></footer>
+<footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="#home" data-page="home"><span class="brandmark"><img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA"></span><span><strong style="color:white">AL-TAQWA</strong><small style="color:#b9d6c0">Institute of Islamic Studies</small></span></a><p style="max-width:280px;margin-top:17px">Taleem. Tarbiyah. Tazkiyah.<br>Islamic education worldwide.</p></div><div><h4>Explore</h4><a href="#home" data-page="home">Home</a><a href="#about" data-page="about">About us</a><a href="#courses" data-page="courses">All courses</a><a href="#teachers" data-page="teachers">Our teachers</a><a href="#admissions" data-page="admissions">Admissions</a><a href="{{ route('login') }}" style="color:#C9A35A;">Staff & Admin Portal</a></div><div><h4>Academic Pathways</h4><a href="#courses" data-page="courses" data-course="Tafseer-ul-Qur’an — Weekend Program">Tafseer-ul-Qur’an (₹99/mo)</a><a href="#courses" data-page="courses" data-course="Alima Course (Advanced Diploma in Islamic Studies)">Alima Course (4-Yr)</a><a href="#courses" data-page="courses" data-course="Hifz-ul-Qur’an Program (Advanced Diploma)">Hifz-ul-Qur’an Program</a><a href="#courses" data-page="courses" data-course="Diploma in Tajweed-e-Quran">Diploma in Tajweed</a><a href="#courses" data-page="courses" data-course="Diploma in Arabic Language">Diploma in Arabic Language</a><a href="#courses" data-page="courses" data-course="Seerat-un-Nabi ﷺ Program">Seerat-un-Nabi ﷺ (Free)</a><a href="{{ route('storefront.verify_certificate') }}" style="color:#C9A35A;font-weight:700;">Verify Certificate ↗</a></div><div><h4>Contact</h4><a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a><a href="https://altaqwauniversity.com">altaqwauniversity.com</a><a href="#contact" data-page="contact">Send an enquiry</a><a href="{{ route('privacy_policy') }}">Privacy Policy</a><a href="{{ route('terms_of_use') }}">Terms of Service</a></div></div><div class="footbottom"><span>© <span id="year"></span> AL-TAQWA Institute of Islamic Studies</span><span>Designed around Taleem · Tarbiyah · Tazkiyah</span></div></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const courses=[
-{name:"Alima Course",icon:"✧",tag:"Structured study",short:"A structured pathway for sisters seeking a deeper foundation in Islamic knowledge.",long:"Enquire about the current Alima programme, subjects, teacher, study plan, duration, assessment method and available batches. The institute should confirm the latest details before enrolment.",level:"Structured programme",mode:"Live online"},
-{name:"Hifz",icon:"۞",tag:"Qur’an memorisation",short:"Build a consistent Qur’an memorisation routine with guidance and revision.",long:"Ask about available Hifz arrangements, lesson frequency, revision expectations, individual or group options, teacher availability and suitable timings.",level:"Ask for placement",mode:"Online classes"},
-{name:"Tajweed",icon:"◉",tag:"Qur’an recitation",short:"Work towards clearer Qur’an recitation by learning Tajweed rules and practice.",long:"Enquire about beginner or continuing levels, practical recitation feedback, class size, lesson schedule and any assessment or trial options.",level:"Beginner to continuing",mode:"Live online"},
-{name:"Tafseer",icon:"❋",tag:"Qur’an understanding",short:"Explore Qur’anic meanings and themes through guided study and discussion.",long:"Ask about the current Tafseer syllabus, teacher, language of instruction, lesson timings, learning materials, recordings and how questions are handled.",level:"Guided study",mode:"Live online"},
-{name:"Islamic Studies",icon:"✦",tag:"Foundations of Deen",short:"Explore core Islamic subjects through a guided, accessible learning pathway.",long:"Share your interests and current level so the team can advise which Islamic Studies course or set of classes may be suitable. Confirm subjects, fees and schedule before joining.",level:"Varies by course",mode:"Online learning"}
+{
+id:1,
+name:"Tafseer-ul-Qur’an — Weekend Program",
+category:"Qur'an & Tajweed",
+catCode:"QT",
+fee:"₹99 / month",
+feeFull:"₹99 / month (Monthly Subscription)",
+feeBadge:"₹99 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"2 Years",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"📖",
+tag:"Qur'an & Tajweed",
+short:"Verse-by-verse Qur’anic explanation, context of revelation (Asbab al-Nuzul), and practical daily lessons.",
+long:"Connect your heart with the divine words of Allah SWT. This 2-year weekend program provides deep verse-by-verse commentary, historical context, linguistic nuances, and actionable life lessons based on authentic classical Tafseer (Ibn Kathir, Ma'ariful Qur'an, and Jalalayn). Open to brothers and sisters globally with flexible weekend timings.",
+slug:"tafseer-ul-quran-weekend-program"
+},
+{
+id:2,
+name:"Seerat-un-Nabi ﷺ Program",
+category:"Islamic Studies",
+catCode:"IS",
+fee:"₹0 (Free)",
+feeFull:"₹0 (Completely Free — Community Initiative)",
+feeBadge:"100% FREE",
+feeBadgeColor:"#14644A",
+duration:"6 Months",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"🕌",
+tag:"Islamic Studies",
+short:"Complete biography of Prophet Muhammad ﷺ from Makkah to Madinah with life lessons and contemporary relevance.",
+long:"A blessed 100% free community initiative walking through the sublime character, prophetic leadership, and milestones of the Beloved Messenger of Allah ﷺ. Covers the Meccan era, persecution, Hijrah, Madinan state-building, treaties, family life, and universal moral teachings for youth and adults.",
+slug:"seerat-un-nabi-program"
+},
+{
+id:3,
+name:"Free Namaz Translation Workshop",
+category:"Workshops & Short Courses",
+catCode:"WS",
+fee:"₹99 (Refundable)",
+feeFull:"₹99 (100% Refundable on ≥ 75% exam score)",
+feeBadge:"100% Refundable",
+feeBadgeColor:"#C9A35A",
+duration:"3 Days",
+schedule:"Weekend Workshop",
+eligibility:"Brothers & Sisters",
+icon:"🤲",
+tag:"Workshops & Short Courses",
+short:"Word-for-word translation of Surah Al-Fatihah, Surahs, Tashahhud, and Salah Duas to attain true Khushu.",
+long:"Transform your daily Salah from physical motions into an intimate conversation with your Creator. In 3 intensive weekend sessions, master the word-by-word meaning of every recitation in Salah: Sana, Fatihah, Ruku/Sujud Adhkar, Tashahhud, Durood Ibrahim, and Qunoot. Registration fee is 100% refunded upon completing the final assessment with ≥75% score.",
+slug:"free-namaz-translation-workshop"
+},
+{
+id:4,
+name:"Diploma in Tajweed-e-Quran",
+category:"Qur'an & Tajweed",
+catCode:"QT",
+fee:"₹499 / month",
+feeFull:"₹499 / month (Monthly Subscription)",
+feeBadge:"₹499 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"12 Months",
+schedule:"Saturday to Thursday",
+eligibility:"Brothers & Sisters",
+icon:"◉",
+tag:"Qur'an & Tajweed",
+short:"Makharij (articulation points), Sifaat, Noon/Meem Sakinah, Madd rules, and live recitation correction.",
+long:"Attain excellence in Quranic recitation according to the narration of Hafs 'an 'Asim. Learn the exact anatomical points of articulation (Makharij), essential and conditional characteristics (Sifaat al-Huroof), rules of Noon Sakinah & Tanween, Meem Sakinah, Mudood (prolongations), Waqf and Ibtida with daily live correction from certified Qaris.",
+slug:"diploma-in-tajweed-e-quran"
+},
+{
+id:5,
+name:"Certificate in Urdu Reading & Writing",
+category:"Arabic & Urdu",
+catCode:"AU",
+fee:"₹499 / month",
+feeFull:"₹499 / month (Monthly Subscription)",
+feeBadge:"₹499 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"5 Months",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"✍️",
+tag:"Arabic & Urdu",
+short:"Urdu alphabet (Huroof-e-Tahajji), letter joining, reading fluency, and writing practice for Islamic books.",
+long:"Specially structured for diaspora learners, beginners, and students of Islamic knowledge seeking direct access to classical Urdu Islamic texts, Tafseer commentaries, and Seerah collections. Progress from Huroof-e-Tahajji and ligature joining rules to fluid paragraph comprehension and graceful Nastaliq handwriting.",
+slug:"certificate-in-urdu-reading-and-writing"
+},
+{
+id:6,
+name:"Certificate in Basic Arabic Reading (Noorani Qaida)",
+category:"Arabic & Urdu",
+catCode:"AU",
+fee:"₹499 / month",
+feeFull:"₹499 / month (Monthly Subscription)",
+feeBadge:"₹499 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"6 Months",
+schedule:"Saturday to Thursday",
+eligibility:"Brothers & Sisters",
+icon:"📖",
+tag:"Arabic & Urdu",
+short:"Beginner Qur’anic reading from Arabic letters and Harakat to Tanween, Sukoon, and Tashdeed.",
+long:"A proven, phonetics-based curriculum designed to take zero-level beginners to independent, accurate Qur'anic reading. Covers Arabic letters, short vowels (Harakat), Madd letters, Tanween, Sukoon, Tashdeed (Shaddah), and compound words with individual attention and gentle pacing for children, youth, and adult learners.",
+slug:"certificate-in-basic-arabic-reading-noorani-qaida"
+},
+{
+id:7,
+name:"Certificate in Islamic Public Speaking & Content Creation",
+category:"Workshops & Short Courses",
+catCode:"WS",
+fee:"₹999 (One-Time)",
+feeFull:"₹999 (One-Time Payment)",
+feeBadge:"₹999 Once",
+feeBadgeColor:"#C9A35A",
+duration:"3 Months",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"🎙️",
+tag:"Workshops & Short Courses",
+short:"Stage/camera confidence, Islamic storytelling, Dawah Reels/short-form videos, and vocal delivery.",
+long:"Empowering the next generation of Muslim creators and communicators. Learn how to craft inspiring talks, deliver impactful Jummah or community speeches, speak confidently on camera, script ethical Dawah Reels and podcasts, and use social media tools to present Islam with wisdom and beautiful preachings (Hikmah).",
+slug:"certificate-in-islamic-public-speaking-and-content-creation"
+},
+{
+id:8,
+name:"Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)",
+category:"Islamic Studies",
+catCode:"IS",
+fee:"₹499 (Refundable)",
+feeFull:"₹499 (100% Refundable on ≥ 80% exam score)",
+feeBadge:"100% Refundable",
+feeBadgeColor:"#C9A35A",
+duration:"3 Months",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"⚖️",
+tag:"Islamic Studies",
+short:"Core foundations of Tawheed, Risalat, Akhirah, Imaan, and clearing common modern misconceptions.",
+long:"Anchor your faith upon unshakeable rational and scriptural foundations. Explore the categories of Tawheed (Rububiyyah, Uluhiyyah, Asma wa Sifaat), belief in Angels, Revealed Books, Messengers, Day of Judgement, and Divine Decree (Qadr). Clears doubts, atheist arguments, and ideological confusions facing contemporary Muslims. 100% refundable upon scoring ≥80% on the final exam.",
+slug:"certificate-in-basic-islamic-beliefs-tawheed-and-aqeedah"
+},
+{
+id:9,
+name:"Certificate in Salah, Duas & Sunnah Lifestyle",
+category:"Islamic Studies",
+catCode:"IS",
+fee:"₹499 (One-Time)",
+feeFull:"₹499 (One-Time Payment)",
+feeBadge:"₹499 Once",
+feeBadgeColor:"#0B3D2E",
+duration:"3 Months",
+schedule:"Saturday & Sunday",
+eligibility:"Brothers & Sisters",
+icon:"✨",
+tag:"Islamic Studies",
+short:"Step-by-step Wudu & Salah purification rules, common prayer mistakes, daily Masnoon Duas, and Sunnah habits.",
+long:"A practical guide to living the Sunnah from waking to sleeping. Covers the Fiqh of Taharah (Wudu, Ghusl, Tayammum, impure substances), detailed prayer postures and conditions, Sajdah Sahw, travelers' prayer (Qasr), and memorization of daily Masnoon morning/evening Duas for spiritual protection and peace of mind.",
+slug:"certificate-in-salah-duas-and-sunnah-lifestyle"
+},
+{
+id:10,
+name:"Diploma in Arabic Language",
+category:"Arabic & Urdu",
+catCode:"AU",
+fee:"₹699 / month",
+feeFull:"₹699 / month (Monthly Subscription)",
+feeBadge:"₹699 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"12 Months",
+schedule:"Saturday to Thursday",
+eligibility:"Brothers & Sisters",
+icon:"📜",
+tag:"Arabic & Urdu",
+short:"Arabic grammar (Nahw), morphology (Sarf), vocabulary building, and direct Qur’anic text comprehension.",
+long:"Unlock the language of the Noble Qur'an and Islamic tradition. Based on the renowned Madinah Arabic and classical Dars-e-Nizami introductory texts. Master grammatical rules (Nahw), verb roots and conjugation patterns (Sarf), Quranic idioms, and conversational drills to understand the Quran directly without relying on translations.",
+slug:"diploma-in-arabic-language"
+},
+{
+id:11,
+name:"Hifz-ul-Qur’an Program (Advanced Diploma)",
+category:"Qur'an & Tajweed",
+catCode:"QT",
+fee:"₹1,500 / month",
+feeFull:"₹1,500 / month (Monthly Subscription)",
+feeBadge:"₹1,500 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"4 Years",
+schedule:"Saturday to Thursday",
+eligibility:"Brothers & Sisters",
+icon:"۞",
+tag:"Qur'an & Tajweed",
+short:"Complete Qur’an memorization following the structured Sabaq, Sabqi & Manzil daily listening system.",
+long:"An intensive online memorization sanctuary for dedicated seekers of the Qur'an. Students memorize under full-time certified Huffaz following the traditional three-tier discipline: Sabaq (new daily memorization), Sabqi (recent revision), and Manzil (continuous retention of old Juz). Includes individualized pacing, regular retention exams, and Sanad upon completion.",
+slug:"hifz-ul-quran-program-advanced-diploma"
+},
+{
+id:12,
+name:"Alima Course (Advanced Diploma in Islamic Studies)",
+category:"Islamic Studies",
+catCode:"IS",
+fee:"₹599 / month",
+feeFull:"₹599 / month (Monthly Subscription)",
+feeBadge:"₹599 / mo",
+feeBadgeColor:"#0B3D2E",
+duration:"4 Years",
+schedule:"Saturday to Thursday",
+eligibility:"Sisters Only (Scholarships Available)",
+icon:"✧",
+tag:"Islamic Studies",
+short:"Comprehensive 4-year curriculum covering Qur’an, Tafseer, Hadith, Fiqh, Usul, Arabic, Seerah, and Dawah training.",
+long:"A premier 4-year traditional Islamic scholarship journey exclusively for sisters delivered online by qualified female scholars (Alimat). The rigorous syllabus covers Tafseer (Jalalayn & Baydawi), Hadith (Mishkat & Sihah Sittah selections), Hanafi Fiqh (Quduri & Hidayah), Usul-ul-Fiqh, Arabic Nahw & Sarf, Mantiq, Balaghah, Seerah, and contemporary Dawah. Includes Half-Yearly & Yearly formal examinations with authenticated Alimiyyah certification upon graduation.",
+slug:"alima-course-advanced-diploma-in-islamic-studies"
+}
 ];
 
-function courseCard(c){return `<article class="course"><div class="course-top"><span class="course-icon">${c.icon}</span><span class="pill">${c.tag}</span></div><div class="course-body"><h3>${c.name}</h3><p>${c.short}</p><div class="course-meta"><span>◷ ${c.level}</span><span>⌁ ${c.mode}</span></div><div class="course-foot"><button class="linkbtn" data-detail="${c.name}">Course details ↗</button><button class="linkbtn" data-enquire="${c.name}">Enquire</button></div></div></article>`}
-function renderCourses(){document.getElementById("homeCourses").innerHTML=courses.map(courseCard).join("");renderAll()}
-function renderAll(){const q=(document.getElementById("courseFilter")?.value||"").toLowerCase();const list=courses.filter(c=>(c.name+" "+c.short+" "+c.tag).toLowerCase().includes(q));document.getElementById("allCourses").innerHTML=list.length?list.map(courseCard).join(""):'<p class="muted">No matching course. Try another search.</p>'}
+function courseCard(c){
+const isSisters = c.eligibility.toLowerCase().includes("sisters only");
+const isFree = c.fee.includes("0") || c.fee.toLowerCase().includes("free");
+const isRefundable = c.fee.toLowerCase().includes("refundable");
+const badgeBg = isFree ? "#14644A" : (isRefundable ? "#C9A35A" : "#0B3D2E");
+const badgeColor = isRefundable ? "#0B3D2E" : "#fff";
+
+return `<article class="course">
+<div class="course-top">
+<span class="course-icon">${c.icon}</span>
+<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
+<span class="pill">${c.category}</span>
+<span class="pill" style="background:${badgeBg};color:${badgeColor};border:1px solid rgba(255,255,255,0.25);">${c.feeBadge}</span>
+</div>
+</div>
+<div class="course-body">
+<div style="font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;">${c.category}</div>
+<h3 style="font-size:18px;line-height:1.25;margin:0 0 7px;min-height:45px;">${c.name}</h3>
+<p style="font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 14px;flex:1;">${c.short}</p>
+<div class="course-meta" style="flex-direction:column;gap:5px;border-top:1px solid var(--line);padding-top:10px;margin-top:auto;">
+<div style="display:flex;justify-content:space-between;width:100%;font-size:12px;">
+<span>◷ <b>${c.duration}</b></span>
+<span style="font-weight:700;color:var(--green);">${c.fee}</span>
+</div>
+<div style="display:flex;justify-content:space-between;width:100%;font-size:11px;color:#6b7c74;">
+<span>🗓 ${c.schedule}</span>
+<span style="${isSisters ? 'color:#b02a37;font-weight:700;' : ''}">${isSisters ? '🧕 Sisters Only' : '👥 Brothers & Sisters'}</span>
+</div>
+</div>
+<div class="course-foot" style="margin-top:13px;display:flex;justify-content:space-between;align-items:center;">
+<button class="linkbtn" data-detail="${c.name}">Details ↗</button>
+<button class="btn btn-green" style="padding:7px 15px;font-size:12px;" data-enquire="${c.name}">Enquire / Enroll</button>
+</div>
+</div>
+</article>`;
+}
+
+let courseCatFilter="All";
+const CATEGORIES=["All","Qur'an & Tajweed","Islamic Studies","Arabic & Urdu","Workshops & Short Courses"];
+
+function renderCatFilters(){
+const el=document.getElementById("courseCatFilters");
+if(!el)return;
+el.innerHTML=CATEGORIES.map(cat=>{
+const count=cat==="All"?courses.length:courses.filter(c=>c.category===cat).length;
+return `<button class="tchip${cat===courseCatFilter?' on':''}" data-ccat="${cat}">${cat} (${count})</button>`;
+}).join("");
+}
+
+function renderCourses(){
+document.getElementById("homeCourses").innerHTML=courses.map(courseCard).join("");
+renderCatFilters();
+renderAll();
+}
+
+function renderAll(){
+const q=(document.getElementById("courseFilter")?.value||"").toLowerCase();
+const list=courses.filter(c=>{
+const matchCat=(courseCatFilter==="All"||c.category===courseCatFilter);
+const matchQuery=(c.name+" "+c.short+" "+c.category+" "+c.eligibility+" "+c.fee).toLowerCase().includes(q);
+return matchCat&&matchQuery;
+});
+document.getElementById("allCourses").innerHTML=list.length?list.map(courseCard).join(""):'<p class="muted" style="grid-column:1/-1;text-align:center;padding:30px;">No matching courses found in this category. Try another keyword or filter.</p>';
+}
 
 const faqs=[
 ["Are classes available for students outside India?","Yes! AL-TAQWA Institute offers structured online live learning for students worldwide across UK, USA, Gulf/Middle East, and Asia with flexible timing."],
@@ -392,9 +664,42 @@ function toast(msg){const el=document.getElementById("toast");el.textContent=msg
 
 function showPage(id){document.querySelectorAll(".pageview").forEach(p=>p.classList.remove("active"));const page=document.getElementById(id)||document.getElementById("home");page.classList.add("active");document.getElementById("navlinks").classList.remove("show");window.scrollTo({top:0,behavior:"smooth"})}
 
-function detail(name){const c=courses.find(x=>x.name===name);if(!c)return;document.getElementById("detailTitle").textContent=c.name;document.getElementById("detailDesc").textContent=c.short;document.getElementById("detailHeading").textContent="Explore "+c.name;document.getElementById("detailLong").textContent=c.long;document.getElementById("detailEnquire").onclick=()=>{showPage("admissions");document.getElementById("adCourse").value=c.name;};showPage("courseDetail")}
+function detail(name){
+const c=courses.find(x=>x.name===name);
+if(!c)return;
+const isSisters=c.eligibility.toLowerCase().includes("sisters only");
+document.getElementById("detailTitle").textContent=c.name;
+document.getElementById("detailDesc").textContent=`${c.category} · ${c.feeFull} · ${c.duration} (${c.schedule})`;
+document.getElementById("detailHeading").textContent=c.name;
+
+let html=`
+<div style="display:inline-flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+<span class="pill" style="background:var(--mint);color:var(--green);font-weight:700;font-size:11px;padding:6px 12px;">${c.category}</span>
+<span class="pill" style="background:#0B3D2E;color:#fff;font-weight:700;font-size:11px;padding:6px 12px;">${c.feeFull}</span>
+<span class="pill" style="background:${isSisters?'#f8d7da':'#e2e3e5'};color:${isSisters?'#721c24':'#383d41'};font-weight:700;font-size:11px;padding:6px 12px;">${c.eligibility}</span>
+</div>
+<div style="background:#FAF8F5;border:1px solid #ECE3D4;border-radius:14px;padding:18px;margin-bottom:20px;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;font-size:13px;">
+<div><b>◷ Duration:</b> ${c.duration}</div>
+<div><b>🗓 Schedule:</b> ${c.schedule}</div>
+<div><b>💳 Fee Structure:</b> ${c.feeFull}</div>
+<div><b>👥 Eligibility:</b> ${c.eligibility}</div>
+</div>
+</div>
+<h3 style="color:var(--green);font-family:Georgia,serif;margin:16px 0 8px;">Course Overview & Highlights</h3>
+<p style="font-size:15px;line-height:1.7;color:#33483f;">${c.long}</p>
+<div style="background:#EDF4F0;border-left:4px solid var(--green);padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:13px;color:#184032;">
+<b>Class Delivery:</b> Live interactive online sessions with certified Ustadhs/Ustadhas, student portal access, study notes, and regular assessments.
+</div>
+`;
+document.getElementById("detailLong").innerHTML=html;
+document.getElementById("detailEnquire").onclick=()=>{showPage("admissions");document.getElementById("adCourse").value=c.name;};
+showPage("courseDetail");
+}
 
 document.addEventListener("click",e=>{
+const ccat=e.target.closest("[data-ccat]");
+if(ccat){courseCatFilter=ccat.dataset.ccat;renderCatFilters();renderAll();return}
 const p=e.target.closest("[data-page]");if(p){e.preventDefault();showPage(p.dataset.page);if(p.dataset.course){document.getElementById("courseFilter").value=p.dataset.course;renderAll()}return}
 const d=e.target.closest("[data-detail]");if(d){detail(d.dataset.detail);return}
 const en=e.target.closest("[data-enquire]");if(en){showPage("admissions");document.getElementById("adCourse").value=en.dataset.enquire;return}
@@ -420,26 +725,26 @@ location.href=`mailto:officialaltaqwa@gmail.com?subject=${encodeURIComponent("AL
 
 /* ===== TEACHERS: Real Faculty Profiles ===== */
 const teachers=[
-{name:"Ustadha Maryam Al-Azhari",initials:"MA",role:"Senior Alima Course Faculty",quals:"Alimiyyah Degree · Darul Uloom",exp:"8+ years experience",lang:"Urdu · English",courses:["Alima Course"],bio:"Specializes in Hanafi Fiqh, Hadith studies, and Islamic ethics, guiding sisters worldwide with patience and dedication."},
-{name:"Qari Hafiz Muhammad Bilal",initials:"MB",role:"Head of Hifz & Memorization",quals:"Hafiz-ul-Qur’an · Sanad & Ijazah",exp:"10+ years experience",lang:"Urdu · Hindi",courses:["Hifz"],bio:"Guides students through customized daily Sabaq, Sabqi, and Manzil routines with continuous retention tracking."},
-{name:"Sheikh Ahmad Al-Husary",initials:"AH",role:"Tajweed & Qira'at Specialist",quals:"Ijazah in Hafs 'an 'Asim",exp:"7+ years experience",lang:"Urdu · English · Arabic",courses:["Tajweed"],bio:"Focuses on Makharij (articulation points), Sifaat, and melodious recitation with individual correction."},
-{name:"Dr. Maulana Zaid Rahman",initials:"ZR",role:"Tafseer & Usul-ul-Fiqh Lecturer",quals:"M.A. Islamic Studies · Dars-e-Nizami",exp:"12+ years experience",lang:"Urdu · English",courses:["Tafseer"],bio:"Passionate about contextual Quranic commentary, thematic Surah studies, and contemporary application of Deen."},
-{name:"Ustadh Tariq Masood",initials:"TM",role:"Islamic Foundations & Seerah",quals:"Graduate in Islamic Sciences",exp:"6+ years experience",lang:"English · Hindi · Urdu",courses:["Islamic Studies"],bio:"Engaging educator simplifying Aqeedah, Taharah, Salah, and the noble Prophet's life for youth and beginner learners."}
+{name:"Ustadha Maryam Al-Azhari",initials:"MA",role:"Senior Alima Course Faculty",quals:"Alimiyyah Degree · Darul Uloom",exp:"8+ years experience",lang:"Urdu · English",category:"Islamic Studies",courses:["Alima Course (Advanced Diploma in Islamic Studies)","Certificate in Salah, Duas & Sunnah Lifestyle"],bio:"Specializes in Hanafi Fiqh, Hadith studies, and Islamic ethics, guiding sisters worldwide with patience and dedication."},
+{name:"Qari Hafiz Muhammad Bilal",initials:"MB",role:"Head of Hifz & Memorization",quals:"Hafiz-ul-Qur’an · Sanad & Ijazah",exp:"10+ years experience",lang:"Urdu · Hindi",category:"Qur'an & Tajweed",courses:["Hifz-ul-Qur’an Program (Advanced Diploma)","Diploma in Tajweed-e-Quran"],bio:"Guides students through customized daily Sabaq, Sabqi, and Manzil routines with continuous retention tracking."},
+{name:"Sheikh Ahmad Al-Husary",initials:"AH",role:"Tajweed & Arabic Specialist",quals:"Ijazah in Hafs 'an 'Asim",exp:"7+ years experience",lang:"Urdu · English · Arabic",category:"Arabic & Urdu",courses:["Diploma in Tajweed-e-Quran","Certificate in Basic Arabic Reading (Noorani Qaida)","Diploma in Arabic Language"],bio:"Focuses on Makharij (articulation points), Sifaat, and classical Arabic grammar with individual vocal correction."},
+{name:"Dr. Maulana Zaid Rahman",initials:"ZR",role:"Tafseer & Aqeedah Lecturer",quals:"M.A. Islamic Studies · Dars-e-Nizami",exp:"12+ years experience",lang:"Urdu · English",category:"Islamic Studies",courses:["Tafseer-ul-Qur’an — Weekend Program","Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)"],bio:"Passionate about contextual Quranic commentary, thematic Surah studies, and clearing modern intellectual misconceptions."},
+{name:"Ustadh Tariq Masood",initials:"TM",role:"Seerah, Public Speaking & Workshops",quals:"Graduate in Islamic Sciences",exp:"6+ years experience",lang:"English · Hindi · Urdu",category:"Workshops & Short Courses",courses:["Seerat-un-Nabi ﷺ Program","Free Namaz Translation Workshop","Certificate in Islamic Public Speaking & Content Creation","Certificate in Urdu Reading & Writing"],bio:"Engaging educator simplifying Prophet's life, prayer Khushu, and empowering youth with eloquent Dawah communication."}
 ];
 
 let tFilter="All";
 function renderTeachers(){
-const names=["All",...courses.map(c=>c.name)];
-document.getElementById("tFilters").innerHTML=names.map(n=>`<button class="tchip${n===tFilter?" on":""}" data-tf="${n}">${n}</button>`).join("");
-const list=teachers.filter(t=>tFilter==="All"||t.courses.includes(tFilter));
-document.getElementById("tGrid").innerHTML=list.length?list.map(t=>`<article class="tcard"><div class="tavatar">${t.initials}</div><div><h3>${t.name}</h3><p class="trole">${t.role}</p></div><div class="tmeta">${t.courses.map(c=>`<span>${c}</span>`).join("")}<span>${t.lang}</span></div><p class="tbio">${t.bio}</p><p class="trole">${t.quals} · ${t.exp}</p><button class="tenq" data-enquire="${t.courses[0]}">Enquire for this course ↗</button></article>`).join(""):'<p>No teachers listed for this course yet.</p>';
+const tCats=["All","Qur'an & Tajweed","Islamic Studies","Arabic & Urdu","Workshops & Short Courses"];
+document.getElementById("tFilters").innerHTML=tCats.map(n=>`<button class="tchip${n===tFilter?" on":""}" data-tf="${n}">${n}</button>`).join("");
+const list=teachers.filter(t=>tFilter==="All"||t.category===tFilter||t.courses.some(c=>c.toLowerCase().includes(tFilter.toLowerCase())));
+document.getElementById("tGrid").innerHTML=list.length?list.map(t=>`<article class="tcard"><div class="tavatar">${t.initials}</div><div><h3>${t.name}</h3><p class="trole">${t.role}</p></div><div class="tmeta">${t.courses.map(c=>`<span>${c.split("—")[0].split("(")[0].trim()}</span>`).join("")}<span>${t.lang}</span></div><p class="tbio">${t.bio}</p><p class="trole">${t.quals} · ${t.exp}</p><button class="tenq" data-enquire="${t.courses[0]}">Enquire for this course ↗</button></article>`).join(""):'<p>No teachers listed for this category yet.</p>';
 }
 
 document.getElementById("tFilters").addEventListener("click",e=>{const b=e.target.closest("[data-tf]");if(b){tFilter=b.dataset.tf;renderTeachers()}});
 renderTeachers();
 
 /* ===== HOME SLIDERS (courses + teachers) ===== */
-function teacherCard(t){return `<article class="tcard"><div class="tavatar">${t.initials}</div><div><h3>${t.name}</h3><p class="trole">${t.role}</p></div><div class="tmeta">${t.courses.map(c=>`<span>${c}</span>`).join("")}<span>${t.lang}</span></div><p class="tbio">${t.bio}</p><p class="trole">${t.quals} · ${t.exp}</p><button class="tenq" data-enquire="${t.courses[0]}">Enquire for this course ↗</button></article>`}
+function teacherCard(t){return `<article class="tcard"><div class="tavatar">${t.initials}</div><div><h3>${t.name}</h3><p class="trole">${t.role}</p></div><div class="tmeta">${t.courses.map(c=>`<span>${c.split("—")[0].split("(")[0].trim()}</span>`).join("")}<span>${t.lang}</span></div><p class="tbio">${t.bio}</p><p class="trole">${t.quals} · ${t.exp}</p><button class="tenq" data-enquire="${t.courses[0]}">Enquire for this course ↗</button></article>`}
 document.getElementById("homeTeachers").innerHTML=teachers.map(teacherCard).join("");
 
 function initSlider(root){
