@@ -148,3 +148,341 @@
   pointer-events: none;
   font-family: var(--font-arabic);
 }
+
+/* ==========================================================================
+   AL-TAQWA 3-ZONE POLISHED NAVBAR SYSTEM
+   ========================================================================== */
+.nav-header {
+  background: var(--primary) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  border-bottom: 2px solid var(--gold) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(8px);
+}
+
+.navin {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 72px !important;
+  gap: 16px !important;
+}
+
+/* Zone 1: Brand Anchor */
+.brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-shrink: 0 !important;
+  text-decoration: none !important;
+}
+
+.brandmark {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden !important;
+  border: 1.5px solid var(--gold) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  flex-shrink: 0 !important;
+  background: var(--primary-dark) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.brandmark img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.brand-titles {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.brand-name, .brand-titles strong {
+  display: block !important;
+  font-family: var(--font-serif), 'Playfair Display', Georgia, serif !important;
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  color: #FFFFFF !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+}
+
+.brand-name span, .brand-titles strong span {
+  color: var(--gold) !important;
+}
+
+.brand-motto, .brand-titles small {
+  display: block !important;
+  font-size: 0.63rem !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #BED8CC !important;
+  font-weight: 600 !important;
+  margin-top: 2px !important;
+  white-space: nowrap !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Zone 2: Navigation Links (Centered Pills) */
+.nav-menu {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navlink-item {
+  color: #E2EEE8 !important;
+  font-family: var(--font-sans), 'Inter', sans-serif !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  padding: 7px 12px !important;
+  border-radius: var(--radius-pill) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+}
+
+.navlink-item:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.navlink-item.active {
+  background: var(--gold) !important;
+  color: var(--primary-dark) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(201, 163, 90, 0.3) !important;
+}
+
+/* Zone 3: Actions & Utilities */
+.nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-actions .taqwa-coin-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  background: rgba(201, 163, 90, 0.12) !important;
+  border: 1px solid rgba(201, 163, 90, 0.45) !important;
+  color: #F7E7B4 !important;
+  padding: 6px 12px !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+.nav-btn {
+  padding: 8px 18px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  height: 38px !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+/* Toggle Button (Mobile/Tablet) */
+.nav-toggle-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gold);
+  background: rgba(201, 163, 90, 0.1);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.nav-toggle-btn:hover {
+  background: rgba(201, 163, 90, 0.2);
+}
+
+.toggle-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-toggle-btn.open .toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle-btn.open .toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle-btn.open .toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Drawer */
+.nav-mobile-drawer {
+  display: none;
+  background: var(--primary-dark);
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease-out;
+}
+
+.nav-mobile-drawer.open {
+  display: block;
+  max-height: 520px;
+}
+
+.mobile-drawer-inner {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 18px 0 24px;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.mobile-navlink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #E2EEE8;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-navlink:hover, .mobile-navlink:active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border-left-color: var(--gold);
+}
+
+.mobile-navlink.active {
+  background: rgba(201, 163, 90, 0.15);
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  font-weight: 700;
+}
+
+.mobile-navlink .nav-bullet {
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+.mobile-drawer-footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(201, 163, 90, 0.2);
+}
+
+.mobile-coin-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 163, 90, 0.12);
+  border: 1px solid rgba(201, 163, 90, 0.3);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  color: #F7E7B4;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.mobile-btn-grid {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive Navbar Breakpoints */
+@media (max-width: 1240px) and (min-width: 1121px) {
+  .navlink-item {
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
+  }
+  .nav-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+    height: 36px !important;
+  }
+  .brand-name, .brand-titles strong {
+    font-size: 1.05rem !important;
+  }
+  .brand-motto, .brand-titles small {
+    font-size: 0.6rem !important;
+  }
+  .nav-menu {
+    gap: 3px !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  .nav-menu {
+    display: none !important;
+  }
+  .nav-actions .nav-btn,
+  .nav-actions .taqwa-coin-badge {
+    display: none !important;
+  }
+  .nav-toggle-btn {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navin {
+    height: 66px !important;
+  }
+  .brandmark {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .brand-name, .brand-titles strong {
+    font-size: 0.94rem !important;
+  }
+  .brand-motto, .brand-titles small {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.08em !important;
+  }
+}

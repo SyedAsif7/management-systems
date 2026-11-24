@@ -44,10 +44,11 @@
 
     .navlink-item {
         color: #E2EEE8 !important;
-        font-size: 0.88rem;
+        font-size: 0.84rem;
         font-weight: 600;
-        padding: 8px 16px !important;
+        padding: 7px 12px !important;
         border-radius: 9999px;
+        white-space: nowrap !important;
         text-decoration: none !important;
         transition: all 0.2s ease;
     }

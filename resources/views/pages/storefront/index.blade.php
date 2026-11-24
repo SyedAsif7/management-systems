@@ -68,75 +68,248 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 2px solid var(--gold);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
 }
 .navin {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 74px;
+  height: 72px;
+  gap: 16px;
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 .brandmark {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1.5px solid var(--gold);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   flex-shrink: 0;
+  background: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .brandmark img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.brand-titles strong {
   display: block;
-  font-size: 1.15rem;
+}
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.brand-name, .brand-titles strong {
+  display: block;
+  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+  font-size: 1.12rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #FFFFFF;
   line-height: 1.15;
+  white-space: nowrap;
 }
-.brand-titles strong span {
+.brand-name span, .brand-titles strong span {
   color: var(--gold);
 }
-.brand-titles small {
+.brand-motto, .brand-titles small {
   display: block;
-  font-size: 0.65rem;
-  letter-spacing: 0.16em;
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #BED8CC;
   font-weight: 600;
   margin-top: 2px;
+  white-space: nowrap;
+  font-family: var(--font-sans);
 }
-.navlinks {
+
+.nav-menu {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 4px;
+  flex: 1 1 auto;
 }
 .navlink-item {
   color: #E2EEE8;
-  font-size: 0.88rem;
+  font-family: var(--font-sans), 'Inter', sans-serif;
+  font-size: 0.84rem;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 7px 12px;
   border-radius: var(--radius-pill);
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  text-decoration: none;
 }
 .navlink-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.09);
   color: #FFFFFF;
+  transform: translateY(-1px);
 }
 .navlink-item.active {
   background: var(--gold);
-  color: var(--primary-dark);
+  color: var(--primary-dark) !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(201, 163, 90, 0.3);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.nav-actions .taqwa-coin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(201, 163, 90, 0.12);
+  border: 1px solid rgba(201, 163, 90, 0.45);
+  color: #F7E7B4;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 1;
+}
+.nav-btn {
+  padding: 8px 18px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  height: 38px !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+.nav-toggle-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--gold);
+  background: rgba(201, 163, 90, 0.1);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+.nav-toggle-btn:hover {
+  background: rgba(201, 163, 90, 0.2);
+}
+.toggle-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-toggle-btn.open .toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle-btn.open .toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle-btn.open .toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-mobile-drawer {
+  display: none;
+  background: var(--primary-dark);
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease-out;
+}
+.nav-mobile-drawer.open {
+  display: block;
+  max-height: 520px;
+}
+.mobile-drawer-inner {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 18px 0 24px;
+}
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.mobile-navlink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #E2EEE8;
+  font-size: 0.94rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.mobile-navlink:hover, .mobile-navlink:active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border-left-color: var(--gold);
+}
+.mobile-navlink.active {
+  background: rgba(201, 163, 90, 0.15);
+  color: var(--gold-light);
+  border-left-color: var(--gold);
+  font-weight: 700;
+}
+.mobile-navlink .nav-bullet {
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+.mobile-drawer-footer {
+  padding-top: 16px;
+  border-top: 1px solid rgba(201, 163, 90, 0.2);
+}
+.mobile-coin-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 163, 90, 0.12);
+  border: 1px solid rgba(201, 163, 90, 0.3);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  color: #F7E7B4;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+.mobile-btn-grid {
+  display: flex;
+  gap: 10px;
 }
 
 .btn {
@@ -189,17 +362,6 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--primary);
   color: #FFFFFF !important;
   transform: translateY(-2px);
-}
-
-.menu-btn {
-  display: none;
-  color: var(--gold);
-  border: 1.5px solid var(--gold);
-  border-radius: var(--radius-sm);
-  width: 42px;
-  height: 42px;
-  align-items: center;
-  justify-content: center;
 }
 
 /* ----------------- Subheroes & Pageviews ----------------- */
@@ -1395,24 +1557,41 @@ img { max-width: 100%; height: auto; display: block; }
   .slider-track > * { flex-basis: calc((100% - 24px) / 2); }
 }
 
-@media (max-width: 768px) {
-  .menu-btn { display: flex; }
-  .navlinks {
-    display: none;
-    position: absolute;
-    top: 74px;
-    left: 0;
-    right: 0;
-    background: var(--primary);
-    flex-direction: column;
-    padding: 18px 20px 24px;
-    border-bottom: 3px solid var(--gold);
-    gap: 10px;
-    box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+@media (max-width: 1240px) and (min-width: 1121px) {
+  .navlink-item {
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
   }
-  .navlinks.show { display: flex; }
-  .navlink-item { width: 100%; text-align: center; padding: 12px 0; }
-  .navlinks .btn { width: 100%; margin-top: 8px; }
+  .nav-btn {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+    height: 36px !important;
+  }
+  .brand-name {
+    font-size: 1.05rem !important;
+  }
+  .brand-motto {
+    font-size: 0.6rem !important;
+  }
+  .nav-menu {
+    gap: 3px !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  .nav-menu {
+    display: none !important;
+  }
+  .nav-actions .nav-btn,
+  .nav-actions .taqwa-coin-badge {
+    display: none !important;
+  }
+  .nav-toggle-btn {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
   .cards, .teachers-grid, .steps-grid, .pillars-grid, .pathway-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .stat-box:nth-child(2) { border-right: none; }
@@ -1423,44 +1602,113 @@ img { max-width: 100%; height: auto; display: block; }
   .slider-container { padding: 0; }
   .slider-btn { display: none; }
 }
+
+@media (max-width: 480px) {
+  .navin {
+    height: 66px !important;
+  }
+  .brandmark {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .brand-name {
+    font-size: 0.94rem !important;
+  }
+  .brand-motto {
+    font-size: 0.54rem !important;
+    letter-spacing: 0.08em !important;
+  }
+}
 </style>
 </head>
 <body>
 
 <!-- ==========================================
-     PRIMARY NAVIGATION HEADER
+     PRIMARY 3-ZONE NAVIGATION HEADER
      ========================================== -->
 <header class="nav-header">
   <div class="wrap navin">
-    <a class="brand" href="#home" data-page="home">
+    <!-- ZONE 1: BRAND IDENTITY -->
+    <a class="brand" href="#home" data-page="home" title="AL-TAQWA Institute Home">
       <div class="brandmark">
         <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Emblem">
       </div>
       <div class="brand-titles">
-        <strong>AL-TAQWA <span>INSTITUTE</span></strong>
-        <small>Taleem • Tarbiyah • Tazkiyah</small>
+        <strong class="brand-name">AL-TAQWA <span>INSTITUTE</span></strong>
+        <small class="brand-motto">Taleem • Tarbiyah • Tazkiyah</small>
       </div>
     </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open Navigation Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-
-    <nav class="navlinks" id="navlinks">
+    <!-- ZONE 2: PRIMARY NAVIGATION LINKS -->
+    <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
       <a href="#home" class="navlink-item active" data-page="home">Home</a>
       <a href="#courses" class="navlink-item" data-page="courses">Courses</a>
-      <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item">Zikr & Durood</a>
-      <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Sanad ↗</a>
+      <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item">Zikr &amp; Durood</a>
+      <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Sanad&nbsp;↗</a>
       <a href="#teachers" class="navlink-item" data-page="teachers">Scholars</a>
-      <a href="#about" class="navlink-item" data-page="about">About & Admissions</a>
+      <a href="#about" class="navlink-item" data-page="about">About &amp; Admissions</a>
+    </nav>
+
+    <!-- ZONE 3: ACTIONS & UTILITIES -->
+    <div class="nav-actions">
       @auth
         <span class="taqwa-coin-badge" title="Taqwa Coins Balance">🪙 {{ Auth::user()->coins_balance }} Coins</span>
-        <a class="btn btn-gold" href="{{ route('dashboard') }}">{{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub ↗' : 'Academic Dashboard ↗' }}</a>
+        <a class="btn btn-gold nav-btn" href="{{ route('dashboard') }}">
+          {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
+        </a>
       @else
-        <a class="btn btn-outline-gold" href="#about" data-page="admissions">Apply Now ↗</a>
-        <a class="btn btn-gold" href="{{ route('login') }}">Sign In ↗</a>
+        <a class="btn btn-outline-gold nav-btn" href="#about" data-page="admissions">Apply Now</a>
+        <a class="btn btn-gold nav-btn" href="{{ route('login') }}">Sign In&nbsp;↗</a>
       @endauth
-    </nav>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- RESPONSIVE MOBILE DRAWER (Below 1024px) -->
+  <div class="nav-mobile-drawer" id="navMobileDrawer">
+    <div class="mobile-drawer-inner">
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-navlink active" data-page="home">
+          <span class="nav-bullet">✦</span> Home
+        </a>
+        <a href="#courses" class="mobile-navlink" data-page="courses">
+          <span class="nav-bullet">✦</span> Courses &amp; Programs
+        </a>
+        <a href="{{ route('storefront.zikr_durood') }}" class="mobile-navlink">
+          <span class="nav-bullet">✦</span> Zikr &amp; Durood Sanctuary
+        </a>
+        <a href="{{ route('storefront.verify_certificate') }}" class="mobile-navlink">
+          <span class="nav-bullet">✦</span> Verify Sanad Certificate&nbsp;↗
+        </a>
+        <a href="#teachers" class="mobile-navlink" data-page="teachers">
+          <span class="nav-bullet">✦</span> Meet Our Scholars
+        </a>
+        <a href="#about" class="mobile-navlink" data-page="about">
+          <span class="nav-bullet">✦</span> About &amp; Admissions
+        </a>
+      </div>
+      <div class="mobile-drawer-footer">
+        @auth
+          <div class="mobile-coin-box">
+            <span>🪙 <strong>{{ Auth::user()->coins_balance }}</strong> Taqwa Coins Balance</span>
+          </div>
+          <a class="btn btn-gold" href="{{ route('dashboard') }}" style="width: 100%; justify-content: center;">
+            {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
+          </a>
+        @else
+          <div class="mobile-btn-grid">
+            <a class="btn btn-outline-gold" href="#about" data-page="admissions" style="flex: 1; justify-content: center; text-align: center;">Apply Now</a>
+            <a class="btn btn-gold" href="{{ route('login') }}" style="flex: 1; justify-content: center; text-align: center;">Sign In&nbsp;↗</a>
+          </div>
+        @endauth
+      </div>
+    </div>
   </div>
 </header>
 
@@ -2738,7 +2986,13 @@ function showPage(id) {
   document.querySelectorAll(".pageview").forEach(p => p.classList.remove("active"));
   const page = document.getElementById(targetId) || document.getElementById("home");
   page.classList.add("active");
-  document.getElementById("navlinks").classList.remove("show");
+  const mobileDrawer = document.getElementById("navMobileDrawer");
+  if (mobileDrawer) mobileDrawer.classList.remove("open");
+  const navToggleBtn = document.getElementById("navToggleBtn");
+  if (navToggleBtn) {
+    navToggleBtn.classList.remove("open");
+    navToggleBtn.setAttribute("aria-expanded", "false");
+  }
 
   if (isEnquiryJump) {
     const formSection = document.getElementById("enquiry-section");
@@ -2751,7 +3005,7 @@ function showPage(id) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  document.querySelectorAll("#navlinks a[data-page]").forEach(a => {
+  document.querySelectorAll(".navlink-item[data-page], .mobile-navlink[data-page]").forEach(a => {
     const pageVal = a.dataset.page;
     const isActive = pageVal === targetId || (targetId === "courses" && id === "courseDetail");
     a.classList.toggle("active", isActive);
@@ -2830,10 +3084,24 @@ document.addEventListener("click", e => {
   }
 });
 
-// Mobile menu button
-document.getElementById("menuBtn").addEventListener("click", () => {
-  document.getElementById("navlinks").classList.toggle("show");
-});
+// Mobile menu toggle & drawer
+const navToggleBtn = document.getElementById("navToggleBtn");
+const navDrawer = document.getElementById("navMobileDrawer");
+if (navToggleBtn && navDrawer) {
+  navToggleBtn.addEventListener("click", () => {
+    const isOpen = navDrawer.classList.toggle("open");
+    navToggleBtn.classList.toggle("open", isOpen);
+    navToggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  navDrawer.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navDrawer.classList.remove("open");
+      navToggleBtn.classList.remove("open");
+      navToggleBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 
 // Course search filter input
 document.getElementById("courseFilter")?.addEventListener("input", renderAllCourses);

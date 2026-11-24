@@ -113,10 +113,11 @@
 
         .navlink-item {
             color: #E2EEE8 !important;
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             font-weight: 600;
-            padding: 8px 16px !important;
+            padding: 7px 12px !important;
             border-radius: var(--radius-pill);
+            white-space: nowrap !important;
             text-decoration: none !important;
             transition: all 0.2s ease;
         }
@@ -367,45 +368,89 @@
 </head>
 <body>
 
-    <!-- Main Navigation Header -->
+    <!-- Main 3-Zone Navigation Header -->
     <header class="nav-header">
-        <div class="container d-flex align-items-center justify-content-between" style="height: 74px;">
-            <a class="d-flex align-items-center text-decoration-none" href="{{ route('home') }}" style="gap: 14px;">
+        <div class="container navin">
+            <!-- ZONE 1: BRAND IDENTITY -->
+            <a class="brand" href="{{ route('home') }}" title="AL-TAQWA Institute of Islamic Studies">
                 <div class="brandmark">
                     <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Emblem">
                 </div>
                 <div class="brand-titles">
-                    <strong>AL-TAQWA <span>INSTITUTE</span></strong>
-                    <small>Taleem • Tarbiyah • Tazkiyah</small>
+                    <strong class="brand-name">AL-TAQWA <span>INSTITUTE</span></strong>
+                    <small class="brand-motto">Taleem • Tarbiyah • Tazkiyah</small>
                 </div>
             </a>
 
-            <!-- Mobile Nav Toggle -->
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#mainNavDropdown" style="color: var(--gold); border: 1.5px solid var(--gold); border-radius: var(--radius-sm); padding: 6px 10px;">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- ZONE 2: PRIMARY NAVIGATION LINKS -->
+            <nav class="nav-menu" id="navMenu">
+                <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
+                <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">Zikr &amp; Durood</a>
+                <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Sanad&nbsp;↗</a>
+                <a href="{{ route('home') }}#teachers" class="navlink-item">Scholars</a>
+                <a href="{{ route('home') }}#about" class="navlink-item">About &amp; Admissions</a>
+            </nav>
 
-            <!-- Nav Links -->
-            <div class="collapse navbar-collapse d-lg-flex justify-content-end align-items-center" id="mainNavDropdown">
-                <nav class="d-flex flex-column flex-lg-row align-items-center py-3 py-lg-0" style="gap: 6px;">
-                    <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
-                    <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
-                    <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">Zikr & Durood</a>
-                    <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Sanad ↗</a>
-                    <a href="{{ route('home') }}#teachers" class="navlink-item">Scholars</a>
+            <!-- ZONE 3: ACTIONS & UTILITIES -->
+            <div class="nav-actions">
+                @auth
+                    <span class="taqwa-coin-badge" title="Taqwa Coins Balance">🪙 {{ Auth::user()->coins_balance }} Coins</span>
+                    <a href="{{ route('dashboard') }}" class="btn btn-gold nav-btn">
+                        {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
+                    </a>
+                @else
+                    <a href="{{ route('home') }}#about" class="btn btn-outline-gold nav-btn">Apply Now</a>
+                    <a href="{{ route('login') }}" class="btn btn-gold nav-btn">Sign In&nbsp;↗</a>
+                @endauth
 
+                <!-- Mobile Hamburger Toggle Button -->
+                <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- RESPONSIVE MOBILE DRAWER (Below 1024px) -->
+        <div class="nav-mobile-drawer" id="navMobileDrawer">
+            <div class="mobile-drawer-inner">
+                <div class="mobile-nav-links">
+                    <a href="{{ route('home') }}" class="mobile-navlink {{ request()->routeIs('home') ? 'active' : '' }}">
+                        <span class="nav-bullet">✦</span> Home
+                    </a>
+                    <a href="{{ route('storefront.courses') }}" class="mobile-navlink {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">
+                        <span class="nav-bullet">✦</span> Courses &amp; Programs
+                    </a>
+                    <a href="{{ route('storefront.zikr_durood') }}" class="mobile-navlink {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">
+                        <span class="nav-bullet">✦</span> Zikr &amp; Durood Sanctuary
+                    </a>
+                    <a href="{{ route('storefront.verify_certificate') }}" class="mobile-navlink {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">
+                        <span class="nav-bullet">✦</span> Verify Sanad Certificate&nbsp;↗
+                    </a>
+                    <a href="{{ route('home') }}#teachers" class="mobile-navlink">
+                        <span class="nav-bullet">✦</span> Meet Our Scholars
+                    </a>
+                    <a href="{{ route('home') }}#about" class="mobile-navlink">
+                        <span class="nav-bullet">✦</span> About &amp; Admissions
+                    </a>
+                </div>
+                <div class="mobile-drawer-footer">
                     @auth
-                        <span class="taqwa-coin-badge ml-lg-2" title="Taqwa Coins">🪙 {{ Auth::user()->coins_balance }} Coins</span>
-                        @if(\App\Helpers\Qs::userIsStudent())
-                            <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">Student Hub ↗</a>
-                        @else
-                            <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">Academic Dashboard ↗</a>
-                        @endif
+                        <div class="mobile-coin-box">
+                            <span>🪙 <strong>{{ Auth::user()->coins_balance }}</strong> Taqwa Coins Balance</span>
+                        </div>
+                        <a class="btn btn-gold" href="{{ route('dashboard') }}" style="width: 100%; justify-content: center;">
+                            {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
+                        </a>
                     @else
-                        <a href="{{ route('home') }}#about" class="btn btn-outline-gold ml-lg-2">Apply Now ↗</a>
-                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-1">Sign In ↗</a>
+                        <div class="mobile-btn-grid">
+                            <a class="btn btn-outline-gold" href="{{ route('home') }}#about" style="flex: 1; justify-content: center; text-align: center;">Apply Now</a>
+                            <a class="btn btn-gold" href="{{ route('login') }}" style="flex: 1; justify-content: center; text-align: center;">Sign In&nbsp;↗</a>
+                        </div>
                     @endauth
-                </nav>
+                </div>
             </div>
         </div>
     </header>
@@ -476,6 +521,27 @@
     <!-- Bootstrap jQuery Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navToggleBtn = document.getElementById("navToggleBtn");
+            const navDrawer = document.getElementById("navMobileDrawer");
+            if (navToggleBtn && navDrawer) {
+                navToggleBtn.addEventListener("click", function() {
+                    const isOpen = navDrawer.classList.toggle("open");
+                    navToggleBtn.classList.toggle("open", isOpen);
+                    navToggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                });
+
+                navDrawer.querySelectorAll("a").forEach(function(link) {
+                    link.addEventListener("click", function() {
+                        navDrawer.classList.remove("open");
+                        navToggleBtn.classList.remove("open");
+                        navToggleBtn.setAttribute("aria-expanded", "false");
+                    });
+                });
+            }
+        });
+    </script>
     @yield('scripts')
 </body>
 </html>
