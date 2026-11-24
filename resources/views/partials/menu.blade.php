@@ -121,28 +121,15 @@
 
 
 
-                {{--Administrative--}}
-                @if(Qs::userIsAdministrative())
+                {{--Tuition & Invoices--}}
+                @if(Qs::userIsAdministrative() && Qs::userIsTeamSA())
                     <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.create', 'payments.invoice', 'payments.receipts', 'payments.edit', 'payments.manage', 'payments.show',]) ? 'nav-item-expanded nav-item-open' : '' }} ">
-                        <a href="#" class="nav-link"><i class="icon-office"></i> <span> Administrative</span></a>
+                        <a href="#" class="nav-link"><i class="icon-file-text2"></i> <span> Tuition &amp; Invoices</span></a>
 
-                        <ul class="nav nav-group-sub" data-submenu-title="Administrative">
-
-                            {{--Payments--}}
-                            @if(Qs::userIsTeamSA())
-                            <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.create', 'payments.edit', 'payments.manage', 'payments.show', 'payments.invoice']) ? 'nav-item-expanded' : '' }}">
-
-                                <a href="#" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.edit', 'payments.create', 'payments.manage', 'payments.show', 'payments.invoice']) ? 'active' : '' }}">Payments</a>
-
-                                <ul class="nav nav-group-sub">
-                                    <li class="nav-item"><a href="{{ route('payments.create') }}" class="nav-link {{ Route::is('payments.create') ? 'active' : '' }}">Create Payment</a></li>
-                                    <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.edit', 'payments.show']) ? 'active' : '' }}">Manage Payments</a></li>
-                                    <li class="nav-item"><a href="{{ route('payments.manage') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.manage', 'payments.invoice', 'payments.receipts']) ? 'active' : '' }}">Student Payments</a></li>
-
-                                </ul>
-
-                            </li>
-                            @endif
+                        <ul class="nav nav-group-sub" data-submenu-title="Tuition &amp; Invoices">
+                            <li class="nav-item"><a href="{{ route('payments.create') }}" class="nav-link {{ Route::is('payments.create') ? 'active' : '' }}">Create Invoice / Fee</a></li>
+                            <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.index', 'payments.edit', 'payments.show']) ? 'active' : '' }}">Manage Tuition Records</a></li>
+                            <li class="nav-item"><a href="{{ route('payments.manage') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['payments.manage', 'payments.invoice', 'payments.receipts']) ? 'active' : '' }}">Student Receipts</a></li>
                         </ul>
                     </li>
                 @endif

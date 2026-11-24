@@ -30,9 +30,9 @@ class StudentRecordUpdate extends FormRequest
             'bg_id' => 'sometimes|nullable',
             'my_class_id' => 'required',
             'section_id' => 'required',
-            'state_id' => 'required',
-            'lga_id' => 'required',
-            'nal_id' => 'required',
+            'state_id' => 'sometimes|nullable',
+            'lga_id' => 'sometimes|nullable',
+            'nal_id' => 'sometimes|nullable',
             'my_parent_id' => 'sometimes|nullable',
             'dorm_id' => 'sometimes|nullable',
         ];

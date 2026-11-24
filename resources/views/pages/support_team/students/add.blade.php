@@ -74,8 +74,8 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="nal_id">Nationality: <span class="text-danger">*</span></label>
-                                <select data-placeholder="Choose..." required name="nal_id" id="nal_id" class="select-search form-control">
+                                <label for="nal_id">Nationality: </label>
+                                <select data-placeholder="Choose..." name="nal_id" id="nal_id" class="select-search form-control">
                                     <option value=""></option>
                                     @foreach($nationals as $nal)
                                         <option {{ (old('nal_id') == $nal->id ? 'selected' : '') }} value="{{ $nal->id }}">{{ $nal->name }}</option>
@@ -85,8 +85,8 @@
                         </div>
 
                         <div class="col-md-3">
-                            <label for="state_id">State: <span class="text-danger">*</span></label>
-                            <select onchange="getLGA(this.value)" required data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
+                            <label for="state_id">State / Province: </label>
+                            <select onchange="getLGA(this.value)" data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
                                 <option value=""></option>
                                 @foreach($states as $st)
                                     <option {{ (old('state_id') == $st->id ? 'selected' : '') }} value="{{ $st->id }}">{{ $st->name }}</option>
@@ -95,8 +95,8 @@
                         </div>
 
                         <div class="col-md-3">
-                            <label for="lga_id">LGA: <span class="text-danger">*</span></label>
-                            <select required data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
+                            <label for="lga_id">District / City: </label>
+                            <select data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
                                 <option value=""></option>
                             </select>
                         </div>

@@ -106,8 +106,11 @@
                 <a href="{{ route('marks.index') }}" class="btn btn-sm btn-outline-info mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-pencil5 mr-1"></i> Marks & Grades
                 </a>
-                <a href="{{ route('sections.index') }}" class="btn btn-sm btn-outline-secondary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
-                    <i class="icon-users4 mr-1"></i> Cohorts & Batches
+                <a href="#my-halqas" class="btn btn-sm btn-outline-secondary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
+                    <i class="icon-users4 mr-1"></i> My Halqas
+                </a>
+                <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="btn btn-sm mb-1 font-weight-semibold" style="background: #C9A35A; color: #FFFFFF; border-radius: 6px;">
+                    <i class="icon-certificate mr-1"></i> Verify Sanad ↗
                 </a>
                 <a href="{{ route('my_account') }}" class="btn btn-sm btn-outline-dark mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-user mr-1"></i> My Profile
@@ -123,7 +126,7 @@
     <div class="col-lg-7">
         
         {{-- My Assigned Batches Card --}}
-        <div class="card mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+        <div id="my-halqas" class="card mb-4" style="border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
             <div class="card-header bg-white header-elements-inline py-3 border-bottom" style="border-color: #E2E8F0 !important;">
                 <h6 class="card-title font-weight-bold mb-0" style="color: #063D2E; font-size: 1.05rem;">
                     <i class="icon-books mr-2" style="color: #C9A35A;"></i> My Assigned Cohorts & Halqas
