@@ -390,9 +390,7 @@
                     <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                     <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
                     <a href="{{ route('home') }}#teachers" class="navlink-item">Faculty</a>
-                    <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
-                    <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
-                    <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
+                    <a href="{{ route('home') }}#about" class="navlink-item">About & Admissions</a>
                     <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Certificate ↗</a>
 
                     @auth
@@ -436,9 +434,8 @@
                     <a href="{{ route('home') }}">Home</a>
                     <a href="{{ route('storefront.courses') }}">All 12 Programs</a>
                     <a href="{{ route('home') }}#teachers">Faculty & Scholars</a>
-                    <a href="{{ route('home') }}#about">About Institute</a>
-                    <a href="{{ route('home') }}#admissions">Student Admissions</a>
-                    <a href="{{ route('home') }}#contact">Contact Helpdesk</a>
+                    <a href="{{ route('home') }}#about">About & Admissions</a>
+                    <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate Online ↗</a>
                 </div>
 
                 <div class="footer-col">

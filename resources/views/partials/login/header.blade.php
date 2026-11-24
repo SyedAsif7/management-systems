@@ -26,9 +26,7 @@
                 <a href="{{ route('home') }}" class="navlink-item">Home</a>
                 <a href="{{ route('storefront.courses') }}" class="navlink-item">Courses</a>
                 <a href="{{ route('home') }}#teachers" class="navlink-item">Faculty</a>
-                <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
-                <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
-                <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
+                <a href="{{ route('home') }}#about" class="navlink-item">About & Admissions</a>
                 <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Certificate ↗</a>
                 <span class="navlink-item active ml-lg-2">Login</span>
             </nav>

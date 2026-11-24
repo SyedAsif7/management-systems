@@ -1449,9 +1449,7 @@ img { max-width: 100%; height: auto; display: block; }
       <a href="#home" class="navlink-item active" data-page="home">Home</a>
       <a href="#courses" class="navlink-item" data-page="courses">Courses</a>
       <a href="#teachers" class="navlink-item" data-page="teachers">Faculty</a>
-      <a href="#about" class="navlink-item" data-page="about">About Us</a>
-      <a href="#admissions" class="navlink-item" data-page="admissions">Admissions</a>
-      <a href="#contact" class="navlink-item" data-page="contact">Contact</a>
+      <a href="#about" class="navlink-item" data-page="about">About & Admissions</a>
       <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Certificate ↗</a>
       @auth
         <a class="btn btn-gold" href="{{ route('dashboard') }}">My Dashboard ↗</a>
@@ -1789,21 +1787,25 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 
   <!-- ==========================================
-       PAGEVIEW 5: ABOUT US
+       PAGEVIEW 5: ABOUT US, ADMISSIONS & CONTACT (UNIFIED)
        ========================================== -->
   <div id="about" class="pageview">
+    <div id="admissions" style="position: relative; top: -80px; visibility: hidden;"></div>
+    <div id="contact" style="position: relative; top: -80px; visibility: hidden;"></div>
+
     <section class="subhero">
       <div class="wrap">
-        <span class="subhero-eyebrow">Institutional Profile</span>
-        <h1>About AL-TAQWA Institute</h1>
-        <p>An international online sanctuary for traditional Islamic learning, making authentic sacred knowledge accessible to students worldwide.</p>
+        <span class="subhero-eyebrow">Institutional Sanctuary & Admissions</span>
+        <h1>About AL-TAQWA Institute & Global Admissions</h1>
+        <p>An international online sanctuary for traditional Islamic scholarship, dedicated sisters' education, and global student admissions.</p>
       </div>
     </section>
 
-    <section class="page-content">
+    <!-- SECTION A: Institutional Profile & Commitments -->
+    <section class="page-content" style="padding-bottom: 24px;">
       <div class="wrap split-layout">
         <div>
-          <div class="subhero-eyebrow" style="color: var(--primary);">Our Purpose</div>
+          <div class="subhero-eyebrow" style="color: var(--primary);">Our Purpose & Vision</div>
           <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--primary-dark); margin-bottom: 16px;">
             Making Sacred Knowledge Accessible, Meaningful & Consistent.
           </h2>
@@ -1859,56 +1861,115 @@ img { max-width: 100%; height: auto; display: block; }
         </div>
       </div>
     </section>
-  </div>
 
-  <!-- ==========================================
-       PAGEVIEW 6: ADMISSIONS & ENQUIRIES
-       ========================================== -->
-  <div id="admissions" class="pageview">
-    <section class="subhero">
+    <!-- SECTION B: Admissions Overview & Pillars -->
+    <section style="background: var(--cream-alt); padding: 50px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 30px 0 50px;">
       <div class="wrap">
-        <span class="subhero-eyebrow">Student Admissions</span>
-        <h1>Enrollment & Application</h1>
-        <p>Take the first step toward structured Islamic learning. Our admissions team is here to guide you to the right course and batch timing.</p>
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span class="subhero-eyebrow" style="color: var(--primary);">Global Admissions Pathway</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-dark); margin-bottom: 10px;">
+            How Our Academy Welcomes Students Worldwide
+          </h2>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Whether you are beginning foundational Tajweed or pursuing an advanced Alimiyyah degree, our academic admissions process is simple, structured, and personal.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--gold);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🌐</div>
+            <strong style="display: block; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 6px;">Global Flexibility</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Morning, evening, and weekend batches synchronized across IST, BST/GMT, GST, and EST/CST.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--gold);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">👥</div>
+            <strong style="display: block; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 6px;">Separate Classrooms</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Brothers & Sisters study in independent, respectful online environments with dedicated female faculty for sisters.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--gold);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">🎓</div>
+            <strong style="display: block; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 6px;">Need-Based Aid</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Dedicated scholarship fund available for sincere seekers of knowledge enrolling in the 4-Year Alima Course.</p>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--gold);">
+            <div style="font-size: 1.8rem; margin-bottom: 10px;">💯</div>
+            <strong style="display: block; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 6px;">100% Refundable</strong>
+            <p style="font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin: 0;">Foundational workshops (like the Namaz Translation Workshop) refund 100% of the deposit upon passing evaluation.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="page-content">
+    <!-- SECTION C: Academic Directory & Unified Application / Contact Form -->
+    <section class="page-content" id="enquiry-section" style="padding-top: 0; padding-bottom: 80px;">
       <div class="wrap contact-grid">
+        <!-- Directory Card -->
         <div>
-          <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-dark); margin-bottom: 12px;">
-            Find Your Learning Pathway
-          </h2>
-          <p style="color: var(--muted); line-height: 1.6; margin-bottom: 24px;">
-            Submit your application enquiry below. Our academic coordinators will contact you via email or WhatsApp to confirm batch timings, teacher assignment, and trial session details.
-          </p>
-
           <div class="info-card" style="margin-bottom: 24px;">
-            <h3 style="font-size: 1.3rem;">Admissions Overview</h3>
-            <ul style="list-style: none; padding: 0; font-size: 0.85rem; color: #D3E6DC; line-height: 1.8;">
-              <li>✦ <b>Global Flexibility:</b> Morning & evening batches aligned to IST, BST, EST, and GST.</li>
-              <li>✦ <b>Separate Batches:</b> Brothers & Sisters learn in independent, respectful online environments.</li>
-              <li>✦ <b>Need-Based Aid:</b> Scholarships available for dedicated seekers of the 4-year Alima course.</li>
-              <li>✦ <b>100% Refundable:</b> Namaz & Aqeedah workshops refund 100% deposit on exam pass scores.</li>
-            </ul>
+            <h3>Academic Directory & Helpdesk</h3>
+            <p>Connect directly with our administration and admissions counselors for any program, teacher consultation, or student verification support.</p>
+
+            <div class="info-list-item">
+              <i>✉</i>
+              <div>
+                <strong style="color:#FFFFFF; display:block;">Official Admissions Email</strong>
+                <a href="mailto:officialaltaqwa@gmail.com" style="color:var(--gold); font-weight: 600;">officialaltaqwa@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="info-list-item">
+              <i>🌐</i>
+              <div>
+                <strong style="color:#FFFFFF; display:block;">Official Academy Website</strong>
+                <span style="color:#D3E6DC;">www.altaqwauniversity.com</span>
+              </div>
+            </div>
+
+            <div class="info-list-item">
+              <i>⏰</i>
+              <div>
+                <strong style="color:#FFFFFF; display:block;">Admissions Support Hours</strong>
+                <span style="color:#D3E6DC;">Monday – Saturday · Support across IST, BST, EST, and GST</span>
+              </div>
+            </div>
+
+            <div class="info-list-item">
+              <i>🎓</i>
+              <div>
+                <strong style="color:#FFFFFF; display:block;">Certificate Verification</strong>
+                <a href="{{ route('storefront.verify_certificate') }}" style="color:var(--gold); font-weight: 600;">Verify Online Sanad ↗</a>
+              </div>
+            </div>
           </div>
 
-          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px;">
-            <strong style="color: var(--primary-dark); display: block; margin-bottom: 6px;">Have urgent questions?</strong>
-            <p style="font-size: 0.86rem; color: var(--muted); margin-bottom: 12px;">You can also write directly to our admissions office at:</p>
-            <a href="mailto:officialaltaqwa@gmail.com" style="color: var(--gold-dark); font-weight: 700; font-size: 0.95rem;">officialaltaqwa@gmail.com ↗</a>
+          <div style="background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-sm);">
+            <strong style="color: var(--primary-dark); display: block; font-size: 1.05rem; margin-bottom: 6px;">Need Placement Guidance?</strong>
+            <p style="font-size: 0.86rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px;">
+              Not sure which level of Arabic or Tajweed is right for you? Submit your enquiry, and an academic advisor will schedule a brief placement assessment or trial halqa.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span style="font-size: 0.78rem; background: var(--primary-surface); color: var(--primary-dark); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 600;">✓ Free Trial Halqas</span>
+              <span style="font-size: 0.78rem; background: var(--primary-surface); color: var(--primary-dark); padding: 4px 10px; border-radius: var(--radius-pill); font-weight: 600;">✓ 1-on-1 Guidance</span>
+            </div>
           </div>
         </div>
 
+        <!-- Form Box -->
         <div class="form-box">
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 6px;">Application & Enquiry Form</h3>
-          <p style="font-size: 0.86rem; color: var(--muted); margin-bottom: 22px;">Fill in your details below to request placement or ask about fee structures.</p>
+          <div style="margin-bottom: 20px;">
+            <span class="subhero-eyebrow" style="color: var(--gold-dark); margin-bottom: 4px;">Fast Application & Enquiry</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.7rem; color: var(--primary-dark); margin-bottom: 6px;">Admissions Application & Enquiry</h3>
+            <p style="font-size: 0.88rem; color: var(--muted);">Fill out the form below to apply for admission, request batch schedules, or send an enquiry to our academic office.</p>
+          </div>
 
           <form id="admissionForm">
             <div class="form-grid">
               <div class="form-field">
                 <label for="adName">Full Name *</label>
-                <input id="adName" name="name" required placeholder="e.g. Abdullah Khan">
+                <input id="adName" name="name" required placeholder="e.g. Abdullah Khan / Fatima Zahra">
               </div>
 
               <div class="form-field">
@@ -1926,143 +1987,64 @@ img { max-width: 100%; height: auto; display: block; }
                 <input id="adCountry" name="country" required placeholder="e.g. India, UK, USA, UAE">
               </div>
 
+              <div class="form-field">
+                <label for="adSubject">Purpose of Enquiry *</label>
+                <select id="adSubject" name="subject" required>
+                  <option value="Course Admission Application">Course Admission Application</option>
+                  <option value="Batch Timings & Schedule Inquiry">Batch Timings & Schedule Inquiry</option>
+                  <option value="Scholarship & Fee Support Request">Scholarship & Fee Support Request</option>
+                  <option value="Sister's Cohort / Alima Course Details">Sister's Cohort / Alima Course Details</option>
+                  <option value="Student Records & Certificate Support">Student Records & Certificate Support</option>
+                  <option value="General Academic Enquiry">General Academic Enquiry</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="adTime">Preferred Timing / Time Zone</label>
+                <input id="adTime" name="time" placeholder="e.g. Weekend morning (IST) / Evening (GMT)">
+              </div>
+
               <div class="form-field full">
                 <label for="adCourse">Select Course of Interest *</label>
                 <select id="adCourse" name="course" required>
                   <option value="">-- Choose from our 12 certified programs --</option>
                   <optgroup label="Qur'an & Tajweed">
-                    <option>Tafseer-ul-Qur’an — Weekend Program</option>
-                    <option>Diploma in Tajweed-e-Quran</option>
-                    <option>Hifz-ul-Qur’an Program (Advanced Diploma)</option>
+                    <option value="Tafseer-ul-Qur’an — Weekend Program">Tafseer-ul-Qur’an — Weekend Program</option>
+                    <option value="Diploma in Tajweed-e-Quran">Diploma in Tajweed-e-Quran</option>
+                    <option value="Hifz-ul-Qur’an Program (Advanced Diploma)">Hifz-ul-Qur’an Program (Advanced Diploma)</option>
                   </optgroup>
                   <optgroup label="Islamic Studies">
-                    <option>Seerat-un-Nabi ﷺ Program</option>
-                    <option>Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)</option>
-                    <option>Certificate in Salah, Duas & Sunnah Lifestyle</option>
-                    <option>Alima Course (Advanced Diploma in Islamic Studies)</option>
+                    <option value="Seerat-un-Nabi ﷺ Program">Seerat-un-Nabi ﷺ Program</option>
+                    <option value="Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)">Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)</option>
+                    <option value="Certificate in Salah, Duas & Sunnah Lifestyle">Certificate in Salah, Duas & Sunnah Lifestyle</option>
+                    <option value="Alima Course (Advanced Diploma in Islamic Studies)">Alima Course (Advanced Diploma in Islamic Studies)</option>
                   </optgroup>
                   <optgroup label="Arabic & Urdu">
-                    <option>Diploma in Arabic Language</option>
-                    <option>Certificate in Basic Arabic Reading (Noorani Qaida)</option>
-                    <option>Certificate in Urdu Reading & Writing</option>
+                    <option value="Diploma in Arabic Language">Diploma in Arabic Language</option>
+                    <option value="Certificate in Basic Arabic Reading (Noorani Qaida)">Certificate in Basic Arabic Reading (Noorani Qaida)</option>
+                    <option value="Certificate in Urdu Reading & Writing">Certificate in Urdu Reading & Writing</option>
                   </optgroup>
                   <optgroup label="Workshops & Short Courses">
-                    <option>Free Namaz Translation Workshop</option>
-                    <option>Certificate in Islamic Public Speaking & Content Creation</option>
+                    <option value="Free Namaz Translation Workshop">Free Namaz Translation Workshop</option>
+                    <option value="Certificate in Islamic Public Speaking & Content Creation">Certificate in Islamic Public Speaking & Content Creation</option>
+                  </optgroup>
+                  <optgroup label="Other">
+                    <option value="General Academic Inquiry (Multiple Courses)">General Academic Inquiry (Multiple Courses)</option>
                   </optgroup>
                 </select>
               </div>
 
               <div class="form-field full">
-                <label for="adTime">Preferred Batch Timing / Time Zone</label>
-                <input id="adTime" name="time" placeholder="e.g. Weekend mornings (IST) or Weekday evenings (UK GMT)">
-              </div>
-
-              <div class="form-field full">
-                <label for="adMessage">Questions or Notes for Admissions Team</label>
+                <label for="adMessage">Questions or Notes for Academic Advisors</label>
                 <textarea id="adMessage" name="message" rows="3" placeholder="Tell us about your learning background, previous Islamic studies, or specific questions."></textarea>
               </div>
             </div>
 
-            <button class="btn btn-green" type="submit" style="width: 100%; padding: 13px; font-size: 0.95rem; margin-top: 10px;">
-              Submit Admission Enquiry ↗
+            <button class="btn btn-green" type="submit" style="width: 100%; padding: 14px; font-size: 0.96rem; margin-top: 10px;">
+              Submit Application & Enquiry ↗
             </button>
-            <p style="font-size: 0.76rem; color: var(--muted); text-align: center; margin-top: 12px;">
-              Pressing submit prepares an official email draft to officialaltaqwa@gmail.com with your details pre-formatted.
-            </p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ==========================================
-       PAGEVIEW 7: CONTACT US
-       ========================================== -->
-  <div id="contact" class="pageview">
-    <section class="subhero">
-      <div class="wrap">
-        <span class="subhero-eyebrow">Academic Helpdesk</span>
-        <h1>Contact AL-TAQWA Institute</h1>
-        <p>Have questions regarding enrollment, student records, fee arrangements, or trial classes? Our team is glad to assist you.</p>
-      </div>
-    </section>
-
-    <section class="page-content">
-      <div class="wrap contact-grid">
-        <div class="info-card">
-          <h3>Contact Directory</h3>
-          <p>Reach out through any of our official channels for admissions, academic guidance, or technical student support.</p>
-
-          <div class="info-list-item">
-            <i>✉</i>
-            <div>
-              <strong style="color:#FFFFFF; display:block;">Official Admissions Email</strong>
-              <a href="mailto:officialaltaqwa@gmail.com" style="color:var(--gold);">officialaltaqwa@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="info-list-item">
-            <i>🌐</i>
-            <div>
-              <strong style="color:#FFFFFF; display:block;">Official Website</strong>
-              <span style="color:#D3E6DC;">www.altaqwauniversity.com</span>
-            </div>
-          </div>
-
-          <div class="info-list-item">
-            <i>⏰</i>
-            <div>
-              <strong style="color:#FFFFFF; display:block;">Global Cohorts Supported</strong>
-              <span style="color:#D3E6DC;">India (IST) • UK/Europe (BST/GMT) • Middle East (GST) • North America (EST/CST)</span>
-            </div>
-          </div>
-
-          <div class="info-list-item">
-            <i>🎓</i>
-            <div>
-              <strong style="color:#FFFFFF; display:block;">Certificate Verification</strong>
-              <a href="{{ route('storefront.verify_certificate') }}" style="color:var(--gold);">Verify Online Sanad ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-box">
-          <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 6px;">Send a Direct Message</h3>
-          <p style="font-size: 0.86rem; color: var(--muted); margin-bottom: 22px;">Send an enquiry regarding any course, teacher, or administrative request.</p>
-
-          <form id="contactForm">
-            <div class="form-field">
-              <label for="cName">Your Name *</label>
-              <input id="cName" required placeholder="Full Name">
-            </div>
-
-            <div class="form-field">
-              <label for="cEmail">Email Address *</label>
-              <input id="cEmail" type="email" required placeholder="you@example.com">
-            </div>
-
-            <div class="form-field">
-              <label for="cSubject">Subject of Enquiry *</label>
-              <select id="cSubject">
-                <option>Course Admissions & Batch Timings</option>
-                <option>Fee Structure & Scholarships</option>
-                <option>Student Account & Credentials</option>
-                <option>Certificate Verification</option>
-                <option>Other Enquiry</option>
-              </select>
-            </div>
-
-            <div class="form-field">
-              <label for="cMsg">Your Message *</label>
-              <textarea id="cMsg" required rows="4" placeholder="How can our administration team help you?"></textarea>
-            </div>
-
-            <button class="btn btn-green" type="submit" style="width: 100%; padding: 13px; font-size: 0.95rem; margin-top: 10px;">
-              Send Message ↗
-            </button>
-            <p style="font-size: 0.76rem; color: var(--muted); text-align: center; margin-top: 12px;">
-              Opens your email client to send your message directly to officialaltaqwa@gmail.com.
+            <p style="font-size: 0.78rem; color: var(--muted); text-align: center; margin-top: 12px; line-height: 1.4;">
+              Submitting opens an official email draft to <strong>officialaltaqwa@gmail.com</strong> with your details formatted.
             </p>
           </form>
         </div>
@@ -2099,9 +2081,8 @@ img { max-width: 100%; height: auto; display: block; }
         <a href="#home" data-page="home">Home</a>
         <a href="#courses" data-page="courses">All 12 Programs</a>
         <a href="#teachers" data-page="teachers">Faculty & Scholars</a>
-        <a href="#about" data-page="about">About Institute</a>
-        <a href="#admissions" data-page="admissions">Student Admissions</a>
-        <a href="#contact" data-page="contact">Contact Helpdesk</a>
+        <a href="#about" data-page="about">About & Admissions</a>
+        <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate Online ↗</a>
       </div>
 
       <div class="footer-col">
@@ -2741,14 +2722,32 @@ function toast(msg) {
 
 /* 9. Pageview Navigation System */
 function showPage(id) {
+  let targetId = id;
+  const isEnquiryJump = (id === "admissions" || id === "contact");
+  if (isEnquiryJump) {
+    targetId = "about";
+  }
+
   document.querySelectorAll(".pageview").forEach(p => p.classList.remove("active"));
-  const page = document.getElementById(id) || document.getElementById("home");
+  const page = document.getElementById(targetId) || document.getElementById("home");
   page.classList.add("active");
   document.getElementById("navlinks").classList.remove("show");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (isEnquiryJump) {
+    const formSection = document.getElementById("enquiry-section");
+    if (formSection) {
+      setTimeout(() => {
+        formSection.scrollIntoView({ behavior: "smooth" });
+      }, 80);
+    }
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   document.querySelectorAll("#navlinks a[data-page]").forEach(a => {
-    a.classList.toggle("active", a.dataset.page === (id === "courseDetail" ? "courses" : id));
+    const pageVal = a.dataset.page;
+    const isActive = pageVal === targetId || (targetId === "courses" && id === "courseDetail");
+    a.classList.toggle("active", isActive);
   });
 }
 
@@ -2804,7 +2803,14 @@ document.addEventListener("click", e => {
   const en = e.target.closest("[data-enquire]");
   if (en) {
     showPage("admissions");
-    document.getElementById("adCourse").value = en.dataset.enquire;
+    const courseSel = document.getElementById("adCourse");
+    if (courseSel) {
+      courseSel.value = en.dataset.enquire;
+    }
+    const subjSel = document.getElementById("adSubject");
+    if (subjSel) {
+      subjSel.value = "Course Admission Application";
+    }
     return;
   }
 
@@ -2825,27 +2831,16 @@ document.getElementById("menuBtn").addEventListener("click", () => {
 // Course search filter input
 document.getElementById("courseFilter")?.addEventListener("input", renderAllCourses);
 
-// Admission Form Submit
-document.getElementById("admissionForm").addEventListener("submit", e => {
+// Admission & Enquiry Form Submit
+document.getElementById("admissionForm")?.addEventListener("submit", e => {
   e.preventDefault();
   const f = new FormData(e.target);
-  const msg = `Assalamu Alaikum,\n\nI would like to apply/enquire for admission at AL-TAQWA Institute.\n\nFull Name: ${f.get("name")}\nEmail: ${f.get("email")}\nWhatsApp/Phone: ${f.get("phone")}\nCountry: ${f.get("country")}\nSelected Course: ${f.get("course")}\nPreferred Timing: ${f.get("time") || "Flexible"}\nQuestions/Notes: ${f.get("message") || "Please share batch schedule and ustadh details."}\n\nJazakAllah Khair.`;
+  const subject = f.get("subject") || "Admission Enquiry";
+  const course = f.get("course") || "General Program";
+  const msg = `Assalamu Alaikum,\n\nI would like to submit an enquiry / admission application to AL-TAQWA Institute.\n\nFull Name: ${f.get("name")}\nEmail: ${f.get("email")}\nWhatsApp/Phone: ${f.get("phone")}\nCountry: ${f.get("country")}\nEnquiry Type: ${subject}\nSelected Course: ${course}\nPreferred Timing: ${f.get("time") || "Flexible"}\nQuestions/Notes:\n${f.get("message") || "Please share batch schedule and ustadh details."}\n\nJazakAllah Khair.`;
 
-  location.href = "mailto:officialaltaqwa@gmail.com?subject=" + encodeURIComponent("Admission Enquiry: " + f.get("course")) + "&body=" + encodeURIComponent(msg);
-  toast("Opening email draft. Press send to deliver your admission application!");
-});
-
-// Contact Form Submit
-document.getElementById("contactForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const name = document.getElementById("cName").value;
-  const email = document.getElementById("cEmail").value;
-  const subject = document.getElementById("cSubject").value;
-  const msg = document.getElementById("cMsg").value;
-
-  const body = `Assalamu Alaikum,\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${msg}`;
-  location.href = "mailto:officialaltaqwa@gmail.com?subject=" + encodeURIComponent("AL-TAQWA Enquiry: " + subject) + "&body=" + encodeURIComponent(body);
-  toast("Opening email draft. Press send to deliver your message!");
+  location.href = "mailto:officialaltaqwa@gmail.com?subject=" + encodeURIComponent(`${subject}: ${course}`) + "&body=" + encodeURIComponent(msg);
+  toast("Opening email draft. Press send to deliver your application / enquiry!");
 });
 
 /* 11. Initial Startup */
