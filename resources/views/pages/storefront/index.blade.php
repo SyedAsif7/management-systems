@@ -101,7 +101,7 @@ img { max-width: 100%; height: auto; display: block; }
 .topbar-links a:hover {
   color: var(--gold);
 }
-.topbar-portal {
+.topbar-login {
   color: var(--gold) !important;
   font-weight: 700;
   display: inline-flex;
@@ -1286,9 +1286,9 @@ img { max-width: 100%; height: auto; display: block; }
       <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a>
       <span>|</span>
       @auth
-        <a class="topbar-portal" href="{{ route('dashboard') }}">My Dashboard ↗</a>
+        <a class="topbar-login" href="{{ route('dashboard') }}">My Dashboard ↗</a>
       @else
-        <a class="topbar-portal" href="{{ route('login') }}">Portal Login (Students · Teachers · Admin) ↗</a>
+        <a class="topbar-login" href="{{ route('login') }}">Login (Students · Teachers · Admin) ↗</a>
       @endauth
     </div>
   </div>
@@ -1323,7 +1323,7 @@ img { max-width: 100%; height: auto; display: block; }
       @auth
         <a class="btn btn-gold" href="{{ route('dashboard') }}">My Dashboard ↗</a>
       @else
-        <a class="btn btn-gold" href="{{ route('login') }}">Portal Login ↗</a>
+        <a class="btn btn-gold" href="{{ route('login') }}">Login ↗</a>
       @endauth
     </nav>
   </div>
@@ -1360,7 +1360,7 @@ img { max-width: 100%; height: auto; display: block; }
             <h3>AL-TAQWA</h3>
             <p>Institute of Islamic Studies</p>
             <div style="font-size: 0.85rem; color: #D6EDE3; line-height: 1.6;">
-              Online Islamic Education worldwide with structured LMS progress tracking, teacher mentorship, and recognized certificates.
+              Online Islamic Education worldwide with structured progress tracking, teacher mentorship, and recognized certificates.
             </div>
             <div class="hero-floating-badge badge-top-left">
               <span>📖</span>
@@ -1541,7 +1541,7 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="step-card">
             <div class="step-number">03</div>
             <h3>Begin Your Classes</h3>
-            <p>Receive your official LMS student credentials and live classroom link to start your journey of sacred knowledge.</p>
+            <p>Receive your official student credentials and live classroom link to start your journey of sacred knowledge.</p>
           </div>
         </div>
       </div>
@@ -1601,7 +1601,7 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="cards" id="allCourses"></div>
 
         <p style="margin-top: 36px; font-size: 0.86rem; color: var(--muted); text-align: center;">
-          ✦ All 12 programs include live interactive lectures, study notes, LMS portal tracking, and authenticated digital certification upon completion.
+          ✦ All 12 programs include live interactive lectures, study notes, online progress tracking, and authenticated digital certification upon completion.
         </p>
       </div>
     </section>
@@ -1719,7 +1719,7 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="info-list-item">
             <i>✓</i>
             <div>
-              <strong style="color:#FFFFFF; display:block; margin-bottom:2px;">LMS Portal & Digital Sanad</strong>
+              <strong style="color:#FFFFFF; display:block; margin-bottom:2px;">Student Hub & Digital Sanad</strong>
               <span style="color:#D3E6DC; font-size:0.84rem;">Track attendance, listen to session recordings, complete weekly assessments, and receive verifiable certificates.</span>
             </div>
           </div>
@@ -1859,7 +1859,7 @@ img { max-width: 100%; height: auto; display: block; }
       <div class="wrap contact-grid">
         <div class="info-card">
           <h3>Contact Directory</h3>
-          <p>Reach out through any of our official channels for admissions, academic guidance, or technical LMS support.</p>
+          <p>Reach out through any of our official channels for admissions, academic guidance, or technical student support.</p>
 
           <div class="info-list-item">
             <i>✉</i>
@@ -1872,7 +1872,7 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="info-list-item">
             <i>🌐</i>
             <div>
-              <strong style="color:#FFFFFF; display:block;">Academic Web Portal</strong>
+              <strong style="color:#FFFFFF; display:block;">Official Website</strong>
               <span style="color:#D3E6DC;">www.altaqwauniversity.com</span>
             </div>
           </div>
@@ -1914,7 +1914,7 @@ img { max-width: 100%; height: auto; display: block; }
               <select id="cSubject">
                 <option>Course Admissions & Batch Timings</option>
                 <option>Fee Structure & Scholarships</option>
-                <option>LMS Portal & Student Credentials</option>
+                <option>Student Account & Credentials</option>
                 <option>Certificate Verification</option>
                 <option>Other Enquiry</option>
               </select>
@@ -1957,7 +1957,7 @@ img { max-width: 100%; height: auto; display: block; }
         </p>
         <p style="font-size: 0.84rem; color: var(--gold);">
           Email: officialaltaqwa@gmail.com<br>
-          Portal: altaqwauniversity.com
+          Website: altaqwauniversity.com
         </p>
       </div>
 
@@ -1982,8 +1982,8 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
 
       <div class="footer-col">
-        <h4>LMS Portal & Legal</h4>
-        <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Student / Teacher Portal Login ↗</a>
+        <h4>Account & Legal</h4>
+        <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Student / Teacher Login ↗</a>
         <a href="{{ route('storefront.verify_certificate') }}" style="color: var(--gold); font-weight: 700;">Verify Certificate Online ↗</a>
         <a href="{{ route('privacy_policy') }}">Privacy Policy</a>
         <a href="{{ route('terms_of_use') }}">Terms of Service</a>
@@ -2287,7 +2287,7 @@ const faqs = [
   ["Are classes available for students outside India?", "Yes! AL-TAQWA Institute offers structured online live learning for students worldwide across UK, USA, Gulf/Middle East, and Asia with flexible timing."],
   ["How do I enrol in a course?", "Send an admission enquiry with your preferred course. Our admissions team will confirm available batch timings, fee structures, and ustadh placement."],
   ["Can I ask about course fees and schedules first?", "Yes. Use the admissions form to ask about fees, batch timings, course duration, teacher profiles, and trial sessions."],
-  ["Are class recordings or study notes provided?", "Yes! All live interactive classes are recorded so students can review past sessions and download authentic study notes from their student portal."],
+  ["Are class recordings or study notes provided?", "Yes! All live interactive classes are recorded so students can review past sessions and download authentic study notes from their student dashboard."],
   ["Is there a separate batch for sisters?", "Yes, absolutely! The 4-year Alima Course and sister batches are taught exclusively by qualified female scholars (Alimaat) in a dedicated, respectful environment."],
   ["How does the 100% refundable deposit work?", "For subsidized courses such as the Free Namaz Workshop and Aqeedah certificate, the deposit confirms genuine commitment. Upon attending classes and scoring ≥75% on the assessment, 100% of your deposit is credited back!"]
 ];

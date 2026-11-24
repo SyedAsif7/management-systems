@@ -419,7 +419,7 @@
                 </div>
             </div>
             <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="btn btn-block btn-sm mt-2 font-weight-bold" style="background: #C9A35A; color: #FFFFFF; border-radius: 6px;">
-                <i class="icon-search4 mr-1"></i> Open Verification Portal
+                <i class="icon-search4 mr-1"></i> Verify Credentials Online
             </a>
         </div>
 

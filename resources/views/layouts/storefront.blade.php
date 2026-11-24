@@ -405,7 +405,7 @@
                 @auth
                     <a href="{{ route('dashboard') }}" style="color: var(--gold); font-weight: 700;">My Dashboard ↗</a>
                 @else
-                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Portal Login (Students · Teachers · Admin) ↗</a>
+                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Login (Students · Teachers · Admin) ↗</a>
                 @endauth
             </div>
         </div>
@@ -442,7 +442,7 @@
                     @auth
                         <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">My Dashboard ↗</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-2">Portal Login ↗</a>
+                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-2">Login ↗</a>
                     @endauth
                 </nav>
             </div>
@@ -471,7 +471,7 @@
                     </p>
                     <p style="font-size: 0.84rem; color: var(--gold);">
                         Email: officialaltaqwa@gmail.com<br>
-                        Portal: altaqwauniversity.com
+                        Website: altaqwauniversity.com
                     </p>
                 </div>
 
@@ -496,8 +496,8 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4>LMS Portal & Legal</h4>
-                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Student / Teacher Portal Login ↗</a>
+                    <h4>Account & Legal</h4>
+                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Student / Teacher Login ↗</a>
                     <a href="{{ route('storefront.verify_certificate') }}" style="color: var(--gold); font-weight: 700;">Verify Certificate Online ↗</a>
                     <a href="{{ route('privacy_policy') }}">Privacy Policy</a>
                     <a href="{{ route('terms_of_use') }}">Terms of Service</a>

@@ -18,7 +18,7 @@
                                 <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA Logo" style="width: 78px; height: 78px; border-radius: 16px; border: 2.5px solid #C9A35A; box-shadow: 0 6px 18px rgba(0,0,0,0.2);" class="mb-3 mt-1">
                                 <h4 class="mb-1 font-weight-bold" style="color: #063D2E; letter-spacing: 0.5px; font-family: var(--font-serif, Georgia, serif);">AL-TAQWA INSTITUTE</h4>
                                 <span class="d-block text-muted small" style="letter-spacing: 0.3px;">Taleem &bull; Tarbiyah &bull; Tazkiyah</span>
-                                <span class="badge text-white font-weight-bold mt-2" style="background-color: #f4511e; font-size: 11px; padding: 5px 14px; border-radius: 5px; letter-spacing: 0.5px; text-transform: uppercase;">LMS Portal Login</span>
+                                <span class="badge text-white font-weight-bold mt-2" style="background-color: #f4511e; font-size: 11px; padding: 5px 14px; border-radius: 5px; letter-spacing: 0.5px; text-transform: uppercase;">Institute Login</span>
                                 <div class="text-muted mt-2" style="font-size: 11.5px; font-weight: 500;">Unified Login for Students, Asatizah & Administration</div>
                             </div>
 

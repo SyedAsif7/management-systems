@@ -43,7 +43,7 @@
                 <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
                 <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
                 <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
-                <span class="navlink-item active ml-lg-2">Portal Login</span>
+                <span class="navlink-item active ml-lg-2">Login</span>
             </nav>
         </div>
     </div>

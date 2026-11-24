@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     @empty
-                        <p style="color: var(--muted); font-size: 0.92rem;">Detailed module notes and lesson recordings are accessible directly through the LMS student portal upon batch enrollment.</p>
+                        <p style="color: var(--muted); font-size: 0.92rem;">Detailed module notes and lesson recordings are accessible directly through your student account upon batch enrollment.</p>
                     @endforelse
                 </div>
             </div>

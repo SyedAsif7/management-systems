@@ -301,7 +301,7 @@ class AltaqwaCourseSeeder extends Seeder
                 'class_days' => 'Saturday to Thursday',
                 'gender_eligibility' => 'brothers_and_sisters',
                 'refund_threshold_percentage' => null,
-                'overview' => 'An intensive memorization sanctuary for serious seekers of the Quran. Students follow the time-tested tripartite system: 1) Sabaq (Daily New Lesson), 2) Sabqi (Recent 1-2 Juz Revision), and 3) Manzil (Long-term Cumulative Juz Cycle). Daily performance is logged in the LMS portal for parents and mentors.',
+                'overview' => 'An intensive memorization sanctuary for serious seekers of the Quran. Students follow the time-tested tripartite system: 1) Sabaq (Daily New Lesson), 2) Sabqi (Recent 1-2 Juz Revision), and 3) Manzil (Long-term Cumulative Juz Cycle). Daily performance is logged in the student dashboard for parents and mentors.',
                 'syllabus' => json_encode([
                     'Year 1' => 'Memorization of Juz 30 to Juz 24 (7 Juz) with strict Tarteel',
                     'Year 2' => 'Memorization of Juz 23 to Juz 16 (8 Juz) & Continuous Revision',

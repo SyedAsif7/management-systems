@@ -20,7 +20,7 @@ Route::get('/home', function () {
     return redirect()->route('dashboard');
 })->name('home.redirect');
 
-// Authenticated LMS Portal
+// Authenticated Learning Platform
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');

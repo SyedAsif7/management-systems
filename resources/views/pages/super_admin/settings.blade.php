@@ -94,7 +94,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6">
-                                <span class="font-weight-bold font-italic text-info-800">Show/Hide 'My Hifz Memorization Progress' on student portal</span>
+                                <span class="font-weight-bold font-italic text-info-800">Show/Hide 'My Hifz Memorization Progress' on student dashboard</span>
                             </div>
                         </div>
                 </div>

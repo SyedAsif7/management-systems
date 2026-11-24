@@ -112,7 +112,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-between">
             <div class="d-flex align-items-center mb-2 mb-md-0">
                 <span class="badge mr-2 px-2 py-1" style="background: #063D2E; color: #C9A35A; font-weight: 700; font-size: 0.78rem;">
-                    <i class="icon-compass mr-1"></i> LEARNER PORTAL
+                    <i class="icon-compass mr-1"></i> STUDENT DASHBOARD
                 </span>
                 <span class="text-muted font-size-sm">Student Quick Access:</span>
             </div>

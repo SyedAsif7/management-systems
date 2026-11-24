@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('page_title', 'Institute LMS Portal Dashboard')
+@section('page_title', 'Institute Dashboard')
 @section('content')
 
 {{-- Academy Welcome Banner --}}
@@ -12,7 +12,7 @@
             <div class="col-lg-8">
                 <div class="d-flex align-items-center mb-2">
                     <span class="badge px-3 py-1 mr-2" style="background: rgba(201, 163, 90, 0.25); color: #F4EFE6; border: 1px solid #C9A35A; font-weight: 700; letter-spacing: 1px; font-size: 0.75rem;">
-                        AL-TAQWA INSTITUTE &middot; LMS PORTAL
+                        AL-TAQWA INSTITUTE
                     </span>
                     <span class="text-uppercase font-size-xs" style="color: #C9A35A; letter-spacing: 1.5px; font-weight: 600;">
                         Taleem &bull; Tarbiyah &bull; Tazkiyah

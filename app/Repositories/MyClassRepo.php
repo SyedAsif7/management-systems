@@ -139,7 +139,7 @@ class MyClassRepo
         return Subject::orderBy('name', 'asc')->with(['my_class', 'teacher'])->get();
     }
 
-    /************* AL-Taqwa LMS Course Queries *******************/
+    /************* AL-Taqwa Course Queries *******************/
 
     public function getPublishedCourses($category_id = null)
     {
