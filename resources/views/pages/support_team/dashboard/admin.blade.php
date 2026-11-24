@@ -137,10 +137,113 @@
                 <a href="{{ route('sections.index') }}" class="btn btn-sm btn-outline-secondary mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
                     <i class="icon-users4 mr-1"></i> Batches / Halqas
                 </a>
+                <a href="{{ route('coins.admin_index') }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
+                    <i class="icon-coins mr-1"></i> Taqwa Coins &amp; Tasks
+                </a>
+                <a href="{{ route('storefront.leaderboard') }}" target="_blank" class="btn btn-sm btn-outline-dark mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
+                    <i class="icon-trophy3 mr-1"></i> Coins Leaderboard ↗
+                </a>
                 <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="btn btn-sm mb-1" style="background: #C9A35A; color: #FFFFFF; border-radius: 6px; font-weight: 600;">
                     <i class="icon-certificate mr-1"></i> Verify Certificates
                 </a>
             </div>
+        </div>
+    </div>
+</div>
+
+{{-- Main Taqwa Coins Institute Circulation & Global Champions Leaderboard --}}
+<div class="card mb-4" style="border-radius: 12px; border: 2px solid #C9A35A; background: #FFFFFF; box-shadow: 0 4px 18px rgba(201, 163, 90, 0.15); overflow: hidden;">
+    <div class="card-header py-3 px-3 header-elements-inline" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); color: #FFFFFF; border-bottom: 2px solid #C9A35A;">
+        <h6 class="card-title font-weight-bold mb-0" style="color: #FFFFFF; font-size: 1.05rem;">
+            <i class="icon-coins mr-2" style="color: #C9A35A;"></i> Taqwa Coins Institute Circulation &amp; Main Leaderboard
+        </h6>
+        <div class="header-elements">
+            <a href="{{ route('coins.admin_index') }}" class="btn btn-sm btn-gold font-weight-bold mr-2">
+                <i class="icon-cog mr-1"></i> Coins Console
+            </a>
+            <a href="{{ route('storefront.leaderboard') }}" target="_blank" class="btn btn-sm btn-outline-light font-weight-bold">
+                <i class="icon-trophy3 mr-1" style="color: #C9A35A;"></i> Full Leaderboard ↗
+            </a>
+        </div>
+    </div>
+    <div class="card-body p-3">
+        {{-- 4 Mini KPI stats --}}
+        <div class="row mb-3">
+            <div class="col-md-3 col-6 mb-2">
+                <div class="p-2 rounded text-center" style="background: #FAF9F5; border: 1px solid #E5E0D5;">
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Total Circulation</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">🪙 {{ number_format($coin_overview['total_circulation']) }}</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <div class="p-2 rounded text-center" style="background: #FAF9F5; border: 1px solid #E5E0D5;">
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Student Pool</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">📖 {{ number_format($coin_overview['student_coins']) }}</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <div class="p-2 rounded text-center" style="background: #FAF9F5; border: 1px solid #E5E0D5;">
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Ustadh Pool</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">🎓 {{ number_format($coin_overview['teacher_coins']) }}</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-2">
+                <div class="p-2 rounded text-center" style="background: #FAF9F5; border: 1px solid #E5E0D5;">
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Transactions</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">📜 {{ number_format($coin_overview['transactions_count']) }}</div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Top Champions Table --}}
+        <div class="table-responsive">
+            <table class="table table-sm table-striped">
+                <thead style="background: #063D2E; color: #FFFFFF;">
+                    <tr>
+                        <th style="width: 55px;" class="text-center">Rank</th>
+                        <th>Participant (Scholar / Seeker)</th>
+                        <th>Role</th>
+                        <th>Honorific Tier</th>
+                        <th class="text-right">Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($coin_leaderboard as $ch)
+                    <tr>
+                        <td class="font-weight-bold text-center">
+                            @if($ch->rank == 1) 🥇
+                            @elseif($ch->rank == 2) 🥈
+                            @elseif($ch->rank == 3) 🥉
+                            @else #{{ $ch->rank }}
+                            @endif
+                        </td>
+                        <td>
+                            <span class="font-weight-bold" style="color: #063D2E;">{{ $ch->name }}</span>
+                            <small class="text-muted d-block">{{ $ch->email }}</small>
+                        </td>
+                        <td>
+                            @if($ch->user_type === 'teacher')
+                                <span class="badge" style="background: #EAF7EE; color: #1F7A3F; border: 1px solid #77C794; font-weight: 700;">Ustadh / Scholar</span>
+                            @else
+                                <span class="badge" style="background: #FFF8E7; color: #9F7E3A; border: 1px solid #C9A35A; font-weight: 700;">Talib-ul-Ilm</span>
+                            @endif
+                        </td>
+                        <td>
+                            <span class="badge badge-light border" style="font-weight: 700;">{{ $ch->tier['icon'] }} {{ $ch->tier['name'] }}</span>
+                        </td>
+                        <td class="text-right font-weight-bold" style="color: #063D2E;">
+                            <span class="badge" style="background: rgba(201,163,90,0.15); border: 1px solid #C9A35A; color: #063D2E; font-weight: 800; font-size: 0.85rem;">
+                                🪙 {{ number_format($ch->coins_balance) }}
+                            </span>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="5" class="text-center py-3 text-muted">No coin balances recorded yet.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

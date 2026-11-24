@@ -10,6 +10,7 @@ use App\Models\MyClass;
 use App\Models\Section;
 use App\Models\StudentRecord;
 use App\Repositories\UserRepo;
+use App\Services\CoinService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,14 @@ class HomeController extends Controller
             $d['upcoming_sessions'] = LiveSession::with('section.my_class')->orderBy('session_date', 'asc')->take(5)->get();
             $d['recent_hifz'] = HifzLog::with(['student', 'teacher'])->latest()->take(5)->get();
             $d['top_courses'] = MyClass::where('is_published', true)->withCount('enrollments')->orderBy('enrollments_count', 'desc')->take(4)->get();
+
+            // Main Taqwa Coins Overview & Leaderboard for Admin Dashboard
+            $d['coin_overview'] = CoinService::getAdminOverview();
+            $d['coin_leaderboard'] = CoinService::getLeaderboard('all', 5);
+            foreach ($d['coin_leaderboard'] as $idx => $u) {
+                $u->rank = $idx + 1;
+                $u->tier = CoinService::getUserTier($u->coins_balance);
+            }
         } elseif (Qs::userIsTeacher()) {
             // Ustadh / Teacher Dashboard Data
             $d['my_sections'] = Section::where('teacher_id', $user->id)->with(['my_class', 'live_sessions'])->get();
@@ -81,6 +90,16 @@ class HomeController extends Controller
                 $d['recent_hifz'] = HifzLog::with('student')->latest()->take(6)->get();
             }
             $d['published_courses'] = MyClass::where('is_published', true)->take(6)->get();
+
+            // Teachers Coins Leaderboard & Personal Rank for Teacher Dashboard
+            $d['my_coins'] = $user->coins_balance ?? 0;
+            $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
+            $d['my_coin_rank'] = CoinService::getUserRank($user, 'teacher');
+            $d['teacher_leaderboard'] = CoinService::getLeaderboard('teacher', 5);
+            foreach ($d['teacher_leaderboard'] as $idx => $u) {
+                $u->rank = $idx + 1;
+                $u->tier = CoinService::getUserTier($u->coins_balance);
+            }
         } elseif (Qs::userIsStudent()) {
             // Talib-ul-Ilm / Student Dashboard Data
             $d['my_enrollments'] = Enrollment::where('student_id', $user->id)->with(['course', 'section.teacher'])->latest()->get();
@@ -101,6 +120,16 @@ class HomeController extends Controller
 
             $d['my_hifz_logs'] = HifzLog::where('student_id', $user->id)->with('teacher')->latest()->take(6)->get();
             $d['featured_courses'] = MyClass::where('is_published', true)->take(4)->get();
+
+            // Student Coins Leaderboard & Personal Rank for Student Dashboard
+            $d['my_coins'] = $user->coins_balance ?? 0;
+            $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
+            $d['my_coin_rank'] = CoinService::getUserRank($user, 'student');
+            $d['student_leaderboard'] = CoinService::getLeaderboard('student', 5);
+            foreach ($d['student_leaderboard'] as $idx => $u) {
+                $u->rank = $idx + 1;
+                $u->tier = CoinService::getUserTier($u->coins_balance);
+            }
         } else {
             // General fallback
             if (Qs::userIsTeamSAT()) {

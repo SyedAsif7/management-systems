@@ -154,6 +154,23 @@ class CoinService
     }
 
     /**
+     * Get user's rank within their role or overall
+     */
+    public static function getUserRank(User $user, string $roleFilter = 'all'): int
+    {
+        $query = User::whereIn('user_type', ['student', 'teacher'])
+            ->where('coins_balance', '>', $user->coins_balance);
+
+        if ($roleFilter === 'student' || ($roleFilter === 'role' && $user->user_type === 'student')) {
+            $query->where('user_type', 'student');
+        } elseif ($roleFilter === 'teacher' || ($roleFilter === 'role' && $user->user_type === 'teacher')) {
+            $query->where('user_type', 'teacher');
+        }
+
+        return $query->count() + 1;
+    }
+
+    /**
      * Calculate User Tier Title and Badge based on Taqwa Coins
      */
     public static function getUserTier(int $balance): array

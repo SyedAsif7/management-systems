@@ -62,47 +62,24 @@
         </div>
     </div>
 
-    {{-- Card 4: Hifz Memorization Progress or Academic Session --}}
+    {{-- Card 4: Taqwa Coins & Seeker Standing --}}
     <div class="col-sm-6 col-xl-3">
-        @if(Qs::isHifzProgressEnabled())
-            <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
-                <div class="media">
-                    <div class="media-body">
-                        <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Hifz Log</span>
-                        <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $my_hifz_logs->count() }}</h2>
-                        <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
-                            @if($my_hifz_logs->isNotEmpty())
-                                <span><i class="icon-bookmark mr-1"></i> {{ \Illuminate\Support\Str::limit($my_hifz_logs->first()->sabaq_surah_ayah, 20) }}</span>
-                            @else
-                                <span><i class="icon-book mr-1"></i> Active Memorizer</span>
-                            @endif
-                        </div>
+        <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
+            <div class="media">
+                <div class="media-body">
+                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Taqwa Coins</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white">🪙 {{ number_format($my_coins) }}</h2>
+                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.95);">
+                        <span><i class="icon-trophy3 mr-1"></i> <b>Rank #{{ $my_coin_rank }}</b> &middot; {{ $my_tier['name'] }}</span>
                     </div>
-                    <div class="ml-3 align-self-center">
-                        <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
-                            <i class="icon-book icon-2x text-white"></i>
-                        </div>
+                </div>
+                <div class="ml-3 align-self-center">
+                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
+                        <i class="icon-coins icon-2x text-white"></i>
                     </div>
                 </div>
             </div>
-        @else
-            <div class="card card-body text-white" style="background: linear-gradient(135deg, #2E4057 0%, #048A81 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
-                <div class="media">
-                    <div class="media-body">
-                        <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Academic Session</span>
-                        <h3 class="mb-0 font-weight-bold mt-1 text-white">2026-2027</h3>
-                        <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
-                            <span><i class="icon-shield-check mr-1"></i> AL-TAQWA INSTITUTE</span>
-                        </div>
-                    </div>
-                    <div class="ml-3 align-self-center">
-                        <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
-                            <i class="icon-calendar3 icon-2x text-white"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
+        </div>
     </div>
 </div>
 
@@ -123,8 +100,11 @@
                 <a href="{{ route('enrollments.my_courses') }}" class="btn btn-sm btn-outline-primary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-graduation2 mr-1"></i> My Courses
                 </a>
+                <a href="{{ route('storefront.leaderboard', ['role' => 'student']) }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
+                    <i class="icon-trophy3 mr-1"></i> Coins Leaderboard
+                </a>
                 @if(Qs::isHifzProgressEnabled())
-                <a href="{{ route('hifz.index') }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
+                <a href="{{ route('hifz.index') }}" class="btn btn-sm btn-outline-info mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-book mr-1"></i> Hifz Daily Progress
                 </a>
                 @endif
@@ -273,6 +253,82 @@
 
     {{-- Right 4-col: Certificates, Hifz Progress, and Recommended Courses --}}
     <div class="col-lg-4">
+
+        {{-- Student Coins Leaderboard & Personal Standing Card --}}
+        <div class="card mb-4" style="border-radius: 12px; border: 2px solid #C9A35A; background: #FFFFFF; box-shadow: 0 4px 18px rgba(201, 163, 90, 0.15); overflow: hidden;">
+            <div class="card-header py-3 px-3 header-elements-inline" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); color: #FFFFFF; border-bottom: 2px solid #C9A35A;">
+                <h6 class="card-title font-weight-bold mb-0" style="color: #FFFFFF; font-size: 0.98rem;">
+                    <i class="icon-trophy3 mr-2" style="color: #C9A35A;"></i> Student Coins Leaderboard
+                </h6>
+                <a href="{{ route('storefront.leaderboard', ['role' => 'student']) }}" target="_blank" class="btn btn-xs btn-gold font-weight-bold">
+                    Full Board ↗
+                </a>
+            </div>
+
+            {{-- Student's Personal Standing Banner --}}
+            <div class="p-3 border-bottom d-flex align-items-center justify-content-between" style="background: #FAF9F5;">
+                <div>
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369; letter-spacing: 0.05em;">Your Seeker Standing</div>
+                    <div class="d-flex align-items-center mt-1">
+                        <span class="badge mr-2 px-2 py-1 font-weight-bold" style="background: #063D2E; color: #DFBA6B;">
+                            Rank #{{ $my_coin_rank }}
+                        </span>
+                        <span class="font-weight-bold" style="color: #063D2E; font-size: 0.88rem;">
+                            {{ $my_tier['icon'] }} {{ $my_tier['name'] }}
+                        </span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="font-weight-bold" style="color: #063D2E; font-size: 1.25rem;">
+                        🪙 {{ number_format($my_coins) }}
+                    </span>
+                    <div class="font-size-xs text-muted">Taqwa Coins</div>
+                </div>
+            </div>
+
+            {{-- Top 5 Students List --}}
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    @forelse($student_leaderboard as $st)
+                    <div class="list-group-item d-flex align-items-center justify-content-between py-2 px-3 {{ $st->id === Auth::id() ? 'bg-light font-weight-bold' : '' }}">
+                        <div class="d-flex align-items-center">
+                            <span class="mr-2 text-center font-weight-bold" style="width: 24px; font-size: 0.9rem;">
+                                @if($st->rank == 1) 🥇
+                                @elseif($st->rank == 2) 🥈
+                                @elseif($st->rank == 3) 🥉
+                                @else #{{ $st->rank }}
+                                @endif
+                            </span>
+                            <div class="rounded-circle mr-2 d-flex align-items-center justify-content-center text-white font-weight-bold" style="width: 30px; height: 30px; background: #063D2E; font-size: 0.75rem; border: 1px solid #C9A35A;">
+                                {{ strtoupper(substr($st->name, 0, 1)) }}
+                            </div>
+                            <div>
+                                <div style="color: #063D2E; font-size: 0.85rem; line-height: 1.2;">
+                                    {{ $st->name }}
+                                    @if($st->id === Auth::id())
+                                        <span class="badge badge-warning font-size-xs ml-1" style="font-size: 0.65rem;">You</span>
+                                    @endif
+                                </div>
+                                <small class="text-muted" style="font-size: 0.72rem;">{{ $st->tier['name'] }}</small>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="badge" style="background: rgba(201, 163, 90, 0.15); border: 1px solid #C9A35A; color: #063D2E; font-weight: 800; font-size: 0.8rem;">
+                                🪙 {{ number_format($st->coins_balance) }}
+                            </span>
+                        </div>
+                    </div>
+                    @empty
+                    <div class="p-3 text-center text-muted font-size-sm">No student rankings recorded yet.</div>
+                    @endforelse
+                </div>
+            </div>
+
+            {{-- Footer earning callout --}}
+            <div class="p-2 text-center border-top font-size-xs" style="background: #FDFCF9; color: #5F7369;">
+                <span>Earn +15 per Halqa &bull; +50 per Hifz Milestone &bull; +10 per 100 Zikr</span>
+            </div>
+        </div>
 
         {{-- Verified Certificates & Sanads Card --}}
         @if($completed_certs->isNotEmpty())
