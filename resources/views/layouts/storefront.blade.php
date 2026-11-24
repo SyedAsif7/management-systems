@@ -64,31 +64,6 @@
             font-family: var(--font-arabic);
         }
 
-        /* ----------------- Top Bar ----------------- */
-        .topbar {
-            background: var(--primary-dark);
-            color: #D3E4DC;
-            font-size: 0.8rem;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(201, 163, 90, 0.2);
-        }
-        .topbar a {
-            color: #D3E4DC;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .topbar a:hover {
-            color: var(--gold);
-        }
-        .topbar-badge {
-            color: #F7E9CE;
-            font-weight: 500;
-        }
-        .topbar-badge::before {
-            content: "✦ ";
-            color: var(--gold);
-        }
-
         /* ----------------- Main Navbar ----------------- */
         .nav-header {
             background: var(--primary);
@@ -391,26 +366,6 @@
 </head>
 <body>
 
-    <!-- Top Announcement Bar -->
-    <div class="topbar">
-        <div class="container d-flex justify-content-between align-items-center flex-wrap" style="gap: 10px;">
-            <div class="topbar-badge">
-                Admissions Open for 2026 Batch · Global Live Classes with Certified Scholars
-            </div>
-            <div class="d-flex align-items-center" style="gap: 18px; font-weight: 500;">
-                <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate ↗</a>
-                <span>|</span>
-                <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a>
-                <span>|</span>
-                @auth
-                    <a href="{{ route('dashboard') }}" style="color: var(--gold); font-weight: 700;">My Dashboard ↗</a>
-                @else
-                    <a href="{{ route('login') }}" style="color: var(--gold); font-weight: 700;">Login (Students · Teachers · Admin) ↗</a>
-                @endauth
-            </div>
-        </div>
-    </div>
-
     <!-- Main Navigation Header -->
     <header class="nav-header">
         <div class="container d-flex align-items-center justify-content-between" style="height: 74px;">
@@ -438,6 +393,7 @@
                     <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
                     <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
                     <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
+                    <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Certificate ↗</a>
 
                     @auth
                         <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">My Dashboard ↗</a>

@@ -62,53 +62,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .wrap { width: min(1200px, 92%); margin: 0 auto; }
 
-/* ----------------- Top Bar ----------------- */
-.topbar {
-  background: var(--primary-dark);
-  color: #D3E4DC;
-  font-size: 0.8rem;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(201, 163, 90, 0.2);
-}
-.topbar .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.topbar-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #F7E9CE;
-  font-weight: 500;
-}
-.topbar-badge::before {
-  content: "✦";
-  color: var(--gold);
-  font-size: 0.9rem;
-}
-.topbar-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-weight: 500;
-}
-.topbar-links a {
-  color: #D3E4DC;
-}
-.topbar-links a:hover {
-  color: var(--gold);
-}
-.topbar-login {
-  color: var(--gold) !important;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
 /* ----------------- Header / Navigation ----------------- */
 .nav-header {
   background: var(--primary);
@@ -1474,28 +1427,6 @@ img { max-width: 100%; height: auto; display: block; }
 <body>
 
 <!-- ==========================================
-     TOP NOTIFICATION BAR
-     ========================================== -->
-<div class="topbar">
-  <div class="wrap">
-    <div class="topbar-badge">
-      Admissions Open for 2026 Batch · Global Live Classes with Certified Scholars
-    </div>
-    <div class="topbar-links">
-      <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate ↗</a>
-      <span>|</span>
-      <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a>
-      <span>|</span>
-      @auth
-        <a class="topbar-login" href="{{ route('dashboard') }}">My Dashboard ↗</a>
-      @else
-        <a class="topbar-login" href="{{ route('login') }}">Login (Students · Teachers · Admin) ↗</a>
-      @endauth
-    </div>
-  </div>
-</div>
-
-<!-- ==========================================
      PRIMARY NAVIGATION HEADER
      ========================================== -->
 <header class="nav-header">
@@ -1521,6 +1452,7 @@ img { max-width: 100%; height: auto; display: block; }
       <a href="#about" class="navlink-item" data-page="about">About Us</a>
       <a href="#admissions" class="navlink-item" data-page="admissions">Admissions</a>
       <a href="#contact" class="navlink-item" data-page="contact">Contact</a>
+      <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Certificate ↗</a>
       @auth
         <a class="btn btn-gold" href="{{ route('dashboard') }}">My Dashboard ↗</a>
       @else

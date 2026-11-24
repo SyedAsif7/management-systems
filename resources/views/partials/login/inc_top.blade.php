@@ -35,21 +35,6 @@
         color: #14261F;
     }
 
-    .topbar {
-        background: #021C15;
-        color: #D3E4DC;
-        font-size: 0.8rem;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(201, 163, 90, 0.2);
-    }
-    .topbar a {
-        color: #D3E4DC;
-        text-decoration: none;
-    }
-    .topbar a:hover {
-        color: var(--gold);
-    }
-
     .nav-header {
         background: var(--primary) !important;
         border-bottom: 2px solid var(--gold) !important;

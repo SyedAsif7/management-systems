@@ -1,17 +1,3 @@
-<!-- Top Announcement Bar -->
-<div class="topbar">
-    <div class="container d-flex justify-content-between align-items-center flex-wrap" style="gap: 10px;">
-        <div style="color: #F7E9CE; font-weight: 500;">
-            ✦ Admissions Open for 2026 Batch · Global Live Classes with Certified Scholars
-        </div>
-        <div class="d-flex align-items-center" style="gap: 18px; font-weight: 500;">
-            <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate ↗</a>
-            <span>|</span>
-            <a href="mailto:officialaltaqwa@gmail.com">officialaltaqwa@gmail.com</a>
-        </div>
-    </div>
-</div>
-
 <!-- Main Navbar -->
 <header class="nav-header">
     <div class="container d-flex align-items-center justify-content-between" style="height: 74px;">
@@ -43,6 +29,7 @@
                 <a href="{{ route('home') }}#about" class="navlink-item">About Us</a>
                 <a href="{{ route('home') }}#admissions" class="navlink-item">Admissions</a>
                 <a href="{{ route('home') }}#contact" class="navlink-item">Contact</a>
+                <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Certificate ↗</a>
                 <span class="navlink-item active ml-lg-2">Login</span>
             </nav>
         </div>
