@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('assets/css/altaqwa-theme.css') }}">
 
 <style>
 /* ==========================================================================
@@ -1433,7 +1434,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="wrap navin">
     <a class="brand" href="#home" data-page="home">
       <div class="brandmark">
-        <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA Emblem">
+        <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Emblem">
       </div>
       <div class="brand-titles">
         <strong>AL-TAQWA <span>INSTITUTE</span></strong>
@@ -1448,17 +1449,23 @@ img { max-width: 100%; height: auto; display: block; }
     <nav class="navlinks" id="navlinks">
       <a href="#home" class="navlink-item active" data-page="home">Home</a>
       <a href="#courses" class="navlink-item" data-page="courses">Courses</a>
-      <a href="#teachers" class="navlink-item" data-page="teachers">Faculty</a>
+      <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item">Zikr & Durood</a>
+      <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Sanad ↗</a>
+      <a href="#teachers" class="navlink-item" data-page="teachers">Scholars</a>
       <a href="#about" class="navlink-item" data-page="about">About & Admissions</a>
-      <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Certificate ↗</a>
       @auth
-        <a class="btn btn-gold" href="{{ route('dashboard') }}">My Dashboard ↗</a>
+        <span class="taqwa-coin-badge" title="Taqwa Coins Balance">🪙 {{ Auth::user()->coins_balance }} Coins</span>
+        <a class="btn btn-gold" href="{{ route('dashboard') }}">{{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub ↗' : 'Academic Dashboard ↗' }}</a>
       @else
-        <a class="btn btn-gold" href="{{ route('login') }}">Login ↗</a>
+        <a class="btn btn-outline-gold" href="#about" data-page="admissions">Apply Now ↗</a>
+        <a class="btn btn-gold" href="{{ route('login') }}">Sign In ↗</a>
       @endauth
     </nav>
   </div>
 </header>
+
+@include('partials.announcement_slider')
+@include('partials.prayer_widget')
 
 <main>
   <!-- ==========================================

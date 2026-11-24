@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.altaqwa.academy",
+    "sha256_cert_fingerprints": [
+      "14:6D:E9:DE:4E:9F:8A:2B:6F:05:8E:09:A6:49:50:5B:72:08:B3:26:47:04:8D:78:E2:08:42:27:01:CE:57:33"
+    ]
+  }
+}]

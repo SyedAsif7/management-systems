@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "ALTAQWA.com.altaqwa.academy",
+        "paths": [
+          "/join/*",
+          "/live_sessions/*",
+          "/courses/*",
+          "/verify-certificate/*"
+        ]
+      }
+    ]
+  }
+}

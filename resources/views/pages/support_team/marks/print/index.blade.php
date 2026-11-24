@@ -9,19 +9,18 @@
         {{--    Logo N School Details--}}
         <table width="100%">
             <tr>
-                <td><img src="{{ $s['logo'] }}" style="max-height : 100px;"></td>
+                <td><img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" style="max-height: 80px; border-radius: 8px;"></td>
 
                 <td style="text-align: center; ">
-                    <strong><span style="color: #1b0c80; font-size: 25px;">{{ strtoupper(Qs::getSetting('system_name')) }}</span></strong><br/>
-                   {{-- <strong><span style="color: #1b0c80; font-size: 20px;">MINNA, NIGER STATE</span></strong><br/>--}}
+                    <strong><span style="color: #063D2E; font-size: 25px;">{{ strtoupper(Qs::getSetting('system_name')) }}</span></strong><br/>
                     <strong><span
-                                style="color: #000; font-size: 15px;"><i>{{ ucwords($s['address']) }}</i></span></strong><br/>
-                    <strong><span style="color: #000; font-size: 15px;"> REPORT SHEET {{ '('.strtoupper($class_type->name).')' }}
+                                style="color: #063D2E; font-size: 15px;"><i>Taleem • Tarbiyah • Tazkiyah</i></span></strong><br/>
+                    <strong><span style="color: #C9A35A; font-size: 15px;"> OFFICIAL ACADEMIC REPORT SHEET {{ '('.strtoupper($class_type->name).')' }}
                     </span></strong>
                 </td>
                 <td style="width: 100px; height: 100px; float: left;">
                     <img src="{{ $sr->user->photo }}"
-                         alt="..."  width="100" height="100">
+                         alt="..."  width="100" height="100" style="border-radius: 6px; border: 1.5px solid #C9A35A;">
                 </td>
             </tr>
         </table>
@@ -29,8 +28,9 @@
 
         {{--Background Logo--}}
         <div style="position: relative;  text-align: center; ">
-            <img src="{{ $s['logo'] }}"
-                 style="max-width: 500px; max-height:600px; margin-top: 60px; position:absolute ; opacity: 0.2; margin-left: auto;margin-right: auto; left: 0; right: 0;" />
+            <img src="{{ asset('assets/images/altaqwa-logo.png') }}"
+                 onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'"
+                 style="max-width: 450px; max-height:450px; margin-top: 60px; position:absolute; opacity: 0.08; margin-left: auto; margin-right: auto; left: 0; right: 0;" />
         </div>
 
         {{--<!-- SHEET BEGINS HERE-->--}}

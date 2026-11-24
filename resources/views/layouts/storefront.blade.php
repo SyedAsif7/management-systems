@@ -18,6 +18,7 @@
     <!-- Bootstrap 4.6 & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/altaqwa-theme.css') }}">
 
     <style>
         /* ==========================================================================
@@ -371,7 +372,7 @@
         <div class="container d-flex align-items-center justify-content-between" style="height: 74px;">
             <a class="d-flex align-items-center text-decoration-none" href="{{ route('home') }}" style="gap: 14px;">
                 <div class="brandmark">
-                    <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA Emblem">
+                    <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Emblem">
                 </div>
                 <div class="brand-titles">
                     <strong>AL-TAQWA <span>INSTITUTE</span></strong>
@@ -389,19 +390,27 @@
                 <nav class="d-flex flex-column flex-lg-row align-items-center py-3 py-lg-0" style="gap: 6px;">
                     <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                     <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
-                    <a href="{{ route('home') }}#teachers" class="navlink-item">Faculty</a>
-                    <a href="{{ route('home') }}#about" class="navlink-item">About & Admissions</a>
-                    <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Certificate ↗</a>
+                    <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">Zikr & Durood</a>
+                    <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Sanad ↗</a>
+                    <a href="{{ route('home') }}#teachers" class="navlink-item">Scholars</a>
 
                     @auth
-                        <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">My Dashboard ↗</a>
+                        <span class="taqwa-coin-badge ml-lg-2" title="Taqwa Coins">🪙 {{ Auth::user()->coins_balance }} Coins</span>
+                        @if(\App\Helpers\Qs::userIsStudent())
+                            <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">Student Hub ↗</a>
+                        @else
+                            <a href="{{ route('dashboard') }}" class="btn btn-gold ml-lg-2">Academic Dashboard ↗</a>
+                        @endif
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-2">Login ↗</a>
+                        <a href="{{ route('home') }}#about" class="btn btn-outline-gold ml-lg-2">Apply Now ↗</a>
+                        <a href="{{ route('login') }}" class="btn btn-gold ml-lg-1">Sign In ↗</a>
                     @endauth
                 </nav>
             </div>
         </div>
     </header>
+
+    @include('partials.announcement_slider')
 
     <!-- Main Content Yield -->
     <main>

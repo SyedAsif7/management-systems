@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-md navbar-dark">
     <div class="mt-1 mr-4 d-flex align-items-center">
         <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-Taqwa Logo" style="height: 38px; width: 38px; border-radius: 6px; margin-right: 10px; border: 1.5px solid #D4AF37;">
+            <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Logo" style="height: 38px; width: 38px; border-radius: 6px; margin-right: 10px; border: 1.5px solid #C9A35A;">
             <div>
                 <h5 class="text-bold text-white mb-0" style="letter-spacing: 0.5px;">AL-TAQWA INSTITUTE</h5>
-                <small class="text-warning text-uppercase d-block" style="font-size: 0.65rem; letter-spacing: 1px; line-height: 1;">Institute of Islamic Studies</small>
+                <small class="text-warning text-uppercase d-block" style="font-size: 0.65rem; letter-spacing: 1px; line-height: 1;">Taleem • Tarbiyah • Tazkiyah</small>
             </div>
         </a>
     </div>
@@ -40,6 +40,14 @@
 			<span class="navbar-text ml-md-3 mr-md-auto"></span>
 
         <ul class="navbar-nav">
+
+            @if(Auth::check())
+            <li class="nav-item d-flex align-items-center mr-lg-3">
+                <span class="badge px-3 py-1 text-warning" style="background: rgba(201, 163, 90, 0.2); border: 1px solid #C9A35A; font-size: 0.82rem; font-weight: 700; border-radius: 9999px;">
+                    🪙 {{ Auth::user()->coins_balance }} Coins
+                </span>
+            </li>
+            @endif
 
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">

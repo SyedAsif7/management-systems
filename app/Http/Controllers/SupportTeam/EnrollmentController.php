@@ -55,7 +55,11 @@ class EnrollmentController extends Controller
             return redirect()->route('enrollments.my_courses')->with('flash_success', 'SubhanAllah! You have successfully enrolled in ' . $course->name);
         }
 
-        return view('pages.support_team.enrollments.checkout', compact('course', 'batch'));
+        $user = Auth::user();
+        $coinsBalance = \App\Services\CoinService::getBalance($user);
+        $coinDiscount = \App\Services\CoinService::calculateDiscount($coinsBalance, (float) $course->selling_price);
+
+        return view('pages.support_team.enrollments.checkout', compact('course', 'batch', 'coinsBalance', 'coinDiscount'));
     }
 
     /**
@@ -81,6 +85,15 @@ class EnrollmentController extends Controller
             $request->amount,
             $course->fee_type
         );
+
+        if ($request->filled('coins_used') && (int) $request->coins_used > 0) {
+            \App\Services\CoinService::redeemCoins(
+                $user,
+                (int) $request->coins_used,
+                'course_discount',
+                "Redeemed " . (int) $request->coins_used . " Taqwa Coins for discount on " . $course->name
+            );
+        }
 
         return response()->json([
             'status' => 'success',

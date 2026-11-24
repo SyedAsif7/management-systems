@@ -1,0 +1,150 @@
+/* ==========================================================================
+   AL-TAQWA INSTITUTE OF ISLAMIC STUDIES — EMERALD & GOLD HERITAGE DESIGN SYSTEM
+   Official Motto: Taleem • Tarbiyah • Tazkiyah
+   ========================================================================== */
+
+:root {
+  --primary: #063D2E;
+  --primary-dark: #03251C;
+  --primary-light: #0B5742;
+  --primary-surface: #F0F6F3;
+  --gold: #C9A35A;
+  --gold-light: #DFBA6B;
+  --gold-dark: #9F7E3A;
+  --cream: #FAF9F5;
+  --cream-alt: #F3EFE6;
+  --white: #FFFFFF;
+  --ink: #14261F;
+  --ink-soft: #2D433A;
+  --muted: #5F7369;
+  --border: #E5E0D5;
+  --border-light: #EEEAE1;
+  --shadow-sm: 0 2px 8px rgba(6, 61, 46, 0.05);
+  --shadow-md: 0 8px 24px rgba(6, 61, 46, 0.08);
+  --shadow-lg: 0 16px 40px rgba(6, 61, 46, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-arabic: "Amiri", "Traditional Arabic", serif;
+  --font-sans: "Inter", "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Button System */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%) !important;
+  color: var(--primary-dark) !important;
+  border: 1px solid var(--gold-dark) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(201, 163, 90, 0.35) !important;
+  transition: all 0.25s ease !important;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, var(--gold-light) 0%, #EBD08C 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(201, 163, 90, 0.45) !important;
+}
+.btn-green, .btn-emerald {
+  background: var(--primary) !important;
+  color: #FFFFFF !important;
+  border: 1px solid var(--primary-dark) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(6, 61, 46, 0.25) !important;
+  transition: all 0.25s ease !important;
+}
+.btn-green:hover, .btn-emerald:hover {
+  background: var(--primary-light) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 61, 46, 0.35) !important;
+}
+.btn-outline-gold {
+  border: 1.5px solid var(--gold) !important;
+  color: var(--gold) !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  transition: all 0.25s ease !important;
+}
+.btn-outline-gold:hover {
+  background: var(--gold) !important;
+  color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+}
+.btn-outline-green {
+  border: 1.5px solid var(--primary) !important;
+  color: var(--primary) !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  transition: all 0.25s ease !important;
+}
+.btn-outline-green:hover {
+  background: var(--primary) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+/* Taqwa Coin Badge */
+.taqwa-coin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201, 163, 90, 0.15);
+  border: 1.5px solid var(--gold);
+  color: #F7E7B4;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+.taqwa-coin-badge:hover {
+  background: rgba(201, 163, 90, 0.25);
+  color: #FFFFFF;
+}
+
+/* Pill Badges */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pill-refundable {
+  background: #FFF8E7;
+  color: #9F7E3A;
+  border: 1px solid var(--gold);
+}
+.pill-free {
+  background: #EAF7EE;
+  color: #1F7A3F;
+  border: 1px solid #77C794;
+}
+.pill-sisters {
+  background: #FDF2F8;
+  color: #9D174D;
+  border: 1px solid #FBCFE8;
+}
+.pill-sub {
+  background: var(--primary-surface);
+  color: var(--primary);
+  border: 1px solid var(--primary-light);
+}
+
+/* Watermark & Sacred Arabic */
+.arabic-watermark {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  opacity: 0.08;
+  font-size: 15rem;
+  color: #FAF9F5;
+  pointer-events: none;
+  font-family: var(--font-arabic);
+}

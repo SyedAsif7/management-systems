@@ -11,6 +11,13 @@ Route::get('/courses/{slug}', 'StorefrontController@courseDetail')->name('storef
 Route::get('/verify-certificate/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_certificate');
 Route::get('/verify-cert/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_cert');
 
+// Simple Zikr & Durood Community Sanctuary
+Route::get('/zikr-durood', 'ZikrController@index')->name('storefront.zikr_durood');
+Route::post('/zikr-durood/submit', 'ZikrController@submit')->name('storefront.zikr_submit');
+
+// Smart Mobile & Web Halqa Deep Linking
+Route::get('/join/{room_id}', 'SupportTeam\LiveSessionController@smartJoin')->name('live_sessions.smart_join');
+
 Route::get('/privacy-policy', 'HomeController@privacy_policy')->name('privacy_policy');
 Route::get('/terms-of-use', 'HomeController@terms_of_use')->name('terms_of_use');
 
@@ -126,6 +133,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('grades', 'GradeController');
         Route::resource('exams', 'ExamController');
         Route::resource('payments', 'PaymentController');
+        Route::resource('announcements', 'AnnouncementController');
+        Route::post('announcements/toggle/{id}', 'AnnouncementController@toggle')->name('announcements.toggle');
     });
 
     /************************ AJAX ****************************/

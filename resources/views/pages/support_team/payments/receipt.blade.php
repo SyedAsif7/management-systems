@@ -12,19 +12,20 @@
 
                 <td>
                     <strong><span
-                                style="color: #064E3B; font-size: 25px;">{{ strtoupper(Qs::getSystemName()) }}</span></strong><br/>
+                                style="color: #063D2E; font-size: 25px;">{{ strtoupper(Qs::getSystemName()) }}</span></strong><br/>
                     <strong><span
-                                style="color: #555; font-size: 14px;"><i>Online Islamic Academy &bull; www.joinaltaqwa.com &bull; admissions@joinaltaqwa.com</i></span></strong>
+                                style="color: #555; font-size: 14px;"><i>Online Islamic Academy &bull; altaqwauniversity.com &bull; officialaltaqwa@gmail.com</i></span></strong>
                     <br/> <br/>
 
-                     <span style="color: #064E3B; font-weight: bold; font-size: 22px; border-bottom: 2px solid #D4AF37; padding-bottom: 3px;"> OFFICIAL FEE RECEIPT</span>
+                     <span style="color: #063D2E; font-weight: bold; font-size: 22px; border-bottom: 2px solid #C9A35A; padding-bottom: 3px;"> OFFICIAL FEE RECEIPT</span>
                 </td>
             </tr>
         </table>
 
         {{--Background Logo--}}
         <div style="position: relative;  text-align: center; ">
-            <img src="{{ !empty($s['logo']) ? $s['logo'] : asset('global_assets/images/altaqwa_emblem.jpg') }}"
+            <img src="{{ asset('assets/images/altaqwa-logo.png') }}"
+                 onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'"
                  style="max-width: 350px; max-height:350px; margin-top: 60px; position:absolute ; opacity: 0.08; margin-left: auto;margin-right: auto; left: 0; right: 0;"/>
         </div>
 

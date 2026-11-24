@@ -67,6 +67,28 @@ class LiveSessionController extends Controller
         return view('pages.support_team.live_sessions.room', compact('session'));
     }
 
+    /**
+     * Smart Deep Linking route for Web and Mobile
+     */
+    public function smartJoin(Request $request, $room_id)
+    {
+        $session = LiveSession::where('live_room_id', $room_id)->latest('session_date')->first();
+        if (!$session) {
+            $section = Section::where('live_room_id', $room_id)->first();
+            $session = new LiveSession([
+                'title' => $section && $section->my_class ? $section->my_class->name . ' — Live Halqa' : 'AL-TAQWA Live Halqa (' . $room_id . ')',
+                'live_room_id' => $room_id,
+                'meeting_url' => 'https://meet.jit.si/' . $room_id,
+            ]);
+            if ($section) {
+                $session->section_id = $section->id;
+                $session->setRelation('section', $section);
+            }
+        }
+
+        return view('pages.support_team.live_sessions.room', compact('session'));
+    }
+
     public function updateRecording(Request $request, $id)
     {
         $data = $request->validate([

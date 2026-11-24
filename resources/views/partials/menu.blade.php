@@ -87,6 +87,14 @@
                         <li class="nav-item"><a href="{{ route('enrollments.refund_queue') }}" class="nav-link {{ Route::is('enrollments.refund_queue') ? 'active' : '' }}">Refund Queue</a></li>
                     </ul>
                 </li>
+
+                {{-- Dynamic Announcement Banners --}}
+                <li class="nav-item">
+                    <a href="{{ route('announcements.index') }}" class="nav-link {{ Route::is('announcements.*') ? 'active' : '' }}">
+                        <i class="icon-megaphone"></i>
+                        <span>Announcement Banners</span>
+                    </a>
+                </li>
                 @endif
 
 

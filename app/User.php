@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'phone', 'phone2', 'dob', 'gender', 'photo', 'address', 'bg_id', 'password', 'nal_id', 'state_id', 'lga_id', 'code', 'user_type', 'email_verified_at'
+        'name', 'username', 'email', 'phone', 'phone2', 'dob', 'gender', 'photo', 'address', 'bg_id', 'password', 'nal_id', 'state_id', 'lga_id', 'code', 'user_type', 'coins_balance', 'email_verified_at'
     ];
 
     /**
@@ -63,5 +63,15 @@ class User extends Authenticatable
     public function staff()
     {
         return $this->hasMany(StaffRecord::class);
+    }
+
+    public function coin_transactions()
+    {
+        return $this->hasMany(\App\Models\CoinTransaction::class);
+    }
+
+    public function zikr_logs()
+    {
+        return $this->hasMany(\App\Models\ZikrLog::class);
     }
 }

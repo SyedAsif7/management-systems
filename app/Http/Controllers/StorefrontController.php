@@ -36,7 +36,9 @@ class StorefrontController extends Controller
             ->take(6)
             ->get();
 
-        return view('pages.storefront.index', compact('categories', 'featuredCourses'));
+        $announcements = \App\Models\Announcement::active()->get();
+
+        return view('pages.storefront.index', compact('categories', 'featuredCourses', 'announcements'));
     }
 
     /**
