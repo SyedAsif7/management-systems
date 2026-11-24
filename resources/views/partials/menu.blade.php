@@ -35,8 +35,9 @@
 
                     <div class="media-body">
                         <div class="media-title font-weight-semibold">{{ Auth::user()->name }}</div>
-                        <div class="font-size-xs opacity-50">
-                            <i class="icon-user font-size-sm"></i> &nbsp;{{ ucwords(str_replace('_', ' ', Auth::user()->user_type)) }}
+                        <div class="font-size-xs opacity-75 d-flex align-items-center justify-content-between">
+                            <span><i class="icon-user font-size-sm"></i> {{ ucwords(str_replace('_', ' ', Auth::user()->user_type)) }}</span>
+                            <span class="badge" style="background: rgba(201,163,90,0.2); color: #DFBA6B; border: 1px solid #C9A35A; font-weight: 700; padding: 2px 6px;">🪙 {{ Auth::user()->coins_balance ?? 0 }}</span>
                         </div>
                     </div>
 
@@ -93,6 +94,27 @@
                     <a href="{{ route('announcements.index') }}" class="nav-link {{ Route::is('announcements.*') ? 'active' : '' }}">
                         <i class="icon-megaphone"></i>
                         <span>Announcement Banners</span>
+                    </a>
+                </li>
+
+                {{-- Taqwa Coins Management & Award --}}
+                <li class="nav-item nav-item-submenu {{ in_array(Route::currentRouteName(), ['coins.admin_index', 'coins.admin_history']) ? 'nav-item-expanded nav-item-open' : '' }}">
+                    <a href="#" class="nav-link"><i class="icon-coins" style="color: #DFBA6B;"></i> <span>Taqwa Coins &amp; Tasks</span></a>
+                    <ul class="nav nav-group-sub">
+                        <li class="nav-item"><a href="{{ route('coins.admin_index') }}" class="nav-link {{ Route::is('coins.admin_index') ? 'active' : '' }}">Manage &amp; Award Coins</a></li>
+                        <li class="nav-item"><a href="{{ route('coins.admin_history') }}" class="nav-link {{ Route::is('coins.admin_history') ? 'active' : '' }}">Transaction Ledger</a></li>
+                        <li class="nav-item"><a href="{{ route('storefront.leaderboard') }}" target="_blank" class="nav-link">Live Leaderboard ↗</a></li>
+                    </ul>
+                </li>
+                @endif
+
+                {{-- Taqwa Coins Leaderboard for Teachers & Students --}}
+                @if(!Qs::userIsTeamSA())
+                <li class="nav-item">
+                    <a href="{{ route('storefront.leaderboard') }}" class="nav-link">
+                        <i class="icon-trophy3" style="color: #DFBA6B;"></i>
+                        <span>Coins Leaderboard</span>
+                        <span class="badge ml-auto" style="background: rgba(201,163,90,0.25); color: #DFBA6B; border: 1px solid #C9A35A;">🪙 {{ Auth::user()->coins_balance ?? 0 }}</span>
                     </a>
                 </li>
                 @endif

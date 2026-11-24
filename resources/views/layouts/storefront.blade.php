@@ -387,6 +387,7 @@
                 <a href="{{ route('home') }}" class="navlink-item {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                 <a href="{{ route('storefront.courses') }}" class="navlink-item {{ request()->routeIs('storefront.courses*') ? 'active' : '' }}">Courses</a>
                 <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">Zikr &amp; Durood</a>
+                <a href="{{ route('storefront.leaderboard') }}" class="navlink-item {{ request()->routeIs('storefront.leaderboard*') ? 'active' : '' }}">Leaderboard</a>
                 <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">Verify Sanad&nbsp;↗</a>
                 <a href="{{ route('home') }}#teachers" class="navlink-item">Scholars</a>
                 <a href="{{ route('home') }}#about" class="navlink-item">About &amp; Admissions</a>
@@ -425,6 +426,9 @@
                     </a>
                     <a href="{{ route('storefront.zikr_durood') }}" class="mobile-navlink {{ request()->routeIs('storefront.zikr_durood*') ? 'active' : '' }}">
                         <span class="nav-bullet">✦</span> Zikr &amp; Durood Sanctuary
+                    </a>
+                    <a href="{{ route('storefront.leaderboard') }}" class="mobile-navlink {{ request()->routeIs('storefront.leaderboard*') ? 'active' : '' }}">
+                        <span class="nav-bullet">✦</span> Taqwa Coins Leaderboard
                     </a>
                     <a href="{{ route('storefront.verify_certificate') }}" class="mobile-navlink {{ request()->routeIs('storefront.verify_certificate*') ? 'active' : '' }}">
                         <span class="nav-bullet">✦</span> Verify Sanad Certificate&nbsp;↗
@@ -487,8 +491,10 @@
                     <h4>Explore</h4>
                     <a href="{{ route('home') }}">Home</a>
                     <a href="{{ route('storefront.courses') }}">All 12 Programs</a>
-                    <a href="{{ route('home') }}#teachers">Faculty & Scholars</a>
-                    <a href="{{ route('home') }}#about">About & Admissions</a>
+                    <a href="{{ route('storefront.zikr_durood') }}">Zikr &amp; Durood Sanctuary</a>
+                    <a href="{{ route('storefront.leaderboard') }}">Taqwa Coins Leaderboard</a>
+                    <a href="{{ route('home') }}#teachers">Faculty &amp; Scholars</a>
+                    <a href="{{ route('home') }}#about">About &amp; Admissions</a>
                     <a href="{{ route('storefront.verify_certificate') }}">Verify Certificate Online ↗</a>
                 </div>
 

@@ -15,6 +15,10 @@ Route::get('/verify-cert/{code?}', 'StorefrontController@verifyCertificate')->na
 Route::get('/zikr-durood', 'ZikrController@index')->name('storefront.zikr_durood');
 Route::post('/zikr-durood/submit', 'ZikrController@submit')->name('storefront.zikr_submit');
 
+// Taqwa Coins Community Leaderboard
+Route::get('/leaderboard', 'CoinLeaderboardController@index')->name('storefront.leaderboard');
+Route::get('/coins/leaderboard', 'CoinLeaderboardController@index');
+
 // Smart Mobile & Web Halqa Deep Linking
 Route::get('/join/{room_id}', 'SupportTeam\LiveSessionController@smartJoin')->name('live_sessions.smart_join');
 
@@ -135,6 +139,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('payments', 'PaymentController');
         Route::resource('announcements', 'AnnouncementController');
         Route::post('announcements/toggle/{id}', 'AnnouncementController@toggle')->name('announcements.toggle');
+
+        /*************** Taqwa Coins Admin Oversight & Management *****************/
+        Route::group(['prefix' => 'coins', 'middleware' => 'teamSA'], function(){
+            Route::get('/', 'CoinAdminController@index')->name('coins.admin_index');
+            Route::post('adjust', 'CoinAdminController@adjust')->name('coins.admin_adjust');
+            Route::post('settings', 'CoinAdminController@updateSettings')->name('coins.admin_settings');
+            Route::get('history/{user_id?}', 'CoinAdminController@history')->name('coins.admin_history');
+        });
     });
 
     /************************ AJAX ****************************/

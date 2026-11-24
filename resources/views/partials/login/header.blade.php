@@ -17,6 +17,7 @@
             <a href="{{ route('home') }}" class="navlink-item">Home</a>
             <a href="{{ route('storefront.courses') }}" class="navlink-item">Courses</a>
             <a href="{{ route('storefront.zikr_durood') }}" class="navlink-item">Zikr &amp; Durood</a>
+            <a href="{{ route('storefront.leaderboard') }}" class="navlink-item">Leaderboard</a>
             <a href="{{ route('storefront.verify_certificate') }}" class="navlink-item">Verify Sanad&nbsp;↗</a>
             <a href="{{ route('home') }}#teachers" class="navlink-item">Scholars</a>
             <a href="{{ route('home') }}#about" class="navlink-item">About &amp; Admissions</a>
@@ -48,6 +49,9 @@
                 </a>
                 <a href="{{ route('storefront.zikr_durood') }}" class="mobile-navlink">
                     <span class="nav-bullet">✦</span> Zikr &amp; Durood Sanctuary
+                </a>
+                <a href="{{ route('storefront.leaderboard') }}" class="mobile-navlink">
+                    <span class="nav-bullet">✦</span> Taqwa Coins Leaderboard
                 </a>
                 <a href="{{ route('storefront.verify_certificate') }}" class="mobile-navlink">
                     <span class="nav-bullet">✦</span> Verify Sanad Certificate&nbsp;↗
