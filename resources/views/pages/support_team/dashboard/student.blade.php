@@ -176,10 +176,15 @@
                                     </div>
                                     <div class="mt-2 pt-2 border-top d-flex justify-content-between align-items-center">
                                         <small class="text-muted">Ref: {{ $enr->order_id ?: ('#' . $enr->id) }}</small>
-                                        @if($enr->status == 'completed' && $enr->order_id)
-                                            <a href="{{ route('storefront.verify_certificate', $enr->order_id) }}" target="_blank" class="btn btn-xs btn-outline-warning text-dark font-weight-bold">
-                                                <i class="icon-certificate mr-1"></i> View Sanad
-                                            </a>
+                                        @if($enr->status == 'completed' || $enr->order_id)
+                                            <div>
+                                                <a href="{{ route('storefront.verify_certificate', $enr->order_id ?: Qs::hash($enr->id)) }}" target="_blank" class="btn btn-xs btn-outline-warning text-dark font-weight-bold mr-1">
+                                                    <i class="icon-certificate mr-1"></i> Sanad
+                                                </a>
+                                                <a href="{{ route('storefront.download_certificate', $enr->order_id ?: Qs::hash($enr->id)) }}" class="btn btn-xs btn-gold font-weight-bold" title="Download Official PDF Sanad">
+                                                    <i class="icon-file-pdf mr-1"></i> PDF
+                                                </a>
+                                            </div>
                                         @else
                                             <a href="{{ route('live_sessions.index') }}" class="btn btn-xs btn-outline-success font-weight-bold">
                                                 <i class="icon-video-camera mr-1"></i> Go to Live

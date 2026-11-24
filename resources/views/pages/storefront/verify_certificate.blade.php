@@ -78,6 +78,12 @@
                                 <span style="color: var(--primary-dark); font-weight: 700;">AL-TAQWA Institute</span>
                             </div>
                         </div>
+
+                        <div class="mt-4 pt-2">
+                            <a href="{{ route('storefront.download_certificate', $verifyCode) }}" class="btn btn-gold btn-lg font-weight-bold px-4" style="border-radius: 8px; box-shadow: 0 4px 15px rgba(201, 163, 90, 0.35);">
+                                <i class="fas fa-file-pdf mr-2"></i> Download Official Sanad (PDF)
+                            </a>
+                        </div>
                     </div>
                 @else
                     <div style="background: #FFFFFF; border: 1.5px solid #E57373; border-radius: var(--radius-lg); padding: 32px 26px; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05); text-align: center;">

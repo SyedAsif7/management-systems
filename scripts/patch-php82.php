@@ -11,6 +11,10 @@ $patches = [
     ],
     'vendor/symfony/http-foundation/FileBag.php' => [
         ['$file = $this->fixPhpFilesArray($file);', 'unset($file["full_path"]); $file = $this->fixPhpFilesArray($file);']
+    ],
+    'vendor/dompdf/dompdf/src/Helpers.php' => [
+        ['file_get_contents($uri, null, $context, $offset, $maxlen)', 'file_get_contents($uri, false, $context, $offset, $maxlen)'],
+        ['file_get_contents($uri, null, $context, $offset)', 'file_get_contents($uri, false, $context, $offset)']
     ]
 ];
 

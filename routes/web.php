@@ -10,6 +10,7 @@ Route::get('/courses', 'StorefrontController@courses')->name('storefront.courses
 Route::get('/courses/{slug}', 'StorefrontController@courseDetail')->name('storefront.course_detail');
 Route::get('/verify-certificate/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_certificate');
 Route::get('/verify-cert/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_cert');
+Route::get('/verify-certificate/{code}/download', 'StorefrontController@downloadCertificate')->name('storefront.download_certificate');
 
 // Simple Zikr & Durood Community Sanctuary
 Route::get('/zikr-durood', 'ZikrController@index')->name('storefront.zikr_durood');
