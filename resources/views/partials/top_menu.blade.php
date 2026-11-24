@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-md navbar-dark">
     <div class="mt-1 mr-4 d-flex align-items-center">
         <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Logo" style="height: 38px; width: 38px; border-radius: 6px; margin-right: 10px; border: 1.5px solid #C9A35A;">
+            <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Logo" style="height: 38px; width: 38px; border-radius: 6px; margin-right: 10px; border: 1.5px solid #C9A35A; background: #000000; object-fit: cover;">
             <div>
                 <h5 class="text-bold text-white mb-0" style="letter-spacing: 0.5px;">AL-TAQWA INSTITUTE</h5>
                 <small class="text-warning text-uppercase d-block" style="font-size: 0.65rem; letter-spacing: 1px; line-height: 1;">Taleem • Tarbiyah • Tazkiyah</small>

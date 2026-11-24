@@ -82,11 +82,13 @@
             border: 1.5px solid var(--gold);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             flex-shrink: 0;
+            background: #000000;
         }
         .brandmark img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
         .brand-titles strong {
             display: block;
@@ -472,7 +474,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="d-flex align-items-center mb-3" style="gap: 12px;">
-                        <img src="{{ asset('global_assets/images/altaqwa_emblem.jpg') }}" alt="AL-TAQWA" style="width: 44px; height: 44px; border-radius: 8px; border: 1.5px solid var(--gold);">
+                        <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA" style="width: 44px; height: 44px; border-radius: 8px; border: 1.5px solid var(--gold); background: #000000; object-fit: cover;">
                         <div>
                             <strong style="color: #FFFFFF; font-size: 1.15rem; display: block; line-height: 1.1; font-family: var(--font-sans);">AL-TAQWA</strong>
                             <small style="color: #BED8CC; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;">Institute of Islamic Studies</small>
