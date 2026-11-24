@@ -50,6 +50,8 @@ class ExamController extends Controller
 
     public function destroy($id)
     {
+        \App\Models\Mark::where('exam_id', $id)->delete();
+        \App\Models\ExamRecord::where('exam_id', $id)->delete();
         $this->exam->delete($id);
         return back()->with('flash_success', __('msg.del_ok'));
     }

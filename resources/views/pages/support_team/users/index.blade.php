@@ -10,19 +10,24 @@
 
         <div class="card-body">
             <ul class="nav nav-tabs nav-tabs-highlight">
-                <li class="nav-item"><a href="#new-user" class="nav-link active" data-toggle="tab">Create New User</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Manage Users</a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        @foreach($user_types as $ut)
-                            <a href="#ut-{{ Qs::hash($ut->id) }}" class="dropdown-item" data-toggle="tab">{{ $ut->name }}s</a>
-                        @endforeach
-                    </div>
+                @foreach($user_types as $ut)
+                    <li class="nav-item">
+                        <a href="#ut-{{ Qs::hash($ut->id) }}" class="nav-link {{ ($loop->first) ? 'active' : '' }}" data-toggle="tab">
+                            <i class="{{ $ut->title == 'teacher' ? 'icon-graduation2' : 'icon-users4' }} mr-1"></i>
+                            {{ $ut->title == 'teacher' ? 'Faculty & Asatizah' : $ut->name.'s' }}
+                            <span class="badge badge-light border ml-1">{{ $users->where('user_type', $ut->title)->count() }}</span>
+                        </a>
+                    </li>
+                @endforeach
+                <li class="nav-item">
+                    <a href="#new-user" class="nav-link" data-toggle="tab">
+                        <i class="icon-user-plus mr-1"></i> Add Faculty / User
+                    </a>
                 </li>
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="new-user">
+                <div class="tab-pane fade" id="new-user">
                     <form method="post" enctype="multipart/form-data" class="wizard-form steps-validation ajax-store" action="{{ route('users.store') }}" data-fouc>
                         @csrf
                     <h6>Personal Data</h6>
@@ -177,7 +182,8 @@
                 </div>
 
                 @foreach($user_types as $ut)
-                    <div class="tab-pane fade" id="ut-{{Qs::hash($ut->id)}}">                         <table class="table datatable-button-html5-columns">
+                    <div class="tab-pane fade {{ ($loop->first) ? 'show active' : '' }}" id="ut-{{Qs::hash($ut->id)}}">
+                        <table class="table datatable-button-html5-columns">
                             <thead>
                             <tr>
                                 <th>S/N</th>

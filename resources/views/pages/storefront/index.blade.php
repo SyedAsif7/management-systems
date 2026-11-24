@@ -844,78 +844,279 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 0 0 3px rgba(6, 61, 46, 0.1);
 }
 
-/* ----------------- Faculty / Teachers Cards ----------------- */
+/* ----------------- Faculty / Scholars Cards ----------------- */
 .teachers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 .teacher-card {
   background: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 26px 22px;
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(201, 163, 90, 0.28);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(6, 61, 46, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 .teacher-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(6, 61, 46, 0.12);
   border-color: var(--gold);
 }
-.teacher-avatar-box {
+.teacher-card-accent-bar {
+  height: 5px;
+  background: linear-gradient(90deg, #063D2E 0%, #C9A35A 50%, #063D2E 100%);
+  width: 100%;
+}
+.teacher-card-content {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.teacher-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.teacher-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+.teacher-avatar-medallion {
   width: 72px;
   height: 72px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #021C15 0%, #063D2E 50%, #0B5742 100%);
+  border: 2.5px solid var(--gold);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(6, 61, 46, 0.25);
+  position: relative;
+}
+.teacher-avatar-initials {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
   color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+.teacher-avatar-symbol {
+  font-size: 0.7rem;
+  color: #C9A35A;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+.teacher-badge-verified {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 22px;
+  height: 22px;
+  background: var(--gold);
+  color: var(--primary-dark);
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: 11px;
+  font-weight: 900;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.teacher-header-info {
+  flex: 1;
+  min-width: 0;
+}
+.teacher-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.teacher-specialty-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  font-size: 0.68rem;
   font-weight: 700;
-  box-shadow: 0 6px 16px rgba(6, 61, 46, 0.2);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: rgba(201, 163, 90, 0.12);
+  color: #8C6A23;
+  border: 1px solid rgba(201, 163, 90, 0.35);
+}
+.teacher-specialty-pill.sisters {
+  background: #FDF2F8;
+  color: #9D174D;
+  border-color: #FBCFE8;
 }
 .teacher-card h3 {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
-  color: var(--primary-dark);
-  margin-bottom: 2px;
-}
-.teacher-role {
-  font-size: 0.84rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: var(--gold-dark);
+  color: var(--primary-dark);
+  line-height: 1.25;
+  margin-bottom: 4px;
 }
-.teacher-meta-chips {
+.teacher-role-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: block;
+  letter-spacing: 0.2px;
+}
+
+/* Metadata Stats Panel */
+.teacher-stats-box {
+  background: #FAF9F5;
+  border: 1px solid #ECE7DE;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin-bottom: 14px;
+}
+.teacher-stat-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.teacher-stat-label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.teacher-stat-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bio Box */
+.teacher-bio-box {
+  position: relative;
+  border-left: 3px solid var(--gold);
+  padding: 4px 0 4px 12px;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.teacher-bio-text {
+  font-size: 0.84rem;
+  color: #4A5568;
+  line-height: 1.55;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Courses Assigned */
+.teacher-courses-section {
+  margin-bottom: 18px;
+}
+.teacher-courses-heading {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.teacher-courses-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
-.teacher-meta-chips span {
-  background: var(--primary-surface);
-  color: var(--primary);
-  border-radius: var(--radius-pill);
-  padding: 4px 10px;
+.teacher-course-pill {
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #BBF7D0;
   font-size: 0.72rem;
-  font-weight: 700;
-}
-.teacher-bio {
-  font-size: 0.86rem;
-  color: var(--muted);
-  line-height: 1.55;
-  flex: 1;
-}
-.teacher-quals {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
   font-weight: 600;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.teacher-course-pill:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+/* Card Action Footer */
+.teacher-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #ECE7DE;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.teacher-card-footer .btn-enquire {
+  flex: 1;
+  background: var(--primary);
+  color: #FFFFFF;
+  border: 1.5px solid var(--primary);
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.teacher-card-footer .btn-enquire:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(6, 61, 46, 0.25);
+}
+.teacher-card-footer .btn-detail-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: rgba(201, 163, 90, 0.1);
+  border: 1px solid rgba(201, 163, 90, 0.3);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.teacher-card-footer .btn-detail-link:hover {
+  background: var(--gold);
+  color: #FFFFFF;
 }
 
 /* ----------------- The 3 Pillars / Ethos Section ----------------- */
@@ -1498,9 +1699,9 @@ img { max-width: 100%; height: auto; display: block; }
     <section class="section" style="background: var(--primary-surface);">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">Distinguished Faculty</div>
+          <div class="eyebrow">✦ Traditional Sanad & Authentic Pedagogy</div>
           <h2>Meet Our Scholars & Ustadhs</h2>
-          <p>Learn directly from certified Qaris, Huffaz, and Alimaat who mentor each student with patient guidance.</p>
+          <p>Learn directly from formally certified Qaris, Huffaz, Mufassireen, and Alimaat who combine traditional Islamic mastery with patient, student-centered online instruction.</p>
         </div>
 
         <div class="slider-container" data-slider>
@@ -1638,9 +1839,9 @@ img { max-width: 100%; height: auto; display: block; }
   <div id="teachers" class="pageview">
     <section class="subhero">
       <div class="wrap">
-        <span class="subhero-eyebrow">Our Faculty & Scholars</span>
-        <h1>Distinguished Instructors</h1>
-        <p>Learn with dedicated scholars who guide students with patience, academic rigor, and a focus on deep understanding.</p>
+        <span class="subhero-eyebrow">✦ Academic Faculty & Scholars</span>
+        <h1>Distinguished Instructors & Mentors</h1>
+        <p>Every instructor at AL-TAQWA Institute is formally qualified with authenticated Sanad, Ijazah, or specialized Islamic scholarship degrees. Experience patient mentorship, interactive live halqas, and direct teacher guidance.</p>
       </div>
     </section>
 
@@ -2230,55 +2431,78 @@ const teachers = [
     initials: "MA",
     role: "Senior Alima Course Faculty",
     quals: "Alimiyyah Degree · Darul Uloom",
-    exp: "8+ years experience",
+    exp: "8+ Years Teaching",
     lang: "Urdu · English",
+    cohort: "Sisters Only",
+    highlight: "✦ Sisters Faculty Lead",
     category: "Islamic Studies",
     courses: ["Alima Course (Advanced Diploma in Islamic Studies)", "Certificate in Salah, Duas & Sunnah Lifestyle"],
-    bio: "Specializes in Hanafi Fiqh, Hadith studies, and Islamic ethics, guiding sisters worldwide with patience, care, and scholarly depth."
+    bio: "Specializes in Hanafi Fiqh, Hadith methodology, and moral Tazkiyah. Guides sisters worldwide with patient, nurturing mentorship and deep scholarly grounding."
   },
   {
     name: "Qari Hafiz Muhammad Bilal",
     initials: "MB",
     role: "Head of Hifz & Memorization",
     quals: "Hafiz-ul-Qur’an · Sanad & Ijazah",
-    exp: "10+ years experience",
+    exp: "10+ Years Teaching",
     lang: "Urdu · Hindi · English",
+    cohort: "Brothers & Sisters",
+    highlight: "✦ Head of Hifz Sanad",
     category: "Qur'an & Tajweed",
     courses: ["Hifz-ul-Qur’an Program (Advanced Diploma)", "Diploma in Tajweed-e-Quran"],
-    bio: "Guides students through customized daily Sabaq, Sabqi, and Manzil routines with continuous retention tracking and vocal modulation."
+    bio: "Directs the structured Sabaq, Sabqi, and Manzil retention cycles. Motivates students with vocal modulation, correct breath control, and rigorous revision tracking."
   },
   {
     name: "Sheikh Ahmad Al-Husary",
     initials: "AH",
-    role: "Tajweed & Arabic Specialist",
-    quals: "Ijazah in Hafs 'an 'Asim",
-    exp: "7+ years experience",
-    lang: "Urdu · English · Arabic",
+    role: "Tajweed & Classical Arabic Specialist",
+    quals: "Mutqin Ijazah in Hafs 'an 'Asim",
+    exp: "7+ Years Teaching",
+    lang: "Arabic · English · Urdu",
+    cohort: "Brothers & Sisters",
+    highlight: "✦ Certified Muqri",
     category: "Arabic & Urdu",
-    courses: ["Diploma in Tajweed-e-Quran", "Certificate in Basic Arabic Reading (Noorani Qaida)", "Diploma in Arabic Language"],
-    bio: "Focuses on articulation points (Makharij), intrinsic characteristics (Sifaat), and classical Arabic grammar with patient individual correction."
+    courses: ["Diploma in Tajweed-e-Quran", "Diploma in Arabic Language"],
+    bio: "Focuses on articulation points (Makharij), intrinsic letter characteristics (Sifaat), and Sarf-Nahw syntax with patient 1-on-1 phonetic correction."
   },
   {
     name: "Dr. Maulana Zaid Rahman",
     initials: "ZR",
     role: "Tafseer & Aqeedah Lecturer",
-    quals: "M.A. Islamic Studies · Dars-e-Nizami",
-    exp: "12+ years experience",
+    quals: "Ph.D. Islamic Studies · Fazil Dars-e-Nizami",
+    exp: "12+ Years Teaching",
     lang: "Urdu · English",
+    cohort: "Brothers & Sisters",
+    highlight: "✦ Senior Resident Scholar",
     category: "Islamic Studies",
     courses: ["Tafseer-ul-Qur’an — Weekend Program", "Certificate in Basic Islamic Beliefs (Tawheed & Aqeedah)"],
-    bio: "Passionate about contextual Quranic commentary, thematic Surah studies, and clearing modern intellectual doubts facing youth."
+    bio: "Specializes in contextual Quranic commentary, thematic Surah hermeneutics, and resolving modern intellectual doubts facing Muslim youth and professionals."
   },
   {
     name: "Ustadh Tariq Masood",
     initials: "TM",
-    role: "Seerah, Public Speaking & Workshops",
+    role: "Seerah & Youth Dawah Educator",
     quals: "Graduate in Islamic Sciences",
-    exp: "6+ years experience",
+    exp: "6+ Years Teaching",
     lang: "English · Hindi · Urdu",
+    cohort: "Brothers & Sisters",
+    highlight: "✦ Youth Mentor & Speaker",
     category: "Workshops & Short Courses",
-    courses: ["Seerat-un-Nabi ﷺ Program", "Free Namaz Translation Workshop", "Certificate in Islamic Public Speaking & Content Creation", "Certificate in Urdu Reading & Writing"],
-    bio: "Engaging educator simplifying the Prophet's life, prayer Khushu, and empowering youth with eloquent, ethical Dawah communication."
+    courses: ["Seerat-un-Nabi ﷺ Program", "Certificate in Islamic Public Speaking & Content Creation", "Free Namaz Translation Workshop"],
+    bio: "Dynamic teacher dedicated to practical Sunnah revival, prayer Khushu, and empowering youth with eloquent, ethical public speaking and modern digital Dawah."
+  },
+  {
+    name: "Ustadha Ayesha Siddiqua",
+    initials: "AS",
+    role: "Tajweed & Foundation Muallimah",
+    quals: "Ijazah in Tajweed-ul-Qur'an",
+    exp: "6+ Years Teaching",
+    lang: "Urdu · English",
+    cohort: "Sisters & Children",
+    highlight: "✦ Foundation Specialist",
+    category: "Qur'an & Tajweed",
+    courses: ["Certificate in Basic Arabic Reading (Noorani Qaida)", "Certificate in Urdu Reading & Writing"],
+    bio: "Nurturing educator specializing in foundational Arabic phonetics, letter recognition, and beginner tajweed for young children and sisters starting their journey."
   }
 ];
 
@@ -2334,24 +2558,80 @@ function courseCard(c) {
 }
 
 function teacherCard(t) {
+  const isSisters = t.cohort && t.cohort.toLowerCase().includes("sisters");
+  const cohortPillClass = isSisters ? "teacher-specialty-pill sisters" : "teacher-specialty-pill";
+  const firstCourse = t.courses && t.courses.length > 0 ? t.courses[0] : "";
+
   return `
-    <article class="teacher-card">
-      <div style="display: flex; gap: 14px; align-items: center;">
-        <div class="teacher-avatar-box">${t.initials}</div>
-        <div>
-          <h3>${t.name}</h3>
-          <span class="teacher-role">${t.role}</span>
+    <article class="teacher-card" data-category="${t.category}">
+      <div class="teacher-card-accent-bar"></div>
+      <div class="teacher-card-content">
+        <!-- Top Profile Row -->
+        <div class="teacher-header">
+          <div class="teacher-avatar-wrapper">
+            <div class="teacher-avatar-medallion">
+              <span class="teacher-avatar-initials">${t.initials}</span>
+              <span class="teacher-avatar-symbol">۞</span>
+            </div>
+            <div class="teacher-badge-verified" title="Certified & Formally Verified Scholar">✓</div>
+          </div>
+          <div class="teacher-header-info">
+            <div class="teacher-tag-row">
+              <span class="${cohortPillClass}">${t.highlight || t.category}</span>
+            </div>
+            <h3>${t.name}</h3>
+            <span class="teacher-role-title">${t.role}</span>
+          </div>
+        </div>
+
+        <!-- Academic Credentials Panel -->
+        <div class="teacher-stats-box">
+          <div class="teacher-stat-item">
+            <span class="teacher-stat-label">🎓 Credentials</span>
+            <span class="teacher-stat-val" title="${t.quals}">${t.quals}</span>
+          </div>
+          <div class="teacher-stat-item">
+            <span class="teacher-stat-label">⏳ Experience</span>
+            <span class="teacher-stat-val">${t.exp}</span>
+          </div>
+          <div class="teacher-stat-item">
+            <span class="teacher-stat-label">🗣 Languages</span>
+            <span class="teacher-stat-val">${t.lang}</span>
+          </div>
+          <div class="teacher-stat-item">
+            <span class="teacher-stat-label">👥 Cohort</span>
+            <span class="teacher-stat-val">${t.cohort || 'Brothers & Sisters'}</span>
+          </div>
+        </div>
+
+        <!-- Bio / Pedagogy Quote -->
+        <div class="teacher-bio-box">
+          <p class="teacher-bio-text">"${t.bio}"</p>
+        </div>
+
+        <!-- Courses Assigned -->
+        <div class="teacher-courses-section">
+          <div class="teacher-courses-heading">
+            <span>📚 Assigned Programs</span>
+          </div>
+          <div class="teacher-courses-pills">
+            ${t.courses.map(c => {
+              const shortName = c.split("—")[0].split("(")[0].trim();
+              return `<span class="teacher-course-pill" data-detail="${c}" title="Click to view syllabus for ${c}">📖 ${shortName}</span>`;
+            }).join("")}
+          </div>
+        </div>
+
+        <!-- Card Action Footer -->
+        <div class="teacher-card-footer">
+          <button class="btn-enquire" data-enquire="${firstCourse}">
+            <span>Enquire for Batch</span> ↗
+          </button>
+          <button class="btn-detail-link" data-detail="${firstCourse}">
+            <span>Syllabus</span> ↗
+          </button>
         </div>
       </div>
-      <div class="teacher-meta-chips">
-        ${t.courses.map(c => `<span>${c.split("—")[0].split("(")[0].trim()}</span>`).join("")}
-        <span>🗣 ${t.lang}</span>
-      </div>
-      <p class="teacher-bio">${t.bio}</p>
-      <div class="teacher-quals">🎓 ${t.quals} · ⏳ ${t.exp}</div>
-      <button class="btn btn-green" style="padding: 8px 18px; font-size: 0.82rem; margin-top: auto; align-self: flex-start;" data-enquire="${t.courses[0]}">
-        Enquire for this Batch ↗
-      </button>
     </article>
   `;
 }
@@ -2388,7 +2668,10 @@ function renderCourses() {
 let tFilter = "All";
 function renderTeachers() {
   const tCats = ["All", "Qur'an & Tajweed", "Islamic Studies", "Arabic & Urdu", "Workshops & Short Courses"];
-  document.getElementById("tFilters").innerHTML = tCats.map(n => `<button class="filter-chip${n === tFilter ? " on" : ""}" data-tf="${n}">${n}</button>`).join("");
+  document.getElementById("tFilters").innerHTML = tCats.map(n => {
+    const count = n === "All" ? teachers.length : teachers.filter(t => t.category === n || t.courses.some(c => c.toLowerCase().includes(n.toLowerCase()))).length;
+    return `<button class="filter-chip${n === tFilter ? " on" : ""}" data-tf="${n}">${n} (${count})</button>`;
+  }).join("");
   const list = teachers.filter(t => tFilter === "All" || t.category === tFilter || t.courses.some(c => c.toLowerCase().includes(tFilter.toLowerCase())));
   document.getElementById("tGrid").innerHTML = list.length
     ? list.map(teacherCard).join("")

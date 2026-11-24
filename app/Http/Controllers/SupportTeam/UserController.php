@@ -180,9 +180,14 @@ class UserController extends Controller
         }
 
         $user = $this->user->find($id);
+        if(!$user) {
+            return back()->with('pop_error', 'User record not found.');
+        }
 
-        if($user->user_type == 'teacher' && $this->userTeachesSubject($user)) {
-            return back()->with('pop_error', __('msg.del_teacher'));
+        // If faculty member, unlink teaching assignments safely so deletion always succeeds
+        if($user->user_type == 'teacher') {
+            \App\Models\Subject::where('teacher_id', $user->id)->update(['teacher_id' => NULL]);
+            \App\Models\Section::where('teacher_id', $user->id)->update(['teacher_id' => NULL]);
         }
 
         $path = Qs::getUploadPath($user->user_type).$user->code;

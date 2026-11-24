@@ -151,24 +151,24 @@
                 @endif
 
                 @if(Qs::userIsTeamSA())
-                    {{--Manage Users--}}
-                    <li class="nav-item">
-                        <a href="{{ route('users.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['users.index', 'users.show', 'users.edit']) ? 'active' : '' }}"><i class="icon-users4"></i> <span> Users</span></a>
-                    </li>
-
-                    {{--Manage Classes--}}
+                    {{--Courses & Programs--}}
                     <li class="nav-item">
                         <a href="{{ route('classes.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['classes.index','classes.edit']) ? 'active' : '' }}"><i class="icon-books"></i> <span> Courses & Programs</span></a>
                     </li>
 
-                    {{--Manage Sections--}}
+                    {{--Cohorts & Batches--}}
                     <li class="nav-item">
                         <a href="{{ route('sections.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['sections.index','sections.edit',]) ? 'active' : '' }}"><i class="icon-users4"></i> <span> Cohorts & Batches</span></a>
                     </li>
 
-                    {{--Manage Subjects--}}
+                    {{--Faculty & Users--}}
                     <li class="nav-item">
-                        <a href="{{ route('subjects.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Subjects</span></a>
+                        <a href="{{ route('users.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['users.index', 'users.show', 'users.edit']) ? 'active' : '' }}"><i class="icon-graduation2"></i> <span> Faculty & Users</span></a>
+                    </li>
+
+                    {{--Subjects & Modules--}}
+                    <li class="nav-item">
+                        <a href="{{ route('subjects.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['subjects.index','subjects.edit',]) ? 'active' : '' }}"><i class="icon-pin"></i> <span>Subjects & Modules</span></a>
                     </li>
                 @endif
 

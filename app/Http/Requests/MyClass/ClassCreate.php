@@ -22,13 +22,24 @@ class ClassCreate extends FormRequest
         return [
             'name' => 'required|string|min:3',
             'class_type_id' => 'required|exists:class_types,id',
+            'subtitle' => 'nullable|string',
+            'duration_label' => 'nullable|string',
+            'fee_type' => 'nullable|string',
+            'mrp_price' => 'nullable|numeric',
+            'selling_price' => 'nullable|numeric',
+            'class_days' => 'nullable|string',
+            'gender_eligibility' => 'nullable|string',
+            'overview' => 'nullable|string',
+            'thumbnail_url' => 'nullable|string',
+            'is_published' => 'nullable',
         ];
     }
 
     public function attributes()
     {
-        return  [
-            'class_type_id' => 'Class Type',
+        return [
+            'class_type_id' => 'Program Category',
+            'name' => 'Course Title',
         ];
     }
 

@@ -126,16 +126,19 @@
                     <i class="icon-cash mr-1"></i> Enrollments & Fees
                 </a>
                 <a href="{{ route('classes.index') }}" class="btn btn-sm btn-outline-info mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
-                    <i class="icon-books mr-1"></i> Courses ({{ $total_courses }})
+                    <i class="icon-books mr-1"></i> Manage Courses ({{ $total_courses }})
+                </a>
+                <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-success mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
+                    <i class="icon-graduation2 mr-1"></i> Faculty & Users ({{ $users->where('user_type', 'teacher')->count() }})
+                </a>
+                <a href="{{ route('exams.index') }}" class="btn btn-sm btn-outline-danger mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
+                    <i class="icon-pencil5 mr-1"></i> Exams & Tests
                 </a>
                 <a href="{{ route('sections.index') }}" class="btn btn-sm btn-outline-secondary mr-2 mb-1" style="border-radius: 6px; font-weight: 600;">
                     <i class="icon-users4 mr-1"></i> Batches / Halqas
                 </a>
-                <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="btn btn-sm mr-2 mb-1" style="background: #C9A35A; color: #FFFFFF; border-radius: 6px; font-weight: 600;">
+                <a href="{{ route('storefront.verify_certificate') }}" target="_blank" class="btn btn-sm mb-1" style="background: #C9A35A; color: #FFFFFF; border-radius: 6px; font-weight: 600;">
                     <i class="icon-certificate mr-1"></i> Verify Certificates
-                </a>
-                <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-dark mb-1" style="border-radius: 6px; font-weight: 600;">
-                    <i class="icon-users mr-1"></i> User Directory
                 </a>
             </div>
         </div>
