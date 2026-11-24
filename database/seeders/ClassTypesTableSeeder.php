@@ -14,18 +14,15 @@ class ClassTypesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('class_types')->delete();
-
         $data = [
-            ['name' => 'Creche', 'code' => 'C'],
-            ['name' => 'Pre Nursery', 'code' => 'PN'],
-            ['name' => 'Nursery', 'code' => 'N'],
-            ['name' => 'Primary', 'code' => 'P'],
-            ['name' => 'Junior Secondary', 'code' => 'J'],
-            ['name' => 'Senior Secondary', 'code' => 'S'],
+            ['id' => 7, 'name' => "Qur'an & Tajweed", 'code' => 'QT'],
+            ['id' => 8, 'name' => 'Islamic Studies', 'code' => 'IS'],
+            ['id' => 9, 'name' => 'Arabic & Urdu', 'code' => 'AU'],
+            ['id' => 10, 'name' => 'Workshops & Short Courses', 'code' => 'WS'],
         ];
 
-        DB::table('class_types')->insert($data);
-
+        foreach ($data as $d) {
+            DB::table('class_types')->updateOrInsert(['id' => $d['id']], $d);
+        }
     }
 }
