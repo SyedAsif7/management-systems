@@ -1,8 +1,12 @@
 {{-- AL-TAQWA Dynamic Announcement Banner Slider --}}
 @php
-    $announcementsList = isset($announcements) && $announcements->isNotEmpty() 
-        ? $announcements 
-        : \App\Models\Announcement::active()->get();
+    try {
+        $announcementsList = (isset($announcements) && $announcements->isNotEmpty()) 
+            ? $announcements 
+            : (\Illuminate\Support\Facades\Schema::hasTable('announcements') ? \App\Models\Announcement::active()->get() : collect());
+    } catch (\Throwable $e) {
+        $announcementsList = collect();
+    }
 @endphp
 
 @if($announcementsList->isNotEmpty())

@@ -23,20 +23,34 @@ class StorefrontController extends Controller
      */
     public function index()
     {
-        $categories = ClassType::whereIn('code', ['QT', 'IS', 'AU', 'WS'])
-            ->with(['my_classes' => function ($q) {
-                $q->where('is_published', true)->whereNotNull('slug');
-            }])
-            ->get();
+        try {
+            $categories = ClassType::whereIn('code', ['QT', 'IS', 'AU', 'WS'])
+                ->with(['my_classes' => function ($q) {
+                    $q->where('is_published', true)->whereNotNull('slug');
+                }])
+                ->get();
+        } catch (\Throwable $e) {
+            $categories = collect();
+        }
 
-        $featuredCourses = MyClass::where('is_published', true)
-            ->whereNotNull('slug')
-            ->with(['category', 'sections'])
-            ->orderBy('id', 'desc')
-            ->take(6)
-            ->get();
+        try {
+            $featuredCourses = MyClass::where('is_published', true)
+                ->whereNotNull('slug')
+                ->with(['category', 'sections'])
+                ->orderBy('id', 'desc')
+                ->take(6)
+                ->get();
+        } catch (\Throwable $e) {
+            $featuredCourses = collect();
+        }
 
-        $announcements = \App\Models\Announcement::active()->get();
+        try {
+            $announcements = \Illuminate\Support\Facades\Schema::hasTable('announcements')
+                ? \App\Models\Announcement::active()->get()
+                : collect();
+        } catch (\Throwable $e) {
+            $announcements = collect();
+        }
 
         return view('pages.storefront.index', compact('categories', 'featuredCourses', 'announcements'));
     }
@@ -47,17 +61,22 @@ class StorefrontController extends Controller
     public function courses(Request $request)
     {
         $categoryCode = $request->query('category');
-        $query = MyClass::where('is_published', true)->whereNotNull('slug')->with(['category', 'sections']);
+        try {
+            $query = MyClass::where('is_published', true)->whereNotNull('slug')->with(['category', 'sections']);
 
-        if ($categoryCode) {
-            $cat = ClassType::where('code', $categoryCode)->first();
-            if ($cat) {
-                $query->where('class_type_id', $cat->id);
+            if ($categoryCode) {
+                $cat = ClassType::where('code', $categoryCode)->first();
+                if ($cat) {
+                    $query->where('class_type_id', $cat->id);
+                }
             }
-        }
 
-        $courses = $query->orderBy('name', 'asc')->get();
-        $categories = ClassType::whereIn('code', ['QT', 'IS', 'AU', 'WS'])->get();
+            $courses = $query->orderBy('name', 'asc')->get();
+            $categories = ClassType::whereIn('code', ['QT', 'IS', 'AU', 'WS'])->get();
+        } catch (\Throwable $e) {
+            $courses = collect();
+            $categories = collect();
+        }
 
         return view('pages.storefront.courses', compact('courses', 'categories', 'categoryCode'));
     }
@@ -67,15 +86,19 @@ class StorefrontController extends Controller
      */
     public function courseDetail($slug)
     {
-        $course = MyClass::where('slug', $slug)
-            ->with(['category', 'sections.teacher'])
-            ->firstOrFail();
+        try {
+            $course = MyClass::where('slug', $slug)
+                ->with(['category', 'sections.teacher'])
+                ->firstOrFail();
 
-        $relatedCourses = MyClass::where('class_type_id', $course->class_type_id)
-            ->where('id', '<>', $course->id)
-            ->where('is_published', true)
-            ->take(3)
-            ->get();
+            $relatedCourses = MyClass::where('class_type_id', $course->class_type_id)
+                ->where('id', '<>', $course->id)
+                ->where('is_published', true)
+                ->take(3)
+                ->get();
+        } catch (\Throwable $e) {
+            abort(404, 'Course not found.');
+        }
 
         return view('pages.storefront.course_detail', compact('course', 'relatedCourses'));
     }
@@ -89,10 +112,14 @@ class StorefrontController extends Controller
         $enrollment = null;
 
         if ($verifyCode) {
-            $enrollment = Enrollment::where('order_id', $verifyCode)
-                ->orWhere('id', Qs::decodeHash($verifyCode) ?: 0)
-                ->with(['student', 'course', 'batch'])
-                ->first();
+            try {
+                $enrollment = Enrollment::where('order_id', $verifyCode)
+                    ->orWhere('id', Qs::decodeHash($verifyCode) ?: 0)
+                    ->with(['student', 'course', 'batch'])
+                    ->first();
+            } catch (\Throwable $e) {
+                $enrollment = null;
+            }
         }
 
         return view('pages.storefront.verify_certificate', compact('verifyCode', 'enrollment'));

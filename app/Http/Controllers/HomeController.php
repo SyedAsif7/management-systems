@@ -65,11 +65,16 @@ class HomeController extends Controller
             $d['top_courses'] = MyClass::where('is_published', true)->withCount('enrollments')->orderBy('enrollments_count', 'desc')->take(4)->get();
 
             // Main Taqwa Coins Overview & Leaderboard for Admin Dashboard
-            $d['coin_overview'] = CoinService::getAdminOverview();
-            $d['coin_leaderboard'] = CoinService::getLeaderboard('all', 5);
-            foreach ($d['coin_leaderboard'] as $idx => $u) {
-                $u->rank = $idx + 1;
-                $u->tier = CoinService::getUserTier($u->coins_balance);
+            try {
+                $d['coin_overview'] = CoinService::getAdminOverview();
+                $d['coin_leaderboard'] = CoinService::getLeaderboard('all', 5);
+                foreach ($d['coin_leaderboard'] as $idx => $u) {
+                    $u->rank = $idx + 1;
+                    $u->tier = CoinService::getUserTier($u->coins_balance ?? 0);
+                }
+            } catch (\Throwable $e) {
+                $d['coin_overview'] = [];
+                $d['coin_leaderboard'] = collect();
             }
         } elseif (Qs::userIsTeacher()) {
             // Ustadh / Teacher Dashboard Data
@@ -92,13 +97,20 @@ class HomeController extends Controller
             $d['published_courses'] = MyClass::where('is_published', true)->take(6)->get();
 
             // Teachers Coins Leaderboard & Personal Rank for Teacher Dashboard
-            $d['my_coins'] = $user->coins_balance ?? 0;
-            $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
-            $d['my_coin_rank'] = CoinService::getUserRank($user, 'teacher');
-            $d['teacher_leaderboard'] = CoinService::getLeaderboard('teacher', 5);
-            foreach ($d['teacher_leaderboard'] as $idx => $u) {
-                $u->rank = $idx + 1;
-                $u->tier = CoinService::getUserTier($u->coins_balance);
+            try {
+                $d['my_coins'] = $user->coins_balance ?? 0;
+                $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
+                $d['my_coin_rank'] = CoinService::getUserRank($user, 'teacher');
+                $d['teacher_leaderboard'] = CoinService::getLeaderboard('teacher', 5);
+                foreach ($d['teacher_leaderboard'] as $idx => $u) {
+                    $u->rank = $idx + 1;
+                    $u->tier = CoinService::getUserTier($u->coins_balance ?? 0);
+                }
+            } catch (\Throwable $e) {
+                $d['my_coins'] = 0;
+                $d['my_tier'] = CoinService::getUserTier(0);
+                $d['my_coin_rank'] = 1;
+                $d['teacher_leaderboard'] = collect();
             }
         } elseif (Qs::userIsStudent()) {
             // Talib-ul-Ilm / Student Dashboard Data
@@ -122,13 +134,20 @@ class HomeController extends Controller
             $d['featured_courses'] = MyClass::where('is_published', true)->take(4)->get();
 
             // Student Coins Leaderboard & Personal Rank for Student Dashboard
-            $d['my_coins'] = $user->coins_balance ?? 0;
-            $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
-            $d['my_coin_rank'] = CoinService::getUserRank($user, 'student');
-            $d['student_leaderboard'] = CoinService::getLeaderboard('student', 5);
-            foreach ($d['student_leaderboard'] as $idx => $u) {
-                $u->rank = $idx + 1;
-                $u->tier = CoinService::getUserTier($u->coins_balance);
+            try {
+                $d['my_coins'] = $user->coins_balance ?? 0;
+                $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
+                $d['my_coin_rank'] = CoinService::getUserRank($user, 'student');
+                $d['student_leaderboard'] = CoinService::getLeaderboard('student', 5);
+                foreach ($d['student_leaderboard'] as $idx => $u) {
+                    $u->rank = $idx + 1;
+                    $u->tier = CoinService::getUserTier($u->coins_balance ?? 0);
+                }
+            } catch (\Throwable $e) {
+                $d['my_coins'] = 0;
+                $d['my_tier'] = CoinService::getUserTier(0);
+                $d['my_coin_rank'] = 1;
+                $d['student_leaderboard'] = collect();
             }
         } else {
             // General fallback

@@ -12,6 +12,83 @@ Route::get('/verify-certificate/{code?}', 'StorefrontController@verifyCertificat
 Route::get('/verify-cert/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_cert');
 Route::get('/verify-certificate/{code}/download', 'StorefrontController@downloadCertificate')->name('storefront.download_certificate');
 
+// Emergency Secure Production Database Maintenance Endpoint (For Serverless Environments)
+Route::get('/system/migrate-db', function (\Illuminate\Http\Request $request) {
+    $secret = $request->query('key');
+    $validKey = env('SYSTEM_MIGRATION_KEY', 'altaqwa_migrate_prod_2026');
+    if ($secret !== $validKey) {
+        return response()->json(['error' => 'Unauthorized: Invalid migration key.'], 403);
+    }
+
+    $action = $request->query('action', 'migrate');
+    $results = [];
+
+    try {
+        if ($action === 'cache-clear' || $action === 'all') {
+            \Illuminate\Support\Facades\Artisan::call('view:clear');
+            \Illuminate\Support\Facades\Artisan::call('config:clear');
+            $results['cache_cleared'] = true;
+        }
+
+        if ($action === 'migrate' || $action === 'all') {
+            \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+            $results['artisan_output'] = \Illuminate\Support\Facades\Artisan::output();
+
+            // Seed initial announcements if empty
+            if (\Illuminate\Support\Facades\Schema::hasTable('announcements')) {
+                if (\App\Models\Announcement::count() === 0) {
+                    \App\Models\Announcement::create([
+                        'title' => 'Spring 1448 / 2026 Admissions Open — Join 12 Classical Halqas',
+                        'subtitle' => 'Live interactive classes with certified scholars, 1-on-1 recitation correction & authentic sanad certification.',
+                        'badge_text' => 'ADMISSIONS OPEN',
+                        'cta_text' => 'Explore 12 Programs ↗',
+                        'cta_link' => '/courses',
+                        'sort_order' => 1,
+                        'is_active' => true,
+                    ]);
+
+                    \App\Models\Announcement::create([
+                        'title' => 'Community Durood & Zikr Sanctuary is Now Live',
+                        'subtitle' => 'Contribute your daily Durood Sharif with our real-time interactive digital tasbeeh counter and earn Taqwa blessings.',
+                        'badge_text' => 'ZIKR SANCTUARY',
+                        'cta_text' => 'Join Tasbeeh ↗',
+                        'cta_link' => '/zikr-durood',
+                        'sort_order' => 2,
+                        'is_active' => true,
+                    ]);
+
+                    \App\Models\Announcement::create([
+                        'title' => 'Taqwa Coins Rewards & Global Leaderboard Activated',
+                        'subtitle' => 'Earn coins through daily attendance, Hifz consistency, and academic excellence. Climb the ranks to Murabit & Siddiq!',
+                        'badge_text' => 'TAQWA COINS',
+                        'cta_text' => 'View Leaderboard ↗',
+                        'cta_link' => '/leaderboard',
+                        'sort_order' => 3,
+                        'is_active' => true,
+                    ]);
+                    $results['announcements_seeded'] = 3;
+                }
+            }
+        }
+
+        $results['status'] = 'success';
+        $results['schema_status'] = [
+            'announcements' => \Illuminate\Support\Facades\Schema::hasTable('announcements'),
+            'coin_transactions' => \Illuminate\Support\Facades\Schema::hasTable('coin_transactions'),
+            'zikr_logs' => \Illuminate\Support\Facades\Schema::hasTable('zikr_logs'),
+            'users_coins_balance' => \Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance'),
+        ];
+
+        return response()->json($results);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+            'file' => $e->getFile() . ':' . $e->getLine(),
+        ], 500);
+    }
+});
+
 // Simple Zikr & Durood Community Sanctuary
 Route::get('/zikr-durood', 'ZikrController@index')->name('storefront.zikr_durood');
 Route::post('/zikr-durood/submit', 'ZikrController@submit')->name('storefront.zikr_submit');

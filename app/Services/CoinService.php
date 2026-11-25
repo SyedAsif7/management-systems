@@ -137,20 +137,28 @@ class CoinService
      */
     public static function getLeaderboard(string $roleFilter = 'all', int $limit = 50)
     {
-        $query = User::select('id', 'name', 'username', 'email', 'user_type', 'photo', 'coins_balance')
-            ->whereIn('user_type', ['student', 'teacher'])
-            ->where('coins_balance', '>=', 0);
+        try {
+            if (!\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
+                return collect();
+            }
 
-        if ($roleFilter === 'student') {
-            $query->where('user_type', 'student');
-        } elseif ($roleFilter === 'teacher') {
-            $query->where('user_type', 'teacher');
+            $query = User::select('id', 'name', 'username', 'email', 'user_type', 'photo', 'coins_balance')
+                ->whereIn('user_type', ['student', 'teacher'])
+                ->where('coins_balance', '>=', 0);
+
+            if ($roleFilter === 'student') {
+                $query->where('user_type', 'student');
+            } elseif ($roleFilter === 'teacher') {
+                $query->where('user_type', 'teacher');
+            }
+
+            return $query->orderByDesc('coins_balance')
+                ->orderBy('name', 'asc')
+                ->take($limit)
+                ->get();
+        } catch (\Throwable $e) {
+            return collect();
         }
-
-        return $query->orderByDesc('coins_balance')
-            ->orderBy('name', 'asc')
-            ->take($limit)
-            ->get();
     }
 
     /**
@@ -158,16 +166,25 @@ class CoinService
      */
     public static function getUserRank(User $user, string $roleFilter = 'all'): int
     {
-        $query = User::whereIn('user_type', ['student', 'teacher'])
-            ->where('coins_balance', '>', $user->coins_balance);
+        try {
+            if (!\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
+                return 1;
+            }
 
-        if ($roleFilter === 'student' || ($roleFilter === 'role' && $user->user_type === 'student')) {
-            $query->where('user_type', 'student');
-        } elseif ($roleFilter === 'teacher' || ($roleFilter === 'role' && $user->user_type === 'teacher')) {
-            $query->where('user_type', 'teacher');
+            $coins = $user->coins_balance ?? 0;
+            $query = User::whereIn('user_type', ['student', 'teacher'])
+                ->where('coins_balance', '>', $coins);
+
+            if ($roleFilter === 'student' || ($roleFilter === 'role' && $user->user_type === 'student')) {
+                $query->where('user_type', 'student');
+            } elseif ($roleFilter === 'teacher' || ($roleFilter === 'role' && $user->user_type === 'teacher')) {
+                $query->where('user_type', 'teacher');
+            }
+
+            return $query->count() + 1;
+        } catch (\Throwable $e) {
+            return 1;
         }
-
-        return $query->count() + 1;
     }
 
     /**
@@ -219,27 +236,53 @@ class CoinService
      */
     public static function getAdminOverview(): array
     {
-        $totalCoinsInCirculation = User::whereIn('user_type', ['student', 'teacher'])->sum('coins_balance');
-        $studentCoins = User::where('user_type', 'student')->sum('coins_balance');
-        $teacherCoins = User::where('user_type', 'teacher')->sum('coins_balance');
+        try {
+            if (!\Illuminate\Support\Facades\Schema::hasTable('coin_transactions') || !\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
+                return [
+                    'total_circulation' => 0,
+                    'student_coins' => 0,
+                    'teacher_coins' => 0,
+                    'top_student' => null,
+                    'top_teacher' => null,
+                    'total_earned' => 0,
+                    'total_redeemed' => 0,
+                    'transactions_count' => 0,
+                ];
+            }
 
-        $topStudent = User::where('user_type', 'student')->orderByDesc('coins_balance')->first();
-        $topTeacher = User::where('user_type', 'teacher')->orderByDesc('coins_balance')->first();
+            $totalCoinsInCirculation = User::whereIn('user_type', ['student', 'teacher'])->sum('coins_balance');
+            $studentCoins = User::where('user_type', 'student')->sum('coins_balance');
+            $teacherCoins = User::where('user_type', 'teacher')->sum('coins_balance');
 
-        $totalEarned = CoinTransaction::where('type', 'earn')->sum('amount');
-        $totalRedeemed = CoinTransaction::where('type', 'redeem')->sum('amount');
-        $totalTransactionsCount = CoinTransaction::count();
+            $topStudent = User::where('user_type', 'student')->orderByDesc('coins_balance')->first();
+            $topTeacher = User::where('user_type', 'teacher')->orderByDesc('coins_balance')->first();
 
-        return [
-            'total_circulation' => $totalCoinsInCirculation,
-            'student_coins' => $studentCoins,
-            'teacher_coins' => $teacherCoins,
-            'top_student' => $topStudent,
-            'top_teacher' => $topTeacher,
-            'total_earned' => $totalEarned,
-            'total_redeemed' => $totalRedeemed,
-            'transactions_count' => $totalTransactionsCount,
-        ];
+            $totalEarned = CoinTransaction::where('type', 'earn')->sum('amount');
+            $totalRedeemed = CoinTransaction::where('type', 'redeem')->sum('amount');
+            $totalTransactionsCount = CoinTransaction::count();
+
+            return [
+                'total_circulation' => $totalCoinsInCirculation,
+                'student_coins' => $studentCoins,
+                'teacher_coins' => $teacherCoins,
+                'top_student' => $topStudent,
+                'top_teacher' => $topTeacher,
+                'total_earned' => $totalEarned,
+                'total_redeemed' => $totalRedeemed,
+                'transactions_count' => $totalTransactionsCount,
+            ];
+        } catch (\Throwable $e) {
+            return [
+                'total_circulation' => 0,
+                'student_coins' => 0,
+                'teacher_coins' => 0,
+                'top_student' => null,
+                'top_teacher' => null,
+                'total_earned' => 0,
+                'total_redeemed' => 0,
+                'transactions_count' => 0,
+            ];
+        }
     }
 
     /**

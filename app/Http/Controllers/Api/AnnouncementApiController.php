@@ -13,7 +13,13 @@ class AnnouncementApiController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::active()->get();
+        try {
+            $announcements = \Illuminate\Support\Facades\Schema::hasTable('announcements') 
+                ? Announcement::active()->get() 
+                : collect();
+        } catch (\Throwable $e) {
+            $announcements = collect();
+        }
 
         return response()->json([
             'success' => true,
