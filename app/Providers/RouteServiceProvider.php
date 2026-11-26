@@ -45,6 +45,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+            // Direct Public Certificate Download (Free of web session/cookie middleware for serverless PDF streaming)
+            Route::get('/verify-certificate/{code}/download', [\App\Http\Controllers\StorefrontController::class, 'downloadCertificate'])
+                ->name('storefront.download_certificate');
+            Route::get('/download-certificate/{code}', [\App\Http\Controllers\StorefrontController::class, 'downloadCertificate'])
+                ->name('storefront.direct_download_certificate');
+
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
