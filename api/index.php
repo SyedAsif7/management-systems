@@ -36,6 +36,15 @@ if (!$storageInitialized) {
             @mkdir($dir, 0755, true);
         }
     }
+
+    // Copy bundled production SQLite database if needed
+    $targetDb = getenv('DB_DATABASE') ?: '/tmp/database.sqlite';
+    $sourceDb = __DIR__ . '/../database/production.sqlite';
+    if ((!file_exists($targetDb) || filesize($targetDb) === 0) && file_exists($sourceDb)) {
+        @copy($sourceDb, $targetDb);
+        @chmod($targetDb, 0666);
+    }
+
     $storageInitialized = true;
 }
 

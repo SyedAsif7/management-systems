@@ -15,6 +15,7 @@ _ide_helper.php
 .phpstorm.meta.php
 .editorconfig
 database/*.sqlite
+!database/production.sqlite
 database/*.sqlite-journal
 public/assets/images/courses images/
 scratch/
