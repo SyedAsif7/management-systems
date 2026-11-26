@@ -169,12 +169,13 @@ class StorefrontController extends Controller
 
         $pdfOutput = $pdf->output();
 
-        // Critical: Restore any error handlers so Dompdf's record_warnings does not leak into Symfony/Laravel response cycle
-        while (set_error_handler(function () { return false; }) !== null) {
-            restore_error_handler();
-            restore_error_handler();
-        }
-        restore_error_handler();
+        // Suppress PHP 8.4 deprecation notices from triggering DomPDF exception in Symfony response pipeline
+        set_error_handler(function ($errno, $errstr, $errfile = '', $errline = 0) {
+            if ($errno === E_DEPRECATED || $errno === E_USER_DEPRECATED) {
+                return true;
+            }
+            return false;
+        });
 
         $fileName = 'AL-TAQWA_Sanad_' . preg_replace('/[^A-Za-z0-9_-]/', '', $certCode) . '.pdf';
 
