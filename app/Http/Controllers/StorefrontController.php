@@ -138,10 +138,33 @@ class StorefrontController extends Controller
         $logoPath = public_path('assets/images/altaqwa-logo.png');
         $logoBase64 = file_exists($logoPath) ? 'data:image/png;base64,' . base64_encode(file_get_contents($logoPath)) : '';
 
+        $sealPath = public_path('assets/images/altaqwa-seal.png');
+        $sealBase64 = file_exists($sealPath) ? 'data:image/png;base64,' . base64_encode(file_get_contents($sealPath)) : '';
+
         $certCode = $enrollment->order_id ?: ('ALT-' . str_pad($enrollment->id, 4, '0', STR_PAD_LEFT));
         $issueDate = $enrollment->completed_at ? $enrollment->completed_at->format('F d, Y') : ($enrollment->updated_at ? $enrollment->updated_at->format('F d, Y') : date('F d, Y'));
 
-        $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact('enrollment', 'certCode', 'issueDate', 'logoBase64'));
+        $studentName = $enrollment->student ? $enrollment->student->name : 'Syed Asif';
+        $rawCourseName = $enrollment->course ? $enrollment->course->name : 'Seerat-un-Nabi Program';
+        $courseName = str_replace(["\u{FDFA}", 'ﷺ'], '(PBUH)', $rawCourseName);
+        $courseName = preg_replace('/\s+/', ' ', trim($courseName));
+
+        $categoryName = ($enrollment->course && $enrollment->course->category) ? $enrollment->course->category->name : 'Faculty of Islamic Sciences';
+        $duration = $enrollment->course ? ($enrollment->course->duration_label ?: '6 Months') : '6 Months';
+        $cohort = $enrollment->batch ? $enrollment->batch->name : 'General Community Batch';
+
+        $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
+            'enrollment',
+            'certCode',
+            'issueDate',
+            'studentName',
+            'courseName',
+            'categoryName',
+            'duration',
+            'cohort',
+            'logoBase64',
+            'sealBase64'
+        ));
         $pdf->setPaper('a4', 'landscape');
 
         $fileName = 'AL-TAQWA_Sanad_' . preg_replace('/[^A-Za-z0-9_-]/', '', $certCode) . '.pdf';
