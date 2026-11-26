@@ -35,6 +35,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getPhotoAttribute($value)
+    {
+        if (empty($value) || strpos($value, '127.0.0.1') !== false || strpos($value, 'localhost') !== false) {
+            return asset('global_assets/images/user.png');
+        }
+        return $value;
+    }
+
     public function student_record()
     {
         return $this->hasOne(StudentRecord::class);
