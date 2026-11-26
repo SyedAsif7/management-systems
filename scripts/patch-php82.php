@@ -14,7 +14,11 @@ $patches = [
     ],
     'vendor/dompdf/dompdf/src/Helpers.php' => [
         ['file_get_contents($uri, null, $context, $offset, $maxlen)', 'file_get_contents($uri, false, $context, $offset, $maxlen)'],
-        ['file_get_contents($uri, null, $context, $offset)', 'file_get_contents($uri, false, $context, $offset)']
+        ['file_get_contents($uri, null, $context, $offset)', 'file_get_contents($uri, false, $context, $offset)'],
+        ['if (!($errno & (E_WARNING | E_NOTICE | E_USER_NOTICE | E_USER_WARNING))) {', 'if ($errno & (E_DEPRECATED | E_USER_DEPRECATED)) { return true; } if (!($errno & (E_WARNING | E_NOTICE | E_USER_NOTICE | E_USER_WARNING))) {']
+    ],
+    'vendor/symfony/error-handler/Exception/FlattenException.php' => [
+        ['int $statusCode = null', '?int $statusCode = null']
     ]
 ];
 

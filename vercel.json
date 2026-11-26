@@ -39,7 +39,7 @@
   "env": {
     "APP_NAME": "AL-TAQWA INSTITUTE",
     "APP_ENV": "production",
-    "APP_DEBUG": "true",
+    "APP_DEBUG": "false",
     "APP_URL": "https://www.altaqwauniversity.com",
     "DISPLAY_ERRORS": "0",
     "DB_CONNECTION": "mysql",

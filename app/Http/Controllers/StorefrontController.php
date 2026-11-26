@@ -135,10 +135,14 @@ class StorefrontController extends Controller
             ->with(['student', 'course.category', 'batch'])
             ->firstOrFail();
 
-        $logoPath = public_path('assets/images/altaqwa-logo.png');
+        $logoPath = file_exists(public_path('assets/images/altaqwa-logo.png'))
+            ? public_path('assets/images/altaqwa-logo.png')
+            : base_path('public/assets/images/altaqwa-logo.png');
         $logoBase64 = file_exists($logoPath) ? 'data:image/png;base64,' . base64_encode(file_get_contents($logoPath)) : '';
 
-        $sealPath = public_path('assets/images/altaqwa-seal.png');
+        $sealPath = file_exists(public_path('assets/images/altaqwa-seal.png'))
+            ? public_path('assets/images/altaqwa-seal.png')
+            : base_path('public/assets/images/altaqwa-seal.png');
         $sealBase64 = file_exists($sealPath) ? 'data:image/png;base64,' . base64_encode(file_get_contents($sealPath)) : '';
 
         $certCode = $enrollment->order_id ?: ('ALT-' . str_pad($enrollment->id, 4, '0', STR_PAD_LEFT));
@@ -154,6 +158,12 @@ class StorefrontController extends Controller
         $cohort = $enrollment->batch ? $enrollment->batch->name : 'General Community Batch';
 
         $oldErrorReporting = error_reporting(0);
+        $prevHandler = set_error_handler(function ($errno, $errstr) {
+            if ($errno & (E_DEPRECATED | E_USER_DEPRECATED | E_NOTICE | E_USER_NOTICE)) {
+                return true;
+            }
+            return false;
+        });
         try {
             $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
                 'enrollment',
@@ -171,6 +181,9 @@ class StorefrontController extends Controller
 
             $pdfOutput = $pdf->output();
         } finally {
+            if ($prevHandler !== null) {
+                restore_error_handler();
+            }
             error_reporting($oldErrorReporting);
         }
 

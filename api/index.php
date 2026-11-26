@@ -38,6 +38,19 @@ if (!$storageInitialized) {
         }
     }
 
+    // Populate /tmp/fonts with Dompdf default fonts for serverless PDF generation
+    $dompdfFontsDir = __DIR__ . '/../vendor/dompdf/dompdf/lib/fonts';
+    if (is_dir($dompdfFontsDir) && is_dir('/tmp/fonts') && !file_exists('/tmp/fonts/Courier.afm')) {
+        $fontFiles = glob($dompdfFontsDir . '/*');
+        if ($fontFiles) {
+            foreach ($fontFiles as $f) {
+                if (is_file($f)) {
+                    @copy($f, '/tmp/fonts/' . basename($f));
+                }
+            }
+        }
+    }
+
     // Copy bundled production SQLite database if using sqlite
     if (getenv('DB_CONNECTION') === 'sqlite') {
         $targetDb = getenv('DB_DATABASE') ?: '/tmp/database.sqlite';

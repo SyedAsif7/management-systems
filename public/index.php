@@ -41,6 +41,9 @@ if (file_exists(__DIR__ . '/../app/Overrides/Carbon/Traits/Creator.php')) {
 if (file_exists(__DIR__ . '/../app/Overrides/Symfony/Component/HttpFoundation/FileBag.php')) {
     require_once __DIR__ . '/../app/Overrides/Symfony/Component/HttpFoundation/FileBag.php';
 }
+if (file_exists(__DIR__ . '/../app/Overrides/Dompdf/Helpers.php')) {
+    require_once __DIR__ . '/../app/Overrides/Dompdf/Helpers.php';
+}
 
 /*
 |--------------------------------------------------------------------------
