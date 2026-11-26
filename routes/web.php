@@ -8,9 +8,9 @@ Route::get('/', 'StorefrontController@index')->name('home');
 Route::get('/storefront', 'StorefrontController@index')->name('storefront.home');
 Route::get('/courses', 'StorefrontController@courses')->name('storefront.courses');
 Route::get('/courses/{slug}', 'StorefrontController@courseDetail')->name('storefront.course_detail');
+Route::get('/verify-certificate/{code}/download', 'StorefrontController@downloadCertificate')->name('storefront.download_certificate');
 Route::get('/verify-certificate/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_certificate');
 Route::get('/verify-cert/{code?}', 'StorefrontController@verifyCertificate')->name('storefront.verify_cert');
-Route::get('/verify-certificate/{code}/download', 'StorefrontController@downloadCertificate')->name('storefront.download_certificate');
 
 // Emergency Secure Production Database Maintenance Endpoint (For Serverless Environments)
 Route::get('/system/migrate-db', function (\Illuminate\Http\Request $request) {
