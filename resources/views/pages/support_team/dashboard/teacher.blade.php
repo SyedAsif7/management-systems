@@ -97,9 +97,6 @@
                 <a href="{{ route('live_sessions.index') }}" class="btn btn-sm btn-success mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-video-camera mr-1"></i> Start Live Halqa Now
                 </a>
-                <a href="{{ route('storefront.leaderboard', ['role' => 'teacher']) }}" class="btn btn-sm btn-outline-warning text-dark mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
-                    <i class="icon-trophy3 mr-1"></i> Scholars Leaderboard
-                </a>
                 <a href="{{ route('hifz.index') }}" class="btn btn-sm btn-outline-primary mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-book mr-1"></i> Record Sabaq / Manzil
                 </a>

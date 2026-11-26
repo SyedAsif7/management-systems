@@ -548,14 +548,14 @@
     </div>
     @endif
 
-    <!-- How Students & Teachers Earn Taqwa Coins -->
+    <!-- How Students Earn Taqwa Coins -->
     <div style="margin-top: 60px;">
         <div class="text-center mb-4">
             <h3 style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 800; color: var(--primary);">
-                How to Earn <span>Taqwa Coins</span>
+                How Students Earn <span>Taqwa Coins</span>
             </h3>
             <p style="color: var(--muted); font-size: 0.92rem; max-width: 600px; margin: 0 auto;">
-                Taqwa Coins celebrate steadfastness in knowledge, recitation, spiritual practice, and mentorship.
+                Taqwa Coins celebrate steadfastness in knowledge, recitation, and spiritual dedication for our Talib-ul-Ilm.
             </p>
         </div>
 
@@ -568,9 +568,9 @@
             </div>
             <div class="earn-card">
                 <div class="earn-icon">🕌</div>
-                <div class="earn-title">Halqa Attendance & Teaching</div>
-                <div class="earn-reward">+15 Coins (Student) • +25 Coins (Ustadh)</div>
-                <p class="earn-desc">Join or lead live Halqa interactive classrooms.</p>
+                <div class="earn-title">Halqa Attendance</div>
+                <div class="earn-reward">+15 Coins / Live Halqa</div>
+                <p class="earn-desc">Attend and participate actively in scheduled live classrooms.</p>
             </div>
             <div class="earn-card">
                 <div class="earn-icon">📖</div>
