@@ -1,25 +1,25 @@
-<div class="navbar navbar-expand-md navbar-dark">
-    <div class="mt-1 mr-4 d-flex align-items-center">
-        <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none">
-            <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Logo" style="height: 38px; width: 38px; border-radius: 6px; margin-right: 10px; border: 1.5px solid #C9A35A; background: #000000; object-fit: cover;">
-            <div>
-                <h5 class="text-bold text-white mb-0" style="letter-spacing: 0.5px;">AL-TAQWA INSTITUTE</h5>
-                <small class="text-warning text-uppercase d-block" style="font-size: 0.65rem; letter-spacing: 1px; line-height: 1;">Taleem • Tarbiyah • Tazkiyah</small>
+<div class="navbar navbar-expand-md navbar-dark px-2 px-md-3">
+    <div class="mt-1 mr-2 mr-md-4 d-flex align-items-center flex-grow-1 flex-md-grow-0" style="min-width: 0;">
+        <a href="{{ route('dashboard') }}" class="d-flex align-items-center text-decoration-none" style="min-width: 0;">
+            <img src="{{ asset('assets/images/altaqwa-logo.png') }}" onerror="this.src='{{ asset('global_assets/images/altaqwa_emblem.jpg') }}'" alt="AL-TAQWA Logo" style="height: 36px; width: 36px; border-radius: 6px; margin-right: 8px; border: 1.5px solid #C9A35A; background: #000000; object-fit: cover; flex-shrink: 0;">
+            <div style="min-width: 0;">
+                <h5 class="text-bold text-white mb-0" style="letter-spacing: 0.5px; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">AL-TAQWA INSTITUTE</h5>
+                <small class="text-warning text-uppercase d-block" style="font-size: 0.6rem; letter-spacing: 0.8px; line-height: 1; white-space: nowrap;">Taleem • Tarbiyah • Tazkiyah</small>
             </div>
         </a>
     </div>
-  {{--  <div class="navbar-brand">
-        <a href="index.html" class="d-inline-block">
-            <img src="{{ asset('global_assets/images/logo_light.png') }}" alt="">
-        </a>
-    </div>--}}
 
-    <div class="d-md-none">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
-            <i class="icon-tree5"></i>
-        </button>
-        <button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+    <div class="d-md-none d-flex align-items-center">
+        @if(Auth::check() && Qs::userIsStudent())
+        <span class="badge px-2 py-1 mr-2 text-warning d-inline-flex align-items-center" style="background: rgba(201, 163, 90, 0.2); border: 1px solid #C9A35A; font-size: 0.75rem; font-weight: 700; border-radius: 9999px;">
+            🪙 {{ Auth::user()->coins_balance }}
+        </span>
+        @endif
+        <button class="navbar-toggler sidebar-mobile-main-toggle p-2" type="button" aria-label="Toggle Sidebar Navigation" style="border: 1px solid rgba(201,163,90,0.4); border-radius: 6px; color: #DFBA6B;">
             <i class="icon-paragraph-justify3"></i>
+        </button>
+        <button class="navbar-toggler p-2 ml-1" type="button" data-toggle="collapse" data-target="#navbar-mobile" aria-label="Toggle User Navigation" style="border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; color: #FFFFFF;">
+            <i class="icon-user"></i>
         </button>
     </div>
 

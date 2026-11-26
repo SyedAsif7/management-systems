@@ -93,11 +93,11 @@
         </div>
 
         <!-- 3. One-Tap Interactive Tasbeeh Sanctuary -->
-        <div style="background: #FFFFFF; border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 40px 30px; box-shadow: var(--shadow-md); text-align: center;">
+        <div class="tasbeeh-card-sanctuary" style="background: #FFFFFF; border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 40px 30px; box-shadow: var(--shadow-md); text-align: center;">
             
             <!-- Arabic Display Callout -->
             <div style="min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 24px;">
-                <div id="zikrArabicDisplay" style="font-family: var(--font-arabic); font-size: 2.3rem; color: var(--primary-dark); line-height: 1.4; margin-bottom: 8px;">
+                <div id="zikrArabicDisplay" style="font-family: var(--font-arabic); font-size: clamp(1.6rem, 5.5vw, 2.3rem); color: var(--primary-dark); line-height: 1.4; margin-bottom: 8px; word-break: break-word;">
                     اللَّهُمَّ صَلِّ عَلَىٰ مُحَمَّدٍ وَعَلَىٰ آلِ مُحَمَّدٍ
                 </div>
                 <div id="zikrTransDisplay" style="font-size: 0.95rem; color: var(--muted); font-style: italic; margin-bottom: 4px;">
@@ -175,6 +175,25 @@
   gap: 10px;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .zikr-pills-grid {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .zikr-pills-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .zikr-pill-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+}
 .zikr-pill-btn {
   background: var(--cream);
   border: 1.5px solid var(--border);
@@ -185,6 +204,8 @@
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .zikr-pill-btn:hover {
   border-color: var(--gold);
@@ -205,8 +226,15 @@
   position: relative;
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   outline: none;
+  touch-action: manipulation;
+  transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tasbeeh-ring-wrap:active {
+  transform: scale(0.93);
 }
 .tasbeeh-svg {
   width: 100%;
@@ -254,6 +282,19 @@
 }
 .tasbeeh-ring-wrap:active .tasbeeh-circle-bg {
   fill: var(--primary-light);
+}
+
+@media (max-width: 480px) {
+  .tasbeeh-card-sanctuary {
+    padding: 24px 16px !important;
+  }
+  .tasbeeh-ring-wrap {
+    width: 200px;
+    height: 200px;
+  }
+  .tasbeeh-count {
+    font-size: 3rem !important;
+  }
 }
 </style>
 

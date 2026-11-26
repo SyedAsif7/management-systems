@@ -368,7 +368,7 @@
     </style>
     @yield('styles')
 </head>
-<body>
+<body class="{{ Auth::check() ? 'has-mobile-bottom-nav' : '' }}">
 
     <!-- Main 3-Zone Navigation Header -->
     <header class="nav-header">
@@ -554,6 +554,9 @@
             }
         });
     </script>
+    @auth
+        @include('partials.mobile_bottom_nav')
+    @endauth
     @yield('scripts')
 </body>
 </html>

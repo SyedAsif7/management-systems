@@ -1,21 +1,22 @@
 {{-- Talib-ul-Ilm / Student Dashboard --}}
 
 {{-- Top Metrics Bar for Student --}}
-<div class="row">
+{{-- Top Metrics Bar for Student (Responsive 2x2 Grid on Mobile) --}}
+<div class="row mx-n2 mx-md-n3">
     {{-- Card 1: My Enrolled Courses --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">My Courses</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $my_enrollments->count() }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-checkmark-circle mr-1 text-success"></i> <b>{{ $active_courses_count }}</b> Currently Active</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">My Courses</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $my_enrollments->count() }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-checkmark-circle mr-1 text-success"></i> <b>{{ $active_courses_count }}</b> Active</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-graduation2 icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-graduation2" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -23,19 +24,19 @@
     </div>
 
     {{-- Card 2: Live Classes Available --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #1B4D3E 0%, #285E4D 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">Live Halqas</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $upcoming_sessions->count() }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-play3 mr-1 text-warning"></i> Today & This Week</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #1B4D3E 0%, #285E4D 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">Live Halqas</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $upcoming_sessions->count() }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-play3 mr-1 text-warning"></i> Scheduled</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-video-camera icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-video-camera" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -43,19 +44,19 @@
     </div>
 
     {{-- Card 3: Earned Certificates & Sanads --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #063D2E 0%, #0F4C3A 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">Earned Sanads</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $completed_certs->count() }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-certificate mr-1 text-warning"></i> Verified Credentials</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #063D2E 0%, #0F4C3A 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">Earned Sanads</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $completed_certs->count() }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-certificate mr-1 text-warning"></i> Credentials</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-certificate icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-certificate" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -63,19 +64,19 @@
     </div>
 
     {{-- Card 4: Taqwa Coins & Seeker Standing --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Taqwa Coins</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">🪙 {{ number_format($my_coins) }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.95);">
-                        <span><i class="icon-trophy3 mr-1"></i> <b>Rank #{{ $my_coin_rank }}</b> &middot; {{ $my_tier['name'] }}</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #FFFFFF; letter-spacing: 0.6px; font-size: 0.72rem;">Taqwa Coins</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">🪙 {{ number_format($my_coins) }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.95); font-size: 0.7rem;">
+                        <span><i class="icon-trophy3 mr-1"></i> <b>#{{ $my_coin_rank }}</b> &middot; {{ $my_tier['name'] }}</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
-                        <i class="icon-coins icon-2x text-white"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
+                        <i class="icon-coins" style="color: #FFFFFF; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
     </div>
 </div>
 
-{{-- Student Fast Action Strip --}}
+{{-- Student Fast Action Strip (Mobile Swipe Friendly) --}}
 <div class="card mb-4" style="border-radius: 10px; border: 1px solid #E2E8F0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
     <div class="card-body py-2 px-3">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -91,9 +92,9 @@
                 <span class="badge mr-2 px-2 py-1" style="background: #063D2E; color: #C9A35A; font-weight: 700; font-size: 0.78rem;">
                     <i class="icon-compass mr-1"></i> STUDENT DASHBOARD
                 </span>
-                <span class="text-muted font-size-sm">Student Quick Access:</span>
+                <span class="text-muted font-size-sm d-none d-sm-inline">Student Quick Access:</span>
             </div>
-            <div class="d-flex flex-wrap gap-2">
+            <div class="d-flex flex-wrap mobile-swipe-actions gap-2" style="width: 100%;">
                 <a href="{{ route('live_sessions.index') }}" class="btn btn-sm btn-success mr-2 mb-1 font-weight-semibold" style="border-radius: 6px;">
                     <i class="icon-video-camera mr-1"></i> Enter Live Halqa
                 </a>

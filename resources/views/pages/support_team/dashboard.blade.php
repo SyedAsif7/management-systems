@@ -3,30 +3,30 @@
 @section('content')
 
 {{-- Academy Welcome Banner --}}
-<div class="card mb-4" style="border-radius: 14px; background: linear-gradient(135deg, #063D2E 0%, #0A5C45 60%, #134E3E 100%); border: 2px solid #C9A35A; box-shadow: 0 6px 20px rgba(6, 61, 46, 0.25); overflow: hidden; position: relative;">
-    <div style="position: absolute; right: -20px; bottom: -30px; opacity: 0.08; font-size: 15rem; color: #FAF9F5; pointer-events: none; font-family: 'Amiri', serif;">
+<div class="card mb-4 welcome-banner-card" style="border-radius: 14px; background: linear-gradient(135deg, #063D2E 0%, #0A5C45 60%, #134E3E 100%); border: 2px solid #C9A35A; box-shadow: 0 6px 20px rgba(6, 61, 46, 0.25); overflow: hidden; position: relative;">
+    <div class="arabic-watermark" style="position: absolute; right: -20px; bottom: -30px; opacity: 0.08; font-size: clamp(8rem, 18vw, 15rem); color: #FAF9F5; pointer-events: none; font-family: 'Amiri', serif; line-height: 1;">
         تقوى
     </div>
-    <div class="card-body p-4 text-white">
+    <div class="card-body p-3 p-md-4 text-white">
         <div class="row align-items-center">
             <div class="col-lg-8">
-                <div class="d-flex align-items-center mb-2">
-                    <span class="badge px-3 py-1 mr-2" style="background: rgba(201, 163, 90, 0.25); color: #F4EFE6; border: 1px solid #C9A35A; font-weight: 700; letter-spacing: 1px; font-size: 0.75rem;">
+                <div class="d-flex align-items-center flex-wrap mb-2" style="gap: 6px;">
+                    <span class="badge px-2 px-md-3 py-1" style="background: rgba(201, 163, 90, 0.25); color: #F4EFE6; border: 1px solid #C9A35A; font-weight: 700; letter-spacing: 1px; font-size: 0.72rem;">
                         AL-TAQWA INSTITUTE
                     </span>
-                    <span class="text-uppercase font-size-xs" style="color: #C9A35A; letter-spacing: 1.5px; font-weight: 600;">
+                    <span class="text-uppercase font-size-xs" style="color: #C9A35A; letter-spacing: 1.2px; font-weight: 600;">
                         Taleem &bull; Tarbiyah &bull; Tazkiyah
                     </span>
                 </div>
-                <h2 class="mb-1 font-weight-bold text-white" style="font-family: 'Amiri', serif; font-size: 1.85rem;">
+                <h2 class="mb-1 font-weight-bold text-white" style="font-family: 'Amiri', serif; font-size: clamp(1.4rem, 5vw, 1.85rem);">
                     Assalamu Alaikum, {{ Auth::user()->name }}
                 </h2>
                 <p class="mb-0 font-size-sm" style="color: rgba(255, 255, 255, 0.85); max-width: 600px;">
                     Welcome to your personal dashboard. Track live Halqas, student progress, course registrations, and authentic Sanad credentials.
                 </p>
             </div>
-            <div class="col-lg-4 text-lg-right mt-3 mt-lg-0">
-                <div class="d-inline-block text-left p-3 rounded" style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(201, 163, 90, 0.3);">
+            <div class="col-lg-4 text-left text-lg-right mt-3 mt-lg-0">
+                <div class="d-inline-block text-left p-2 p-md-3 rounded w-100 w-lg-auto" style="background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(201, 163, 90, 0.3);">
                     <div class="font-size-xs text-uppercase" style="color: #C9A35A; font-weight: 700;">Account Role</div>
                     <div class="font-weight-bold text-white font-size-sm">
                         @if(Qs::userIsTeamSA())

@@ -204,7 +204,8 @@
         border-radius: 18px;
         box-shadow: 0 8px 30px rgba(6, 61, 46, 0.08);
         border: 1.5px solid var(--border);
-        overflow: hidden;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         margin-bottom: 50px;
     }
     .leaderboard-table {
@@ -364,10 +365,15 @@
         .podium-container {
             flex-direction: column;
             align-items: stretch;
+            padding: 0 10px;
         }
         .podium-card.rank-1 {
             order: -1;
             transform: none;
+        }
+        .my-rank-banner {
+            bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+            margin-top: -20px;
         }
         .my-rank-card {
             border-radius: 16px;
@@ -377,6 +383,9 @@
         .leaderboard-table th, .leaderboard-table td {
             padding: 12px 10px;
             font-size: 0.82rem;
+        }
+        .leaderboard-table {
+            min-width: 480px;
         }
     }
 </style>

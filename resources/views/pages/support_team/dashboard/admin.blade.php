@@ -1,22 +1,22 @@
 {{-- Academic Administrator Dashboard --}}
 
 {{-- Top Metrics Bar --}}
-<div class="row">
+{{-- Top Metrics Bar for Administrator (Responsive 2x2 Grid on Mobile) --}}
+<div class="row mx-n2 mx-md-n3">
     {{-- Card 1: Students & Faculty --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">Learners & Faculty</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $users->where('user_type', 'student')->count() }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-user-tie mr-1 text-warning"></i> <b>{{ $users->where('user_type', 'teacher')->count() }}</b> Asatizah</span> &middot;
-                        <span><i class="icon-shield-check mr-1 text-info"></i> <b>{{ $users->where('user_type', 'admin')->count() }}</b> Admins</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #063D2E 0%, #0A5C45 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">Learners</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $users->where('user_type', 'student')->count() }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-user-tie mr-1 text-warning"></i> <b>{{ $users->where('user_type', 'teacher')->count() }}</b> Faculty</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-users4 icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-users4" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -24,19 +24,19 @@
     </div>
 
     {{-- Card 2: Published Courses & Batches --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #1B4D3E 0%, #285E4D 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">Islamic Courses</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $total_courses }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-book3 mr-1 text-warning"></i> <b>{{ $total_sections }}</b> Active Batches / Halqas</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #1B4D3E 0%, #285E4D 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">Courses</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $total_courses }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-book3 mr-1 text-warning"></i> <b>{{ $total_sections }}</b> Batches</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-books icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-books" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -44,20 +44,19 @@
     </div>
 
     {{-- Card 3: Enrollments & Certificates --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #063D2E 0%, #0F4C3A 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #C9A35A; letter-spacing: 0.8px;">Enrollments & Sanads</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">{{ $total_enrollments }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.85);">
-                        <span><i class="icon-checkmark-circle mr-1 text-success"></i> <b>{{ $active_enrollments }}</b> Active</span> &middot;
-                        <span><i class="icon-certificate mr-1 text-warning"></i> <b>{{ $completed_certs }}</b> Certified</span>
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #063D2E 0%, #0F4C3A 100%); border-radius: 12px; border: 1px solid rgba(201, 163, 90, 0.4); box-shadow: 0 4px 15px rgba(6, 61, 46, 0.15);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #C9A35A; letter-spacing: 0.6px; font-size: 0.72rem;">Enrollments</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.25rem, 4vw, 1.8rem);">{{ $total_enrollments }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.85); font-size: 0.7rem;">
+                        <span><i class="icon-checkmark-circle mr-1 text-success"></i> <b>{{ $active_enrollments }}</b> Active</span>
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
-                        <i class="icon-certificate icon-2x" style="color: #F4EFE6;"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(201, 163, 90, 0.2); display: grid; place-items: center; border: 1px solid #C9A35A;">
+                        <i class="icon-certificate" style="color: #F4EFE6; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -65,23 +64,23 @@
     </div>
 
     {{-- Card 4: Tuition Revenue & Refunds --}}
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body text-white" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
-            <div class="media">
-                <div class="media-body">
-                    <span class="text-uppercase font-size-xs font-weight-bold" style="color: #FFFFFF; letter-spacing: 0.8px;">Total Tuition Collected</span>
-                    <h2 class="mb-0 font-weight-bold mt-1 text-white">&#8377;{{ number_format($total_revenue, 2) }}</h2>
-                    <div class="font-size-xs mt-2" style="color: rgba(255, 255, 255, 0.9);">
+    <div class="col-6 col-xl-3 mb-3 px-2 px-md-3">
+        <div class="card card-body text-white p-2 p-md-3 h-100" style="background: linear-gradient(135deg, #8A6D2B 0%, #C9A35A 100%); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(138, 109, 43, 0.25);">
+            <div class="media align-items-center">
+                <div class="media-body min-w-0">
+                    <span class="text-uppercase font-size-xs font-weight-bold d-block text-truncate" style="color: #FFFFFF; letter-spacing: 0.6px; font-size: 0.72rem;">Tuition</span>
+                    <h2 class="mb-0 font-weight-bold mt-1 text-white" style="font-size: clamp(1.1rem, 3.8vw, 1.7rem);">&#8377;{{ number_format($total_revenue, 0) }}</h2>
+                    <div class="font-size-xs mt-1 text-truncate" style="color: rgba(255, 255, 255, 0.9); font-size: 0.7rem;">
                         @if($pending_refunds > 0)
-                            <span class="badge badge-danger"><i class="icon-warning22 mr-1"></i> {{ $pending_refunds }} Pending Refunds</span>
+                            <span class="badge badge-danger">{{ $pending_refunds }} Pending</span>
                         @else
-                            <span><i class="icon-shield-check mr-1"></i> Refund queue all cleared</span>
+                            <span><i class="icon-shield-check mr-1"></i> Clean</span>
                         @endif
                     </div>
                 </div>
-                <div class="ml-3 align-self-center">
-                    <div style="width: 50px; height: 50px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
-                        <i class="icon-cash3 icon-2x text-white"></i>
+                <div class="ml-2 ml-sm-3 align-self-center d-none d-sm-block">
+                    <div style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255, 255, 255, 0.2); display: grid; place-items: center; border: 1px solid rgba(255, 255, 255, 0.4);">
+                        <i class="icon-cash3" style="color: #FFFFFF; font-size: 1.25rem;"></i>
                     </div>
                 </div>
             </div>
@@ -89,7 +88,7 @@
     </div>
 </div>
 
-{{-- Fast-Action Command Strip --}}
+{{-- Fast-Action Command Strip (Mobile Swipe Friendly) --}}
 <div class="card mb-4" style="border-radius: 10px; border: 1px solid #E2E8F0; background: #FFFFFF; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
     <div class="card-body py-2 px-3">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -97,9 +96,9 @@
                 <span class="badge mr-2 px-2 py-1" style="background: #063D2E; color: #C9A35A; font-weight: 700; font-size: 0.78rem;">
                     <i class="icon-command mr-1"></i> QUICK ACTIONS
                 </span>
-                <span class="text-muted font-size-sm">Administrative Shortcuts:</span>
+                <span class="text-muted font-size-sm d-none d-sm-inline">Administrative Shortcuts:</span>
             </div>
-            <div class="d-flex flex-wrap gap-2 align-items-center">
+            <div class="d-flex flex-wrap mobile-swipe-actions gap-2 align-items-center" style="width: 100%;">
                 {{-- Fast ON/OFF Button for Hifz Progress --}}
                 <form action="{{ route('hifz.toggle_feature') }}" method="POST" class="d-inline mr-2 mb-1">
                     @csrf

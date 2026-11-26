@@ -1619,9 +1619,26 @@ img { max-width: 100%; height: auto; display: block; }
     letter-spacing: 0.08em !important;
   }
 }
+
+@media (max-width: 540px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body.has-mobile-bottom-nav {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
 </style>
 </head>
-<body>
+<body class="{{ Auth::check() ? 'has-mobile-bottom-nav' : '' }}">
 
 <!-- ==========================================
      PRIMARY 3-ZONE NAVIGATION HEADER
@@ -3143,5 +3160,8 @@ if (location.hash && ["#courses", "#teachers", "#about", "#admissions", "#contac
   showPage("home");
 }
 </script>
+@auth
+  @include('partials.mobile_bottom_nav')
+@endauth
 </body>
 </html>

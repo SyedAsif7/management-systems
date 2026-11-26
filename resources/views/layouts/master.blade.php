@@ -13,7 +13,7 @@
     @include('partials.inc_top')
 </head>
 
-<body class="{{ in_array(Route::currentRouteName(), ['payments.invoice', 'marks.tabulation', 'marks.show', 'ttr.manage', 'ttr.show']) ? 'sidebar-xs' : '' }}">
+<body class="{{ in_array(Route::currentRouteName(), ['payments.invoice', 'marks.tabulation', 'marks.show', 'ttr.manage', 'ttr.show']) ? 'sidebar-xs' : '' }} {{ Auth::check() ? 'has-mobile-bottom-nav' : '' }}">
 
 @include('partials.top_menu')
 <div class="page-content">
@@ -43,6 +43,7 @@
 </div>
 
 @include('partials.inc_bottom')
+@include('partials.mobile_bottom_nav')
 @yield('scripts')
 </body>
 </html>
