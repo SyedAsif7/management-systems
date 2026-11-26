@@ -23,6 +23,18 @@ Route::get('/system/migrate-db', function (\Illuminate\Http\Request $request) {
     $action = $request->query('action', 'migrate');
     $results = [];
 
+    if ($action === 'diagnostics') {
+        return response()->json([
+            'php_version' => PHP_VERSION,
+            'pdo_sqlite' => extension_loaded('pdo_sqlite'),
+            'pdo_mysql' => extension_loaded('pdo_mysql'),
+            'sqlite3' => extension_loaded('sqlite3'),
+            'db_connection' => config('database.default'),
+            'db_host' => config('database.connections.mysql.host'),
+            'is_tmp_writable' => is_writable('/tmp'),
+        ]);
+    }
+
     try {
         if ($action === 'cache-clear' || $action === 'all') {
             \Illuminate\Support\Facades\Artisan::call('view:clear');
