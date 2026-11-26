@@ -12,6 +12,7 @@ Route::get('/verify-certificate/{code}/download', 'StorefrontController@download
     ->name('storefront.download_certificate')
     ->withoutMiddleware([
         \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \Illuminate\Cookie\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
     ]);
@@ -19,6 +20,7 @@ Route::get('/download-certificate/{code}', 'StorefrontController@downloadCertifi
     ->name('storefront.direct_download_certificate')
     ->withoutMiddleware([
         \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \Illuminate\Cookie\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
     ]);
