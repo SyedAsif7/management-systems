@@ -26,13 +26,7 @@ class CoinAdminController extends Controller
         $search = $request->get('search', '');
 
         $query = User::select('id', 'name', 'username', 'email', 'user_type', 'photo', 'coins_balance')
-            ->whereIn('user_type', ['student', 'teacher']);
-
-        if ($roleFilter === 'student') {
-            $query->where('user_type', 'student');
-        } elseif ($roleFilter === 'teacher') {
-            $query->where('user_type', 'teacher');
-        }
+            ->where('user_type', 'student');
 
         if (!empty($search)) {
             $query->where(function ($q) use ($search) {
@@ -60,9 +54,9 @@ class CoinAdminController extends Controller
             ->take(15)
             ->get();
 
-        // Roster for Quick Award Dropdown
+        // Roster for Quick Award Dropdown (Students only)
         $allUsersList = User::select('id', 'name', 'email', 'user_type', 'coins_balance')
-            ->whereIn('user_type', ['student', 'teacher'])
+            ->where('user_type', 'student')
             ->orderBy('name', 'asc')
             ->get();
 
@@ -112,7 +106,6 @@ class CoinAdminController extends Controller
         $rules = [
             'task_coin_daily_streak' => $request->input('task_coin_daily_streak', 5),
             'task_coin_student_halqa' => $request->input('task_coin_student_halqa', 15),
-            'task_coin_teacher_halqa' => $request->input('task_coin_teacher_halqa', 25),
             'task_coin_hifz_milestone' => $request->input('task_coin_hifz_milestone', 50),
             'task_coin_zikr_century' => $request->input('task_coin_zikr_century', 10),
             'task_coin_exam_excellence' => $request->input('task_coin_exam_excellence', 100),

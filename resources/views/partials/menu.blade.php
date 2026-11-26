@@ -37,7 +37,9 @@
                         <div class="media-title font-weight-semibold">{{ Auth::user()->name }}</div>
                         <div class="font-size-xs opacity-75 d-flex align-items-center justify-content-between">
                             <span><i class="icon-user font-size-sm"></i> {{ ucwords(str_replace('_', ' ', Auth::user()->user_type)) }}</span>
+                            @if(Qs::userIsStudent())
                             <span class="badge" style="background: rgba(201,163,90,0.2); color: #DFBA6B; border: 1px solid #C9A35A; font-weight: 700; padding: 2px 6px;">🪙 {{ Auth::user()->coins_balance ?? 0 }}</span>
+                            @endif
                         </div>
                     </div>
 
@@ -108,8 +110,8 @@
                 </li>
                 @endif
 
-                {{-- Taqwa Coins Leaderboard for Teachers & Students --}}
-                @if(!Qs::userIsTeamSA())
+                {{-- Taqwa Coins Leaderboard for Students Only --}}
+                @if(Qs::userIsStudent())
                 <li class="nav-item">
                     <a href="{{ route('storefront.leaderboard') }}" class="nav-link">
                         <i class="icon-trophy3" style="color: #DFBA6B;"></i>

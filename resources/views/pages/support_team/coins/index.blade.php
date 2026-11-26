@@ -123,10 +123,10 @@
             </div>
             <div class="col-md-3 col-sm-6 mb-3">
                 <div class="coin-kpi-card">
-                    <div class="coin-kpi-icon">🎓</div>
+                    <div class="coin-kpi-icon">🎁</div>
                     <div>
-                        <div class="coin-kpi-val">{{ number_format($overview['teacher_coins']) }}</div>
-                        <div class="coin-kpi-lbl">Ustadh Pool</div>
+                        <div class="coin-kpi-val">{{ number_format($overview['total_redeemed']) }}</div>
+                        <div class="coin-kpi-lbl">Total Redeemed</div>
                     </div>
                 </div>
             </div>
@@ -143,16 +143,10 @@
 
         {{-- Filter & Search Toolbar --}}
         <div class="d-flex align-items-center justify-content-between flex-wrap mb-3 p-3" style="background: #F8F9FA; border-radius: 8px; border: 1px solid #E5E0D5;">
-            <div class="btn-group mr-2 mb-2 mb-md-0">
-                <a href="{{ route('coins.admin_index', ['role' => 'all', 'search' => $search]) }}" class="btn btn-sm {{ $roleFilter === 'all' ? 'btn-dark font-weight-bold' : 'btn-light' }}">
-                    All Participants
-                </a>
-                <a href="{{ route('coins.admin_index', ['role' => 'student', 'search' => $search]) }}" class="btn btn-sm {{ $roleFilter === 'student' ? 'btn-dark font-weight-bold' : 'btn-light' }}">
-                    Students Only
-                </a>
-                <a href="{{ route('coins.admin_index', ['role' => 'teacher', 'search' => $search]) }}" class="btn btn-sm {{ $roleFilter === 'teacher' ? 'btn-dark font-weight-bold' : 'btn-light' }}">
-                    Ustadhs / Teachers Only
-                </a>
+            <div class="d-flex align-items-center mr-2 mb-2 mb-md-0">
+                <span class="badge px-3 py-2" style="background: #063D2E; color: #DFBA6B; font-size: 0.85rem; font-weight: 700;">
+                    <i class="icon-graduation2 mr-1"></i> Student Seekers (Talib-ul-Ilm) Roster
+                </span>
             </div>
 
             <form method="GET" action="{{ route('coins.admin_index') }}" class="form-inline">
@@ -259,12 +253,12 @@
                 <div class="modal-body">
                     {{-- User Selector --}}
                     <div class="form-group">
-                        <label class="font-weight-bold">Select Participant (Student or Ustadh):</label>
+                        <label class="font-weight-bold">Select Student (Talib-ul-Ilm):</label>
                         <select name="user_id" id="modalUserId" class="form-control select-search" required>
-                            <option value="">-- Choose Student or Teacher --</option>
+                            <option value="">-- Choose Student --</option>
                             @foreach($allUsersList as $userItem)
                                 <option value="{{ $userItem->id }}" data-balance="{{ $userItem->coins_balance }}" data-name="{{ $userItem->name }}" data-role="{{ $userItem->user_type }}">
-                                    [{{ strtoupper($userItem->user_type) }}] {{ $userItem->name }} (Current: 🪙 {{ $userItem->coins_balance }})
+                                    {{ $userItem->name }} (Current: 🪙 {{ $userItem->coins_balance }})
                                 </option>
                             @endforeach
                         </select>
@@ -362,12 +356,6 @@
                         <label class="col-sm-8 col-form-label font-weight-bold">🕌 Student Halqa Attendance:</label>
                         <div class="col-sm-4">
                             <input type="number" name="task_coin_student_halqa" class="form-control font-weight-bold" value="{{ $taskRules['task_coin_student_halqa'] }}" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-8 col-form-label font-weight-bold">🎓 Ustadh Halqa Teaching:</label>
-                        <div class="col-sm-4">
-                            <input type="number" name="task_coin_teacher_halqa" class="form-control font-weight-bold" value="{{ $taskRules['task_coin_teacher_halqa'] }}" min="1" required>
                         </div>
                     </div>
                     <div class="form-group row">

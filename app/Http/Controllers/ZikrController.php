@@ -86,8 +86,8 @@ class ZikrController extends Controller
             // Log or ignore graceful
         }
 
-        // 2. Award Taqwa Coins if user is authenticated (10 Coins per 100 count, cap at 100 coins/day)
-        if ($user) {
+        // 2. Award Taqwa Coins if user is authenticated and is a student (10 Coins per 100 count, cap at 100 coins/day)
+        if ($user && $user->user_type === 'student') {
             try {
                 if (\Illuminate\Support\Facades\Schema::hasTable('coin_transactions') && \Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
                     $todayTotalZikr = (int) ZikrLog::where('user_id', $user->id)
@@ -130,7 +130,7 @@ class ZikrController extends Controller
             'added' => $count,
             'global_total' => $displayGlobalTotal,
             'coins_earned' => $coinsEarned,
-            'coins_balance' => $user ? ($user->fresh()->coins_balance ?? 0) : 0,
+            'coins_balance' => ($user && $user->user_type === 'student') ? ($user->fresh()->coins_balance ?? 0) : 0,
             'message' => 'SubhanAllah! Your Zikr has been added to the collective community total.',
         ]);
     }

@@ -41,7 +41,7 @@
 
         <ul class="navbar-nav">
 
-            @if(Auth::check())
+            @if(Auth::check() && Qs::userIsStudent())
             <li class="nav-item d-flex align-items-center mr-lg-3">
                 <span class="badge px-3 py-1 text-warning" style="background: rgba(201, 163, 90, 0.2); border: 1px solid #C9A35A; font-size: 0.82rem; font-weight: 700; border-radius: 9999px;">
                     🪙 {{ Auth::user()->coins_balance }} Coins

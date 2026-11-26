@@ -183,8 +183,8 @@
             </div>
             <div class="col-md-3 col-6 mb-2">
                 <div class="p-2 rounded text-center" style="background: #FAF9F5; border: 1px solid #E5E0D5;">
-                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Ustadh Pool</div>
-                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">🎓 {{ number_format($coin_overview['teacher_coins']) }}</div>
+                    <div class="font-size-xs text-uppercase font-weight-bold" style="color: #5F7369;">Total Redeemed</div>
+                    <div style="font-size: 1.25rem; font-weight: 800; color: #063D2E;">🎁 {{ number_format($coin_overview['total_redeemed']) }}</div>
                 </div>
             </div>
             <div class="col-md-3 col-6 mb-2">
@@ -201,7 +201,7 @@
                 <thead style="background: #063D2E; color: #FFFFFF;">
                     <tr>
                         <th style="width: 55px;" class="text-center">Rank</th>
-                        <th>Participant (Scholar / Seeker)</th>
+                        <th>Student (Talib-ul-Ilm)</th>
                         <th>Role</th>
                         <th>Honorific Tier</th>
                         <th class="text-right">Balance</th>
@@ -222,11 +222,7 @@
                             <small class="text-muted d-block">{{ $ch->email }}</small>
                         </td>
                         <td>
-                            @if($ch->user_type === 'teacher')
-                                <span class="badge" style="background: #EAF7EE; color: #1F7A3F; border: 1px solid #77C794; font-weight: 700;">Ustadh / Scholar</span>
-                            @else
-                                <span class="badge" style="background: #FFF8E7; color: #9F7E3A; border: 1px solid #C9A35A; font-weight: 700;">Talib-ul-Ilm</span>
-                            @endif
+                            <span class="badge" style="background: #FFF8E7; color: #9F7E3A; border: 1px solid #C9A35A; font-weight: 700;">Talib-ul-Ilm</span>
                         </td>
                         <td>
                             <span class="badge badge-light border" style="font-weight: 700;">{{ $ch->tier['icon'] }} {{ $ch->tier['name'] }}</span>

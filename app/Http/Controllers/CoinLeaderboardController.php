@@ -14,16 +14,13 @@ class CoinLeaderboardController extends Controller
      */
     public function index(Request $request)
     {
-        $roleFilter = $request->get('role', 'all');
-        if (!in_array($roleFilter, ['all', 'student', 'teacher'])) {
-            $roleFilter = 'all';
-        }
+        $roleFilter = 'student';
 
         try {
             $hasCoinsCol = \Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance');
 
             if ($hasCoinsCol) {
-                $leaderboard = CoinService::getLeaderboard($roleFilter, 100);
+                $leaderboard = CoinService::getLeaderboard('student', 100);
 
                 // Decorate with rank and tiers
                 $rank = 1;
@@ -35,9 +32,9 @@ class CoinLeaderboardController extends Controller
                 $top3 = $leaderboard->take(3);
                 $rankings = $leaderboard->slice(3);
 
-                // Authenticated user rank
+                // Authenticated student rank
                 $myRankInfo = null;
-                if (Auth::check()) {
+                if (Auth::check() && Auth::user()->user_type === 'student') {
                     $currentUser = Auth::user();
                     $myRank = null;
                     foreach ($leaderboard as $u) {
@@ -47,9 +44,9 @@ class CoinLeaderboardController extends Controller
                         }
                     }
 
-                    // If user is outside top 100, calculate their overall rank
-                    if (!$myRank && in_array($currentUser->user_type, ['student', 'teacher'])) {
-                        $higherCount = User::whereIn('user_type', ['student', 'teacher'])
+                    // If student is outside top 100, calculate their overall rank
+                    if (!$myRank) {
+                        $higherCount = User::where('user_type', 'student')
                             ->where('coins_balance', '>', $currentUser->coins_balance ?? 0)
                             ->count();
                         $myRank = $higherCount + 1;
@@ -65,10 +62,9 @@ class CoinLeaderboardController extends Controller
                 }
 
                 $stats = [
-                    'total_coins' => (int) User::whereIn('user_type', ['student', 'teacher'])->sum('coins_balance'),
-                    'total_participants' => User::whereIn('user_type', ['student', 'teacher'])->count(),
+                    'total_coins' => (int) User::where('user_type', 'student')->sum('coins_balance'),
+                    'total_participants' => User::where('user_type', 'student')->count(),
                     'students_count' => User::where('user_type', 'student')->count(),
-                    'teachers_count' => User::where('user_type', 'teacher')->count(),
                 ];
             } else {
                 $top3 = collect();
@@ -76,9 +72,8 @@ class CoinLeaderboardController extends Controller
                 $myRankInfo = null;
                 $stats = [
                     'total_coins' => 0,
-                    'total_participants' => User::whereIn('user_type', ['student', 'teacher'])->count(),
+                    'total_participants' => User::where('user_type', 'student')->count(),
                     'students_count' => User::where('user_type', 'student')->count(),
-                    'teachers_count' => User::where('user_type', 'teacher')->count(),
                 ];
             }
         } catch (\Throwable $e) {
@@ -89,7 +84,6 @@ class CoinLeaderboardController extends Controller
                 'total_coins' => 0,
                 'total_participants' => 0,
                 'students_count' => 0,
-                'teachers_count' => 0,
             ];
         }
 

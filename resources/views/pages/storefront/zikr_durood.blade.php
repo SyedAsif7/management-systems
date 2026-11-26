@@ -136,14 +136,27 @@
 
             <div style="background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 20px; max-width: 580px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 8px;">
-                    <span style="font-size: 1.3rem;">🪙</span>
-                    <span style="font-size: 0.85rem; color: var(--primary-dark); font-weight: 600;">
-                        Earn <strong>+10 Taqwa Coins</strong> per 100 recitations
-                    </span>
+                    @if(Auth::check() && Auth::user()->user_type === 'teacher')
+                        <span style="font-size: 1.3rem;">🤲</span>
+                        <span style="font-size: 0.85rem; color: var(--primary-dark); font-weight: 600;">
+                            Faculty Recitations &bull; <strong>May Allah reward your devotion</strong>
+                        </span>
+                    @else
+                        <span style="font-size: 1.3rem;">🪙</span>
+                        <span style="font-size: 0.85rem; color: var(--primary-dark); font-weight: 600;">
+                            Earn <strong>+10 Taqwa Coins</strong> per 100 recitations
+                        </span>
+                    @endif
                 </div>
                 <div style="font-size: 0.82rem; color: var(--gold-dark); font-weight: 700;" id="userCoinStatus">
                     @auth
-                        Your Balance: 🪙 {{ Auth::user()->coins_balance }} Coins
+                        @if(Auth::user()->user_type === 'student')
+                            Your Balance: 🪙 {{ Auth::user()->coins_balance }} Coins
+                        @elseif(Auth::user()->user_type === 'teacher')
+                            <span>Ustadh Account</span>
+                        @else
+                            <span>{{ Auth::user()->name }}</span>
+                        @endif
                     @else
                         <a href="{{ route('login') }}" style="text-decoration: underline;">Login to save coins ↗</a>
                     @endauth

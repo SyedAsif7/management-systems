@@ -70,10 +70,10 @@ class HomeController extends Controller
                 $d['recent_hifz'] = HifzLog::with(['student', 'teacher'])->latest()->take(5)->get();
                 $d['top_courses'] = MyClass::where('is_published', true)->withCount('enrollments')->orderBy('enrollments_count', 'desc')->take(4)->get();
 
-                // Main Taqwa Coins Overview & Leaderboard for Admin Dashboard
+                // Main Taqwa Coins Overview & Student Leaderboard for Admin Dashboard
                 try {
                     $d['coin_overview'] = CoinService::getAdminOverview();
-                    $d['coin_leaderboard'] = CoinService::getLeaderboard('all', 5);
+                    $d['coin_leaderboard'] = CoinService::getLeaderboard('student', 5);
                     foreach ($d['coin_leaderboard'] as $idx => $u) {
                         $u->rank = $idx + 1;
                         $u->tier = CoinService::getUserTier($u->coins_balance ?? 0);
@@ -102,21 +102,14 @@ class HomeController extends Controller
                 }
                 $d['published_courses'] = MyClass::where('is_published', true)->take(6)->get();
 
-                // Teachers Coins Leaderboard & Personal Rank for Teacher Dashboard
+                // Teacher Academic Hifz Logs & Progress Metrics (Coins excluded for teachers)
                 try {
-                    $d['my_coins'] = $user->coins_balance ?? 0;
-                    $d['my_tier'] = CoinService::getUserTier($d['my_coins']);
-                    $d['my_coin_rank'] = CoinService::getUserRank($user, 'teacher');
-                    $d['teacher_leaderboard'] = CoinService::getLeaderboard('teacher', 5);
-                    foreach ($d['teacher_leaderboard'] as $idx => $u) {
-                        $u->rank = $idx + 1;
-                        $u->tier = CoinService::getUserTier($u->coins_balance ?? 0);
+                    $d['total_hifz_logs'] = HifzLog::where('teacher_id', $user->id)->count();
+                    if ($d['total_hifz_logs'] == 0) {
+                        $d['total_hifz_logs'] = HifzLog::count();
                     }
                 } catch (\Throwable $e) {
-                    $d['my_coins'] = 0;
-                    $d['my_tier'] = CoinService::getUserTier(0);
-                    $d['my_coin_rank'] = 1;
-                    $d['teacher_leaderboard'] = collect();
+                    $d['total_hifz_logs'] = 0;
                 }
             } elseif (Qs::userIsStudent()) {
                 // Talib-ul-Ilm / Student Dashboard Data

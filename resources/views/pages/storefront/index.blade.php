@@ -1652,7 +1652,9 @@ img { max-width: 100%; height: auto; display: block; }
     <!-- ZONE 3: ACTIONS & UTILITIES -->
     <div class="nav-actions">
       @auth
+        @if(\App\Helpers\Qs::userIsStudent())
         <span class="taqwa-coin-badge" title="Taqwa Coins Balance">🪙 {{ Auth::user()->coins_balance }} Coins</span>
+        @endif
         <a class="btn btn-gold nav-btn" href="{{ route('dashboard') }}">
           {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
         </a>
@@ -1695,9 +1697,11 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
       <div class="mobile-drawer-footer">
         @auth
+          @if(\App\Helpers\Qs::userIsStudent())
           <div class="mobile-coin-box">
             <span>🪙 <strong>{{ Auth::user()->coins_balance }}</strong> Taqwa Coins Balance</span>
           </div>
+          @endif
           <a class="btn btn-gold" href="{{ route('dashboard') }}" style="width: 100%; justify-content: center;">
             {{ \App\Helpers\Qs::userIsStudent() ? 'Student Hub' : 'Academic Dashboard' }}&nbsp;↗
           </a>

@@ -12,8 +12,13 @@ class CoinService
     /**
      * Award coins to a user
      */
-    public static function awardCoins(User $user, int $amount, string $source, ?string $description = null): CoinTransaction
+    public static function awardCoins(User $user, int $amount, string $source, ?string $description = null): ?CoinTransaction
     {
+        // Coins system is dedicated exclusively to Talib-ul-Ilm (Students)
+        if ($user->user_type !== 'student') {
+            return null;
+        }
+
         return DB::transaction(function () use ($user, $amount, $source, $description) {
             $user->increment('coins_balance', $amount);
 
@@ -133,24 +138,19 @@ class CoinService
     }
 
     /**
-     * Get Leaderboard Rankings
+     * Get Leaderboard Rankings (Students only)
      */
-    public static function getLeaderboard(string $roleFilter = 'all', int $limit = 50)
+    public static function getLeaderboard(string $roleFilter = 'student', int $limit = 50)
     {
         try {
             if (!\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
                 return collect();
             }
 
+            // Leaderboard is dedicated strictly to students
             $query = User::select('id', 'name', 'username', 'email', 'user_type', 'photo', 'coins_balance')
-                ->whereIn('user_type', ['student', 'teacher'])
+                ->where('user_type', 'student')
                 ->where('coins_balance', '>=', 0);
-
-            if ($roleFilter === 'student') {
-                $query->where('user_type', 'student');
-            } elseif ($roleFilter === 'teacher') {
-                $query->where('user_type', 'teacher');
-            }
 
             return $query->orderByDesc('coins_balance')
                 ->orderBy('name', 'asc')
@@ -164,22 +164,16 @@ class CoinService
     /**
      * Get user's rank within their role or overall
      */
-    public static function getUserRank(User $user, string $roleFilter = 'all'): int
+    public static function getUserRank(User $user, string $roleFilter = 'student'): int
     {
         try {
-            if (!\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
+            if (!\Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance') || $user->user_type !== 'student') {
                 return 1;
             }
 
             $coins = $user->coins_balance ?? 0;
-            $query = User::whereIn('user_type', ['student', 'teacher'])
+            $query = User::where('user_type', 'student')
                 ->where('coins_balance', '>', $coins);
-
-            if ($roleFilter === 'student' || ($roleFilter === 'role' && $user->user_type === 'student')) {
-                $query->where('user_type', 'student');
-            } elseif ($roleFilter === 'teacher' || ($roleFilter === 'role' && $user->user_type === 'teacher')) {
-                $query->where('user_type', 'teacher');
-            }
 
             return $query->count() + 1;
         } catch (\Throwable $e) {
@@ -250,12 +244,12 @@ class CoinService
                 ];
             }
 
-            $totalCoinsInCirculation = User::whereIn('user_type', ['student', 'teacher'])->sum('coins_balance');
-            $studentCoins = User::where('user_type', 'student')->sum('coins_balance');
-            $teacherCoins = User::where('user_type', 'teacher')->sum('coins_balance');
+            $totalCoinsInCirculation = User::where('user_type', 'student')->sum('coins_balance');
+            $studentCoins = $totalCoinsInCirculation;
+            $teacherCoins = 0;
 
             $topStudent = User::where('user_type', 'student')->orderByDesc('coins_balance')->first();
-            $topTeacher = User::where('user_type', 'teacher')->orderByDesc('coins_balance')->first();
+            $topTeacher = null;
 
             $totalEarned = CoinTransaction::where('type', 'earn')->sum('amount');
             $totalRedeemed = CoinTransaction::where('type', 'redeem')->sum('amount');
@@ -286,14 +280,13 @@ class CoinService
     }
 
     /**
-     * Default Task Reward Rules
+     * Default Task Reward Rules (Student-focused)
      */
     public static function getTaskRules(): array
     {
         return [
             'task_coin_daily_streak' => (int) (Setting::where('type', 'task_coin_daily_streak')->value('description') ?: 5),
             'task_coin_student_halqa' => (int) (Setting::where('type', 'task_coin_student_halqa')->value('description') ?: 15),
-            'task_coin_teacher_halqa' => (int) (Setting::where('type', 'task_coin_teacher_halqa')->value('description') ?: 25),
             'task_coin_hifz_milestone' => (int) (Setting::where('type', 'task_coin_hifz_milestone')->value('description') ?: 50),
             'task_coin_zikr_century' => (int) (Setting::where('type', 'task_coin_zikr_century')->value('description') ?: 10),
             'task_coin_exam_excellence' => (int) (Setting::where('type', 'task_coin_exam_excellence')->value('description') ?: 100),

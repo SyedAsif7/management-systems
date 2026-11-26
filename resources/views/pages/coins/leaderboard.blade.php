@@ -391,20 +391,12 @@
         <div class="ayah-trans">“And for this let the competitors compete.” — Surah Al-Mutaffifin [83:26]</div>
         <h1 class="hero-title">Taqwa Coins <span>Leaderboard</span></h1>
         <p class="hero-desc">
-            Honoring Seekers of Knowledge (<em>Talib-ul-Ilm</em>) and Dedicated Scholars (<em>Ustadhs</em>) striving with excellence in Taleem, Tarbiyah, and Tazkiyah.
+            Honoring Seekers of Knowledge (<em>Talib-ul-Ilm</em>) striving with excellence in Taleem, Tarbiyah, and Tazkiyah.
         </p>
 
-        <!-- Role Filter Tabs -->
-        <div class="filter-pills">
-            <a href="{{ route('storefront.leaderboard', ['role' => 'all']) }}" class="filter-pill {{ $roleFilter === 'all' ? 'active' : '' }}">
-                <span>🏆</span> All Champions ({{ $stats['total_participants'] }})
-            </a>
-            <a href="{{ route('storefront.leaderboard', ['role' => 'student']) }}" class="filter-pill {{ $roleFilter === 'student' ? 'active' : '' }}">
-                <span>📖</span> Seekers / Students ({{ $stats['students_count'] }})
-            </a>
-            <a href="{{ route('storefront.leaderboard', ['role' => 'teacher']) }}" class="filter-pill {{ $roleFilter === 'teacher' ? 'active' : '' }}">
-                <span>🎓</span> Scholars / Ustadhs ({{ $stats['teachers_count'] }})
-            </a>
+        <!-- Roster Badge -->
+        <div class="d-inline-flex align-items-center mt-3 px-3 py-1 rounded-pill" style="background: rgba(201, 163, 90, 0.2); border: 1px solid #C9A35A; color: #FAF9F5; font-size: 0.85rem; font-weight: 600;">
+            <span>📖 Seekers of Knowledge (Talib-ul-Ilm) Roster &bull; Total Coins: 🪙 {{ number_format($stats['total_coins']) }}</span>
         </div>
     </div>
 </section>
@@ -423,8 +415,8 @@
                     {{ strtoupper(substr($p2->name, 0, 1)) }}
                 </div>
                 <h4 class="podium-name" title="{{ $p2->name }}">{{ $p2->name }}</h4>
-                <span class="podium-role-badge {{ $p2->user_type === 'teacher' ? 'role-teacher' : 'role-student' }}">
-                    {{ $p2->user_type === 'teacher' ? 'Scholar / Ustadh' : 'Talib-ul-Ilm' }}
+                <span class="podium-role-badge role-student">
+                    Talib-ul-Ilm
                 </span>
                 <div class="podium-coins">🪙 {{ number_format($p2->coins_balance) }}</div>
                 <div class="podium-tier">{{ $p2->tier['icon'] }} {{ $p2->tier['name'] }}</div>
@@ -439,8 +431,8 @@
                 {{ strtoupper(substr($p1->name, 0, 1)) }}
             </div>
             <h4 class="podium-name" style="font-size: 1.3rem;" title="{{ $p1->name }}">{{ $p1->name }}</h4>
-            <span class="podium-role-badge {{ $p1->user_type === 'teacher' ? 'role-teacher' : 'role-student' }}">
-                {{ $p1->user_type === 'teacher' ? 'Scholar / Ustadh' : 'Talib-ul-Ilm' }}
+            <span class="podium-role-badge role-student">
+                Talib-ul-Ilm
             </span>
             <div class="podium-coins" style="font-size: 1.6rem; color: #9F7E3A;">
                 🪙 {{ number_format($p1->coins_balance) }}
@@ -459,8 +451,8 @@
                     {{ strtoupper(substr($p3->name, 0, 1)) }}
                 </div>
                 <h4 class="podium-name" title="{{ $p3->name }}">{{ $p3->name }}</h4>
-                <span class="podium-role-badge {{ $p3->user_type === 'teacher' ? 'role-teacher' : 'role-student' }}">
-                    {{ $p3->user_type === 'teacher' ? 'Scholar / Ustadh' : 'Talib-ul-Ilm' }}
+                <span class="podium-role-badge role-student">
+                    Talib-ul-Ilm
                 </span>
                 <div class="podium-coins">🪙 {{ number_format($p3->coins_balance) }}</div>
                 <div class="podium-tier">{{ $p3->tier['icon'] }} {{ $p3->tier['name'] }}</div>
@@ -499,8 +491,8 @@
                         </div>
                     </td>
                     <td>
-                        <span class="podium-role-badge {{ $user->user_type === 'teacher' ? 'role-teacher' : 'role-student' }}" style="margin: 0;">
-                            {{ $user->user_type === 'teacher' ? 'Ustadh' : 'Talib-ul-Ilm' }}
+                        <span class="podium-role-badge role-student" style="margin: 0;">
+                            Talib-ul-Ilm
                         </span>
                     </td>
                     <td>
@@ -533,7 +525,7 @@
                 <span style="font-size: 1.4rem;">🪙</span>
                 <div>
                     <strong style="display: block; font-size: 1rem; color: #FFFFFF;">{{ $myRankInfo['user']->name }}</strong>
-                    <small style="color: var(--gold-light);">Role: {{ $myRankInfo['user']->user_type === 'teacher' ? 'Scholar / Ustadh' : 'Talib-ul-Ilm' }}</small>
+                    <small style="color: var(--gold-light);">Role: Talib-ul-Ilm</small>
                 </div>
             </div>
             <div class="d-flex align-items-center" style="gap: 18px;">
