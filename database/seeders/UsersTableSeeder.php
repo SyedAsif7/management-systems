@@ -4,12 +4,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Helpers\Qs;
 use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -20,12 +18,11 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->delete();
 
         $this->createNewUsers();
-        $this->createManyUsers( 3);
     }
 
     protected function createNewUsers()
     {
-        $password = Hash::make('cj'); // Default user password
+        $password = Hash::make('cj'); // Default user password: cj
 
         $d = [
             [
@@ -34,55 +31,37 @@ class UsersTableSeeder extends Seeder
                 'password' => $password,
                 'user_type' => 'admin',
                 'username' => 'admin',
-                'code' => strtoupper(Str::random(10)),
+                'code' => 'ADMIN01',
+                'photo' => '/global_assets/images/user.png',
+                'coins_balance' => 0,
                 'remember_token' => Str::random(10),
             ],
 
             [
-                'name' => 'Teacher Chike',
-                'email' => 'teacher@teacher.com',
+                'name' => 'Ustadh Ahmed',
+                'email' => 'ahmed@teacher.com',
                 'user_type' => 'teacher',
-                'username' => 'teacher',
+                'username' => 'ahmed',
                 'password' => $password,
-                'code' => strtoupper(Str::random(10)),
+                'code' => 'TEACHER01',
+                'photo' => '/global_assets/images/user.png',
+                'coins_balance' => 0,
                 'remember_token' => Str::random(10),
             ],
 
             [
-                'name' => 'Demo Student (Tariq Al-Mansoor)',
-                'email' => 'student@student.com',
+                'name' => 'Syed Asif',
+                'email' => 'asif@student.com',
                 'user_type' => 'student',
-                'username' => 'student',
+                'username' => 'syedasif',
                 'password' => $password,
                 'code' => 'STUDENT01',
+                'photo' => '/global_assets/images/user.png',
+                'coins_balance' => 0,
                 'remember_token' => Str::random(10),
             ],
         ];
+
         DB::table('users')->insert($d);
-    }
-
-    protected function createManyUsers(int $count)
-    {
-        $data = [];
-        $user_type = Qs::getAllUserTypes(['super_admin', 'librarian', 'student', 'admin']);
-
-        for($i = 1; $i <= $count; $i++){
-
-            foreach ($user_type as $k => $ut){
-
-                $data[] = ['name' => ucfirst($user_type[$k]).' '.$i,
-                    'email' => $user_type[$k].$i.'@'.$user_type[$k].'.com',
-                    'user_type' => $user_type[$k],
-                    'username' => $user_type[$k].$i,
-                    'password' => Hash::make($user_type[$k]),
-                    'code' => strtoupper(Str::random(10)),
-                    'remember_token' => Str::random(10),
-                ];
-
-            }
-
-        }
-
-        DB::table('users')->insert($data);
     }
 }

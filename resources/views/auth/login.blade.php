@@ -24,11 +24,11 @@
 
                             <!-- Role Quick Selectors -->
                             <div class="d-flex justify-content-center mb-3" style="gap: 6px;">
-                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="student" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
-                                    <i class="icon-graduation2 mr-1"></i> Student
+                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="syedasif" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
+                                    <i class="icon-graduation2 mr-1"></i> Student (Syed Asif)
                                 </button>
-                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="teacher" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
-                                    <i class="icon-users4 mr-1"></i> Teacher
+                                <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="ahmed" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
+                                    <i class="icon-users4 mr-1"></i> Teacher (Ahmed)
                                 </button>
                                 <button type="button" class="btn btn-sm btn-outline-success font-weight-bold role-chip" data-user="admin" data-pass="cj" style="font-size: 11px; padding: 4px 14px; border-radius: 999px; border: 1.5px solid #063D2E; color: #063D2E;">
                                     <i class="icon-user-lock mr-1"></i> Admin

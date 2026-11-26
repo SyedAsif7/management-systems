@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(SkillsTableSeeder::class);
-        $this->call(AltaqwaEnrollmentSeeder::class);
+        // $this->call(AltaqwaEnrollmentSeeder::class); // Disabled: No dummy student enrollments
 
         \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
     }

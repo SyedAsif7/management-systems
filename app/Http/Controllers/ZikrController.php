@@ -23,12 +23,12 @@ class ZikrController extends Controller
             $globalTotal = 0;
         }
 
-        // Initial community milestone offset so counter has an inspiring baseline
-        $displayGlobalTotal = max(128450, $globalTotal + 128450);
+        $displayGlobalTotal = $globalTotal;
 
         $weeklyGoal = 1000000;
-        $weeklyProgress = min(100, round(($displayGlobalTotal % $weeklyGoal) / ($weeklyGoal / 100), 1));
-        if ($weeklyProgress == 0) $weeklyProgress = 14.5;
+        $weeklyProgress = ($displayGlobalTotal > 0 && $weeklyGoal > 0)
+            ? min(100, round(($displayGlobalTotal % $weeklyGoal) / ($weeklyGoal / 100), 1))
+            : 0;
 
         $userToday = 0;
         $userCoins = 0;
@@ -123,7 +123,7 @@ class ZikrController extends Controller
         } catch (\Throwable $e) {
             $globalTotal = 0;
         }
-        $displayGlobalTotal = max(128450, $globalTotal + 128450);
+        $displayGlobalTotal = $globalTotal;
 
         return response()->json([
             'success' => true,
@@ -145,7 +145,7 @@ class ZikrController extends Controller
         } catch (\Throwable $e) {
             $globalTotal = 0;
         }
-        $displayGlobalTotal = max(128450, $globalTotal + 128450);
+        $displayGlobalTotal = $globalTotal;
 
         return response()->json([
             'success' => true,
