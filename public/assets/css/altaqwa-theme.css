@@ -567,6 +567,18 @@
 /* Mobile-Specific Layout Adjustments */
 @media (max-width: 768px) {
   /* Prevent content clipping behind bottom navigation bar */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  .content-wrapper {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+  .page-content {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
   body.has-mobile-bottom-nav .content-wrapper,
   body.has-mobile-bottom-nav footer.footer {
     padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;

@@ -1,5 +1,96 @@
 {{-- Mobile Floating App Navigation Bar (Only for viewports <= 768px) --}}
 @auth
+<style>
+.mobile-app-bottom-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    background: rgba(6, 61, 46, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1.5px solid #C9A35A !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    z-index: 99999 !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35) !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+@media (min-width: 769px) {
+    .mobile-app-bottom-bar {
+        display: none !important;
+    }
+}
+
+.mobile-app-bottom-bar .mobile-nav-item {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #BED8CC !important;
+    text-decoration: none !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    padding: 6px 0 !important;
+    min-height: 48px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    transition: all 0.2s ease !important;
+    line-height: 1.2 !important;
+}
+
+.mobile-app-bottom-bar .mobile-nav-item:active {
+    transform: scale(0.92) !important;
+}
+
+.mobile-app-bottom-bar .mobile-nav-item .nav-icon-wrap {
+    font-size: 1.25rem !important;
+    line-height: 1 !important;
+    margin-bottom: 3px !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: inherit !important;
+}
+
+.mobile-app-bottom-bar .mobile-nav-item.active {
+    color: #DFBA6B !important;
+    font-weight: 700 !important;
+}
+
+.mobile-app-bottom-bar .mobile-nav-item.active .nav-icon-wrap {
+    color: #C9A35A !important;
+    transform: translateY(-2px) !important;
+}
+
+.mobile-app-bottom-bar .mobile-nav-item .zikr-special {
+    background: rgba(201, 163, 90, 0.2) !important;
+    border-radius: 50% !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 768px) {
+    body.has-mobile-bottom-nav .content-wrapper,
+    body.has-mobile-bottom-nav footer.footer {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+</style>
 <nav class="mobile-app-bottom-bar d-md-none" aria-label="Mobile Bottom Navigation">
     <a href="{{ route('dashboard') }}" class="mobile-nav-item {{ Route::is('dashboard') ? 'active' : '' }}">
         <div class="nav-icon-wrap">
