@@ -153,29 +153,26 @@ class StorefrontController extends Controller
         $duration = $enrollment->course ? ($enrollment->course->duration_label ?: '6 Months') : '6 Months';
         $cohort = $enrollment->batch ? $enrollment->batch->name : 'General Community Batch';
 
-        $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
-            'enrollment',
-            'certCode',
-            'issueDate',
-            'studentName',
-            'courseName',
-            'categoryName',
-            'duration',
-            'cohort',
-            'logoBase64',
-            'sealBase64'
-        ));
-        $pdf->setPaper('a4', 'landscape');
+        $oldErrorReporting = error_reporting(0);
+        try {
+            $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
+                'enrollment',
+                'certCode',
+                'issueDate',
+                'studentName',
+                'courseName',
+                'categoryName',
+                'duration',
+                'cohort',
+                'logoBase64',
+                'sealBase64'
+            ));
+            $pdf->setPaper('a4', 'landscape');
 
-        $pdfOutput = $pdf->output();
-
-        // Suppress PHP 8.4 deprecation notices from triggering DomPDF exception in Symfony response pipeline
-        set_error_handler(function ($errno, $errstr, $errfile = '', $errline = 0) {
-            if ($errno === E_DEPRECATED || $errno === E_USER_DEPRECATED) {
-                return true;
-            }
-            return false;
-        });
+            $pdfOutput = $pdf->output();
+        } finally {
+            error_reporting($oldErrorReporting);
+        }
 
         $fileName = 'AL-TAQWA_Sanad_' . preg_replace('/[^A-Za-z0-9_-]/', '', $certCode) . '.pdf';
 
