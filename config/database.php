@@ -52,8 +52,23 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-            'options' => (extension_loaded('pdo_mysql') && env('MYSQL_ATTR_SSL_CA')) ? array_filter([
-                (defined('Pdo\Mysql::ATTR_SSL_CA') ? constant('Pdo\Mysql::ATTR_SSL_CA') : (defined('PDO::MYSQL_ATTR_SSL_CA') ? PDO::MYSQL_ATTR_SSL_CA : null)) => env('MYSQL_ATTR_SSL_CA'),
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                (defined('Pdo\Mysql::ATTR_SSL_CA') ? constant('Pdo\Mysql::ATTR_SSL_CA') : (defined('PDO::MYSQL_ATTR_SSL_CA') ? PDO::MYSQL_ATTR_SSL_CA : null)) => (function () {
+                    $ca = env('MYSQL_ATTR_SSL_CA');
+                    if ($ca && file_exists($ca)) {
+                        return $ca;
+                    }
+                    if ($ca && file_exists(base_path($ca))) {
+                        return base_path($ca);
+                    }
+                    if (file_exists(base_path('isrgrootx1.pem'))) {
+                        return base_path('isrgrootx1.pem');
+                    }
+                    if (file_exists('/etc/ssl/certs/ca-certificates.crt')) {
+                        return '/etc/ssl/certs/ca-certificates.crt';
+                    }
+                    return $ca;
+                })(),
             ]) : [],
         ],
 

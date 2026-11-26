@@ -24,59 +24,59 @@ class TransformToAltaqwaLms extends Migration
         // 2. Enhance my_classes table into Courses
         Schema::table('my_classes', function (Blueprint $table) {
             if (!Schema::hasColumn('my_classes', 'slug')) {
-                $table->string('slug')->nullable()->unique()->after('name');
+                $table->string('slug')->nullable()->unique();
             }
             if (!Schema::hasColumn('my_classes', 'subtitle')) {
-                $table->string('subtitle')->nullable()->after('slug');
+                $table->string('subtitle')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'thumbnail_url')) {
-                $table->string('thumbnail_url')->nullable()->after('subtitle');
+                $table->string('thumbnail_url')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'duration_label')) {
-                $table->string('duration_label')->nullable()->after('thumbnail_url');
+                $table->string('duration_label')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'fee_type')) {
-                $table->string('fee_type')->default('one_time')->after('duration_label'); // free, one_time, monthly_subscription, refundable_deposit
+                $table->string('fee_type')->default('one_time'); // free, one_time, monthly_subscription, refundable_deposit
             }
             if (!Schema::hasColumn('my_classes', 'mrp_price')) {
-                $table->decimal('mrp_price', 10, 2)->default(0)->after('fee_type');
+                $table->decimal('mrp_price', 10, 2)->default(0);
             }
             if (!Schema::hasColumn('my_classes', 'selling_price')) {
-                $table->decimal('selling_price', 10, 2)->default(0)->after('mrp_price');
+                $table->decimal('selling_price', 10, 2)->default(0);
             }
             if (!Schema::hasColumn('my_classes', 'class_days')) {
-                $table->string('class_days')->nullable()->after('selling_price');
+                $table->string('class_days')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'gender_eligibility')) {
-                $table->string('gender_eligibility')->default('brothers_and_sisters')->after('class_days'); // brothers_and_sisters, sisters_only
+                $table->string('gender_eligibility')->default('brothers_and_sisters'); // brothers_and_sisters, sisters_only
             }
             if (!Schema::hasColumn('my_classes', 'refund_threshold_percentage')) {
-                $table->integer('refund_threshold_percentage')->nullable()->after('gender_eligibility');
+                $table->integer('refund_threshold_percentage')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'overview')) {
-                $table->text('overview')->nullable()->after('refund_threshold_percentage');
+                $table->text('overview')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'syllabus')) {
-                $table->text('syllabus')->nullable()->after('overview');
+                $table->text('syllabus')->nullable();
             }
             if (!Schema::hasColumn('my_classes', 'is_published')) {
-                $table->boolean('is_published')->default(true)->after('syllabus');
+                $table->boolean('is_published')->default(true);
             }
         });
 
         // 3. Enhance sections table into Batches / Cohorts
         Schema::table('sections', function (Blueprint $table) {
             if (!Schema::hasColumn('sections', 'live_room_id')) {
-                $table->string('live_room_id')->nullable()->after('name');
+                $table->string('live_room_id')->nullable();
             }
             if (!Schema::hasColumn('sections', 'meeting_link')) {
-                $table->string('meeting_link')->nullable()->after('live_room_id');
+                $table->string('meeting_link')->nullable();
             }
             if (!Schema::hasColumn('sections', 'batch_start_date')) {
-                $table->date('batch_start_date')->nullable()->after('meeting_link');
+                $table->date('batch_start_date')->nullable();
             }
             if (!Schema::hasColumn('sections', 'class_timing')) {
-                $table->string('class_timing')->nullable()->after('batch_start_date');
+                $table->string('class_timing')->nullable();
             }
         });
 

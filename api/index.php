@@ -37,30 +37,32 @@ if (!$storageInitialized) {
         }
     }
 
-    // Copy bundled production SQLite database if needed
-    $targetDb = getenv('DB_DATABASE') ?: '/tmp/database.sqlite';
-    $candidates = [
-        __DIR__ . '/../database/production.db',
-        dirname(__DIR__) . '/database/production.db',
-        __DIR__ . '/../database/production.sqlite',
-        dirname(__DIR__) . '/database/production.sqlite',
-        '/var/task/database/production.db',
-        '/var/task/user/database/production.db',
-    ];
+    // Copy bundled production SQLite database if using sqlite
+    if (getenv('DB_CONNECTION') === 'sqlite') {
+        $targetDb = getenv('DB_DATABASE') ?: '/tmp/database.sqlite';
+        $candidates = [
+            __DIR__ . '/../database/production.db',
+            dirname(__DIR__) . '/database/production.db',
+            __DIR__ . '/../database/production.sqlite',
+            dirname(__DIR__) . '/database/production.sqlite',
+            '/var/task/database/production.db',
+            '/var/task/user/database/production.db',
+        ];
 
-    if (!file_exists($targetDb) || filesize($targetDb) === 0) {
-        $copied = false;
-        foreach ($candidates as $cand) {
-            if (file_exists($cand) && filesize($cand) > 0) {
-                @copy($cand, $targetDb);
-                @chmod($targetDb, 0666);
-                $copied = true;
-                break;
+        if (!file_exists($targetDb) || filesize($targetDb) === 0) {
+            $copied = false;
+            foreach ($candidates as $cand) {
+                if (file_exists($cand) && filesize($cand) > 0) {
+                    @copy($cand, $targetDb);
+                    @chmod($targetDb, 0666);
+                    $copied = true;
+                    break;
+                }
             }
-        }
-        if (!$copied && !file_exists($targetDb)) {
-            @touch($targetDb);
-            @chmod($targetDb, 0666);
+            if (!$copied && !file_exists($targetDb)) {
+                @touch($targetDb);
+                @chmod($targetDb, 0666);
+            }
         }
     }
 
