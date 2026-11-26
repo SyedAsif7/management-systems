@@ -29,6 +29,7 @@ if (!$storageInitialized) {
         '/tmp/storage/framework/cache/data',
         '/tmp/storage/logs',
         '/tmp/bootstrap/cache',
+        '/tmp/fonts',
     ];
 
     foreach ($storageDirs as $dir) {

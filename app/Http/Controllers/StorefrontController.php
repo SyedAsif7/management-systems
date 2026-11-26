@@ -153,21 +153,29 @@ class StorefrontController extends Controller
         $duration = $enrollment->course ? ($enrollment->course->duration_label ?: '6 Months') : '6 Months';
         $cohort = $enrollment->batch ? $enrollment->batch->name : 'General Community Batch';
 
-        $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
-            'enrollment',
-            'certCode',
-            'issueDate',
-            'studentName',
-            'courseName',
-            'categoryName',
-            'duration',
-            'cohort',
-            'logoBase64',
-            'sealBase64'
-        ));
-        $pdf->setPaper('a4', 'landscape');
+        try {
+            $pdf = \PDF::loadView('pages.certificates.sanad_pdf', compact(
+                'enrollment',
+                'certCode',
+                'issueDate',
+                'studentName',
+                'courseName',
+                'categoryName',
+                'duration',
+                'cohort',
+                'logoBase64',
+                'sealBase64'
+            ));
+            $pdf->setPaper('a4', 'landscape');
 
-        $fileName = 'AL-TAQWA_Sanad_' . preg_replace('/[^A-Za-z0-9_-]/', '', $certCode) . '.pdf';
-        return $pdf->download($fileName);
+            $fileName = 'AL-TAQWA_Sanad_' . preg_replace('/[^A-Za-z0-9_-]/', '', $certCode) . '.pdf';
+            return $pdf->download($fileName);
+        } catch (\Throwable $e) {
+            \Log::error('Sanad PDF generation error: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+            return response()->json([
+                'error' => 'Failed to render PDF: ' . $e->getMessage(),
+                'file' => $e->getFile() . ':' . $e->getLine(),
+            ], 500);
+        }
     }
 }
