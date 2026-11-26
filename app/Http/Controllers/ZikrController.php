@@ -90,26 +90,27 @@ class ZikrController extends Controller
         if ($user) {
             try {
                 if (\Illuminate\Support\Facades\Schema::hasTable('coin_transactions') && \Illuminate\Support\Facades\Schema::hasColumn('users', 'coins_balance')) {
+                    $todayTotalZikr = (int) ZikrLog::where('user_id', $user->id)
+                        ->whereDate('created_at', Carbon::today())
+                        ->sum('count');
+
                     $todayCoinsEarned = (int) \App\Models\CoinTransaction::where('user_id', $user->id)
                         ->where('source', 'zikr_completion')
                         ->whereDate('created_at', Carbon::today())
                         ->sum('amount');
 
                     $dailyCoinCap = 100;
-                    if ($todayCoinsEarned < $dailyCoinCap) {
-                        $potentialCoins = (int) floor($count / 10);
-                        if ($potentialCoins > 0) {
-                            $awardable = min($potentialCoins, $dailyCoinCap - $todayCoinsEarned);
-                            if ($awardable > 0) {
-                                CoinService::awardCoins(
-                                    $user,
-                                    $awardable,
-                                    'zikr_completion',
-                                    "Recited {$count}x " . ucwords(str_replace('_', ' ', $zikrType))
-                                );
-                                $coinsEarned = $awardable;
-                            }
-                        }
+                    $targetCoins = min($dailyCoinCap, (int) floor($todayTotalZikr / 10));
+                    $potentialCoins = max(0, $targetCoins - $todayCoinsEarned);
+
+                    if ($potentialCoins > 0) {
+                        CoinService::awardCoins(
+                            $user,
+                            $potentialCoins,
+                            'zikr_completion',
+                            "Recited {$count}x " . ucwords(str_replace('_', ' ', $zikrType))
+                        );
+                        $coinsEarned = $potentialCoins;
                     }
                 }
             } catch (\Throwable $e) {
