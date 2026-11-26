@@ -47,7 +47,7 @@
     "DB_PORT": "4000",
     "DB_DATABASE": "altaqwa",
     "DB_USERNAME": "3RwFR6heZw8fbBg.root",
-    "DB_PASSWORD": "bsmx27QQkVHhecGM",
+    "DB_PASSWORD": "8qH1vwhi5zQOjB9h",
     "MYSQL_ATTR_SSL_CA": "isrgrootx1.pem",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
